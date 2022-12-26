@@ -1,0 +1,191 @@
+.culture {
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  line-height: 1;
+
+  &__header {
+    margin: 0 2.5rem;
+    display: flex;
+  }
+
+  &__title {
+    display: inline-flex;
+    font-size: 25rem;
+    font-weight: 700;
+    color: $yellow;
+    margin-right: auto;
+
+    @include respond(tab-land) {
+      font-size: 20rem;
+    }
+    @include respond(tab-port) {
+      margin-right: 0;
+      font-size: 18rem;
+    }
+    @include respond(phone) {
+      font-size: 16rem;
+    }
+    @include respond(smallPhone) {
+      font-size: 12rem;
+    }
+    @media only screen and (max-width: 350px) {
+      font-size: 10rem;
+      font-weight: 500;
+    }
+    @media only screen and (max-width: 250px) {
+      font-size: 6rem;
+    }
+  }
+
+  &__group {
+    margin-top: 2.5rem;
+
+    @include respond(tab-land) {
+      margin-top: 2rem;
+    }
+
+    @include respond(tab-land) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__container {
+    padding: 0 2.5rem !important;
+  }
+
+  &__item {
+    padding-bottom: 6rem;
+    border-bottom: 1px solid $black;
+
+    @include respond(tab-land) {
+      padding-bottom: 5rem;
+    }
+
+    @include respond(tab-port) {
+      width: calc(100% / 2.5) !important;
+      padding-bottom: 4rem;
+    }
+
+    @include respond(smallPhone) {
+      width: calc(100% / 1.25) !important;
+    }
+
+    &--title {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 2.6rem;
+      margin-top: 1.5rem;
+      color: $black;
+      transition: color 0.2s ease-out;
+
+      @include respond(tab-land) {
+        font-size: 2.2rem;
+      }
+
+      @include respond(tab-port) {
+        font-size: 2.8rem;
+      }
+
+      @include respond(phone) {
+        font-size: 2.2rem;
+      }
+
+      @include respond(smallPhone) {
+        font-size: 3rem;
+      }
+
+      @media only screen and (max-width: 350px) {
+        font-size: 2.5rem;
+      }
+
+      @media only screen and (min-width: 1025px) {
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    display: flex;
+    overflow: hidden;
+    border: 1px solid $black;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+
+  &__viewAll {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: inherit;
+    text-transform: uppercase;
+
+    background-color: $yellow;
+    color: $black;
+    border: 1px solid $black;
+    border-radius: 50px;
+
+    overflow: hidden;
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+
+    width: 17rem;
+    height: 4.7rem;
+
+    @include respond(tab-land) {
+      &--desktop {
+        font-size: 1.8rem;
+        width: 15rem;
+        height: 4rem;
+      }
+    }
+
+    @include respond(tab-port) {
+      &--desktop {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      margin: 0 2.5rem;
+
+      display: none;
+      @media only screen and (max-width: 1025px) {
+        display: inline-flex;
+        margin-top: 2.5rem;
+      }
+    }
+
+    &--static {
+      display: inline-block;
+    }
+
+    &--hover {
+      display: none;
+      animation: marquee 10s infinite linear;
+      white-space: nowrap;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(20%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

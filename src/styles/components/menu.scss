@@ -1,0 +1,264 @@
+.menu {
+  opacity: 0;
+  clip-path: inset(0% 0% 100%);
+
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  border-bottom: 1px solid $black;
+  background-color: $soft;
+  overflow: hidden;
+  padding: 2rem 2.5rem 5rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+
+  @include respond(tab-land) {
+    padding: 1.5rem 2.5rem 4rem;
+  }
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  //CATEGORIES
+  &__links {
+    width: 35%;
+    display: flex;
+    gap: 10rem;
+
+    &--width {
+      width: 55%;
+    }
+  }
+
+  &__collections {
+    a {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 3.4rem;
+    letter-spacing: -2px;
+
+    @include respond(tab-land) {
+      font-size: 3rem;
+    }
+  }
+
+  &__list {
+    margin: 2rem 0 0;
+    list-style: none;
+  }
+
+  &__link,
+  &__featuredTitle {
+    font-family: "Raleway", sans-serif;
+    line-height: 1.4;
+    font-size: 2rem;
+    display: inline-block;
+    font-weight: 400;
+    color: $black;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      color: $yellow;
+    }
+
+    @include respond(tab-land) {
+      font-size: 1.8rem;
+    }
+  }
+
+  //FEATURED
+
+  &__featured {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+
+    &--width {
+      width: 45%;
+    }
+  }
+
+  &__featuredGroup {
+    margin-top: 2rem;
+    display: flex;
+  }
+
+  &__featuredItem:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  &__featuredLink {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    border: 1px solid $black;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  &__featuredTitle {
+    font-family: inherit;
+    font-weight: inherit;
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+}
+
+.menuMobile {
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: $soft;
+  position: fixed;
+  top: 55px;
+  width: 100vw;
+  height: calc(100vh - 55px);
+  left: 0;
+  z-index: 99;
+  overflow: scroll;
+  padding: 2.5rem;
+  line-height: 1;
+
+  font-family: "Bebas Neue", cursive;
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    border: none;
+    background-color: inherit;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--active {
+      color: $yellow !important;
+    }
+  }
+
+  &__button,
+  &__link {
+    display: flex;
+    line-height: inherit;
+
+    text-transform: inherit;
+    font-family: inherit;
+    font-size: 12rem;
+    font-weight: inherit;
+    letter-spacing: -2px;
+
+    color: $black;
+    cursor: pointer;
+
+    @include respond(phone) {
+      font-size: 10rem;
+    }
+    @include respond(smallPhone) {
+      font-size: 8rem;
+    }
+    @media only screen and (max-width: 350px) {
+      font-size: 6rem;
+    }
+  }
+
+  &__user {
+    margin: 6rem 0;
+
+    a {
+      font-size: 2rem;
+      color: $black;
+      &:not(:last-child) {
+        margin-right: 6rem;
+        @include respond(phone) {
+          margin-right: 5.5rem;
+        }
+        @include respond(smallPhone) {
+          margin-right: 5rem;
+        }
+        @media only screen and (max-width: 350px) {
+          margin-right: 4rem;
+        }
+      }
+    }
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    margin-left: 1rem;
+  }
+
+  &__title {
+    font-size: 6rem;
+    font-weight: 500;
+
+    @include respond(phone) {
+      font-size: 5rem;
+    }
+    @include respond(smallPhone) {
+      font-size: 4rem;
+    }
+    @media only screen and (max-width: 350px) {
+      font-size: 3rem;
+    }
+  }
+
+  &__categoriesList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__categoriesItem {
+    display: flex;
+    font-family: "Raleway", sans-serif;
+    margin: 1rem 0;
+  }
+
+  &__categoriesLink {
+    font-weight: 500;
+    font-size: 3rem;
+    color: $black;
+    @include respond(phone) {
+      font-size: 2.5rem;
+    }
+    @include respond(smallPhone) {
+      font-size: 2rem;
+    }
+  }
+}

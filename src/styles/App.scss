@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "./breakpoint.scss";
+@import "./variables.scss";
+
+@import "./components/banner.scss";
+@import "./components/collections.scss";
+@import "./components/culture.scss";
+@import "./components/footer.scss";
+@import "./components/header.scss";
+@import "./components/menu.scss";
+@import "./components/products.scss";
+
+@import "./pages/faq.scss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    font-size: 43.75%;
+  }
+  @include respond(smallPhone) {
+    font-size: 37.5%;
+  }
+  @include respond(big-desktop) {
+    font-size: 68.75%;
+  }
+}
+
+body {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.backdrop {
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+
+.homeSmooth {
+  /* set a height because the contents are position: absolute, thus natively there's no height */
+  position: relative;
+
+  top: 32rem;
+
+  @include respond(big-desktop) {
+    top: 40rem;
+  }
+
+  @include respond(tab-land) {
+    top: 30rem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    top: 26rem;
+  }
+
+  @include respond(tab-port) {
+    top: 9rem;
+  }
+
+  @include respond(phone) {
+    top: 10rem;
+  }
+
+  @include respond(smallPhone) {
+    top: 12rem;
+  }
+}
+
+.pageSmooth {
+  position: relative;
+  top: 6rem;
+
+  @include respond(tab-port) {
+    top: 55px;
+  }
+}
+
+.cursor {
+  position: absolute;
+  z-index: 9999;
+
+  background-color: $white;
+  padding: 0.9rem 1.1rem;
+  pointer-events: none;
+  border: 1px solid $black;
+  border-radius: 100px;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+
+  &__active {
+    background-color: $black;
+    width: 25rem !important;
+    color: $white;
+  }
+}
