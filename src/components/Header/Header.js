@@ -46,8 +46,6 @@ const Header = (props) => {
       setLocationChanged(false);
     }
 
-    console.log(location);
-
     let interval;
     if (dimensions.width > 1024) {
       interval = setInterval(() => {

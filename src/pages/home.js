@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 import Banner from "../components/Banner/Banner";
 import Collections from "../components/Collections/Collections";
@@ -6,11 +6,11 @@ import Products from "../components/Products/Products";
 import ProductsCard from "../components/Products/ProductsCard";
 import Culture from "../components/Culture/Culture";
 import Footer from "../components/Footer/Footer";
-import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Home = (props) => {
   const cursorRef = useRef();
@@ -48,6 +48,44 @@ const Home = (props) => {
     });
   };
 
+  useEffect(() => {
+    smoothScroll(smoothScrollWrapper.current);
+
+    function smoothScroll(content) {
+      let smoothness = 2;
+
+      gsap.set(content.parentNode, {
+        position: "fixed",
+      });
+
+      let height;
+
+      function refreshHeight() {
+        height = content.clientHeight;
+        document.body.style.height = height + "px";
+        return height - document.documentElement.clientHeight;
+      }
+
+      return ScrollTrigger.create({
+        animation: gsap.fromTo(
+          content,
+          { y: 0 },
+          {
+            y: () =>
+              document.documentElement.clientHeight -
+              height -
+              content.getBoundingClientRect().top,
+            ease: "none",
+          }
+        ),
+        invalidateOnRefresh: true,
+        start: 0,
+        end: refreshHeight,
+        scrub: smoothness,
+      });
+    }
+  }, []);
+
   return (
     <>
       <div className="logo">
@@ -55,7 +93,7 @@ const Home = (props) => {
           <Logo />
         </a>
       </div>
-      <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
+      <div ref={smoothScrollWrapper} className="homeSmooth">
         <main className="main">
           <Banner />
           <Collections refEl={getRefElHandler} />
@@ -72,7 +110,7 @@ const Home = (props) => {
           <Culture />
         </main>
         <Footer />
-      </SmoothScrollWrapper>
+      </div>
 
       <div ref={cursorRef} className="cursor">
         DRAG

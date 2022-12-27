@@ -5,16 +5,28 @@
   color: $black;
   user-select: text;
 
+  @include respond(phone) {
+    padding: 2.5rem 2rem;
+  }
+
   &__title {
     display: inline-block;
     letter-spacing: -2px;
     font-size: 4rem;
     font-weight: 600;
+
+    @include respond(phone) {
+      font-size: 3.5rem;
+    }
   }
 
   &__description {
     font-size: 1.8rem;
     margin: 2.2rem 0;
+    @include respond(phone) {
+      font-size: 1.6rem;
+      margin: 2rem 0;
+    }
   }
 
   &__list {
@@ -24,5 +36,9 @@
   &__item {
     font-size: 1.8rem;
     margin: 2rem 0;
+    @include respond(phone) {
+      font-size: 1.6rem;
+      margin: 2rem 0;
+    }
   }
 }

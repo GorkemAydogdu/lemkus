@@ -1,14 +1,55 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 import Footer from "../components/Footer/Footer";
-import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
-import PagesList from "../components/UI/pagesList";
-import InternationalShip from "../components/UI/pagesInternational";
+
+import PagesList from "./pagesList";
+import InternationalShip from "./pagesInternational";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Faq = () => {
   const smoothScrollWrapper = useRef();
+
+  useEffect(() => {
+    smoothScroll(smoothScrollWrapper.current);
+
+    function smoothScroll(content) {
+      let smoothness = 2;
+
+      gsap.set(content.parentNode, {
+        position: "fixed",
+      });
+
+      let height;
+
+      function refreshHeight() {
+        height = content.clientHeight;
+        document.body.style.height = height + "px";
+        return height - document.documentElement.clientHeight;
+      }
+
+      return ScrollTrigger.create({
+        animation: gsap.fromTo(
+          content,
+          { y: 0 },
+          {
+            y: () =>
+              document.documentElement.clientHeight -
+              height -
+              content.getBoundingClientRect().top,
+            ease: "none",
+          }
+        ),
+        invalidateOnRefresh: true,
+        start: 0,
+        end: refreshHeight,
+        scrub: smoothness,
+      });
+    }
+  }, []);
   return (
-    <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
+    <div ref={smoothScrollWrapper} className="pageSmooth">
       <div className="pages">
         <span className="pages__title">WHAT IS LEMKUS</span>
         <p className="pages__description">
@@ -123,7 +164,7 @@ const Faq = () => {
         <InternationalShip />
       </div>
       <Footer />
-    </SmoothScrollWrapper>
+    </div>
   );
 };
 

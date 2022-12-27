@@ -46,8 +46,8 @@ const Products = (props) => {
     gsap.from(titleRef.current.children, {
       y: "110%",
       opacity: 0,
-      duration: 0.5,
-      skewY: 10,
+      stagger: 0.03,
+      duration: 0.9,
       scrollTrigger: {
         trigger: titleRef.current,
         start: "top 75%",
@@ -59,7 +59,10 @@ const Products = (props) => {
   return (
     <div className="products">
       <a ref={titleRef} href="/" className="products__title">
-        <span>{props.title}</span>
+        {/*https://stackoverflow.com/a/46223835/19191132*/}
+        {props.title.split("").map((text) => (
+          <span>{text === " " ? "\u00A0" : text}</span>
+        ))}
       </a>
       <div
         onMouseEnter={mouseEnterHandler}

@@ -68,11 +68,11 @@ const Culture = () => {
 
     splide.mount();
 
-    gsap.from(".culture__title", {
+    gsap.from(".culture__title span", {
       y: "110%",
       opacity: 0,
-      duration: 0.5,
-      skewY: 10,
+      stagger: 0.03,
+      duration: 0.9,
       scrollTrigger: {
         trigger: ".culture__header",
         start: "top 75%",
@@ -94,7 +94,15 @@ const Culture = () => {
   return (
     <div className="culture">
       <div className="culture__header">
-        <span className="culture__title">CULTURE</span>
+        <span className="culture__title">
+          <span>C</span>
+          <span>U</span>
+          <span>L</span>
+          <span>T</span>
+          <span>U</span>
+          <span>R</span>
+          <span>E</span>
+        </span>
         <a
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
