@@ -168,25 +168,5 @@
         margin-top: 2.5rem;
       }
     }
-
-    &--static {
-      display: inline-block;
-    }
-
-    &--hover {
-      display: none;
-      animation: marquee 10s infinite linear;
-      white-space: nowrap;
-    }
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(20%);
-  }
-
-  100% {
-    transform: translateX(-50%);
   }
 }

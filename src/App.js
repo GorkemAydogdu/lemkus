@@ -4,13 +4,14 @@ import { Routes, Route } from "react-router-dom";
 //Components
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
-
 import MenuMobile from "./components/Menu/MenuMobile";
 
+//Pages
 import Home from "./pages/home";
 import Faq from "./pages/faq";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
+import Contact from "./pages/contact";
 
 //styles
 import "./styles/App.scss";
@@ -688,6 +689,7 @@ const routes = [
     Component: PrivacyPolicy,
   },
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
+  { path: "/pages/contact", name: "Contact", Component: Contact },
 ];
 
 function App() {
@@ -737,7 +739,6 @@ function App() {
         />
       ))}
 
-      {/* Birden fazla aynı sayfa olduğu için ortak sayfa yapılacak route adında bir dizi oluşturulacak ortak sayfalarda farklı içerikler kullanılacak */}
       <Routes>
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         {routes.map(({ path, Component }) => (

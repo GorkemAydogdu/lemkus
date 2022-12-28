@@ -19,6 +19,7 @@
 @import "./components/menu.scss";
 @import "./components/products.scss";
 
+@import "./pages/contact.scss";
 @import "./pages/faq.scss";
 
 *,
@@ -51,6 +52,9 @@ html {
 
 body {
   user-select: none;
+}
+:root {
+  scrollbar-width: none;
 }
 
 a {
@@ -130,5 +134,24 @@ a {
     background-color: $black;
     width: 25rem !important;
     color: $white;
+  }
+}
+.static {
+  display: inline-block;
+}
+
+.hover {
+  display: none;
+  animation: marquee 10s infinite linear;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(20%);
+  }
+
+  100% {
+    transform: translateX(-50%);
   }
 }

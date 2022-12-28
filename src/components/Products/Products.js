@@ -61,7 +61,7 @@ const Products = (props) => {
       <a ref={titleRef} href="/" className="products__title">
         {/*https://stackoverflow.com/a/46223835/19191132*/}
         {props.title.split("").map((text) => (
-          <span>{text === " " ? "\u00A0" : text}</span>
+          <span key={Math.random()}>{text === " " ? "\u00A0" : text}</span>
         ))}
       </a>
       <div

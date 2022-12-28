@@ -109,10 +109,10 @@ const Culture = () => {
           href="/"
           className="culture__viewAll culture__viewAll--desktop"
         >
-          <span ref={viewAllStatic} className="culture__viewAll--static">
+          <span ref={viewAllStatic} className="static">
             View All
           </span>
-          <span ref={viewAllHover} className="culture__viewAll--hover">
+          <span ref={viewAllHover} className="hover">
             VIEW ALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW
             ALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </span>
