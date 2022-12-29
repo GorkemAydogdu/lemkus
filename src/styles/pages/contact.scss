@@ -1,13 +1,17 @@
 .contact {
   width: 100vw;
-  font-family: "Bebas Neue", cursive;
+  font-family: "Oswald", sans-serif;
+
+  background-color: $black;
+  color: $white;
 
   display: flex;
   flex-direction: column;
+  user-select: text;
 
   &__header {
     display: flex;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $white;
 
     @include respond(tab-port) {
       flex-direction: column;
@@ -16,17 +20,19 @@
 
   &__title {
     padding: 3.6rem 2.5rem;
-    border-right: 1px solid $black;
+    border-right: 1px solid $white;
     width: 51%;
+
     @include respond(tab-port) {
       width: 100%;
       border-right: none;
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid $white;
     }
   }
 
   &__heading--1 {
-    font-size: 25rem;
+    font-size: 18rem;
+    letter-spacing: -3px;
     line-height: 1;
 
     span {
@@ -40,24 +46,69 @@
       }
     }
     @include respond(tab-land) {
-      font-size: 21rem;
+      font-size: 14.8rem;
     }
     @include respond(tab-port) {
-      font-size: 18rem;
+      font-size: 13rem;
     }
     @include respond(phone) {
-      font-size: 15rem;
-    }
-    @include respond(smallPhone) {
       font-size: 11rem;
     }
+    @include respond(smallPhone) {
+      font-size: 9rem;
+    }
+
+    @media only screen and (max-width: 340px) {
+      font-size: 6rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+    padding: 0 2.5rem;
   }
 
   &__text {
     width: 51%;
-    margin-top: 5rem;
-    padding: 0 2.5rem;
+    @include respond(tab-port) {
+      width: 100%;
+      font-size: 2.6rem;
+    }
     font-size: 2.2rem;
+  }
+
+  &__getInTouch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    svg {
+      fill: $white;
+    }
+  }
+
+  &__ball {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid $white;
+    position: absolute;
+
+    &--1 {
+      left: 37%;
+      background-color: $white;
+    }
+
+    &--2 {
+      right: 37%;
+    }
   }
 
   &__info {
@@ -91,8 +142,8 @@
   }
 
   &__location {
-    border-bottom: 1px solid $black;
-    border-right: 1px solid $black;
+    border-bottom: 1px solid $white;
+    border-right: 1px solid $white;
     @include respond(tab-port) {
       border-right: none;
     }
@@ -100,17 +151,16 @@
     &--address {
       margin: 1.5rem 0;
       width: 14rem;
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     &--link {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 500;
       font-family: inherit;
       text-transform: uppercase;
 
-      background-color: $black;
-      color: $white;
+      color: inherit;
       border: 1px solid $white;
       border-radius: 50px;
 
@@ -131,7 +181,7 @@
   }
 
   &__ctt {
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $white;
   }
 
   &__list {
@@ -140,12 +190,13 @@
   }
 
   &__item {
-    font-size: 2rem;
+    font-size: 1.8rem;
+
     padding: 2px 0;
   }
 
   &__link {
-    color: $black;
+    color: inherit;
     transition: color 0.2s ease-out;
 
     &:hover {
@@ -154,11 +205,11 @@
   }
 
   &__tradingHours {
-    border-right: 1px solid $black;
+    border-right: 1px solid $white;
 
     @include respond(tab-port) {
       border-right: none;
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid $white;
     }
 
     &--item {
