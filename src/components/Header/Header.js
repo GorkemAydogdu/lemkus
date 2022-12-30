@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
+
+import ThemeContext from "../../context/theme-context";
 
 //components
 import HeaderListItem from "../UI/ListItem";
@@ -37,6 +39,8 @@ const Header = (props) => {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+
+  const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
     //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
@@ -111,9 +115,9 @@ const Header = (props) => {
         display: "none",
         ease: "Expo.easeInOut",
       });
-      gsap.to("body", {
-        overflow: "visible",
-      });
+      //   gsap.to("body", {
+      //     overflow: "visible",
+      //   });
     }
     return () => {
       clearInterval(interval);
@@ -178,7 +182,12 @@ const Header = (props) => {
   ));
   return (
     <>
-      <header ref={headerRef} className="header">
+      <header
+        ref={headerRef}
+        className={`header ${
+          themeCtx.isLocationChanged === true ? "dark" : "light"
+        }`}
+      >
         <div className="header__time">
           {locationChanged === true ? (
             <Link to="/">

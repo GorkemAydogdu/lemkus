@@ -1,5 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef, useContext } from "react";
+
+import MenuContext from "../../context/menu-context";
+import ThemeContext from "../../context/theme-context";
+
 import Button from "../UI/Button";
 
 import gsap from "gsap";
@@ -8,7 +11,8 @@ const MenuMobile = (props) => {
   const menuMobileRef = useRef();
   const categoryRef = useRef([]);
   const buttonRef = useRef([]);
-  const isActive = useSelector((state) => state.mobile.isActive);
+  const menuCtx = useContext(MenuContext);
+  const themeCtx = useContext(ThemeContext);
 
   const clickButtonHandler = (event) => {
     for (let i = 0; i < categoryRef.current.length; i++) {
@@ -42,7 +46,7 @@ const MenuMobile = (props) => {
   };
 
   useEffect(() => {
-    if (isActive && window.innerWidth < 1025) {
+    if (menuCtx.isActive && window.innerWidth < 1025) {
       menuMobileRef.current.style.transform = `translateX(0%)`;
       document.body.style.overflow = "hidden";
     } else {
@@ -52,10 +56,11 @@ const MenuMobile = (props) => {
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {
+        console.log("zort");
         document.body.style.overflow = "visible";
       }
     });
-  }, [isActive]);
+  }, [menuCtx]);
 
   let content = props.menu.map((item, idx) => (
     <li key={item.id} className="menuMobile__item">
@@ -88,7 +93,12 @@ const MenuMobile = (props) => {
     </li>
   ));
   return (
-    <div ref={menuMobileRef} className="menuMobile">
+    <div
+      ref={menuMobileRef}
+      className={`menuMobile ${
+        themeCtx.isLocationChanged === true ? "dark" : "light"
+      }`}
+    >
       <ul className="menuMobile__list">
         <li className="menuMobile__item">
           <a href="/" className="menuMobile__link">

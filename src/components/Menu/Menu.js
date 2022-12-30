@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+
+import ThemeContext from "../../context/theme-context";
 
 import ListItem from "../UI/ListItem";
 import gsap from "gsap";
 
 const Menu = (props) => {
+  const themeCtx = useContext(ThemeContext);
   useEffect(() => {
     if (props.className.includes("menu--active")) {
       gsap.to(".menu--active", {
@@ -34,7 +37,12 @@ const Menu = (props) => {
   }, [props]);
 
   return (
-    <div ref={props.ref} className={props.className}>
+    <div
+      ref={props.ref}
+      className={`${props.className} ${
+        themeCtx.isLocationChanged === true ? "dark" : "light"
+      }`}
+    >
       <div
         className={`menu__links ${
           props.item.links.length === 3 ? "menu__links--width" : ""

@@ -117,6 +117,16 @@ a {
   }
 }
 
+.dark {
+  background-color: $black;
+  color: $white;
+}
+
+.light {
+  background-color: $white;
+  color: $black;
+}
+
 .cursor {
   position: absolute;
   z-index: 9999;

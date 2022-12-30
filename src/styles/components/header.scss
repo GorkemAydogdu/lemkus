@@ -4,8 +4,7 @@
   justify-content: space-between;
   padding: 0 2.5rem;
   height: 6rem;
-  border-bottom: 1px solid $black;
-  background-color: $soft;
+  border-bottom: 1px solid;
   font-family: $open;
   font-weight: 700;
   font-size: 1.6rem;
@@ -24,6 +23,12 @@
   @include respond(tab-port) {
     height: 55px;
     padding-right: 0;
+  }
+  .dark &__time svg {
+    fill: $white;
+  }
+  .light &__time svg {
+    fill: $black;
   }
 
   &__time {
@@ -62,7 +67,7 @@
       padding: 0.4rem 0.9rem;
     }
 
-    color: $black;
+    color: inherit;
     transition: color 0.2s ease-out;
 
     font-size: inherit;
@@ -73,6 +78,19 @@
     }
   }
 
+  .dark &__button {
+    &--active {
+      background-color: $white;
+      color: $black;
+    }
+  }
+  .light &__button {
+    &--active {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
   &__button {
     cursor: pointer;
     text-transform: inherit;
@@ -80,16 +98,24 @@
     border: none;
 
     &--active {
-      color: $white;
-      background-color: $black;
       border-radius: 50px;
-
-      &:hover {
-        color: $white;
-      }
     }
   }
 
+  .dark &__user span {
+    background-color: $white;
+    color: $black;
+  }
+  .light &__user span {
+    background-color: $black;
+    color: $white;
+  }
+  .dark &__user svg {
+    fill: $white;
+  }
+  .light &__user svg {
+    fill: $black;
+  }
   //right
   &__user {
     display: flex;
@@ -109,11 +135,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $black;
         width: 1.1rem;
         height: 1.1rem;
         border-radius: 50%;
-        color: $white;
         font-size: 0.7rem;
         position: absolute;
         top: -0.4rem;
@@ -136,13 +160,20 @@
 
   &__mobile {
     display: none;
-    cursor: pointer;
 
     @include respond(tab-port) {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      .dark &--left svg {
+        fill: $white;
+      }
+
+      .light &--left svg {
+        fill: $black;
+      }
 
       &--left {
         a {
@@ -161,7 +192,7 @@
         a {
           font-family: "Oswald", sans-serif;
           margin-right: 6.5rem;
-          color: $black;
+          color: inherit;
 
           @include respond(phone) {
             margin-right: 3.5rem;
@@ -172,10 +203,32 @@
         }
       }
 
+      .dark &--menu span {
+        background-color: $white;
+        border-color: $white;
+
+        &::after,
+        &::before {
+          background-color: $white;
+          border-color: $white;
+        }
+      }
+
+      .light &--menu span {
+        background-color: $black;
+        border-color: $black;
+
+        &::after,
+        &::before {
+          background-color: $black;
+          border-color: $black;
+        }
+      }
+
       &--menu {
         width: 65px;
         height: 55px;
-        border-left: 1px solid $black;
+        border-left: 1px solid;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -190,25 +243,16 @@
           position: relative;
           width: 24px;
           height: 1px;
-          background-color: $black;
 
           &::after,
           &::before {
             content: "";
-            background-color: $black;
             width: 24px;
+
             height: 1px;
             position: absolute;
             top: -7px;
             left: 0;
-
-            @include respond(phone) {
-              width: 20px;
-            }
-          }
-
-          @include respond(phone) {
-            width: 20px;
           }
 
           &::after {

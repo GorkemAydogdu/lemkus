@@ -14,12 +14,12 @@ const Contact = () => {
 
   useEffect(() => {
     gsap.to(".contact__getInTouch svg", {
-      rotate: 240,
+      rotation: 360 * 5,
       ease: "none",
       scrollTrigger: {
-        trigger: ".content",
+        trigger: ".contact",
         start: "top top",
-        end: "bottom bottom",
+        end: "+=5000",
         scrub: 2,
       },
     });

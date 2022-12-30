@@ -42,12 +42,12 @@ const Products = (props) => {
       });
       splide.mount();
     }
-
-    gsap.from(titleRef.current.children, {
+    let children = gsap.utils.toArray(titleRef.current.children);
+    gsap.from(children, {
       y: "110%",
       opacity: 0,
-      stagger: 0.03,
       duration: 0.9,
+      skewY: 10,
       scrollTrigger: {
         trigger: titleRef.current,
         start: "top 75%",
@@ -59,10 +59,11 @@ const Products = (props) => {
   return (
     <div className="products">
       <a ref={titleRef} href="/" className="products__title">
-        {/*https://stackoverflow.com/a/46223835/19191132*/}
+        <span>{props.title}</span>
+        {/* https://stackoverflow.com/a/46223835/19191132
         {props.title.split("").map((text) => (
           <span key={Math.random()}>{text === " " ? "\u00A0" : text}</span>
-        ))}
+        ))} */}
       </a>
       <div
         onMouseEnter={mouseEnterHandler}

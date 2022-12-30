@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
+import ThemeContext from "./context/theme-context";
 
 //Components
 import Header from "./components/Header/Header";
@@ -701,19 +703,23 @@ function App() {
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
 
   const location = useLocation();
+  const themeCtx = useContext(ThemeContext);
 
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data.innerHTML);
   };
 
   useEffect(() => {
-    // if (
-    //   location.pathname === "/pages/contact" ||
-    //   location.pathname === "/pages/about"
-    // ) {
-    //   document.body.style.backgroundColor = "#191919";
-    //   document.body.style.color = "#fff";
-    // }
+    if (
+      location.pathname === "/pages/contact" ||
+      location.pathname === "/pages/about"
+    ) {
+      themeCtx.onChanged();
+      document.body.style.backgroundColor = "#191919";
+    } else {
+      themeCtx.onUnChanged();
+      // document.body.style.backgroundColor = "#fff";
+    }
 
     const debounceHandleResize = debounce(function handleResize() {
       setDimensions({
@@ -727,7 +733,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", debounceHandleResize);
     };
-  }, [location]);
+  }, [location, themeCtx]);
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);

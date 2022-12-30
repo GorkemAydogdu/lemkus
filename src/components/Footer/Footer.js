@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import ThemeContext from "../../context/theme-context";
 
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 const Footer = () => {
+  const themeCtx = useContext(ThemeContext);
+
   return (
-    <div className="footer">
+    <div
+      className={`footer ${
+        themeCtx.isLocationChanged === true ? "footer__dark" : "footer__light"
+      }`}
+    >
       <div className="footer__group">
         <div className="footer__join">
           <span className="footer__join--text">Join Our Community</span>

@@ -1,14 +1,14 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { mobileActions } from "../../store/mobile-slice";
+import React, { useContext } from "react";
+
+import MenuContext from "../../context/menu-context";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 const HeaderMobile = () => {
-  const dispatch = useDispatch();
+  const menuCtx = useContext(MenuContext);
 
   const clickButtonHandler = () => {
-    dispatch(mobileActions.toggleButton());
+    menuCtx.toggleMenu();
   };
 
   return (
