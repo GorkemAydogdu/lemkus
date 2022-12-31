@@ -24,6 +24,8 @@
     width: 51%;
 
     @include respond(tab-port) {
+      padding: 3.4rem 2.3rem;
+
       width: 100%;
       border-right: none;
       border-bottom: 1px solid $white;
@@ -55,11 +57,13 @@
       font-size: 11rem;
     }
     @include respond(smallPhone) {
-      font-size: 9rem;
+      font-size: 8.5rem;
+      letter-spacing: -2px;
     }
 
     @media only screen and (max-width: 340px) {
-      font-size: 6rem;
+      font-size: 5rem;
+      letter-spacing: -1px;
     }
   }
 
@@ -72,11 +76,11 @@
 
   &__text {
     width: 51%;
+    font-size: 2.2rem;
     @include respond(tab-port) {
       width: 100%;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
     }
-    font-size: 2.2rem;
   }
 
   &__getInTouch {
@@ -122,6 +126,14 @@
 
   &__heading--4 {
     font-size: 3.5rem;
+
+    @include respond(tab-land) {
+      font-size: 3.2rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 3.6rem;
+    }
   }
 
   &__location,
@@ -132,8 +144,7 @@
     padding: 3.6rem 3.2rem;
 
     @include respond(tab-land) {
-      height: 26rem;
-      padding: 3.4rem 0 0 3rem;
+      padding: 3.4rem 3rem;
     }
 
     @include respond(tab-port) {
@@ -152,6 +163,12 @@
       margin: 1.5rem 0;
       width: 14rem;
       font-size: 1.8rem;
+
+      @include respond(tab-port) {
+        margin: 1.9rem 0;
+        width: 17rem;
+        font-size: 2.2rem;
+      }
     }
 
     &--link {
@@ -173,9 +190,14 @@
       height: 4.7rem;
 
       @include respond(tab-land) {
-        font-size: 1.8rem;
         width: 15rem;
         height: 4rem;
+      }
+
+      @include respond(tab-port) {
+        width: 17rem;
+        height: 5rem;
+        font-size: 2rem;
       }
     }
   }
@@ -193,6 +215,10 @@
     font-size: 1.8rem;
 
     padding: 2px 0;
+
+    @include respond(tab-port) {
+      font-size: 2.2rem;
+    }
   }
 
   &__link {

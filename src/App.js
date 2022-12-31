@@ -718,7 +718,7 @@ function App() {
       document.body.style.backgroundColor = "#191919";
     } else {
       themeCtx.onUnChanged();
-      // document.body.style.backgroundColor = "#fff";
+      document.body.style.backgroundColor = "#fff";
     }
 
     const debounceHandleResize = debounce(function handleResize() {

@@ -6,6 +6,7 @@ import ThemeContext from "../../context/theme-context";
 import Button from "../UI/Button";
 
 import gsap from "gsap";
+const tl = gsap.timeline();
 
 const MenuMobile = (props) => {
   const menuMobileRef = useRef();
@@ -19,11 +20,18 @@ const MenuMobile = (props) => {
       if (categoryRef.current[i].className.includes(event.target.innerHTML)) {
         event.target.classList.toggle("menuMobile__button--active");
         if (event.target.className.includes("menuMobile__button--active")) {
-          gsap.to(categoryRef.current[i], {
+          tl.to(categoryRef.current[i], {
+            opacity: 1,
+            visibility: "visible",
+            height: "auto",
+            duration: 0.2,
+            ease: "expo.inOut",
+          }).to(categoryRef.current[i].children, {
             opacity: 1,
             visibility: "visible",
             height: "auto",
             ease: "expo.inOut",
+            delay: 0.1,
           });
         } else {
           gsap.to(categoryRef.current[i], {
@@ -32,6 +40,13 @@ const MenuMobile = (props) => {
             height: "0",
             ease: "expo.inOut",
           });
+          gsap.to(categoryRef.current[i].children, {
+            opacity: 0,
+            visibility: "hidden",
+            height: "0",
+            ease: "expo.inOut",
+            delay: 0.1,
+          });
         }
       } else {
         gsap.to(categoryRef.current[i], {
@@ -39,6 +54,13 @@ const MenuMobile = (props) => {
           visibility: "hidden",
           height: "0",
           ease: "expo.inOut",
+        });
+        gsap.to(categoryRef.current[i].children, {
+          opacity: 0,
+          visibility: "hidden",
+          height: "0",
+          ease: "expo.inOut",
+          delay: 0.1,
         });
         buttonRef.current[i].classList.remove("menuMobile__button--active");
       }
@@ -56,7 +78,6 @@ const MenuMobile = (props) => {
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {
-        console.log("zort");
         document.body.style.overflow = "visible";
       }
     });

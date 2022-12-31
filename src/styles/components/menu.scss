@@ -220,6 +220,10 @@
   }
 
   &__title {
+    display: inline-flex;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
     font-size: 6rem;
     font-weight: 500;
 
@@ -235,7 +239,10 @@
   }
 
   &__categoriesList {
-    display: flex;
+    display: inline-flex;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
     flex-direction: column;
     list-style: none;
   }
