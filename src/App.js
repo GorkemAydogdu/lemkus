@@ -14,6 +14,7 @@ import Faq from "./pages/faq";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
 import Contact from "./pages/contact";
+import About from "./pages/about";
 
 //styles
 import "./styles/App.scss";
@@ -692,6 +693,7 @@ const routes = [
   },
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
   { path: "/pages/contact", name: "Contact", Component: Contact },
+  { path: "/pages/about", name: "About", Component: About },
 ];
 
 function App() {

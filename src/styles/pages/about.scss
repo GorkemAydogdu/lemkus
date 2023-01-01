@@ -1,0 +1,143 @@
+.about {
+  width: calc(100vw - 2.5rem * 2);
+
+  line-height: 1;
+  margin: 0 2.5rem;
+
+  background-color: $black;
+  color: $white;
+  font-family: "Oswald", sans-serif;
+
+  &__header {
+    display: flex;
+    position: relative;
+  }
+
+  &__title {
+    font-family: "Bebas Neue", cursive;
+    width: 100%;
+    font-size: 30rem;
+    letter-spacing: -8px;
+    span {
+      display: flex;
+    }
+    @include respond(tab-land) {
+      font-size: 25rem;
+      letter-spacing: -7px;
+    }
+    @include respond(tab-port) {
+      font-size: 18rem;
+      letter-spacing: -3px;
+    }
+    @include respond(phone) {
+      font-size: 14rem;
+      letter-spacing: 0px;
+    }
+    @include respond(smallPhone) {
+      font-size: 11rem;
+    }
+
+    @media only screen and (max-width: 343px) {
+      font-size: 6.5rem;
+    }
+  }
+
+  &__scrollDown {
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__banner {
+    width: 100%;
+    height: 90vh;
+  }
+
+  &__content {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(tab-land) {
+      margin-top: 9rem;
+    }
+
+    @include respond(tab-port) {
+      margin-top: 8rem;
+      flex-direction: column;
+    }
+    @include respond(phone) {
+      margin-top: 5rem;
+    }
+  }
+
+  &__text {
+    margin-left: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 2.2rem;
+    width: 36rem;
+
+    &--title {
+      @include respond(tab-port) {
+        margin-bottom: 2.5rem;
+      }
+    }
+    &--subtitle {
+      @include respond(tab-port) {
+        &:not(:last-child) {
+          margin-bottom: 2.5rem;
+        }
+      }
+    }
+
+    @include respond(tab-land) {
+      margin-left: 8rem;
+      width: 30rem;
+      font-size: 1.9rem;
+    }
+    @include respond(tab-port) {
+      font-size: 3rem;
+      margin-left: 0;
+      width: 100%;
+    }
+    @include respond(phone) {
+      font-size: 2.8rem;
+    }
+    @include respond(smallPhone) {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__image {
+    width: 51vw;
+    @include respond(tab-port) {
+      margin-top: 5rem;
+      width: 100%;
+    }
+  }
+  img {
+    border: 1px solid $white;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.arrow-decor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 1.2rem;
+  fill: $white;
+}

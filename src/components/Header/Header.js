@@ -13,8 +13,8 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 //gsap
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function debounce(fn, ms) {
@@ -44,28 +44,12 @@ const Header = (props) => {
 
   useEffect(() => {
     //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
+
     if (location.pathname !== "/") {
       setLocationChanged(true);
     } else {
       setLocationChanged(false);
     }
-
-    let interval;
-    if (dimensions.width > 1024) {
-      interval = setInterval(() => {
-        const date = new Date().toLocaleTimeString("tr-TR");
-        setTime(date);
-      }, 1000);
-    }
-
-    const debounceHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, 1000);
-
-    window.addEventListener("resize", debounceHandleResize);
 
     gsap.fromTo(
       ".logo",
@@ -77,6 +61,7 @@ const Header = (props) => {
         top: "2rem",
         width: "13%",
         ease: "power1.inOut",
+
         scrollTrigger: {
           trigger: ".header",
           start: "top",
@@ -104,7 +89,29 @@ const Header = (props) => {
       }
     );
 
+    //https://greensock.com/forums/topic/22491-gsap3-target-object-not-found/?do=findComment&comment=106192
+    gsap.config({
+      nullTargetWarn: false,
+    });
+
     ScrollTrigger.refresh();
+
+    let interval;
+    if (dimensions.width > 1024) {
+      interval = setInterval(() => {
+        const date = new Date().toLocaleTimeString("tr-TR");
+        setTime(date);
+      }, 1000);
+    }
+
+    const debounceHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, 1000);
+
+    window.addEventListener("resize", debounceHandleResize);
 
     if (dimensions.width <= 1024) {
       setSelectedCategory("");
