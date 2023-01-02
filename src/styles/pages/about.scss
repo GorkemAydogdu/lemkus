@@ -11,30 +11,30 @@
   &__header {
     display: flex;
     position: relative;
+    @include respond(phone) {
+      margin-top: 1rem;
+    }
   }
 
   &__title {
     font-family: "Bebas Neue", cursive;
     width: 100%;
-    font-size: 30rem;
-    letter-spacing: -8px;
+    font-size: 28rem;
     span {
       display: flex;
+      overflow: hidden;
     }
     @include respond(tab-land) {
-      font-size: 25rem;
-      letter-spacing: -7px;
+      font-size: 23rem;
     }
     @include respond(tab-port) {
-      font-size: 18rem;
-      letter-spacing: -3px;
+      font-size: 17rem;
     }
     @include respond(phone) {
-      font-size: 14rem;
-      letter-spacing: 0px;
+      font-size: 13rem;
     }
     @include respond(smallPhone) {
-      font-size: 11rem;
+      font-size: 10rem;
     }
 
     @media only screen and (max-width: 343px) {
@@ -46,6 +46,7 @@
     position: absolute;
     bottom: 5%;
     right: 0;
+    overflow: hidden;
 
     @include respond(tab-port) {
       display: none;
@@ -53,8 +54,35 @@
   }
 
   &__banner {
+    margin-top: 2rem;
     width: 100%;
-    height: 90vh;
+    height: auto;
+
+    &--text {
+      margin-top: 8rem;
+      width: 70%;
+      font-size: 3.5rem;
+
+      @include respond(tab-land) {
+        margin-top: 7rem;
+        font-size: 3.2rem;
+      }
+      @include respond(tab-port) {
+        margin-top: 5rem;
+        font-size: 3rem;
+        width: 100%;
+      }
+      @include respond(phone) {
+        margin-top: 4rem;
+
+        font-size: 2.8rem;
+      }
+      @include respond(smallPhone) {
+        margin-top: 3rem;
+
+        font-size: 2.6rem;
+      }
+    }
   }
 
   &__content {
@@ -72,6 +100,9 @@
     }
     @include respond(phone) {
       margin-top: 5rem;
+    }
+    @media only screen and (max-width: 343px) {
+      margin-top: 2rem;
     }
   }
 
@@ -119,6 +150,43 @@
     @include respond(tab-port) {
       margin-top: 5rem;
       width: 100%;
+    }
+  }
+  &__info {
+    position: relative;
+    margin-top: 8rem;
+
+    @include respond(phone) {
+      margin-top: 7rem;
+    }
+    @include respond(smallPhone) {
+      margin-top: 6rem;
+    }
+
+    &--text {
+      position: absolute;
+      bottom: 5%;
+      right: 0;
+      width: 38rem;
+      font-size: 2rem;
+
+      @include respond(tab-land) {
+        width: 29rem;
+        font-size: 1.6rem;
+      }
+      @include respond(tab-port) {
+        position: relative;
+        margin-top: 2.5rem;
+        width: 100%;
+        font-size: 3rem;
+      }
+
+      @include respond(phone) {
+        font-size: 2.8rem;
+      }
+      @include respond(smallPhone) {
+        font-size: 2.6rem;
+      }
     }
   }
   img {
