@@ -3,6 +3,7 @@
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   line-height: 1;
+  width: 100vw;
 
   &__header {
     margin: 0 2.5rem;
@@ -126,28 +127,18 @@
   }
 
   &__viewAll {
-    font-size: 2rem;
-    font-weight: 500;
-    font-family: inherit;
-    text-transform: uppercase;
-
-    background-color: $yellow;
-    color: $black;
-    border: 1px solid $black;
-    border-radius: 50px;
-
-    overflow: hidden;
     display: flex;
     align-self: flex-end;
     align-items: center;
     justify-content: center;
+    background-color: $yellow;
+    color: $black;
 
     width: 17rem;
     height: 4.7rem;
 
     @include respond(tab-land) {
       &--desktop {
-        font-size: 1.8rem;
         width: 15rem;
         height: 4rem;
       }

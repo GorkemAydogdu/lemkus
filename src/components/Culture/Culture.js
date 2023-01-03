@@ -107,7 +107,7 @@ const Culture = () => {
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
           href="/"
-          className="culture__viewAll culture__viewAll--desktop"
+          className="btn-hover culture__viewAll culture__viewAll--desktop"
         >
           <span ref={viewAllStatic} className="static">
             View All
@@ -131,7 +131,10 @@ const Culture = () => {
             ))}
           </div>
         </div>
-        <a href="/" className="culture__viewAll culture__viewAll--mobile">
+        <a
+          href="/"
+          className="btn-hover culture__viewAll culture__viewAll--mobile"
+        >
           View All
         </a>
       </div>

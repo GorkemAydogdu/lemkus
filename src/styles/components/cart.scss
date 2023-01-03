@@ -1,0 +1,308 @@
+.cart {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  z-index: 99;
+  background-color: $white;
+  width: 70vw;
+  height: 100vh;
+  overflow: scroll;
+
+  @include respond(tab-port) {
+    flex-direction: column-reverse;
+    width: 100vw;
+  }
+
+  font-family: "Oswald", sans-serif;
+  line-height: 1;
+
+  &__shop {
+    padding: 2.5rem;
+
+    width: 35%;
+    border-right: 1px solid $black;
+    @include respond(tab-port) {
+      width: 100%;
+      border: none;
+    }
+  }
+  &__content {
+    padding: 2.5rem;
+
+    width: 65%;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &--header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--bag {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    &--close {
+      cursor: pointer;
+      font-size: 2rem;
+    }
+
+    &--empty {
+      display: none;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85vh;
+    margin-top: 2rem;
+
+    @include respond(tab-port) {
+      height: 100%;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
+    list-style: none;
+  }
+
+  &__item {
+    &:first-child {
+      padding-top: 0;
+    }
+    padding: 2rem 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $black;
+    }
+    display: grid;
+    grid-template-columns: 13rem 1fr;
+
+    @include respond(tab-port) {
+      grid-template-columns: 16rem 1fr;
+    }
+
+    grid-template-areas:
+      "img title remove"
+      "img size  ."
+      "img price amount";
+    &--image {
+      grid-area: img;
+      width: 12rem;
+      height: 12rem;
+      border: 1px solid $black;
+
+      @include respond(tab-port) {
+        width: 15rem;
+        height: 15rem;
+      }
+    }
+
+    &--title {
+      color: $black;
+      font-size: 2.6rem;
+      grid-area: title;
+
+      @include respond(tab-land) {
+        font-size: 2.2rem;
+      }
+      @include respond(tab-port) {
+        font-size: 3rem;
+      }
+      @include respond(phone) {
+        font-size: 2.8rem;
+      }
+      @include respond(smallPhone) {
+        font-size: 2.6rem;
+      }
+      @media only screen and (max-width: 370px) {
+        font-size: 2.2rem;
+      }
+    }
+
+    &--size {
+      margin-top: -0.9rem;
+      font-size: 1.6rem;
+      grid-area: size;
+      @include respond(tab-land) {
+        margin-top: -0.4rem;
+      }
+      @include respond(tab-port) {
+        margin-top: 1rem;
+        font-size: 2rem;
+      }
+      @media only screen and (max-width: 370px) {
+        margin-top: 0rem;
+      }
+    }
+
+    &--remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: flex-end;
+
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid $black;
+      border-radius: 50%;
+      background-color: transparent;
+      grid-area: remove;
+
+      @include respond(tab-port) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      @include respond(smallPhone) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    &--price {
+      align-self: flex-end;
+      font-size: 2rem;
+      grid-area: price;
+      @include respond(tab-port) {
+        font-size: 2.4rem;
+      }
+      @include respond(phone) {
+        font-size: 2.2rem;
+      }
+      @include respond(smallPhone) {
+        font-size: 2rem;
+      }
+    }
+    &--amount {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      justify-self: flex-end;
+      align-self: flex-end;
+
+      width: 8rem;
+      height: 3rem;
+
+      border-radius: 50px;
+      border: 1px solid $black;
+      grid-area: amount;
+
+      @include respond(tab-land) {
+        width: 7rem;
+      }
+      @include respond(tab-port) {
+        width: 9rem;
+        height: 3.5rem;
+      }
+      @include respond(smallPhone) {
+        width: 10rem;
+        height: 4rem;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+      }
+
+      span {
+        font-size: 1.6rem;
+
+        @include respond(tab-land) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__totalPrice {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+    border: 1px $black;
+    border-style: solid none;
+
+    @include respond(tab-land) {
+      font-size: 1.8rem;
+    }
+
+    @include respond(tab-port) {
+      padding: 2rem 0;
+      font-size: 2.4rem;
+    }
+    @include respond(phone) {
+      padding: 1.8rem 0;
+      font-size: 2.2rem;
+    }
+  }
+
+  &__totalPrice,
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__buttons {
+    margin-top: 3rem;
+
+    @include respond(tab-land) {
+      margin-top: 2.8rem;
+    }
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__button {
+    color: $black;
+    width: 25rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-land) {
+      width: 21rem;
+      height: 4rem;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+      height: 6rem;
+      &:not(:first-child) {
+        margin-bottom: 2.8rem;
+      }
+    }
+
+    span {
+      @include respond(tab-port) {
+        font-size: 3rem;
+      }
+      @include respond(phone) {
+        font-size: 2.8rem;
+      }
+      @include respond(smallPhone) {
+        font-size: 2.6rem;
+      }
+    }
+
+    &--payment {
+      background-color: $yellow;
+    }
+  }
+}
