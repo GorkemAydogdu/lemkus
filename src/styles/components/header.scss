@@ -121,32 +121,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     a {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      &:not(:last-child) {
-        margin-right: 2rem;
-      }
-
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 1.1rem;
-        height: 1.1rem;
-        border-radius: 50%;
-        font-size: 0.7rem;
-        position: absolute;
-        top: -0.4rem;
-        right: -0.4rem;
-      }
+      margin-right: 2rem;
     }
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      position: absolute;
+      top: -0.4rem;
+      right: -0.4rem;
     }
   }
 
@@ -189,8 +195,10 @@
         align-items: center;
         justify-content: center;
         height: 55px;
-        a {
-          font-family: "Oswald", sans-serif;
+        font-family: "Oswald", sans-serif;
+        a,
+        .bag {
+          cursor: pointer;
           margin-right: 6.5rem;
           color: inherit;
 

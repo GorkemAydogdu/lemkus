@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
 
-import MenuContext from "../../context/menu-context";
-import ThemeContext from "../../context/theme-context";
+import MenuMobileUser from "./MenuMobileUser";
+import UIContext from "../../context/ui-context";
 
 import Button from "../UI/Button";
 
@@ -12,8 +12,7 @@ const MenuMobile = (props) => {
   const menuMobileRef = useRef();
   const categoryRef = useRef([]);
   const buttonRef = useRef([]);
-  const menuCtx = useContext(MenuContext);
-  const themeCtx = useContext(ThemeContext);
+  const uiCtx = useContext(UIContext);
 
   const clickButtonHandler = (event) => {
     for (let i = 0; i < categoryRef.current.length; i++) {
@@ -67,8 +66,9 @@ const MenuMobile = (props) => {
     }
   };
 
+  //Location değiştiğinde menu kapatılacak
   useEffect(() => {
-    if (menuCtx.isActive && window.innerWidth < 1025) {
+    if (uiCtx.menuIsActive && window.innerWidth < 1025) {
       menuMobileRef.current.style.transform = `translateX(0%)`;
       document.body.style.overflow = "hidden";
     } else {
@@ -81,7 +81,7 @@ const MenuMobile = (props) => {
         document.body.style.overflow = "visible";
       }
     });
-  }, [menuCtx]);
+  }, [uiCtx]);
 
   let content = props.menu.map((item, idx) => (
     <li key={item.id} className="menuMobile__item">
@@ -117,7 +117,7 @@ const MenuMobile = (props) => {
     <div
       ref={menuMobileRef}
       className={`menuMobile ${
-        themeCtx.isLocationChanged === true ? "dark" : "light"
+        uiCtx.isLocationChanged === true ? "dark" : "light"
       }`}
     >
       <ul className="menuMobile__list">
@@ -143,11 +143,7 @@ const MenuMobile = (props) => {
           </a>
         </li>
       </ul>
-      <div className="menuMobile__user">
-        <a href="/">Account</a>
-        <a href="/">Wishlist</a>
-        <a href="/">Contact</a>
-      </div>
+      <MenuMobileUser />
     </div>
   );
 };

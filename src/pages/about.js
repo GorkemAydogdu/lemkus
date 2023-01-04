@@ -35,14 +35,12 @@ const About = () => {
         y: "110%",
         duration: 0.6,
         delay: 0.8,
-        repeatRefresh: false,
       });
       gsap.from(".about__banner", {
         opacity: 0,
         y: "20%",
         duration: 0.8,
         delay: 0.7,
-        repeatRefresh: false,
       });
       gsap.from(".about__info .line span", {
         y: "110%",

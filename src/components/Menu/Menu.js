@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 
-import ThemeContext from "../../context/theme-context";
+import UIContext from "../../context/ui-context";
 
 import ListItem from "../UI/ListItem";
 import gsap from "gsap";
 
 const Menu = (props) => {
-  const themeCtx = useContext(ThemeContext);
+  const uiCtx = useContext(UIContext);
   useEffect(() => {
     if (props.className.includes("menu--active")) {
       gsap.to(".menu--active", {
@@ -40,7 +40,7 @@ const Menu = (props) => {
     <div
       ref={props.ref}
       className={`${props.className} ${
-        themeCtx.isLocationChanged === true ? "dark" : "light"
+        uiCtx.isLocationChanged === true ? "dark" : "light"
       }`}
     >
       <div

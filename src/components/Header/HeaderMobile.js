@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 
-import MenuContext from "../../context/menu-context";
+import UIContext from "../../context/ui-context";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 const HeaderMobile = () => {
-  const menuCtx = useContext(MenuContext);
+  const uiCtx = useContext(UIContext);
 
-  const clickButtonHandler = () => {
-    menuCtx.toggleMenu();
+  const clickMenuButtonHandler = () => {
+    uiCtx.toggleMenu();
+  };
+  const clickBagButtonHandler = () => {
+    uiCtx.toggleCart();
   };
 
   return (
@@ -20,8 +23,10 @@ const HeaderMobile = () => {
       </div>
       <div className="header__mobile--right">
         <a href="/">Search</a>
-        <a href="/">Bag (0)</a>
-        <div onClick={clickButtonHandler} className="header__mobile--menu">
+        <span onClick={clickBagButtonHandler} className="bag">
+          Bag (0)
+        </span>
+        <div onClick={clickMenuButtonHandler} className="header__mobile--menu">
           <span></span>
         </div>
       </div>

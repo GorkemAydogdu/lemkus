@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import ThemeContext from "./context/theme-context";
+import UIContext from "./context/ui-context";
 
 //Components
 import Header from "./components/Header/Header";
@@ -705,8 +705,9 @@ function App() {
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
 
   const location = useLocation();
-  const themeCtx = useContext(ThemeContext);
+  const uiCtx = useContext(UIContext);
 
+  //context ile yapılacak
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data.innerHTML);
   };
@@ -716,10 +717,10 @@ function App() {
       location.pathname === "/pages/contact" ||
       location.pathname === "/pages/about"
     ) {
-      themeCtx.onChanged();
+      uiCtx.onChanged();
       document.body.style.backgroundColor = "#191919";
     } else {
-      themeCtx.onUnChanged();
+      uiCtx.onUnChanged();
       document.body.style.backgroundColor = "#fff";
     }
 
@@ -735,7 +736,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", debounceHandleResize);
     };
-  }, [location, themeCtx]);
+  }, [location, uiCtx]);
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);

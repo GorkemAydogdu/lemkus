@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 
-import ThemeContext from "../../context/theme-context";
+import UIContext from "../../context/ui-context";
 
 //components
 import HeaderListItem from "../UI/ListItem";
@@ -40,7 +40,7 @@ const Header = (props) => {
     width: window.innerWidth,
   });
 
-  const themeCtx = useContext(ThemeContext);
+  const uiCtx = useContext(UIContext);
 
   useEffect(() => {
     //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
@@ -122,9 +122,6 @@ const Header = (props) => {
         display: "none",
         ease: "Expo.easeInOut",
       });
-      //   gsap.to("body", {
-      //     overflow: "visible",
-      //   });
     }
     return () => {
       clearInterval(interval);
@@ -192,37 +189,41 @@ const Header = (props) => {
       <header
         ref={headerRef}
         className={`header ${
-          themeCtx.isLocationChanged === true ? "dark" : "light"
+          uiCtx.isLocationChanged === true ? "dark" : "light"
         }`}
       >
-        <div className="header__time">
-          {locationChanged === true ? (
-            <Link to="/">
-              <Logo />
-            </Link>
-          ) : (
-            <span>Cape Town {time}</span>
-          )}
-        </div>
-        <ul className="header__list">
-          <HeaderListItem className="header__item">
-            <a className="header__link" href="/">
-              Launches
-            </a>
-          </HeaderListItem>
-          {content}
-          <HeaderListItem className="header__item">
-            <a className="header__link" href="/">
-              Culture
-            </a>
-          </HeaderListItem>
-          <HeaderListItem className="header__item">
-            <a className="header__link" href="/">
-              Brands
-            </a>
-          </HeaderListItem>
-        </ul>
-        <HeaderUser />
+        {dimensions.width > 1024 && (
+          <div className="header__time">
+            {locationChanged === true ? (
+              <Link to="/">
+                <Logo />
+              </Link>
+            ) : (
+              <span>Cape Town {time}</span>
+            )}
+          </div>
+        )}
+        {dimensions.width > 1024 && (
+          <ul className="header__list">
+            <HeaderListItem className="header__item">
+              <a className="header__link" href="/">
+                Launches
+              </a>
+            </HeaderListItem>
+            {content}
+            <HeaderListItem className="header__item">
+              <a className="header__link" href="/">
+                Culture
+              </a>
+            </HeaderListItem>
+            <HeaderListItem className="header__item">
+              <a className="header__link" href="/">
+                Brands
+              </a>
+            </HeaderListItem>
+          </ul>
+        )}
+        {dimensions.width > 1024 && <HeaderUser />}
         {dimensions.width < 1025 && <HeaderMobile />}
       </header>
     </>

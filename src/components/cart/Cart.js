@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useRef, useEffect, useContext } from "react";
+
+import UIContext from "../../context/ui-context";
 
 import Button from "../UI/Button";
 import { ReactComponent as X } from "../../assets/x.svg";
 
 const Cart = () => {
+  const continueShopStatic = useRef();
+  const continueShopHover = useRef();
+
+  const checkoutStatic = useRef();
+  const checkoutHover = useRef();
+
+  const cartRef = useRef();
+
+  const uiCtx = useContext(UIContext);
+
+  useEffect(() => {
+    if (uiCtx.cartIsActive) {
+      cartRef.current.style.transform = "translateX(0%)";
+    }
+  });
+
+  function closeButtonHandler() {
+    uiCtx.toggleCart();
+    cartRef.current.style.transform = "translateX(100%)";
+  }
+
   return (
-    <div className="cart">
-      <div className="cart__shop">ZORT</div>
+    <div ref={cartRef} className="cart">
       <div className="cart__content">
         <div className="cart__content--header">
           <span className="cart__content--bag uppercase">Your Bag</span>
-          <span className="cart__content--close uppercase">Close</span>
+          <span
+            onClick={closeButtonHandler}
+            className="cart__content--close uppercase"
+          >
+            Close
+          </span>
         </div>
         <span className="cart__content--empty">Your Bag is empty</span>
         <div className="cart__form">
@@ -155,18 +182,40 @@ const Cart = () => {
             </div>
             <div className="cart__buttons">
               <a
+                onMouseEnter={() => {
+                  continueShopStatic.current.style.display = "none";
+                  continueShopHover.current.style.display = "inline-block";
+                }}
+                onMouseLeave={() => {
+                  continueShopStatic.current.style.display = "inline-block";
+                  continueShopHover.current.style.display = "none";
+                }}
                 href="/"
                 className="btn-hover cart__button cart__button--continue"
               >
-                <span className="static">Continue shopping</span>
-                <span className="hover">
+                <span ref={continueShopStatic} className="static">
+                  Continue shopping
+                </span>
+                <span ref={continueShopHover} className="hover">
                   Continue shopping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continue
                   shopping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </a>
-              <Button className="btn-hover cart__button cart__button--payment">
-                <span className="static">Proceed to Checkout</span>
-                <span className="hover">
+              <Button
+                onMouseEnter={() => {
+                  checkoutStatic.current.style.display = "none";
+                  checkoutHover.current.style.display = "inline-block";
+                }}
+                onMouseLeave={() => {
+                  checkoutStatic.current.style.display = "inline-block";
+                  checkoutHover.current.style.display = "none";
+                }}
+                className="btn-hover cart__button cart__button--payment"
+              >
+                <span ref={checkoutStatic} className="static">
+                  Proceed to Checkout
+                </span>
+                <span ref={checkoutHover} className="hover">
                   Proceed to Checkout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proceed
                   to Checkout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
@@ -175,6 +224,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <div className="cart__shop">ZORT</div>
     </div>
   );
 };
