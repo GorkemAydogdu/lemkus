@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
 import Banner from "../components/Banner/Banner";
 import Collections from "../components/Collections/Collections";
@@ -11,7 +11,7 @@ import Cart from "../components/cart/Cart";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 
 const Home = (props) => {
   const cursorRef = useRef();
@@ -49,43 +49,43 @@ const Home = (props) => {
     });
   };
 
-  useEffect(() => {
-    smoothScroll(smoothScrollWrapper.current);
+  // useEffect(() => {
+  //   smoothScroll(smoothScrollWrapper.current);
 
-    function smoothScroll(content) {
-      let smoothness = 2;
+  //   function smoothScroll(content) {
+  //     let smoothness = 2;
 
-      gsap.set(content.parentNode, {
-        position: "fixed",
-      });
+  //     gsap.set(content.parentNode, {
+  //       position: "fixed",
+  //     });
 
-      let height;
+  //     let height;
 
-      function refreshHeight() {
-        height = content.clientHeight;
-        document.body.style.height = height + "px";
-        return height - document.documentElement.clientHeight;
-      }
+  //     function refreshHeight() {
+  //       height = content.clientHeight;
+  //       document.body.style.height = height + "px";
+  //       return height - document.documentElement.clientHeight;
+  //     }
 
-      return ScrollTrigger.create({
-        animation: gsap.fromTo(
-          content,
-          { y: 0 },
-          {
-            y: () =>
-              document.documentElement.clientHeight -
-              height -
-              content.getBoundingClientRect().top,
-            ease: "none",
-          }
-        ),
-        invalidateOnRefresh: true,
-        start: 0,
-        end: refreshHeight,
-        scrub: smoothness,
-      });
-    }
-  }, []);
+  //     return ScrollTrigger.create({
+  //       animation: gsap.fromTo(
+  //         content,
+  //         { y: 0 },
+  //         {
+  //           y: () =>
+  //             document.documentElement.clientHeight -
+  //             height -
+  //             content.getBoundingClientRect().top,
+  //           ease: "none",
+  //         }
+  //       ),
+  //       invalidateOnRefresh: true,
+  //       start: 0,
+  //       end: refreshHeight,
+  //       scrub: smoothness,
+  //     });
+  //   }
+  // }, []);
 
   return (
     <>
@@ -94,7 +94,7 @@ const Home = (props) => {
           <Logo />
         </a>
       </div>
-      <div ref={smoothScrollWrapper} className="homeSmooth">
+      <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
         <main className="main">
           <Banner />
           <Collections refEl={getRefElHandler} />
@@ -111,7 +111,7 @@ const Home = (props) => {
           <Culture />
         </main>
         <Footer />
-      </div>
+      </SmoothScrollWrapper>
 
       <Cart />
 

@@ -1,56 +1,54 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
+import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
 
 import PagesList from "./pagesList";
 import InternationalShip from "./pagesInternational";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const TsCs = () => {
   const smoothScrollWrapper = useRef();
 
-  useEffect(() => {
-    smoothScroll(smoothScrollWrapper.current);
+  // useEffect(() => {
+  //   smoothScroll(smoothScrollWrapper.current);
 
-    function smoothScroll(content) {
-      let smoothness = 2;
+  //   function smoothScroll(content) {
+  //     let smoothness = 2;
 
-      gsap.set(content.parentNode, {
-        position: "fixed",
-      });
+  //     gsap.set(content.parentNode, {
+  //       position: "fixed",
+  //     });
 
-      let height;
+  //     let height;
 
-      function refreshHeight() {
-        height = content.clientHeight;
-        document.body.style.height = height + "px";
-        return height - document.documentElement.clientHeight;
-      }
+  //     function refreshHeight() {
+  //       height = content.clientHeight;
+  //       document.body.style.height = height + "px";
+  //       return height - document.documentElement.clientHeight;
+  //     }
 
-      return ScrollTrigger.create({
-        animation: gsap.fromTo(
-          content,
-          { y: 0 },
-          {
-            y: () =>
-              document.documentElement.clientHeight -
-              height -
-              content.getBoundingClientRect().top,
-            ease: "none",
-          }
-        ),
-        invalidateOnRefresh: true,
-        start: 0,
-        end: refreshHeight,
-        scrub: smoothness,
-      });
-    }
-  }, []);
+  //     return ScrollTrigger.create({
+  //       animation: gsap.fromTo(
+  //         content,
+  //         { y: 0 },
+  //         {
+  //           y: () =>
+  //             document.documentElement.clientHeight -
+  //             height -
+  //             content.getBoundingClientRect().top,
+  //           ease: "none",
+  //         }
+  //       ),
+  //       invalidateOnRefresh: true,
+  //       start: 0,
+  //       end: refreshHeight,
+  //       scrub: smoothness,
+  //     });
+  //   }
+  // }, []);
 
   return (
-    <div ref={smoothScrollWrapper} className="pageSmooth">
+    <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="pages">
         <span className="pages__title">SHIPPING & DELIVERY</span>
         <p className="pages__description">
@@ -260,7 +258,7 @@ const TsCs = () => {
         </p>
       </div>
       <Footer />
-    </div>
+    </SmoothScrollWrapper>
   );
 };
 

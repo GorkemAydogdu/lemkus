@@ -1,6 +1,7 @@
 import React from "react";
 
 const ProductsCard = () => {
+  //Veritabanından veriler gelecek
   return (
     <div className="products-card">
       <div className="products-card__left products-card__width35">

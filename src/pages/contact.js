@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from "react";
 
 import Footer from "../components/Footer/Footer";
+import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 
 import { ReactComponent as GetInTouch } from "../assets/get-in-touch.svg";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Contact = () => {
   const viewAllStatic = useRef();
@@ -24,41 +25,41 @@ const Contact = () => {
       },
     });
 
-    smoothScroll(smoothScrollWrapper.current);
+    // smoothScroll(smoothScrollWrapper.current);
 
-    function smoothScroll(content) {
-      let smoothness = 2;
+    // function smoothScroll(content) {
+    //   let smoothness = 2;
 
-      gsap.set(content.parentNode, {
-        position: "fixed",
-      });
+    //   gsap.set(content.parentNode, {
+    //     position: "fixed",
+    //   });
 
-      let height;
+    //   let height;
 
-      function refreshHeight() {
-        height = content.clientHeight;
-        document.body.style.height = height + "px";
-        return height - document.documentElement.clientHeight;
-      }
+    //   function refreshHeight() {
+    //     height = content.clientHeight;
+    //     document.body.style.height = height + "px";
+    //     return height - document.documentElement.clientHeight;
+    //   }
 
-      return ScrollTrigger.create({
-        animation: gsap.fromTo(
-          content,
-          { y: 0 },
-          {
-            y: () =>
-              document.documentElement.clientHeight -
-              height -
-              content.getBoundingClientRect().top,
-            ease: "none",
-          }
-        ),
-        invalidateOnRefresh: true,
-        start: 0,
-        end: refreshHeight,
-        scrub: smoothness,
-      });
-    }
+    //   return ScrollTrigger.create({
+    //     animation: gsap.fromTo(
+    //       content,
+    //       { y: 0 },
+    //       {
+    //         y: () =>
+    //           document.documentElement.clientHeight -
+    //           height -
+    //           content.getBoundingClientRect().top,
+    //         ease: "none",
+    //       }
+    //     ),
+    //     invalidateOnRefresh: true,
+    //     start: 0,
+    //     end: refreshHeight,
+    //     scrub: smoothness,
+    //   });
+    // }
   }, []);
 
   const mouseEnterHandler = () => {
@@ -71,7 +72,7 @@ const Contact = () => {
     viewAllStatic.current.style.display = "inline-block";
   };
   return (
-    <div ref={smoothScrollWrapper} className="pageSmooth">
+    <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="contact">
         <div className="contact__header">
           <div className="contact__title">
@@ -198,7 +199,7 @@ const Contact = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </SmoothScrollWrapper>
   );
 };
 

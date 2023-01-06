@@ -20,8 +20,8 @@ const Footer = () => {
     >
       <FooterGroup>
         <FooterJoin />
+        <FooterMenu />
       </FooterGroup>
-      <FooterMenu />
       <FooterGroup>
         <a href="/" className="footer__logo">
           <Logo />

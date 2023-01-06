@@ -671,6 +671,73 @@ const DUMMY_DATA = {
       ],
     },
   ],
+  cart: [
+    {
+      id: 1,
+      name: "CREP ULTIMATE TUBE",
+      price: "R 899.00",
+      image: [
+        {
+          id: 1,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535",
+        },
+        {
+          id: 2,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-2.png?v=1645624535",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "CREP CURE",
+      price: "R 399.00",
+      image: [
+        {
+          id: 1,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7518_6108fe72421f74.09231456_SPG706.png?v=1637651920",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "CREP ULTIMATE SHOE CARE PACK",
+      price: "R 799.00",
+      image: [
+        {
+          id: 1,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7520_6108fde25f6173.48031833_SPG710.png?v=1637651912",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "CREP PROTECT",
+      price: "R 299.00",
+      image: [
+        {
+          id: 1,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7516_6108fe11abde32.90077137_SPG704_1b8c89b0-a131-43ca-ad46-a3d05a1e0430.png?v=1637651923",
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "CREP CURE REFILL",
+      price: "R 219.00",
+      image: [
+        {
+          id: 1,
+          image:
+            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7519_6108fe441cf786.95248695_SPG709.png?v=1637651917",
+        },
+      ],
+    },
+  ],
 };
 
 function debounce(fn, ms) {
@@ -707,7 +774,6 @@ function App() {
   const location = useLocation();
   const uiCtx = useContext(UIContext);
 
-  //context ile yapılacak
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data.innerHTML);
   };
@@ -736,7 +802,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", debounceHandleResize);
     };
-  }, [location, uiCtx]);
+  }, [location, dimensions, uiCtx]);
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -744,7 +810,10 @@ function App() {
 
   return (
     <>
-      <Header clickedButton={clickedButtonHandler} />
+      <Header
+        categories={DUMMY_DATA.menu}
+        clickedButton={clickedButtonHandler}
+      />
 
       {DUMMY_DATA.menu.map((item) => (
         <Menu

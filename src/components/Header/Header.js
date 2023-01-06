@@ -129,20 +129,18 @@ const Header = (props) => {
     };
   }, [dimensions, props, location]);
 
-  //düzelecek
-  const categories = ["Sneakers", "Apparel", "Kids", "Accessories"];
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const content = categories.map((category) => (
-    <HeaderListItem className="header__item" key={category}>
+  const content = props.categories.map((category) => (
+    <HeaderListItem className="header__item" key={category.name}>
       <Button
         onClick={(event) => {
           setIsDisabled(true);
           setTimeout(() => {
             setIsDisabled(false);
           }, 1000);
-          setSelectedCategory(category);
+          setSelectedCategory(category.name);
           props.clickedButton(event.target);
 
           gsap.to(".backdrop", {
@@ -156,7 +154,7 @@ const Header = (props) => {
             overflow: "hidden",
           });
 
-          if (selectedCategory === category) {
+          if (selectedCategory === category.name) {
             event.target.classList.toggle("header__button--active");
             if (!event.target.classList.contains("header__button--active")) {
               props.clickedButton("");
@@ -173,14 +171,14 @@ const Header = (props) => {
           }
         }}
         disabled={isDisabled}
-        className={`header__button 
+        className={`header__button
         ${
-          selectedCategory === category && dimensions.width > 1024
+          selectedCategory === category.name && dimensions.width > 1024
             ? "header__button--active"
             : ""
         }`}
       >
-        {category}
+        {category.name}
       </Button>
     </HeaderListItem>
   ));
