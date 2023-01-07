@@ -9,6 +9,7 @@ import MenuFeatured from "./MenuFeatured";
 const Menu = (props) => {
   const uiCtx = useContext(UIContext);
   useEffect(() => {
+    console.log(props);
     if (props.className.includes("menu--active")) {
       gsap.to(".menu--active", {
         duration: 1,

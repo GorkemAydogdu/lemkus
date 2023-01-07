@@ -59,6 +59,14 @@
 
       width: 100%;
       border-bottom: 1px solid $black;
+      @include respond(tab-port) {
+        width: calc(100% / 2.5) !important;
+        border-bottom: none;
+        border-right: 1px solid $black;
+      }
+      @include respond(smallPhone) {
+        width: calc(100% / 1.5) !important;
+      }
     }
 
     &--image {
@@ -69,7 +77,24 @@
 
     &--logo {
       position: absolute;
-      width: 6rem;
+
+      width: 8rem;
+
+      @include respond(tab-land) {
+        width: 7rem;
+      }
+
+      @include respond(tab-port) {
+        top: 0.5rem;
+        left: 0.5rem;
+        width: 8rem;
+      }
+
+      @include respond(smallPhone) {
+        top: 1rem;
+        left: 1rem;
+        width: 10rem;
+      }
     }
 
     &--infos {
@@ -80,17 +105,19 @@
 
     &--title {
       text-transform: uppercase;
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 500;
+      letter-spacing: -1px;
 
       color: inherit;
 
       @include respond(tab-land) {
-        font-size: 2.3rem;
+        font-size: 2.6rem;
       }
 
-      @include respond(phone) {
-        font-size: 2.1rem;
+      @include respond(tab-port) {
+        letter-spacing: 0;
+        font-size: 2.4rem;
       }
 
       @include respond(smallPhone) {
@@ -99,8 +126,20 @@
     }
 
     &--price {
-      font-size: 1.6rem;
+      font-size: 2rem;
       margin-top: 0.5rem;
+
+      @include respond(tab-land) {
+        font-size: 1.8rem;
+      }
+
+      @include respond(tab-port) {
+        font-size: 2.2rem;
+      }
+
+      @include respond(smallPhone) {
+        font-size: 2.3rem;
+      }
     }
 
     img {

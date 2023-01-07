@@ -143,7 +143,7 @@ const Header = (props) => {
           setSelectedCategory(category.name);
           props.clickedButton(event.target);
 
-          gsap.to(".backdrop", {
+          gsap.to(".backdrop--menu", {
             duration: 1,
             opacity: 1,
             display: "block",
@@ -158,7 +158,7 @@ const Header = (props) => {
             event.target.classList.toggle("header__button--active");
             if (!event.target.classList.contains("header__button--active")) {
               props.clickedButton("");
-              gsap.to(".backdrop", {
+              gsap.to(".backdrop--menu", {
                 duration: 1,
                 opacity: 0,
                 display: "none",

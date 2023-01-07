@@ -7,6 +7,7 @@ import UIContext from "./context/ui-context";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import MenuMobile from "./components/Menu/MenuMobile";
+import Backdrop from "./components/UI/Backdrop";
 
 //Pages
 import Home from "./pages/home";
@@ -15,6 +16,8 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
 import Contact from "./pages/contact";
 import About from "./pages/about";
+
+import gsap from "gsap";
 
 //styles
 import "./styles/App.scss";
@@ -676,66 +679,41 @@ const DUMMY_DATA = {
       id: 1,
       name: "CREP ULTIMATE TUBE",
       price: "R 899.00",
-      image: [
-        {
-          id: 1,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535",
-        },
-        {
-          id: 2,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-2.png?v=1645624535",
-        },
-      ],
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535",
     },
     {
       id: 2,
       name: "CREP CURE",
       price: "R 399.00",
-      image: [
-        {
-          id: 1,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7518_6108fe72421f74.09231456_SPG706.png?v=1637651920",
-        },
-      ],
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7518_6108fe72421f74.09231456_SPG706.png?v=1637651920",
     },
     {
       id: 3,
       name: "CREP ULTIMATE SHOE CARE PACK",
       price: "R 799.00",
-      image: [
-        {
-          id: 1,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7520_6108fde25f6173.48031833_SPG710.png?v=1637651912",
-        },
-      ],
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7520_6108fde25f6173.48031833_SPG710.png?v=1637651912",
     },
     {
       id: 4,
       name: "CREP PROTECT",
       price: "R 299.00",
-      image: [
-        {
-          id: 1,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7516_6108fe11abde32.90077137_SPG704_1b8c89b0-a131-43ca-ad46-a3d05a1e0430.png?v=1637651923",
-        },
-      ],
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7516_6108fe11abde32.90077137_SPG704_1b8c89b0-a131-43ca-ad46-a3d05a1e0430.png?v=1637651923",
     },
     {
       id: 5,
       name: "CREP CURE REFILL",
       price: "R 219.00",
-      image: [
-        {
-          id: 1,
-          image:
-            "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7519_6108fe441cf786.95248695_SPG709.png?v=1637651917",
-        },
-      ],
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7519_6108fe441cf786.95248695_SPG709.png?v=1637651917",
     },
   ],
 };
@@ -814,7 +792,7 @@ function App() {
         categories={DUMMY_DATA.menu}
         clickedButton={clickedButtonHandler}
       />
-
+      {/*Menü düzeltilecek*/}
       {DUMMY_DATA.menu.map((item) => (
         <Menu
           className={`menu ${
@@ -828,7 +806,12 @@ function App() {
       ))}
 
       <Routes>
-        <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
+        <Route
+          path="/"
+          element={
+            <Home cart={DUMMY_DATA.cart} products={DUMMY_DATA.products} />
+          }
+        />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
@@ -836,7 +819,26 @@ function App() {
 
       {dimensions.width < 1025 && <MenuMobile menu={DUMMY_DATA.menu} />}
 
-      <div className="backdrop"></div>
+      {dimensions.width > 1024 && (
+        <Backdrop className="backdrop backdrop--menu" />
+      )}
+      <Backdrop
+        onClick={() => {
+          uiCtx.toggleCart();
+          const cart = document.querySelector(".cart");
+          cart.style.transform = "translateX(100%)";
+
+          gsap.to(".backdrop--cart", {
+            opacity: 0,
+            display: "none",
+            ease: "Expo.easeInOut",
+          });
+          gsap.to("body", {
+            overflow: "visible",
+          });
+        }}
+        className="backdrop backdrop--cart"
+      />
     </>
   );
 }

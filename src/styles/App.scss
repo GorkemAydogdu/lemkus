@@ -76,7 +76,14 @@ a {
   top: 0;
   left: 0;
   display: none;
-  z-index: 1;
+
+  &--cart {
+    z-index: 50;
+  }
+
+  &--menu {
+    z-index: 1;
+  }
 }
 
 .homeSmooth {

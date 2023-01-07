@@ -1,111 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const CartShop = () => {
+import CartShopItem from "./CartShopItem";
+
+//Splidejs
+import Splide from "@splidejs/splide";
+
+import "@splidejs/splide/css";
+
+const CartShop = (props) => {
+  useEffect(() => {
+    let splide = new Splide(".cart__shop--group", {
+      height: "auto",
+      direction: "ttb",
+      drag: false,
+      speed: 800,
+      arrows: false,
+      pagination: false,
+      breakpoints: {
+        1024: {
+          drag: "free",
+          direction: "ltr",
+          perPage: 2,
+        },
+        500: {
+          perPage: 1,
+        },
+      },
+    });
+
+    splide.mount();
+  }, []);
   return (
     <div className="cart__shop">
       <span className="cart__shop--header">ANYTHING ELSE?</span>
-      <ul className="cart__shop--list">
-        <li className="cart__shop--item">
-          <a href="/" className="cart__shop--image">
-            <div className="cart__shop--logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041"
-                alt="Logo"
+      <div className="splide cart__shop--group">
+        <div className="splide__track">
+          <ul className="splide__list cart__shop--list">
+            {props.data.map((item) => (
+              <CartShopItem
+                key={item.id}
+                image={item.image}
+                logo={item.logo}
+                name={item.name}
+                price={item.price}
               />
-            </div>
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535"
-              alt="zort"
-            />
-          </a>
-          <div className="cart__shop--infos">
-            <a href="/" className="cart__shop--title">
-              Crep Ultimate Tube
-            </a>
-            <span className="cart__shop--price">R 899.00</span>
-          </div>
-        </li>
-        <li className="cart__shop--item">
-          <a href="/" className="cart__shop--image">
-            <div className="cart__shop--logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041"
-                alt="Logo"
-              />
-            </div>
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535"
-              alt="zort"
-            />
-          </a>
-          <div className="cart__shop--infos">
-            <a href="/" className="cart__shop--title">
-              Crep Ultimate Tube
-            </a>
-            <span className="cart__shop--price">R 899.00</span>
-          </div>
-        </li>
-        <li className="cart__shop--item">
-          <a href="/" className="cart__shop--image">
-            <div className="cart__shop--logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041"
-                alt="Logo"
-              />
-            </div>
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535"
-              alt="zort"
-            />
-          </a>
-          <div className="cart__shop--infos">
-            <a href="/" className="cart__shop--title">
-              Crep Ultimate Tube
-            </a>
-            <span className="cart__shop--price">R 899.00</span>
-          </div>
-        </li>
-        <li className="cart__shop--item">
-          <a href="/" className="cart__shop--image">
-            <div className="cart__shop--logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041"
-                alt="Logo"
-              />
-            </div>
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535"
-              alt="zort"
-            />
-          </a>
-          <div className="cart__shop--infos">
-            <a href="/" className="cart__shop--title">
-              Crep Ultimate Tube
-            </a>
-            <span className="cart__shop--price">R 899.00</span>
-          </div>
-        </li>
-        <li className="cart__shop--item">
-          <a href="/" className="cart__shop--image">
-            <div className="cart__shop--logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041"
-                alt="Logo"
-              />
-            </div>
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535"
-              alt="zort"
-            />
-          </a>
-          <div className="cart__shop--infos">
-            <a href="/" className="cart__shop--title">
-              Crep Ultimate Tube
-            </a>
-            <span className="cart__shop--price">R 899.00</span>
-          </div>
-        </li>
-      </ul>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
