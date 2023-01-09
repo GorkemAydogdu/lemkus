@@ -9,7 +9,6 @@ import MenuFeatured from "./MenuFeatured";
 const Menu = (props) => {
   const uiCtx = useContext(UIContext);
   useEffect(() => {
-    console.log(props);
     if (props.className.includes("menu--active")) {
       gsap.to(".menu--active", {
         duration: 1,
@@ -28,14 +27,15 @@ const Menu = (props) => {
         ease: "expo.inOut",
         delay: 0.1,
       });
-    } else {
-      gsap.to(".menu--close", {
-        duration: 0.8,
-        ease: "expo.inOut",
-        opacity: 0,
-        clipPath: "inset(0% 0% 100%)",
-      });
     }
+    // else {
+    //   gsap.to(".menu--close", {
+    //     duration: 0.8,
+    //     ease: "expo.inOut",
+    //     opacity: 0,
+    //     clipPath: "inset(0% 0% 100%)",
+    //   });
+    // }
   }, [props]);
 
   return (

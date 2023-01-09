@@ -17,28 +17,42 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
       let height;
 
       function refreshHeight() {
-        height = content.clientHeight;
+        const contentTop = content.getBoundingClientRect().top;
+        height = content.clientHeight + contentTop;
         document.body.style.height = height + "px";
         return height - document.documentElement.clientHeight;
       }
 
-      return ScrollTrigger.create({
-        animation: gsap.fromTo(
-          content,
-          { y: 0 },
-          {
-            y: () =>
-              document.documentElement.clientHeight -
-              height -
-              content.getBoundingClientRect().top,
-            ease: "none",
-          }
-        ),
-        invalidateOnRefresh: true,
-        start: 0,
-        end: refreshHeight,
-        scrub: smoothness,
-      });
+      gsap.fromTo(
+        content,
+        {
+          y: 0,
+        },
+        {
+          y: () => document.documentElement.clientHeight - height,
+          ease: "none",
+          scrollTrigger: {
+            start: "top top",
+            end: refreshHeight,
+            invalidateOnRefresh: true,
+            scrub: 2,
+          },
+        }
+      );
+      // return ScrollTrigger.create({
+      //   animation: gsap.fromTo(
+      //     content,
+      //     { y: 0 },
+      //     {
+      //       y: () => document.documentElement.clientHeight - height,
+      //       ease: "none",
+      //     }
+      //   ),
+      //   invalidateOnRefresh: true,
+      //   start: 0,
+      //   end: refreshHeight,
+      //   scrub: smoothness,
+      // });
     }
     ScrollTrigger.refresh();
   }, [ref]);

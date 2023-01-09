@@ -792,8 +792,8 @@ function App() {
         categories={DUMMY_DATA.menu}
         clickedButton={clickedButtonHandler}
       />
-      {/*Menü düzeltilecek*/}
-      {DUMMY_DATA.menu.map((item) => (
+      {/*Menü düzeltilecek clickedButtondan gelen data ile menu.name eş ise render*/}
+      {/* {DUMMY_DATA.menu.map((item) => (
         <Menu
           className={`menu ${
             item.name !== buttonInnerHTML || dimensions.width <= 1024
@@ -803,7 +803,13 @@ function App() {
           key={item.id}
           item={item}
         />
-      ))}
+      ))} */}
+
+      {DUMMY_DATA.menu
+        .filter((item) => item.name === buttonInnerHTML)
+        .map((item) => (
+          <Menu className="menu menu--active" key={item.id} item={item} />
+        ))}
 
       <Routes>
         <Route
