@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { Link } from "react-router-dom";
+
 import UIContext from "../../context/ui-context";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -22,7 +24,7 @@ const HeaderMobile = () => {
         </a>
       </div>
       <div className="header__mobile--right">
-        <a href="/">Search</a>
+        <Link to="/search">Search</Link>
         <span onClick={clickBagButtonHandler} className="bag">
           Bag (0)
         </span>

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { Link } from "react-router-dom";
+
 import UIContext from "../../context/ui-context";
 
 import { ReactComponent as Heart } from "../../assets/heart.svg";
@@ -16,9 +18,9 @@ const HeaderUser = () => {
 
   return (
     <div className="header__user">
-      <a href="/">
+      <Link to="/search">
         <Search />
-      </a>
+      </Link>
       <a href="/">
         <User />
       </a>

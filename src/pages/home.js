@@ -6,7 +6,6 @@ import Products from "../components/Products/Products";
 import ProductsCard from "../components/Products/ProductsCard";
 import Culture from "../components/Culture/Culture";
 import Footer from "../components/Footer/Footer";
-import Cart from "../components/cart/Cart";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
@@ -74,8 +73,6 @@ const Home = (props) => {
         </main>
         <Footer />
       </SmoothScrollWrapper>
-
-      <Cart data={props.cart} />
 
       <div ref={cursorRef} className="cursor">
         DRAG

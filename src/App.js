@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import MenuMobile from "./components/Menu/MenuMobile";
 import Backdrop from "./components/UI/Backdrop";
+import Cart from "./components/cart/Cart";
 
 //Pages
 import Home from "./pages/home";
@@ -16,6 +17,7 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
 import Contact from "./pages/contact";
 import About from "./pages/about";
+import Search from "./pages/search";
 
 import gsap from "gsap";
 
@@ -739,6 +741,7 @@ const routes = [
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
+  { path: "/search", name: "Search", Component: Search },
 ];
 
 function App() {
@@ -812,22 +815,20 @@ function App() {
         ))}
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home cart={DUMMY_DATA.cart} products={DUMMY_DATA.products} />
-          }
-        />
+        <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
       </Routes>
+
+      <Cart data={DUMMY_DATA.cart} />
 
       {dimensions.width < 1025 && <MenuMobile menu={DUMMY_DATA.menu} />}
 
       {dimensions.width > 1024 && (
         <Backdrop className="backdrop backdrop--menu" />
       )}
+
       <Backdrop
         onClick={() => {
           uiCtx.toggleCart();
