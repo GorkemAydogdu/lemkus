@@ -11,16 +11,16 @@ const About = () => {
   const smoothScrollWrapper = useRef();
 
   useEffect(() => {
-    // gsap.to(".about__scrollDown .rotate-svg", {
-    //   rotation: 360 * 5,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".about",
-    //     start: "top top",
-    //     end: "+=5000",
-    //     scrub: 2,
-    //   },
-    // });
+    gsap.to(".about__scrollDown .rotate-svg", {
+      rotation: 360 * 5,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top top",
+        end: "+=5000",
+        scrub: 2,
+      },
+    });
     let mm = gsap.matchMedia();
     mm.add("(min-width:1025px)", () => {
       gsap.from(".about__header .line span", {
@@ -53,36 +53,6 @@ const About = () => {
         },
       });
     });
-    // smoothScroll(smoothScrollWrapper.current);
-    // function smoothScroll(content) {
-    //   let smoothness = 2;
-    //   gsap.set(content.parentNode, {
-    //     position: "fixed",
-    //   });
-    //   let height;
-    //   function refreshHeight() {
-    //     height = content.clientHeight;
-    //     document.body.style.height = height + "px";
-    //     return height - document.documentElement.clientHeight;
-    //   }
-    //   return ScrollTrigger.create({
-    //     animation: gsap.fromTo(
-    //       content,
-    //       { y: 0 },
-    //       {
-    //         y: () =>
-    //           document.documentElement.clientHeight -
-    //           height -
-    //           content.getBoundingClientRect().top,
-    //         ease: "none",
-    //       }
-    //     ),
-    //     invalidateOnRefresh: true,
-    //     start: 0,
-    //     end: refreshHeight,
-    //     scrub: smoothness,
-    //   });
-    // }
   }, []);
 
   return (
