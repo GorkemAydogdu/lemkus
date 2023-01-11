@@ -5,6 +5,7 @@ import UIContext from "../../context/ui-context";
 import WishlistEmpty from "./WishlistEmpty";
 import WishlistHeader from "./WishlistHeader";
 import WishlistUser from "./WishlistUser";
+import WishlistContent from "./WishlistContent";
 
 import gsap from "gsap";
 
@@ -36,6 +37,7 @@ const Wishlist = () => {
           <div className="wishlist__detail">
             <WishlistHeader />
             <WishlistEmpty />
+            {/* <WishlistContent /> */}
           </div>
         </div>
       )}

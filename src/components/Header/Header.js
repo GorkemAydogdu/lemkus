@@ -116,7 +116,7 @@ const Header = (props) => {
     if (dimensions.width <= 1024) {
       setSelectedCategory("");
       props.clickedButton("");
-      gsap.to(".backdrop", {
+      gsap.to(".backdrop--menu", {
         duration: 1,
         opacity: 0,
         display: "none",
