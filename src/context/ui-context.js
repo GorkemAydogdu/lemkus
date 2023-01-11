@@ -3,9 +3,11 @@ import React, { useState } from "react";
 const UIContext = React.createContext({
   menuIsActive: false,
   cartIsActive: false,
+  wishlistIsActive: false,
   isLocationChanged: false,
   toggleMenu: () => {},
   toggleCart: () => {},
+  toggleWishlist: () => {},
   onChanged: () => {},
   onUnChanged: () => {},
 });
@@ -15,12 +17,18 @@ export const UIContextProvider = (props) => {
   const [cartIsActive, setCartIsActive] = useState(false);
   const [locationChanged, setLocationChanged] = useState(false);
 
+  const [wishlistIsActive, setWishlistIsActive] = useState(false);
+
   const toggleMenuHandler = () => {
     setMenuIsActive((prevState) => !prevState);
   };
 
   const toggleCartHandler = () => {
     setCartIsActive((prevState) => !prevState);
+  };
+
+  const toggleWishlistHandler = () => {
+    setWishlistIsActive((prevState) => !prevState);
   };
 
   const changedHandler = () => {
@@ -36,11 +44,13 @@ export const UIContextProvider = (props) => {
       value={{
         menuIsActive: menuIsActive,
         cartIsActive: cartIsActive,
+        wishlistIsActive: wishlistIsActive,
         isLocationChanged: locationChanged,
         onChanged: changedHandler,
         onUnChanged: unChangedHandler,
         toggleMenu: toggleMenuHandler,
         toggleCart: toggleCartHandler,
+        toggleWishlist: toggleWishlistHandler,
       }}
     >
       {props.children}

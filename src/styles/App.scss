@@ -19,6 +19,7 @@
 @import "./components/header.scss";
 @import "./components/menu.scss";
 @import "./components/products.scss";
+@import "./components/wishlist.scss";
 
 @import "./pages/about.scss";
 @import "./pages/contact.scss";
@@ -77,6 +78,10 @@ a {
   top: 0;
   left: 0;
   display: none;
+
+  &--wishlist {
+    z-index: 50;
+  }
 
   &--cart {
     z-index: 50;

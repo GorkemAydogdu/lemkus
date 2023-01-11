@@ -19,9 +19,9 @@ const HeaderMobile = () => {
   return (
     <div className="header__mobile">
       <div className="header__mobile--left">
-        <a href="/">
+        <Link to="/">
           <Logo />
-        </a>
+        </Link>
       </div>
       <div className="header__mobile--right">
         <Link to="/search">Search</Link>

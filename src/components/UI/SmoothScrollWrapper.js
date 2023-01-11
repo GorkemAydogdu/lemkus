@@ -37,7 +37,10 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
         scrub: smoothness,
       });
     }
-    ScrollTrigger.refresh(true);
+    setTimeout(() => {
+      ScrollTrigger.refresh(true);
+    }, 500);
+    return () => clearTimeout();
   }, [ref]);
   return (
     <div ref={ref} className={props.className}>

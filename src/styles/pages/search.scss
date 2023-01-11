@@ -12,6 +12,13 @@
       text-transform: uppercase;
       font-size: 4rem;
       font-weight: 600;
+
+      @include respond(tab-land) {
+        font-size: 3.8rem;
+      }
+      @include respond(smallPhone) {
+        font-size: 3rem;
+      }
     }
   }
   &__input {
@@ -20,12 +27,20 @@
     flex-direction: column;
     position: relative;
 
+    @include respond(tab-land) {
+      margin-top: 2.3rem;
+    }
+
     input {
       font-size: 2rem;
       padding: 0.5rem 3rem;
       border-width: 0 0 1px 0;
       border-style: solid;
       border-color: $black;
+
+      @include respond(tab-land) {
+        font-size: 1.8rem;
+      }
 
       &:focus {
         outline: none;
@@ -81,15 +96,34 @@
       display: flex;
       flex-direction: column;
       margin-left: 3rem;
+
+      @include respond(tab-port) {
+        margin-left: 2.8rem;
+      }
+
+      @include respond(phone) {
+        margin-left: 2.6rem;
+      }
+      @include respond(smallPhone) {
+        margin-left: 2.4rem;
+      }
     }
     &--title {
       font-size: 1.6rem;
       color: #677279;
+
+      @include respond(phone) {
+        font-size: 2rem;
+      }
     }
     &--brand {
       margin-top: 0.6rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: $black;
+
+      @include respond(phone) {
+        font-size: 1.7rem;
+      }
     }
   }
 
@@ -97,7 +131,11 @@
     display: inline-flex;
     padding: 1rem 2rem;
     color: $black;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+    }
     &:hover {
       box-shadow: 0 0 0 1px #00000008;
     }
@@ -106,15 +144,24 @@
   &__title {
     padding: 1rem 2rem;
     display: block;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     background-color: #f3f5f6;
     cursor: pointer;
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
   }
 
   &__image {
     width: 7rem;
     height: 7rem;
+
+    @include respond(phone) {
+      width: 9rem;
+      height: 9rem;
+    }
 
     img {
       border: 1px solid $black;

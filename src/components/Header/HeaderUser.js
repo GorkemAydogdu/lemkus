@@ -12,7 +12,11 @@ import Button from "../UI/Button";
 
 const HeaderUser = () => {
   const uiCtx = useContext(UIContext);
-  function clickButtonHandler() {
+  function clickWishlistButtonHandler() {
+    uiCtx.toggleWishlist();
+  }
+
+  function clickCartButtonHandler() {
     uiCtx.toggleCart();
   }
 
@@ -24,10 +28,10 @@ const HeaderUser = () => {
       <a href="/">
         <User />
       </a>
-      <a href="/">
+      <Button onClick={clickWishlistButtonHandler} className="header__wishlist">
         <Heart />
-      </a>
-      <Button onClick={clickButtonHandler} className="header__cart">
+      </Button>
+      <Button onClick={clickCartButtonHandler} className="header__cart">
         <span className="header__counter">0</span>
         <Bag />
       </Button>

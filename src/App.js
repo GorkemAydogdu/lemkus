@@ -9,6 +9,7 @@ import Menu from "./components/Menu/Menu";
 import MenuMobile from "./components/Menu/MenuMobile";
 import Backdrop from "./components/UI/Backdrop";
 import Cart from "./components/cart/Cart";
+import Wishlist from "./components/Wishlist/Wishlist";
 
 //Pages
 import Home from "./pages/home";
@@ -825,10 +826,26 @@ function App() {
 
       {dimensions.width < 1025 && <MenuMobile menu={DUMMY_DATA.menu} />}
 
+      <Wishlist />
+
       {dimensions.width > 1024 && (
         <Backdrop className="backdrop backdrop--menu" />
       )}
 
+      <Backdrop
+        className="backdrop backdrop--wishlist"
+        onClick={() => {
+          uiCtx.toggleWishlist();
+          gsap.to(".backdrop--wishlist", {
+            opacity: 0,
+            display: "none",
+            ease: "Expo.easeInOut",
+          });
+          gsap.to("body", {
+            overflow: "visible",
+          });
+        }}
+      />
       <Backdrop
         onClick={() => {
           uiCtx.toggleCart();

@@ -190,17 +190,15 @@ const Header = (props) => {
           uiCtx.isLocationChanged === true ? "dark" : "light"
         }`}
       >
-        {dimensions.width > 1024 && (
-          <div className="header__time">
-            {locationChanged === true ? (
-              <Link to="/">
-                <Logo />
-              </Link>
-            ) : (
-              <span>Cape Town {time}</span>
-            )}
-          </div>
-        )}
+        <div className="header__time">
+          {locationChanged === true ? (
+            <Link to="/">
+              <Logo />
+            </Link>
+          ) : (
+            <span>Cape Town {time}</span>
+          )}
+        </div>
         {dimensions.width > 1024 && (
           <ul className="header__list">
             <HeaderListItem className="header__item">

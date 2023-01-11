@@ -7,6 +7,9 @@ import { ReactComponent as ScrollDown } from "../assets/scroll-down.svg";
 import { ReactComponent as Arrow } from "../assets/arrow.svg";
 
 import gsap from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const smoothScrollWrapper = useRef();
 
@@ -53,6 +56,7 @@ const About = () => {
         },
       });
     });
+    ScrollTrigger.refresh();
   }, []);
 
   return (
