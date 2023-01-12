@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
 import UIContext from "../../context/ui-context";
 
@@ -7,10 +7,21 @@ import WishlistHeader from "./WishlistHeader";
 import WishlistUser from "./WishlistUser";
 import WishlistContent from "./WishlistContent";
 
+import { ReactComponent as Bin } from "../../assets/bin2.svg";
+
 import gsap from "gsap";
+import Button from "../UI/Button";
+import WishlistSelectedDetail from "./WishlistSelectedDetail";
 
 const Wishlist = () => {
+  const bgRef = useRef();
+  const clearRef = useRef();
   const uiCtx = useContext(UIContext);
+
+  function closeButtonHandler() {
+    bgRef.current.style.display = "none";
+    clearRef.current.style.display = "none";
+  }
 
   useEffect(() => {
     if (uiCtx.wishlistIsActive === true) {
@@ -36,8 +47,20 @@ const Wishlist = () => {
           <WishlistUser />
           <div className="wishlist__detail">
             <WishlistHeader />
-            <WishlistEmpty />
+            {/* <WishlistEmpty /> */}
             {/* <WishlistContent /> */}
+            <WishlistSelectedDetail />
+            <div
+              ref={bgRef}
+              onClick={closeButtonHandler}
+              className="wishlist__bg"
+            ></div>
+            <Button ref={clearRef} className="wishlist__clear">
+              <span>
+                <Bin />
+              </span>
+              <span>Clear List</span>
+            </Button>
           </div>
         </div>
       )}

@@ -3,17 +3,18 @@ import React from "react";
 import Button from "../UI/Button";
 
 const WishlistHeader = () => {
+  function clickButtonHandler() {
+    const bg = document.querySelector(".wishlist__bg");
+    bg.style.display = "block";
+    const clearList = document.querySelector(".wishlist__clear");
+    clearList.style.display = "flex";
+  }
+
   return (
     <div className="wishlist__header">
       <h2>My Wishlist</h2>
-      <Button className="wishlist__menu">
+      <Button onClick={clickButtonHandler} className="wishlist__menu">
         <span className="wishlist__menu--dot"></span>
-
-        <div className="wishlist__clear">
-          {/* <div className="wishlist__bg"></div> */}
-          <span>Z</span>
-          <span>Clear List</span>
-        </div>
       </Button>
     </div>
   );

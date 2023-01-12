@@ -82,6 +82,7 @@
   }
 
   &__detail {
+    position: relative;
     height: 90vh;
     overflow: scroll;
     padding: 5rem;
@@ -139,20 +140,23 @@
     height: 100%;
     background: rgba(2, 2, 2, 0.2);
     z-index: 99;
-    display: block !important;
+    display: none;
   }
 
   &__clear {
-    display: flex;
+    cursor: pointer;
+    display: none;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 15rem;
     padding: 2rem 3rem;
-    background-color: $white;
+    background-color: #f8f8f8;
+    border: none;
     position: absolute;
-    top: -5px;
-    left: -17rem;
-    box-shadow: 0px 0px 10px rgb(0 0 0 / 0.2);
+    top: 4.5rem;
+    right: 10rem;
+    z-index: 100;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 0.1);
 
     &::after {
       content: "";
@@ -162,8 +166,13 @@
       top: 5px;
       z-index: -1;
       right: -14px;
-      background-color: greenyellow;
+      background-color: #f8f8f8;
       clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
@@ -215,6 +224,7 @@
     border: 1px solid $black;
     margin-bottom: 2rem;
     padding: 2.5rem 0;
+    cursor: pointer;
 
     @media only screen and (min-width: 1025px) {
       &:not(:nth-child(4n)) {
@@ -242,6 +252,7 @@
     }
   }
   &__deleteItem {
+    cursor: inherit;
     background-color: transparent;
     border: 1px solid $black;
     border-radius: 50%;
@@ -311,5 +322,145 @@
         font-size: 1.8rem;
       }
     }
+  }
+
+  &__selectedDetail {
+    margin-top: 2rem;
+  }
+
+  &__backList {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      top: -6px;
+      left: -25px;
+      position: absolute;
+    }
+    span {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__selectedProduct {
+    display: flex;
+    margin-top: 5rem;
+  }
+
+  &__images {
+    display: flex;
+    width: 40%;
+  }
+
+  &__thumbnail {
+    list-style-type: none;
+  }
+  &__thumbnailItem {
+    cursor: pointer;
+    width: 6rem;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+    // border: 5px solid #c6c6c6;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__imageFull {
+    display: flex;
+
+    // div:not(:first-child) {
+    //   display: none;
+    // }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__selectedProductDetail {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    &--title {
+      font-size: 2rem;
+      color: #434655;
+      text-transform: capitalize;
+      margin-bottom: 2rem;
+    }
+    &--size {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      svg {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 35px;
+        left: -25px;
+      }
+
+      label {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        color: #828282;
+        margin-bottom: 0.7rem;
+      }
+
+      select {
+        border: 1px solid $black;
+        font-size: 1.3rem;
+        padding: 1.2rem;
+        appearance: none;
+        color: #434655;
+        background: $white;
+        border: 1px solid #434655;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &--more {
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.2rem;
+
+    &--more {
+      color: #42445c;
+      font-size: 1.6rem;
+      font-weight: 500;
+      padding: 1.2rem 3rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__addToCart {
+    background-color: #434655;
+    color: $white;
+    border: none;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
   }
 }
