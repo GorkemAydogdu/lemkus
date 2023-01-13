@@ -8,7 +8,17 @@
 
   line-height: 1;
 
+  // @include respond(tab-port) {
+  //   height: 100vh;
+  // }
+
   font-family: "Oswald", sans-serif;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   button {
     line-height: inherit;
@@ -272,12 +282,6 @@
     @include respond(tab-port) {
       height: 17rem;
     }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   &__productsInfo {
@@ -350,66 +354,95 @@
 
   &__selectedProduct {
     display: flex;
+    justify-content: space-between;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      margin-top: 2rem;
+    }
     margin-top: 5rem;
   }
 
   &__images {
     display: flex;
     width: 40%;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
   }
 
   &__thumbnail {
+    margin-right: 1.9rem;
+
     list-style-type: none;
   }
-  &__thumbnailItem {
-    cursor: pointer;
-    width: 6rem;
-    &:not(:last-child) {
-      margin-bottom: 0.5rem;
-    }
-    // border: 5px solid #c6c6c6;
 
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+  &__thumbnailButton {
+    cursor: pointer;
+
+    width: 100%;
+    border: none;
+    background-color: transparent;
+  }
+  &__thumbnailItem {
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
+    }
+    .is-active {
+      border: 5px solid #c6c6c6;
     }
   }
 
   &__imageFull {
     display: flex;
-
-    // div:not(:first-child) {
-    //   display: none;
-    // }
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+    flex-direction: row-reverse;
+    @include respond(tab-port) {
+      width: 50vw;
     }
   }
 
   &__selectedProductDetail {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 58%;
+
+    @include respond(tab-port) {
+      margin-top: 3rem;
+      width: 100%;
+    }
+
     &--title {
       font-size: 2rem;
       color: #434655;
       text-transform: capitalize;
       margin-bottom: 2rem;
+
+      @include respond(tab-land) {
+        font-size: 1.9rem;
+      }
+
+      @include respond(tab-port) {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+      }
     }
     &--size {
       position: relative;
       display: flex;
       flex-direction: column;
+
       svg {
         width: 2rem;
         height: 2rem;
         position: absolute;
         top: 35px;
         left: -25px;
+
+        @include respond(tab-land) {
+          top: 30px;
+          left: -17px;
+        }
       }
 
       label {
@@ -417,6 +450,12 @@
         font-size: 1.6rem;
         color: #828282;
         margin-bottom: 0.7rem;
+        @include respond(tab-land) {
+          font-size: 1.5rem;
+        }
+        @include respond(tab-port) {
+          font-size: 2rem;
+        }
       }
 
       select {
@@ -427,14 +466,16 @@
         color: #434655;
         background: $white;
         border: 1px solid #434655;
+        overflow: scroll;
+
+        @include respond(tab-port) {
+          font-size: 1.7rem;
+        }
 
         &:focus {
           outline: none;
         }
       }
-    }
-
-    &--more {
     }
   }
 
@@ -443,11 +484,23 @@
     justify-content: space-between;
     margin-top: 3.2rem;
 
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
     &--more {
       color: #42445c;
       font-size: 1.6rem;
       font-weight: 500;
       padding: 1.2rem 3rem;
+
+      @include respond(tab-port) {
+        font-size: 2.1rem;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -462,5 +515,9 @@
     font-size: 1.6rem;
     text-transform: uppercase;
     padding: 1.2rem 3rem;
+
+    @include respond(tab-port) {
+      font-size: 2.1rem;
+    }
   }
 }
