@@ -14,7 +14,7 @@ const MenuMobileUser = () => {
 
   return (
     <div className="menuMobile__user">
-      <Link to="/">Account</Link>
+      <Link to="/account/login">Account</Link>
       <Button onClick={clickWishlistButtonHandler}>Wishlist</Button>
       <Link to="/pages/contact">Contact</Link>
     </div>

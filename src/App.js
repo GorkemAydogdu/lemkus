@@ -21,6 +21,7 @@ import About from "./pages/about";
 import Search from "./pages/search";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Brands from "./pages/brands";
 
 import gsap from "gsap";
 
@@ -744,12 +745,14 @@ const routes = [
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
+  { path: "/pages/brands", name: "Brands", Component: Brands },
   { path: "/search", name: "Search", Component: Search },
   { path: "/account/login", name: "Login", Component: Login },
   { path: "/account/register", name: "Register", Component: Register },
 ];
 
 function App() {
+  //CART CONTINUE SHOP TIKLANDIĞINDA KAPATILACAK
   //PROPS ILE DAGITILACAK HER YERDE MEVCUT
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -833,7 +836,24 @@ function App() {
       <Wishlist />
 
       {dimensions.width > 1024 && (
-        <Backdrop className="backdrop backdrop--menu" />
+        <Backdrop
+          onClick={() => {
+            const activeHeaderButton = document.querySelector(
+              ".header__button--active"
+            );
+            activeHeaderButton.classList.remove("header__button--active");
+            setButtonInnerHTML("");
+            gsap.to(".backdrop--menu", {
+              opacity: 0,
+              display: "none",
+              ease: "Expo.easeInOut",
+            });
+            gsap.to("body", {
+              overflow: "visible",
+            });
+          }}
+          className="backdrop backdrop--menu"
+        />
       )}
 
       <Backdrop

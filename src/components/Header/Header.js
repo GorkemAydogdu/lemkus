@@ -213,9 +213,9 @@ const Header = (props) => {
               </a>
             </HeaderListItem>
             <HeaderListItem className="header__item">
-              <a className="header__link" href="/">
+              <Link className="header__link" to="/pages/brands">
                 Brands
-              </a>
+              </Link>
             </HeaderListItem>
           </ul>
         )}

@@ -1,0 +1,52 @@
+.brands {
+  width: 100vw;
+  padding: 2.5rem;
+
+  font-family: "Oswald", sans-serif;
+  line-height: 1;
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9rem;
+    letter-spacing: -5px;
+
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid $black;
+
+    @include respond(tab-port) {
+      letter-spacing: -3px;
+    }
+  }
+
+  &__container {
+    margin-top: 4rem;
+    column-count: 4;
+    column-gap: 3rem;
+
+    @include respond(tab-port) {
+      column-count: 3;
+    }
+    @include respond(phone) {
+      column-count: 2;
+    }
+    @include respond(smallPhone) {
+      column-count: 1;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5rem;
+
+    break-inside: avoid;
+    b {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+    span {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

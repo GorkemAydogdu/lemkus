@@ -25,13 +25,14 @@ const CartContent = (props) => {
         display: "none",
         ease: "Expo.easeInOut",
       });
-      gsap.to("body", {
-        overflow: "visible",
-      });
+      // gsap.to("body", {
+      //   overflow: "visible",
+      // });
     }
   }, [uiCtx, props]);
 
   function closeButtonHandler() {
+    document.body.style.overflow = "visible";
     uiCtx.toggleCart();
     props.cartRef.current.style.transform = "translateX(100%)";
   }

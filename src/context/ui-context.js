@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const UIContext = React.createContext({
   menuIsActive: false,
@@ -18,6 +19,12 @@ export const UIContextProvider = (props) => {
   const [locationChanged, setLocationChanged] = useState(false);
 
   const [wishlistIsActive, setWishlistIsActive] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuIsActive(false);
+  }, [location]);
 
   const toggleMenuHandler = () => {
     setMenuIsActive((prevState) => !prevState);
