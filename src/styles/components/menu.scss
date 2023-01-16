@@ -200,11 +200,20 @@
   &__user {
     display: inline-flex;
     width: 30rem;
+    align-items: center;
     justify-content: space-between;
 
     margin-top: 6rem;
 
-    a {
+    button {
+      font-family: inherit;
+      background-color: transparent;
+      border: none;
+    }
+
+    a,
+    button {
+      cursor: pointer;
       font-size: 2rem;
       color: inherit;
     }

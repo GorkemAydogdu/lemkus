@@ -48,8 +48,8 @@ const Wishlist = () => {
           <div className="wishlist__detail">
             <WishlistHeader />
             {/* <WishlistEmpty /> */}
-            {/* <WishlistContent /> */}
-            <WishlistSelectedDetail />
+            <WishlistContent />
+            {/* <WishlistSelectedDetail /> */}
             <div
               ref={bgRef}
               onClick={closeButtonHandler}
