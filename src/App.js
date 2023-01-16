@@ -19,6 +19,8 @@ import TsCs from "./pages/terms-and-conditions";
 import Contact from "./pages/contact";
 import About from "./pages/about";
 import Search from "./pages/search";
+import Login from "./pages/login";
+import Register from "./pages/register";
 
 import gsap from "gsap";
 
@@ -743,6 +745,8 @@ const routes = [
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
   { path: "/search", name: "Search", Component: Search },
+  { path: "/account/login", name: "Login", Component: Login },
+  { path: "/account/register", name: "Register", Component: Register },
 ];
 
 function App() {

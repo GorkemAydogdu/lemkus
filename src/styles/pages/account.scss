@@ -1,0 +1,120 @@
+.account {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: "Oswald", sans-serif;
+
+  line-height: 1;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: -2px;
+    margin-bottom: 3rem;
+
+    @include respond(tab-port) {
+      font-size: 4.5rem;
+      letter-spacing: 0px;
+    }
+  }
+  &__error {
+    font-size: 1.8rem;
+    color: #c30808;
+
+    @include respond(tab-port) {
+      font-size: 2.3rem;
+    }
+  }
+  &__form,
+  &__action {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: 1rem;
+    gap: 2rem;
+
+    @include respond(tab-port) {
+      padding: 0 2.5rem;
+      width: 100%;
+    }
+  }
+
+  &__email,
+  &__password,
+  &__firstName,
+  &__lastName {
+    line-height: 200%;
+    border: none;
+    border-bottom: 1px solid $black;
+    color: $black;
+    font-size: 1.6rem;
+    padding: 0.3rem;
+
+    @include respond(tab-port) {
+      font-size: 2.1rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__signIn,
+  &__submit {
+    cursor: pointer;
+    margin: 3rem 0;
+    background-color: $yellow;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 14rem;
+    height: 4.5rem;
+
+    @include respond(tab-port) {
+      width: 17rem;
+      height: 5rem;
+    }
+  }
+
+  &__signUp {
+    display: flex;
+    align-self: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: $black;
+
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+    }
+  }
+  &__forgot {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $black;
+
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      font-size: 2.1rem;
+    }
+  }
+  &__forgotForm {
+    display: flex;
+    flex-direction: column;
+    transition: clip-path 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    clip-path: inset(0% 0% 100% 0);
+  }
+}
+
+.showForm {
+  clip-path: inset(0% 0% 0% 0%);
+}
