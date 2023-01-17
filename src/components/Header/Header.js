@@ -45,6 +45,7 @@ const Header = (props) => {
   useEffect(() => {
     //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
 
+    //DÜZELTİLECEK CONTEXT'DEN KONTROL EDİLECEK
     if (location.pathname !== "/") {
       setLocationChanged(true);
     } else {
@@ -208,9 +209,9 @@ const Header = (props) => {
             </HeaderListItem>
             {content}
             <HeaderListItem className="header__item">
-              <a className="header__link" href="/">
+              <Link className="header__link" to="/blogs/news">
                 Culture
-              </a>
+              </Link>
             </HeaderListItem>
             <HeaderListItem className="header__item">
               <Link className="header__link" to="/pages/brands">

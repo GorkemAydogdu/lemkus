@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 
+import Button from "../UI/Button";
+
 const CultureItem = (props) => {
   const imageRef = useRef();
   const mouseEnterHandler = () => {
@@ -20,6 +22,10 @@ const CultureItem = (props) => {
         >
           <img ref={imageRef} src={props.image} alt={props.name} />
         </a>
+        <Button type="button" className="culture__date">
+          <span>Releases -</span>
+          <span>&nbsp;28.12.22</span>
+        </Button>
       </div>
       <a
         onMouseEnter={mouseEnterHandler}

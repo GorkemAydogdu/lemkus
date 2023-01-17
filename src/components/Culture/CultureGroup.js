@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import { Link } from "react-router-dom";
 import CultureItem from "./CultureItem";
 
 //Splidejs
@@ -73,12 +74,12 @@ const CultureGroup = () => {
           ))}
         </div>
       </div>
-      <a
-        href="/"
+      <Link
+        to="/blogs/news"
         className="btn-hover culture__viewAll culture__viewAll--mobile"
       >
         View All
-      </a>
+      </Link>
     </div>
   );
 };

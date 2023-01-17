@@ -22,6 +22,7 @@ import Search from "./pages/search";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Brands from "./pages/brands";
+import News from "./pages/news";
 
 import gsap from "gsap";
 
@@ -749,6 +750,7 @@ const routes = [
   { path: "/search", name: "Search", Component: Search },
   { path: "/account/login", name: "Login", Component: Login },
   { path: "/account/register", name: "Register", Component: Register },
+  { path: "/blogs/news", name: "News", Component: News },
 ];
 
 function App() {
@@ -770,7 +772,8 @@ function App() {
   useEffect(() => {
     if (
       location.pathname === "/pages/contact" ||
-      location.pathname === "/pages/about"
+      location.pathname === "/pages/about" ||
+      location.pathname === "/blogs/news"
     ) {
       uiCtx.onChanged();
       document.body.style.backgroundColor = "#191919";

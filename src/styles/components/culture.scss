@@ -56,6 +56,10 @@
     padding: 0 2.5rem !important;
   }
 
+  .dark &__item--title {
+    color: $white;
+  }
+
   &__item {
     padding-bottom: 6rem;
     border-bottom: 1px solid $black;
@@ -110,13 +114,19 @@
   }
 
   &__link {
+    display: flex;
     width: 100%;
     height: 100%;
+  }
+
+  .dark &__image {
+    border-color: $white;
   }
 
   &__image {
     display: flex;
     overflow: hidden;
+    position: relative;
     border: 1px solid $black;
 
     img {
@@ -157,6 +167,53 @@
       @media only screen and (max-width: 1025px) {
         display: inline-flex;
         margin-top: 2.5rem;
+      }
+    }
+  }
+
+  &__date {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    background-color: $white;
+    border: 1px solid $black;
+    padding: 1rem 4rem;
+
+    cursor: text;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 2rem;
+    border-radius: 50px;
+  }
+
+  &__list {
+    margin: 2.5rem;
+    list-style: none;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(smallPhone) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__newsItem {
+    width: 100% !important;
+
+    &--title {
+      @include respond(tab-port) {
+        font-size: 3.5rem !important;
+      }
+      @include respond(phone) {
+        font-size: 3rem !important;
+      }
+      @include respond(smallPhone) {
+        font-size: 4rem !important;
       }
     }
   }

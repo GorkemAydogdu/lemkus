@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 //gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,10 +46,10 @@ const CultureHeader = () => {
         <span>R</span>
         <span>E</span>
       </span>
-      <a
+      <Link
         onMouseEnter={mouseEnterHandler}
         onMouseLeave={mouseLeaveHandler}
-        href="/"
+        to="/blogs/news"
         className="btn-hover culture__viewAll culture__viewAll--desktop"
       >
         <span ref={viewAllStatic} className="static">
@@ -58,7 +59,7 @@ const CultureHeader = () => {
           VIEW ALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW
           ALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
-      </a>
+      </Link>
     </div>
   );
 };
