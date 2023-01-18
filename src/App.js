@@ -23,6 +23,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Brands from "./pages/brands";
 import News from "./pages/news";
+import NewsDetail from "./pages/newsDetail";
 
 import gsap from "gsap";
 
@@ -751,6 +752,11 @@ const routes = [
   { path: "/account/login", name: "Login", Component: Login },
   { path: "/account/register", name: "Register", Component: Register },
   { path: "/blogs/news", name: "News", Component: News },
+  {
+    path: "/blogs/news/detail",
+    name: "NewsDetail",
+    Component: NewsDetail,
+  },
 ];
 
 function App() {

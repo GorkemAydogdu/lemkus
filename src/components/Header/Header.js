@@ -45,7 +45,6 @@ const Header = (props) => {
   useEffect(() => {
     //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
 
-    //DÜZELTİLECEK CONTEXT'DEN KONTROL EDİLECEK
     if (location.pathname !== "/") {
       setLocationChanged(true);
     } else {
