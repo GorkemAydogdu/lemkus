@@ -1,16 +1,93 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
+
+import gsap from "gsap";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
+import Culture from "../components/Culture/Culture";
 
 const NewsDetail = () => {
+  useEffect(() => {
+    gsap.from(".newsDetail__title .line span", {
+      y: "110%",
+      opacity: 0,
+      stagger: 0.03,
+      duration: 0.9,
+    });
+  }, []);
+
   const smoothScrollWrapper = useRef();
   return (
     <SmoothScrollWrapper className="pageSmooth" ref={smoothScrollWrapper}>
       <div className="newsDetail">
         <div className="newsDetail__header">
           <h1 className="newsDetail__title">
-            ROLO ROZAY X AIR JORDAN 2: THE 35TH ANNIVERSARY
+            <span className="line">
+              <span>R</span>
+              <span>O</span>
+              <span>L</span>
+              <span>O</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>R</span>
+              <span>O</span>
+              <span>Z</span>
+              <span>A</span>
+              <span>Y</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>X</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>A</span>
+              <span>I</span>
+              <span>R</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>J</span>
+              <span>O</span>
+              <span>R</span>
+              <span>D</span>
+              <span>A</span>
+              <span>N</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>2</span>
+              <span>:</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>T</span>
+              <span>H</span>
+              <span>E</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>3</span>
+              <span>5</span>
+              <span>T</span>
+              <span>H</span>
+              <span>&nbsp;</span>
+            </span>
+            <span className="line">
+              <span>A</span>
+              <span>N</span>
+              <span>N</span>
+              <span>I</span>
+              <span>V</span>
+              <span>E</span>
+              <span>R</span>
+              <span>S</span>
+              <span>A</span>
+              <span>R</span>
+              <span>Y</span>
+            </span>
+            {/* ROLO ROZAY X AIR JORDAN 2: THE 35TH ANNIVERSARY */}
           </h1>
           <ul className="newsDetail__infos">
             <li className="newsDetail__info">
@@ -73,14 +150,18 @@ const NewsDetail = () => {
             well-refined and researched sneaker obsession.
           </p>
           <div className="newsDetail__sidetoside">
-            <img
-              src="https://cdn.accentuate.io/588768739580/1672214298300/Lemkus_Rolo_Rozay_Air_Jordan_2_Retro_630x668.jpg?v=1672214298300"
-              alt="Air Jordan 2 Retro"
-            />
-            <img
-              src="https://cdn.accentuate.io/588768739580/1672214309637/1_Lemkus_Rolo_Rozay_Air_Jordan_2_Retro_630x668.jpg?v=1672214309637"
-              alt="Air Jordan 2 Retro"
-            />
+            <div className="newsDetail__sidetoside--side">
+              <img
+                src="https://cdn.accentuate.io/588768739580/1672214298300/Lemkus_Rolo_Rozay_Air_Jordan_2_Retro_630x668.jpg?v=1672214298300"
+                alt="Air Jordan 2 Retro"
+              />
+            </div>
+            <div className="newsDetail__sidetoside--side">
+              <img
+                src="https://cdn.accentuate.io/588768739580/1672214309637/1_Lemkus_Rolo_Rozay_Air_Jordan_2_Retro_630x668.jpg?v=1672214309637"
+                alt="Air Jordan 2 Retro"
+              />
+            </div>
           </div>
           <p className="newsDetail__heading">
             YOU’RE A SNEAKER OG - CAN YOU BRIEFLY INTRODUCE YOUR LOVE FOR
@@ -174,6 +255,7 @@ const NewsDetail = () => {
           </div>
         </div>
       </div>
+      <Culture />
       <Footer />
     </SmoothScrollWrapper>
   );

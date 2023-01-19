@@ -3,13 +3,15 @@ import React, { useRef, useEffect } from "react";
 //gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CultureHeader = () => {
   const viewAllStatic = useRef();
   const viewAllHover = useRef();
+
+  const location = useLocation();
 
   useEffect(() => {
     gsap.from(".culture__title span", {
@@ -38,13 +40,30 @@ const CultureHeader = () => {
   return (
     <div className="culture__header">
       <span className="culture__title">
-        <span>C</span>
-        <span>U</span>
-        <span>L</span>
-        <span>T</span>
-        <span>U</span>
-        <span>R</span>
-        <span>E</span>
+        {location.pathname === "/" ? (
+          <>
+            <span>C</span>
+            <span>U</span>
+            <span>L</span>
+            <span>T</span>
+            <span>U</span>
+            <span>R</span>
+            <span>E</span>
+          </>
+        ) : (
+          <>
+            <span>M</span>
+            <span>O</span>
+            <span>R</span>
+            <span>E</span>
+            <span>&nbsp;</span>
+            <span>P</span>
+            <span>O</span>
+            <span>S</span>
+            <span>T</span>
+            <span>S</span>
+          </>
+        )}
       </span>
       <Link
         onMouseEnter={mouseEnterHandler}
