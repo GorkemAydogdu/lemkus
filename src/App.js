@@ -24,6 +24,7 @@ import Register from "./pages/register";
 import Brands from "./pages/brands";
 import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
+import Launches from "./pages/launches";
 
 import gsap from "gsap";
 
@@ -223,6 +224,110 @@ const DUMMY_DATA = {
           },
         ],
       },
+    },
+  ],
+  launches: [
+    {
+      id: 1,
+      name: "Mt580 Lifestyle",
+      price: "R 2,699.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
+      sizes: [7, 8, 9, 10],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/MT580RTB-1.png?v=1673421398",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/MT580RTB-2.png?v=1673421398",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Air Jordan 2 Retro",
+      price: "R 3,699.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-1.png?v=1671455949",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-2.png?v=1671455949",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Air Jordan 1 Retro Hi OG [W]",
+      price: "R 3,399.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [3, 4, 5, 6, 7, 8],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-1.png?v=1671354786",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-2.png?v=1671354786",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Air Jordan 6 Retro",
+      price: "R 3,699.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [10, 11, 12],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2836-001-1.png?v=1671545564",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2836-001-2.png?v=1671545564",
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "Air Jordan 5 Retro GTX [W]",
+      price: "R 3,899.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [3, 4, 5, 6, 7, 8],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR0092-001-1.png?v=1667822837",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR0092-001-2.png?v=1667822837",
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: "Dunk Hi Retro SE",
+      price: "R 2,399.00",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [5.5, 6, 7, 8, 9, 10, 12],
+      image: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DQ7680-300-1.png?v=1670320252",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DQ7680-300-2.png?v=1670320252",
+        },
+      ],
     },
   ],
   products: [
@@ -833,6 +938,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
+        <Route
+          path="/pages/launches"
+          element={<Launches launches={DUMMY_DATA.launches} />}
+        />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}

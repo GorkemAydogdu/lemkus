@@ -202,9 +202,9 @@ const Header = (props) => {
         {dimensions.width > 1024 && (
           <ul className="header__list">
             <HeaderListItem className="header__item">
-              <a className="header__link" href="/">
+              <Link className="header__link" to="/pages/launches">
                 Launches
-              </a>
+              </Link>
             </HeaderListItem>
             {content}
             <HeaderListItem className="header__item">
