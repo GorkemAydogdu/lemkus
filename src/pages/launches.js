@@ -19,7 +19,6 @@ const Launches = (props) => {
       speed: 800,
       arrows: false,
       pagination: false,
-     
     });
     splide.mount();
   }, []);
@@ -32,10 +31,13 @@ const Launches = (props) => {
           </h1>
           <div className="splide launches__group">
             <div className="splide__track">
-              <ul className="splide__list launches__list">
+              <ul className="splide__list launches__list launches__list--variant">
                 {/* https://stackoverflow.com/a/42374933/19191132 */}
                 {props.launches.slice(0, 5).map((item) => (
-                  <li key={item.id} className="splide__slide launches__item">
+                  <li
+                    key={item.id}
+                    className="splide__slide launches__item launches__item--variant"
+                  >
                     <div className="products__container">
                       <a href="/" className="products__image">
                         <div className="products__logo">
@@ -84,6 +86,43 @@ const Launches = (props) => {
               price={item.price}
             />
           ))}
+        <ul className="launches__list launches__list--all">
+          {props.launches.map((item) => (
+            <li key={item.id} className="launches__item launches__item--all">
+              <div className="products__container">
+                <a href="/" className="products__image">
+                  <div className="products__logo">
+                    <img key={item.id} src={item.logo} alt={item.name} />
+                  </div>
+                  {item.image.map((img) => (
+                    <img
+                      key={img.id}
+                      className={`products__image--${img.id}`}
+                      src={img.url}
+                      alt={props.name}
+                    />
+                  ))}
+                </a>
+
+                <div className="products__infos">
+                  <div className="products__container--size">
+                    {item.sizes.map((size) => (
+                      <a key={size} href="/">
+                        {size}
+                      </a>
+                    ))}
+                  </div>
+                  <a href="/" className="products__container--title">
+                    {item.name}
+                  </a>
+                  <span className="products__container--price">
+                    {item.price}
+                  </span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
       <Footer />
     </SmoothScrollWrapper>
