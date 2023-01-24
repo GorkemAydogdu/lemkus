@@ -6,7 +6,7 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
-import ProductsCard from "../components/Products/ProductsCard";
+import ProductsCardAlternative from "../components/Products/ProductsCardAlternative";
 import Footer from "../components/Footer/Footer";
 
 const Launches = (props) => {
@@ -15,18 +15,11 @@ const Launches = (props) => {
   useEffect(() => {
     let splide = new Splide(".launches__group", {
       drag: "free",
-      perPage: 2,
+      perPage: 1,
       speed: 800,
       arrows: false,
       pagination: false,
-      breakpoints: {
-        1024: {
-          perPage: 2,
-        },
-        500: {
-          perPage: 1,
-        },
-      },
+     
     });
     splide.mount();
   }, []);
@@ -80,7 +73,17 @@ const Launches = (props) => {
             </div>
           </div>
         </div>
-        <ProductsCard />
+
+        {props.launches
+          .filter((item) => item.id === 2)
+          .map((item) => (
+            <ProductsCardAlternative
+              name={item.name}
+              logo={item.logo}
+              image={item.image[0]}
+              price={item.price}
+            />
+          ))}
       </div>
       <Footer />
     </SmoothScrollWrapper>

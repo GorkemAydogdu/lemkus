@@ -257,6 +257,14 @@
 
   @include respond(tab-port) {
     flex-direction: column;
+    background-color: #eaeaea;
+    padding: 2rem 0;
+  }
+
+  &__alternative {
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left,
@@ -267,31 +275,23 @@
     align-items: center;
   }
 
-  &__left {
+  &__link {
+    width: 65%;
+
     @include respond(tab-port) {
-      background-color: #eaeaea;
+      width: 50%;
     }
-  }
 
-  &__right {
-    a {
-      width: 65%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-      @include respond(tab-port) {
-        width: 50%;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      @media only screen and (min-width: 1025px) {
-        &:hover img {
-          transform: scale(1.03);
-        }
+    @media only screen and (min-width: 1025px) {
+      &:hover img {
+        transform: scale(1.03);
       }
     }
   }
@@ -301,20 +301,27 @@
   }
 
   &__title {
-    font-size: 8rem;
+    font-size: 5vw;
     font-weight: 700;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     text-transform: uppercase;
     line-height: 1;
+    text-align: center;
     color: $black;
     transition: color 0.2s ease-out;
 
-    @include respond(phone) {
-      font-size: 7rem;
+    @include respond(tab-land) {
+      font-size: 6vw;
     }
 
-    @media only screen and (max-width: 250px) {
-      font-size: 5rem;
+    @include respond(tab-port) {
+      letter-spacing: -1px;
+      font-size: 7vw;
+    }
+
+    @include respond(phone) {
+      letter-spacing: 0;
+      font-size: 8vw;
     }
 
     @media only screen and (min-width: 1025px) {

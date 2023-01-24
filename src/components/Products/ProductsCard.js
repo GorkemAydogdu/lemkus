@@ -16,7 +16,7 @@ const ProductsCard = () => {
         <span className="products-card__price">R 3,399.00</span>
       </div>
       <div className="products-card__right products-card__width65">
-        <a href="/">
+        <a className="products-card__link" href="/">
           <img
             src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM0028-002-1.png?v=1669119046"
             alt=""

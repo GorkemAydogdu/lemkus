@@ -6,6 +6,10 @@
     position: relative;
     display: flex;
     align-items: center;
+
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__title {
@@ -35,6 +39,10 @@
 }
 .launches__group .splide__track {
   padding: 0 25vw !important;
+
+  @include respond(tab-land) {
+    padding: 0 22vw !important;
+  }
 }
 
 .launches .products__container {
@@ -42,7 +50,9 @@
 }
 
 .launches .products-card {
-  border-top: 1px solid $black;
+  @media only screen and (min-width: 1025px) {
+    border-top: 1px solid $black;
+  }
 }
 
 @keyframes titleAnimation {
