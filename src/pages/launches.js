@@ -7,6 +7,7 @@ import "@splidejs/splide/css";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import ProductsCardAlternative from "../components/Products/ProductsCardAlternative";
+import Culture from "../components/Culture/Culture";
 import Footer from "../components/Footer/Footer";
 
 const Launches = (props) => {
@@ -124,6 +125,7 @@ const Launches = (props) => {
           ))}
         </ul>
       </div>
+      <Culture />
       <Footer />
     </SmoothScrollWrapper>
   );

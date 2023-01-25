@@ -269,7 +269,9 @@
   }
 
   &__alternative .products-card__left {
-    border-right: 1px solid $black;
+    @media only screen and (min-width: 1025px) {
+      border-right: 1px solid $black;
+    }
   }
   &__alternative &__right {
     border-left: 0;

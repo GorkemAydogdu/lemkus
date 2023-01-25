@@ -6,6 +6,7 @@ import UIContext from "../../context/ui-context";
 import Button from "../UI/Button";
 
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 const tl = gsap.timeline();
 
 const MenuMobile = (props) => {
@@ -122,25 +123,25 @@ const MenuMobile = (props) => {
     >
       <ul className="menuMobile__list">
         <li className="menuMobile__item">
-          <a href="/" className="menuMobile__link">
+          <Link to="/" className="menuMobile__link">
             Home
-          </a>
+          </Link>
         </li>
         <li className="menuMobile__item">
-          <a href="/" className="menuMobile__link">
+          <Link to="/pages/launches" className="menuMobile__link">
             Launches
-          </a>
+          </Link>
         </li>
         {content}
         <li className="menuMobile__item">
-          <a href="/" className="menuMobile__link">
+          <Link to="/blogs/news" className="menuMobile__link">
             Culture
-          </a>
+          </Link>
         </li>
         <li className="menuMobile__item">
-          <a href="/" className="menuMobile__link">
+          <Link to="/pages/brands" className="menuMobile__link">
             Brands
-          </a>
+          </Link>
         </li>
       </ul>
       <MenuMobileUser />

@@ -44,6 +44,10 @@
     &--variant {
       border: 1px solid $black;
       width: 65% !important;
+
+      @include respond(tab-land) {
+        width: 55% !important;
+      }
     }
     &--all {
       border-bottom: 1px solid $black;

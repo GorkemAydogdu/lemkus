@@ -3,15 +3,13 @@ import React, { useRef, useEffect } from "react";
 //gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CultureHeader = () => {
   const viewAllStatic = useRef();
   const viewAllHover = useRef();
-
-  const location = useLocation();
 
   useEffect(() => {
     gsap.from(".culture__title span", {
@@ -40,17 +38,8 @@ const CultureHeader = () => {
   return (
     <div className="culture__header">
       <span className="culture__title">
-        {location.pathname === "/" ? (
-          <>
-            <span>C</span>
-            <span>U</span>
-            <span>L</span>
-            <span>T</span>
-            <span>U</span>
-            <span>R</span>
-            <span>E</span>
-          </>
-        ) : (
+        {/* https://stackoverflow.com/a/57456211/19191132 */}
+        {window.location.pathname.includes("/blogs/news") === true ? (
           <>
             <span>M</span>
             <span>O</span>
@@ -62,6 +51,16 @@ const CultureHeader = () => {
             <span>S</span>
             <span>T</span>
             <span>S</span>
+          </>
+        ) : (
+          <>
+            <span>C</span>
+            <span>U</span>
+            <span>L</span>
+            <span>T</span>
+            <span>U</span>
+            <span>R</span>
+            <span>E</span>
           </>
         )}
       </span>
