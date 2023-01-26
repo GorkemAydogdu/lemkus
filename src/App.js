@@ -30,6 +30,7 @@ import gsap from "gsap";
 
 //styles
 import "./styles/App.scss";
+import Collection from "./pages/collection";
 
 const DUMMY_DATA = {
   menu: [
@@ -936,6 +937,7 @@ function App() {
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
 
+      <Collection />
       <Routes>
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         <Route

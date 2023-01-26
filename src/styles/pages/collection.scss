@@ -1,0 +1,126 @@
+.collection {
+  position: relative;
+  z-index: 9999;
+  background-color: $soft;
+  height: calc(100vh - 6rem);
+
+  font-family: "Oswald", sans-serif;
+  line-height: 1;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2.5rem;
+  }
+
+  &__title {
+    font-size: 8rem;
+    text-transform: uppercase;
+  }
+
+  &__searchBox {
+    width: 100%;
+    margin: 4rem 0 3rem;
+    position: relative;
+    input {
+      color: $black;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $black;
+      width: 100%;
+      font-size: 1.6rem;
+      padding: 0.7rem 3rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__searchButton {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 8px;
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+  &__action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__hide {
+    cursor: pointer;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__filter {
+    width: 30vw;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // &__totalProducts {
+  //   span {
+  //   }
+  // }
+
+  &__showSize {
+    select {
+      height: 4rem;
+      background-color: transparent;
+      padding: 0 1rem;
+      font-size: 1.6rem;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__sortBy {
+    position: relative;
+    label {
+      cursor: pointer;
+    }
+  }
+  &__sortOption {
+    display: none;
+    flex-direction: column;
+    background-color: $white;
+    padding: 1rem 0;
+    margin-top: 1rem;
+
+    box-shadow: 0 0 0 1px #3f3f440d, 0 1px 3px #3f3f4426;
+
+    min-width: 22rem;
+    width: 100%;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    span {
+      font-size: 1.4rem;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+  }
+}
