@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 // import { ReactComponent as SearchIcon } from "../assets/search.svg";
 
 const Collection = () => {
-  const smoothScrollWrapper = useRef();
+  // const smoothScrollWrapper = useRef();
   return (
     <></>
     // <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
