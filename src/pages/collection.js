@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 // import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 // import Footer from "../components/Footer/Footer";
