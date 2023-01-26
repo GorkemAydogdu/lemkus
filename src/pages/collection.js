@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 
-import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
-import Footer from "../components/Footer/Footer";
-import Button from "../components/UI/Button";
+// import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
+// import Footer from "../components/Footer/Footer";
+// import Button from "../components/UI/Button";
 
-import { ReactComponent as SearchIcon } from "../assets/search.svg";
+// import { ReactComponent as SearchIcon } from "../assets/search.svg";
 
 const Collection = () => {
   const smoothScrollWrapper = useRef();
