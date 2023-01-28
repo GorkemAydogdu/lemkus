@@ -1,5 +1,4 @@
 .collection {
-  display: none;
   position: relative;
   z-index: 9999;
   background-color: $soft;
@@ -12,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 2.5rem;
+    padding: 3rem 2.5rem 1.5rem;
   }
 
   &__title {
@@ -65,7 +64,7 @@
     border: none;
   }
 
-  &__filter {
+  &__filterList {
     width: 30vw;
     font-size: 2rem;
     display: flex;
@@ -122,6 +121,78 @@
       &:hover {
         background-color: #f7f7f7;
       }
+    }
+  }
+
+  &__content {
+    border-top: 1px solid $black;
+  }
+  &__filterProduct {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem;
+    width: 33.33vw;
+    &--item {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid $black;
+
+      &--active svg {
+        transform: rotate(-90deg) !important;
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        transform: rotate(90deg);
+      }
+    }
+    &--title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 2rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    margin-top: 1.5rem;
+    list-style: none;
+    // display: none;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.7rem 0;
+
+    &--active &--checkbox {
+      background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' class='Polaris-Icon__Svg' focusable='false' aria-hidden='true'%3E%3Cpath fill='%235a5a5a' d='M8.315 13.859l-3.182-3.417a.506.506 0 0 1 0-.684l.643-.683a.437.437 0 0 1 .642 0l2.22 2.393 4.942-5.327a.436.436 0 0 1 .643 0l.643.684a.504.504 0 0 1 0 .683l-5.91 6.35a.437.437 0 0 1-.642 0'%3E%3C/path%3E%3C/svg%3E")
+        center;
+      background-size: 110%;
+    }
+
+    &:hover &--checkbox {
+      border-color: #5a5a5a;
+    }
+
+    &--checkbox {
+      width: 1.6rem;
+      height: 1.6rem;
+      border: 1px solid #c4cdd5;
+      border-radius: 50%;
+      margin-right: 0.7rem;
+    }
+    &--brand {
+      font-size: 1.6rem;
+      margin-right: auto;
+    }
+    &--count {
+      font-size: 1.4rem;
     }
   }
 }
