@@ -1,17 +1,16 @@
 .collection {
   position: relative;
   z-index: 9999;
-  background-color: $soft;
-  height: calc(100vh - 6rem);
 
   font-family: "Oswald", sans-serif;
   line-height: 1;
 
   &__header {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 2.5rem 1.5rem;
+    padding: 3rem 2.5rem 2rem;
   }
 
   &__title {
@@ -21,7 +20,7 @@
 
   &__searchBox {
     width: 100%;
-    margin: 4rem 0 3rem;
+    margin: 4rem 0 2rem;
     position: relative;
     input {
       color: $black;
@@ -50,6 +49,7 @@
     }
   }
   &__action {
+    margin-top: 15rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -125,13 +125,18 @@
   }
 
   &__content {
+    // width: 100vw;
+    display: flex;
     border-top: 1px solid $black;
   }
   &__filterProduct {
     display: flex;
     flex-direction: column;
     margin: 2.5rem;
-    width: 33.33vw;
+    min-width: 33.33vw;
+    height: max-content;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+
     &--item {
       display: flex;
       flex-direction: column;
@@ -195,4 +200,27 @@
       font-size: 1.4rem;
     }
   }
+
+  &__productsList {
+    border-left: 1px solid $black;
+    // display: flex;
+    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  }
+
+  &__productsItem {
+    width: 100% !important;
+    border-bottom: 1px solid $black;
+  }
+}
+.is-filter .collection__filterProduct {
+  transform: translateX(-110%);
+}
+
+.is-filter .collection__productsList {
+  grid-template-columns: repeat(3, 33.33%);
+  transform: translateX(-36.3vw);
+  width: 100vw;
 }
