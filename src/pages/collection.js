@@ -13,20 +13,28 @@ gsap.registerPlugin(Flip);
 
 const Collection = () => {
   const smoothScrollWrapper = useRef();
-  const filterRef = useRef();
+  const collectionContentRef = useRef();
 
   function closeFilterButtonHandler() {
-    filterRef.current.classList.toggle("is-filter");
+    const state = Flip.getState(
+      ".collection__productsList, .collection__productsItem"
+    );
+    console.log(state);
 
-    // const state = Flip.getState(
-    //   ".collections__productsList, .collections__group, .collection__productItem"
-    // );
+    collectionContentRef.current.classList.toggle("is-filter");
+    gsap.to(".is-filter .collection__filterProduct", {
+      duration: 0.5,
+      ease: "expo.inOut",
+      x: "-110%",
+    });
 
-    // Flip.from(state, {
-    //   absolute: true,
-    //   duration: 0.5,
-    //   ease: "expo.inOut",
-    // });
+    Flip.from(state, {
+      absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+      duration: 5,
+      // stagger: 0.1,
+      ease: "expo.inOut",
+      // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc.
+    }).pause(1);
   }
 
   return (
@@ -77,7 +85,7 @@ const Collection = () => {
             </div>
           </div>
         </div>
-        <div ref={filterRef} className="collection__content">
+        <div ref={collectionContentRef} className="collection__content">
           <div className="collection__filterProduct">
             <div className="collection__filterProduct--item collection__filterProduct--item--active">
               <span className="collection__filterProduct--title">
