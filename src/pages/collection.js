@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -13,29 +13,39 @@ gsap.registerPlugin(Flip);
 
 const Collection = () => {
   const smoothScrollWrapper = useRef();
+  const tl = useRef();
+  const [filterClicked, setFilterClicked] = useState(false);
   const collectionContentRef = useRef();
 
   function closeFilterButtonHandler() {
     const state = Flip.getState(
       ".collection__productsList, .collection__productsItem"
     );
-    console.log(state);
+
+    setFilterClicked((prevState) => !prevState);
 
     collectionContentRef.current.classList.toggle("is-filter");
-    gsap.to(".is-filter .collection__filterProduct", {
+
+    Flip.from(state, {
+      absolute: true,
+      duration: 0.5,
+      ease: "expo.inOut",
+    });
+  }
+
+  //https://greensock.com/forums/topic/31208-gsap-reverse-not-working-in-react/?do=findComment&comment=155973
+  useEffect(() => {
+    tl.current = gsap.timeline({ paused: true });
+    tl.current.to(".collection__filterProduct", {
       duration: 0.5,
       ease: "expo.inOut",
       x: "-110%",
     });
+  }, []);
 
-    Flip.from(state, {
-      absolute: true, // uses position: absolute during the flip to work around flexbox challenges
-      duration: 5,
-      // stagger: 0.1,
-      ease: "expo.inOut",
-      // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc.
-    }).pause(1);
-  }
+  useEffect(() => {
+    filterClicked ? tl.current.play() : tl.current.reverse();
+  }, [filterClicked]);
 
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
