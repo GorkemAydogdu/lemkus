@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -14,6 +14,7 @@ gsap.registerPlugin(Flip);
 const Collection = () => {
   const smoothScrollWrapper = useRef();
   const tl = useRef();
+  const filterListRef = useRef();
   const [filterClicked, setFilterClicked] = useState(false);
   const collectionContentRef = useRef();
 
@@ -47,6 +48,22 @@ const Collection = () => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
+  useEffect(() => {
+    document.body.addEventListener("click", (event) => {
+      if (!event.target.classList.contains("collection__sortBy")) {
+        if (
+          filterListRef.current.classList.contains(
+            "collection__filterList--active"
+          )
+        ) {
+          filterListRef.current.classList.remove(
+            "collection__filterList--active"
+          );
+        }
+      }
+    });
+  }, []);
+
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collection">
@@ -67,7 +84,8 @@ const Collection = () => {
             >
               Hide Filter
             </Button>
-            <div className="collection__filterList">
+            <Button className="collection__filterBy">Filter By</Button>
+            <div ref={filterListRef} className="collection__filterList">
               <span className="collection__totalProducts">
                 <span>311</span> Products
               </span>
@@ -79,8 +97,15 @@ const Collection = () => {
                   <option value="48">48</option>
                 </select>
               </div>
-              <div className="collection__sortBy">
-                <label htmlFor="sortBy">Date,new to old</label>
+              <Button
+                onClick={() => {
+                  filterListRef.current.classList.toggle(
+                    "collection__filterList--active"
+                  );
+                }}
+                className="collection__sortBy"
+              >
+                Date,new to old
                 <div className="collection__sortOption">
                   <span>Best Selling</span>
                   <span>Alphabetically, A-Z</span>
@@ -91,7 +116,7 @@ const Collection = () => {
                   <span>Date,old to new</span>
                   <span>% Sale off</span>
                 </div>
-              </div>
+              </Button>
             </div>
           </div>
         </div>
@@ -131,6 +156,7 @@ const Collection = () => {
               </ul>
             </div>
           </div>
+
           <ul className="collection__productsList products__list">
             <li className="collection__productsItem products__item">
               <div className="products__container">
