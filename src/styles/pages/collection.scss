@@ -197,6 +197,10 @@
       display: none;
     }
 
+    &--active svg {
+      transform: rotate(-90deg) !important;
+    }
+
     &--item {
       display: flex;
       flex-direction: column;
@@ -204,13 +208,9 @@
       padding: 1.5rem 0;
       border-bottom: 1px solid $black;
 
-      &--active svg {
-        transform: rotate(-90deg) !important;
-      }
-
       svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
         transform: rotate(90deg);
       }
     }
@@ -227,13 +227,21 @@
   &__list {
     margin-top: 1.5rem;
     list-style: none;
-    // display: none;
+    display: none;
+    max-height: 35rem;
+    overflow: scroll;
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+    }
   }
   &__item {
     display: flex;
     align-items: center;
     cursor: pointer;
     padding: 0.7rem 0;
+    line-height: 1;
 
     &--active &--checkbox {
       background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' class='Polaris-Icon__Svg' focusable='false' aria-hidden='true'%3E%3Cpath fill='%235a5a5a' d='M8.315 13.859l-3.182-3.417a.506.506 0 0 1 0-.684l.643-.683a.437.437 0 0 1 .642 0l2.22 2.393 4.942-5.327a.436.436 0 0 1 .643 0l.643.684a.504.504 0 0 1 0 .683l-5.91 6.35a.437.437 0 0 1-.642 0'%3E%3C/path%3E%3C/svg%3E")
@@ -277,6 +285,70 @@
 
     width: 100% !important;
     border-bottom: 1px solid $black;
+  }
+
+  &__menuMobile {
+    font-family: "Oswald", sans-serif;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: $soft;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease-in-out;
+
+    &--button {
+      background-color: transparent;
+      border: 1px solid $black;
+      border-radius: 2px;
+      height: 5rem;
+      margin: 1.5rem;
+      margin-top: auto;
+      font-family: inherit;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__menuMobile &__filterProduct--item {
+    padding: 1.5rem;
+  }
+  &__menuMobile &__item {
+    padding: 1.5rem 0;
+
+    &--checkbox {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 1rem;
+    }
+    &--brand {
+      font-size: 2rem;
+    }
+    &--count {
+      font-size: 1.8rem;
+    }
+  }
+  &__filterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid $black;
+    padding: 1.5rem;
+
+    span {
+      font-size: 2rem;
+    }
+
+    &--close {
+      background-color: transparent;
+      border: 1px solid $black;
+      border-radius: 50%;
+      display: flex;
+    }
   }
 }
 
