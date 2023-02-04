@@ -25,12 +25,12 @@ import Brands from "./pages/brands";
 import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
 import Launches from "./pages/launches";
+import Collection from "./pages/collection";
 
 import gsap from "gsap";
 
 //styles
 import "./styles/App.scss";
-import Collection from "./pages/collection";
 
 const DUMMY_DATA = {
   menu: [
@@ -41,22 +41,39 @@ const DUMMY_DATA = {
         {
           id: 1,
           category: "Collections",
-          items: ["All Sneakers", "Mens", "Womens", "Grade School"],
+          items: [
+            { id: 1, pathname: "/sneakers", name: "All Sneakers" },
+            { id: 2, pathname: "/male-sneakers", name: "Mens" },
+            { id: 3, pathname: "/womens-sneakers", name: "Womens" },
+            {
+              id: 4,
+              pathname: "/kids-grade-school-sneakers",
+              name: "Grade School",
+            },
+          ],
         },
         {
           id: 2,
           category: "Brands",
           items: [
-            "Nike",
-            "Air Jordan",
-            "New Balance",
-            "Adidas",
-            "Converse",
-            "Reebok",
-            "Puma",
-            "Crocs",
-            "Ewing Athletics",
-            "Asics",
+            { id: 1, pathname: "/sneakers/nike", name: "Nike" },
+            { id: 2, pathname: "/sneakers/air-jordan", name: "Air Jordan" },
+            { id: 3, pathname: "/sneakers/new-balance", name: "New Balance" },
+            {
+              id: 4,
+              pathname: "/sneakers/adidas",
+              name: "Adidas",
+            },
+            { id: 5, pathname: "/sneakers/converse", name: "Converse" },
+            { id: 6, pathname: "/sneakers/reebok", name: "Reebok" },
+            { id: 7, pathname: "/sneakers/puma", name: "Puma" },
+            { id: 8, pathname: "/sneakers/crocs", name: "Crocs" },
+            {
+              id: 9,
+              pathname: "/sneakers/ewing-athletics",
+              name: "Ewing Athletics",
+            },
+            { id: 10, pathname: "/sneakers/asics", name: "Asics" },
           ],
         },
       ],
@@ -84,148 +101,148 @@ const DUMMY_DATA = {
         ],
       },
     },
-    {
-      id: 2,
-      name: "Apparel",
-      links: [
-        {
-          id: 1,
-          category: "Collections",
-          items: ["All Apparel", "Mens", "Womens", "Sale"],
-        },
-        {
-          id: 2,
-          category: "Mens",
-          items: [
-            "T-shirts/Tops",
-            "Sweatshirts",
-            "Outerwear",
-            "Bottoms",
-            "Team Sportswear",
-          ],
-        },
-        {
-          id: 3,
-          category: "Womens",
-          items: ["T-shirts/Tops", "Sweatshirts", "Outerwear", "Bottoms"],
-        },
-      ],
-      featured: {
-        name: "Featured",
-        items: [
-          {
-            id: 1,
-            name: "Air Jordan PSG Tee",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/PSG-Apparel-Featured-Dropdown_Images_556x508-Mens-Apparel.png?v=1631001892",
-          },
-          {
-            id: 2,
-            name: "Nsw Icon GX Hoodie",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Apparel-Featured-Dropdown_Images_556x508-Wmns-Apparel.png?v=1627889788",
-          },
-        ],
-      },
-    },
-    {
-      id: 3,
-      name: "Kids",
-      links: [
-        {
-          id: 1,
-          category: "Collections",
-          items: ["All Kids", "All Kids Sneakers", "All Kids Apparel"],
-        },
-        {
-          id: 2,
-          category: "Brands",
-          items: [
-            "Nike",
-            "Air Jordan",
-            "Adidas",
-            "Converse",
-            "Crocs",
-            "New Balance",
-          ],
-        },
-        {
-          id: 3,
-          category: "Apparel",
-          items: [
-            "T-Shirts/Tops",
-            "Sweatshirts",
-            "Outerwear",
-            "Bottoms",
-            "Infant Sets",
-            "Team Sportswear",
-          ],
-        },
-      ],
-      featured: {
-        name: "Featured",
-        items: [
-          {
-            id: 1,
-            name: "Air Max 1 QS (TD)",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-1.jpg?v=1627890516",
-          },
-          {
-            id: 2,
-            name: "Crocs x Paw Patrol",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-2.png?v=1627890527",
-          },
-        ],
-      },
-    },
-    {
-      id: 4,
-      name: "Accessories",
-      links: [
-        {
-          id: 1,
-          category: "Collections",
-          items: ["All Accessories"],
-        },
-        {
-          id: 2,
-          category: "Types",
-          items: [
-            "Headwear",
-            "Socks",
-            "Bags",
-            "Sneaker Care",
-            "Crocs Jibbitz",
-            "Sunglasses",
-          ],
-        },
-      ],
-      featured: {
-        name: "Featured",
-        items: [
-          {
-            id: 1,
-            name: "The North Face Headwear",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-1.png?v=1627892249",
-          },
-          {
-            id: 2,
-            name: "Nike Nsw Crossbody",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-2.png?v=1627892249",
-          },
-          {
-            id: 3,
-            name: "Nike NSW Everyday Crew",
-            image:
-              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-3.png?v=1627892835",
-          },
-        ],
-      },
-    },
+    // {
+    //   id: 2,
+    //   name: "Apparel",
+    //   links: [
+    //     {
+    //       id: 1,
+    //       category: "Collections",
+    //       items: ["All Apparel", "Mens", "Womens", "Sale"],
+    //     },
+    //     {
+    //       id: 2,
+    //       category: "Mens",
+    //       items: [
+    //         "T-shirts/Tops",
+    //         "Sweatshirts",
+    //         "Outerwear",
+    //         "Bottoms",
+    //         "Team Sportswear",
+    //       ],
+    //     },
+    //     {
+    //       id: 3,
+    //       category: "Womens",
+    //       items: ["T-shirts/Tops", "Sweatshirts", "Outerwear", "Bottoms"],
+    //     },
+    //   ],
+    //   featured: {
+    //     name: "Featured",
+    //     items: [
+    //       {
+    //         id: 1,
+    //         name: "Air Jordan PSG Tee",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/PSG-Apparel-Featured-Dropdown_Images_556x508-Mens-Apparel.png?v=1631001892",
+    //       },
+    //       {
+    //         id: 2,
+    //         name: "Nsw Icon GX Hoodie",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Apparel-Featured-Dropdown_Images_556x508-Wmns-Apparel.png?v=1627889788",
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   id: 3,
+    //   name: "Kids",
+    //   links: [
+    //     {
+    //       id: 1,
+    //       category: "Collections",
+    //       items: ["All Kids", "All Kids Sneakers", "All Kids Apparel"],
+    //     },
+    //     {
+    //       id: 2,
+    //       category: "Brands",
+    //       items: [
+    //         "Nike",
+    //         "Air Jordan",
+    //         "Adidas",
+    //         "Converse",
+    //         "Crocs",
+    //         "New Balance",
+    //       ],
+    //     },
+    //     {
+    //       id: 3,
+    //       category: "Apparel",
+    //       items: [
+    //         "T-Shirts/Tops",
+    //         "Sweatshirts",
+    //         "Outerwear",
+    //         "Bottoms",
+    //         "Infant Sets",
+    //         "Team Sportswear",
+    //       ],
+    //     },
+    //   ],
+    //   featured: {
+    //     name: "Featured",
+    //     items: [
+    //       {
+    //         id: 1,
+    //         name: "Air Max 1 QS (TD)",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-1.jpg?v=1627890516",
+    //       },
+    //       {
+    //         id: 2,
+    //         name: "Crocs x Paw Patrol",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-2.png?v=1627890527",
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   id: 4,
+    //   name: "Accessories",
+    //   links: [
+    //     {
+    //       id: 1,
+    //       category: "Collections",
+    //       items: ["All Accessories"],
+    //     },
+    //     {
+    //       id: 2,
+    //       category: "Types",
+    //       items: [
+    //         "Headwear",
+    //         "Socks",
+    //         "Bags",
+    //         "Sneaker Care",
+    //         "Crocs Jibbitz",
+    //         "Sunglasses",
+    //       ],
+    //     },
+    //   ],
+    //   featured: {
+    //     name: "Featured",
+    //     items: [
+    //       {
+    //         id: 1,
+    //         name: "The North Face Headwear",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-1.png?v=1627892249",
+    //       },
+    //       {
+    //         id: 2,
+    //         name: "Nike Nsw Crossbody",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-2.png?v=1627892249",
+    //       },
+    //       {
+    //         id: 3,
+    //         name: "Nike NSW Everyday Crew",
+    //         image:
+    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-3.png?v=1627892835",
+    //       },
+    //     ],
+    //   },
+    // },
   ],
   launches: [
     {
@@ -830,6 +847,93 @@ const DUMMY_DATA = {
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7519_6108fe441cf786.95248695_SPG709.png?v=1637651917",
     },
   ],
+  pages: [
+    {
+      id: 1,
+      name: "Sneakers",
+      products: [
+        {
+          id: 1,
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          items: [
+            {
+              id: 1,
+              name: "Blazer Mid Victory [W]",
+              gender: "Womens",
+              sneakerStyle: "Blazer",
+              sizes: [3, 4, 5, 6],
+              price: "R 2,299.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
+                },
+              ],
+            },
+            {
+              id: 2,
+              name: "Blazer Low Platform [W]",
+              gender: "Womens",
+              sneakerStyle: "Blazer",
+              sizes: [3, 4, 5, 6],
+              price: "R 1,899.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
+                },
+              ],
+            },
+            {
+              id: 3,
+              name: "Lebron XX",
+              gender: "Mens",
+              sneakerStyle: "Blazer",
+              sizes: [6, 7, 8, 9, 10, 11, 12],
+              price: "R 3,699.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
+                },
+              ],
+            },
+            {
+              id: 4,
+              name: "Air Max Motif [GS]",
+              gender: "Kids",
+              sneakerStyle: "Air Max",
+              sizes: [3, 4, 5, 6],
+              price: "R 2,199.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 function debounce(fn, ms) {
@@ -882,6 +986,17 @@ function App() {
   };
 
   useEffect(() => {
+    // console.log(
+    //   DUMMY_DATA.pages
+    //     .filter((item) => item.name === "Sneakers")
+    //     .map((item) =>
+    //       item.products.map((product) =>
+    //         product.items.filter(
+    //           (item) => item.gender === "Womens" && console.log(item)
+    //         )
+    //       )
+    //     )
+    // );
     if (
       location.pathname === "/pages/contact" ||
       location.pathname === "/pages/about" ||
@@ -937,8 +1052,55 @@ function App() {
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
 
-      <Collection />
       <Routes>
+        <Route
+          path="/collections/sneakers"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) =>
+              item.products.map((product) => (
+                <Collection items={product.items} />
+              ))
+            )}
+        />
+
+        <Route
+          path="/collections/womens-sneakers"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) =>
+              item.products.map((product) =>
+                product.items
+                  .filter((item) => item.gender === "Womens")
+                  .map((item) => <Collection item={item} />)
+              )
+            )}
+        />
+        <Route
+          path="/collections/male-sneakers"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) =>
+              item.products.map((product) =>
+                product.items
+                  .filter((item) => item.gender === "Mens")
+                  .map((item) => <Collection item={item} />)
+              )
+            )}
+        />
+        <Route
+          path="/collections/kids-grade-school-sneakers"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) =>
+              item.products.map((product) =>
+                product.items
+                  .filter((item) => item.gender === "Kids")
+                  .map((item) => <Collection item={item} />)
+              )
+            )}
+        />
+
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         <Route
           path="/pages/launches"

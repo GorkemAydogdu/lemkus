@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import ListItem from "../UI/ListItem";
 
@@ -14,10 +15,13 @@ const MenuLinks = (props) => {
           <h1 className="menu__title">{link.category}</h1>
           <ul className="menu__list">
             {link.items.map((item) => (
-              <ListItem key={item} className="menu__item">
-                <a href="/" className="menu__link">
-                  {item}
-                </a>
+              <ListItem key={item.id} className="menu__item">
+                <Link
+                  to={`/collections${item.pathname}`}
+                  className="menu__link"
+                >
+                  {item.name}
+                </Link>
               </ListItem>
             ))}
           </ul>
