@@ -986,17 +986,6 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log(
-    //   DUMMY_DATA.pages
-    //     .filter((item) => item.name === "Sneakers")
-    //     .map((item) =>
-    //       item.products.map((product) =>
-    //         product.items.filter(
-    //           (item) => item.gender === "Womens" && console.log(item)
-    //         )
-    //       )
-    //     )
-    // );
     if (
       location.pathname === "/pages/contact" ||
       location.pathname === "/pages/about" ||
@@ -1059,7 +1048,7 @@ function App() {
             .filter((item) => item.name === "Sneakers")
             .map((item) =>
               item.products.map((product) => (
-                <Collection items={product.items} />
+                <Collection key={product.id} items={product.items} />
               ))
             )}
         />
@@ -1069,11 +1058,14 @@ function App() {
           element={DUMMY_DATA.pages
             .filter((item) => item.name === "Sneakers")
             .map((item) =>
-              item.products.map((product) =>
-                product.items
-                  .filter((item) => item.gender === "Womens")
-                  .map((item) => <Collection item={item} />)
-              )
+              item.products.map((product) => (
+                <Collection
+                  key={product.id}
+                  items={product.items.filter(
+                    (filtered) => filtered.gender === "Womens"
+                  )}
+                />
+              ))
             )}
         />
         <Route
@@ -1081,11 +1073,14 @@ function App() {
           element={DUMMY_DATA.pages
             .filter((item) => item.name === "Sneakers")
             .map((item) =>
-              item.products.map((product) =>
-                product.items
-                  .filter((item) => item.gender === "Mens")
-                  .map((item) => <Collection item={item} />)
-              )
+              item.products.map((product) => (
+                <Collection
+                  key={product.id}
+                  items={product.items.filter(
+                    (filtered) => filtered.gender === "Mens"
+                  )}
+                />
+              ))
             )}
         />
         <Route
@@ -1093,11 +1088,14 @@ function App() {
           element={DUMMY_DATA.pages
             .filter((item) => item.name === "Sneakers")
             .map((item) =>
-              item.products.map((product) =>
-                product.items
-                  .filter((item) => item.gender === "Kids")
-                  .map((item) => <Collection item={item} />)
-              )
+              item.products.map((product) => (
+                <Collection
+                  key={product.id}
+                  items={product.items.filter(
+                    (filtered) => filtered.gender === "Kids"
+                  )}
+                />
+              ))
             )}
         />
 
