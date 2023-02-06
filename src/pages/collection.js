@@ -179,8 +179,8 @@ const Collection = (props) => {
                     <a href="/" className="products__image">
                       <div className="products__logo">
                         <img
-                          src="https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/air-jordan_200x.png"
-                          alt="Air Jordan"
+                          src={props.logo}
+                          alt={props.brand}
                         />
                       </div>
                       {item.images.map((image) => (

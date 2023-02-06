@@ -1048,7 +1048,12 @@ function App() {
             .filter((item) => item.name === "Sneakers")
             .map((item) =>
               item.products.map((product) => (
-                <Collection key={product.id} items={product.items} />
+                <Collection
+                  key={product.id}
+                  brand={product.brand}
+                  logo={product.logo}
+                  items={product.items}
+                />
               ))
             )}
         />
@@ -1061,6 +1066,8 @@ function App() {
               item.products.map((product) => (
                 <Collection
                   key={product.id}
+                  brand={product.brand}
+                  logo={product.logo}
                   items={product.items.filter(
                     (filtered) => filtered.gender === "Womens"
                   )}
@@ -1076,6 +1083,8 @@ function App() {
               item.products.map((product) => (
                 <Collection
                   key={product.id}
+                  brand={product.brand}
+                  logo={product.logo}
                   items={product.items.filter(
                     (filtered) => filtered.gender === "Mens"
                   )}
@@ -1091,6 +1100,8 @@ function App() {
               item.products.map((product) => (
                 <Collection
                   key={product.id}
+                  brand={product.brand}
+                  logo={product.logo}
                   items={product.items.filter(
                     (filtered) => filtered.gender === "Kids"
                   )}

@@ -52,7 +52,6 @@
     }
   }
   &__action {
-    margin-top: 15rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -273,6 +272,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    height: max-content;
 
     @include respond(smallPhone) {
       grid-template-columns: 1fr;
