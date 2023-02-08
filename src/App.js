@@ -26,6 +26,7 @@ import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
 import Launches from "./pages/launches";
 import Collection from "./pages/collection";
+import CollectionDetail from "./pages/collectionDetail";
 
 import gsap from "gsap";
 
@@ -1034,6 +1035,8 @@ function App() {
           item={item}
         />
       ))} */}
+
+      <CollectionDetail />
 
       {DUMMY_DATA.menu
         .filter((item) => item.name === buttonInnerHTML)
