@@ -42,7 +42,41 @@ const CollectionDetail = () => {
           </Button>
         </div>
         <div className="collectionDetail__description">
-          <div className="collectionDetail__descriptionItem"></div>
+          <div className="collectionDetail__descriptionItem">
+            <h5 className="collectionDetail__description--title">Details</h5>
+            <div className="collectionDetail__plus">
+              <span className="collectionDetail__plus--static"></span>
+              <span className="collectionDetail__plus--rotate"></span>
+            </div>
+            <p className="collectionDetail__descriptionContent">
+              The adidas Centennial pulled up to the hardwood in '85 and quickly
+              set itself apart from the rest. These men's shoes honour those
+              basketball roots with a suede upper that nods to their beginning.
+              Perforated details on the toe and the spoiler flex on the heel
+              give a retro pop of texture.
+            </p>
+          </div>
+          <div className="collectionDetail__descriptionItem">
+            <h5 className="collectionDetail__description--title">
+              Shipping/Returns
+            </h5>
+            <div className="collectionDetail__plus">
+              <span className="collectionDetail__plus--static"></span>
+              <span className="collectionDetail__plus--rotate"></span>
+            </div>
+            <p className="collectionDetail__descriptionContent">
+              <b className="collectionDetail__descriptionContent--title">
+                Shipping:
+              </b>
+              Lemkus.com exclusively uses RAM, one of the leading Courier
+              Companies in SA offering door to door FREE delivery on every order
+              over R800.
+              <b className="collectionDetail__descriptionContent--title">
+                Returns:
+              </b>
+              Please see our returns and exchanges section for more information.
+            </p>
+          </div>
         </div>
       </div>
     </div>

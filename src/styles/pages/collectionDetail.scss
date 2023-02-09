@@ -81,4 +81,39 @@
       pointer-events: none;
     }
   }
+  &__description {
+    margin-top: 5rem;
+    &--title {
+      border-width: 1px 0;
+      border-style: solid;
+      border-color: $black;
+      padding: 0.8rem 0;
+      text-transform: uppercase;
+      font-size: 2rem;
+    }
+  }
+  &__plus {
+    &--static {
+    }
+    &--rotate {
+    }
+  }
+  &__descriptionItem {
+    position: relative;
+  }
+
+  &__descriptionContent {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    font-size: 1.6rem;
+    &--title {
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      &:last-child {
+        margin-top: 3rem;
+      }
+    }
+  }
 }
