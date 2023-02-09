@@ -34,12 +34,15 @@ const CollectionDetail = () => {
               BAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           </Button>
-          <Button className="collectionDetail__wishlist btn-hover">
+          <Button className="collectionDetail__wishlist collectionDetail__wishlist--disable btn-hover">
             <span className="static">Wishlist</span>
             <span className="hover">
               Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           </Button>
+        </div>
+        <div className="collectionDetail__description">
+          <div className="collectionDetail__descriptionItem"></div>
         </div>
       </div>
     </div>

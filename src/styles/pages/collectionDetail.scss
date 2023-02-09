@@ -1,5 +1,5 @@
 .collectionDetail {
-  background-color: goldenrod;
+  background-color: $soft;
   position: relative;
   z-index: 10000;
 
@@ -73,6 +73,12 @@
     height: 4.5rem;
   }
   &__wishlist {
+    background-color: $white;
     width: 30%;
+
+    &--disable {
+      opacity: 0.2;
+      pointer-events: none;
+    }
   }
 }
