@@ -5,8 +5,58 @@ import Button from "../components/UI/Button";
 const CollectionDetail = () => {
   return (
     <div className="collectionDetail">
-      <div className="collectionDetail__thumbnail">ZORT</div>
-      <div className="collectionDetail__images">ZORT</div>
+      <ul className="collectionDetail__thumbnail">
+        <li className="collectionDetail__thumbnailItem collectionDetail__thumbnailItem--active">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__thumbnailItem">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-2.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__thumbnailItem">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-3.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__thumbnailItem">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-4.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__thumbnailItem">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-5.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__thumbnailItem">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-6.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+      </ul>
+      <ul className="collectionDetail__images">
+        <li className="collectionDetail__image">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+        <li className="collectionDetail__image">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+            alt="CENTENNIAL 85 LOW"
+          />
+        </li>
+      </ul>
       <div className="collectionDetail__infos">
         <h1 className="collectionDetail__title">Centennial 85 Low</h1>
         <div className="collectionDetail__priceGuide">
