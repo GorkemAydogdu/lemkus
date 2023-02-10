@@ -42,7 +42,14 @@ const CollectionDetail = () => {
           </Button>
         </div>
         <div className="collectionDetail__description">
-          <div className="collectionDetail__descriptionItem">
+          <div
+            onClick={(event) => {
+              event.currentTarget.classList.toggle(
+                "collectionDetail__descriptionItem--active"
+              );
+            }}
+            className="collectionDetail__descriptionItem"
+          >
             <h5 className="collectionDetail__description--title">Details</h5>
             <div className="collectionDetail__plus">
               <span className="collectionDetail__plus--static"></span>
