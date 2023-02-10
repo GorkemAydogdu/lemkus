@@ -102,10 +102,13 @@ const MenuMobile = (props) => {
             <span className="menuMobile__title">{link.category}</span>
             <ul className="menuMobile__categoriesList">
               {link.items.map((item) => (
-                <li key={item} className="menuMobile__categoriesItem">
-                  <a href="/" className="menuMobile__categoriesLink">
-                    {item}
-                  </a>
+                <li key={item.id} className="menuMobile__categoriesItem">
+                  <Link
+                    to={`/collections${item.pathname}`}
+                    className="menuMobile__categoriesLink"
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

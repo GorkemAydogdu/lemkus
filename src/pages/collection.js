@@ -20,8 +20,6 @@ const Collection = (props) => {
   const collectionContentRef = useRef();
   const mobileMenuRef = useRef();
 
-  console.log(props.items);
-
   function closeFilterButtonHandler() {
     const state = Flip.getState(
       ".collection__productsList, .collection__productsItem"
@@ -178,10 +176,7 @@ const Collection = (props) => {
                   <div className="products__container">
                     <a href="/" className="products__image">
                       <div className="products__logo">
-                        <img
-                          src={props.logo}
-                          alt={props.brand}
-                        />
+                        <img src={props.logo} alt={props.brand} />
                       </div>
                       {item.images.map((image) => (
                         <img
