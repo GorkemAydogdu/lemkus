@@ -174,7 +174,13 @@ const Collection = (props) => {
                   className="collection__productsItem products__item"
                 >
                   <div className="products__container">
-                    <a href="/" className="products__image">
+                    <a
+                      href={`/${item.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")}`}
+                      className="products__image"
+                    >
                       <div className="products__logo">
                         <img src={props.logo} alt={props.brand} />
                       </div>
