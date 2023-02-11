@@ -173,12 +173,17 @@ const Collection = (props) => {
                   key={item.id}
                   className="collection__productsItem products__item"
                 >
+                  {/* 
+                  https://stackoverflow.com/a/9705227
+                  https://stackoverflow.com/a/36630251
+                  */}
                   <div className="products__container">
                     <a
                       href={`/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                        .replace(/-{2,}/g, "-")}`}
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}`}
                       className="products__image"
                     >
                       <div className="products__logo">
