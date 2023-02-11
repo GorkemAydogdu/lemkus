@@ -1,65 +1,137 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
 
+//Splidejs
+import Splide from "@splidejs/splide";
+
+import "@splidejs/splide/css";
+
 const CollectionDetail = () => {
   const smoothScrollWrapper = useRef();
+
+  useEffect(() => {
+    // const splideImages = new Splide(".collectionDetail__images", {
+    //   direction: "ttb",
+    // });
+    const splide = new Splide(".collectionDetail__imagesWrapper", {
+      arrows: false,
+      direction: "ttb",
+      noDrag: "true",
+      speed: "2500",
+      easing: "cubic-bezier(.44,.65,.07,1.01)",
+      height: "85vh",
+      width: "100%",
+    });
+
+    splide.on("pagination:mounted", function (data) {
+      data.list.classList.remove(
+        "splide__pagination",
+        "splide__pagination--ltr"
+      );
+
+      data.list.classList.add("collectionDetail__thumbnail");
+
+      data.items.forEach(function (item) {
+        item.li.classList.add("collectionDetail__thumbnailItem");
+        item.button.classList.add("collectionDetail__thumbnailButton");
+        item.button.classList.remove("splide__pagination__page");
+
+        item.button.innerHTML = `<img
+        src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-${
+          item.page + 1
+        }.png?v=1675684622"
+        alt="CENTENNIAL 85 LOW"
+      />`;
+      });
+    });
+    // splideImages.mount();
+    splide.mount();
+  }, []);
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collectionDetail">
-        <ul className="collectionDetail__thumbnail">
-          <li className="collectionDetail__thumbnailItem collectionDetail__thumbnailItem--active">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__thumbnailItem">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-2.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__thumbnailItem">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-3.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__thumbnailItem">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-4.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__thumbnailItem">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-5.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__thumbnailItem">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-6.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-        </ul>
-        <ul className="collectionDetail__images">
-          <li className="collectionDetail__image">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-          <li className="collectionDetail__image">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
-              alt="CENTENNIAL 85 LOW"
-            />
-          </li>
-        </ul>
+        <div className="splide collectionDetail__imagesWrapper">
+          <div className="splide__track">
+            {/* <ul className="collectionDetail__thumbnail">
+              <li className="collectionDetail__thumbnailItem collectionDetail__thumbnailItem--active">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="collectionDetail__thumbnailItem">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-2.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="collectionDetail__thumbnailItem">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-3.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="collectionDetail__thumbnailItem">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-4.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="collectionDetail__thumbnailItem">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-5.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="collectionDetail__thumbnailItem">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-6.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+            </ul> */}
+            <ul className="splide__list collectionDetail__images">
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-3.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-4.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-5.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+              <li className="splide__slide collectionDetail__image">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-6.png?v=1675684622"
+                  alt="CENTENNIAL 85 LOW"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="collectionDetail__infos">
           <h1 className="collectionDetail__title">Centennial 85 Low</h1>
           <div className="collectionDetail__priceGuide">
