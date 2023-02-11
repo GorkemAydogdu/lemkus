@@ -179,7 +179,7 @@ const Collection = (props) => {
                   */}
                   <div className="products__container">
                     <a
-                      href={`/${item.name
+                      href={`/products/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
                         .replace(/-{2,}/g, "-")
