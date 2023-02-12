@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -49,21 +50,21 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  useEffect(() => {
-    document.body.addEventListener("click", (event) => {
-      if (!event.target.classList.contains("collection__sortBy")) {
-        if (
-          filterListRef.current.classList.contains(
-            "collection__filterList--active"
-          )
-        ) {
-          filterListRef.current.classList.remove(
-            "collection__filterList--active"
-          );
-        }
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   document.body.addEventListener("click", (event) => {
+  //     if (!event.target.classList.contains("collection__sortBy")) {
+  //       if (
+  //         filterListRef.current.classList.contains(
+  //           "collection__filterList--active"
+  //         )
+  //       ) {
+  //         filterListRef.current.classList.remove(
+  //           "collection__filterList--active"
+  //         );
+  //       }
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
@@ -178,8 +179,8 @@ const Collection = (props) => {
                   https://stackoverflow.com/a/36630251
                   */}
                   <div className="products__container">
-                    <a
-                      href={`/products/${item.name
+                    <Link
+                      to={`${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
                         .replace(/-{2,}/g, "-")
@@ -197,19 +198,33 @@ const Collection = (props) => {
                           alt={item.name}
                         />
                       ))}
-                    </a>
+                    </Link>
 
                     <div className="products__infos">
                       <div className="products__container--size">
                         {item.sizes.map((size) => (
-                          <a key={size} href="/">
+                          <Link
+                            key={size}
+                            to={`${item.name
+                              .toLowerCase()
+                              .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                              .replace(/-{2,}/g, "-")
+                              .replace(/-$/, "")}/size=${size}`}
+                          >
                             {size}
-                          </a>
+                          </Link>
                         ))}
                       </div>
-                      <a href="/" className="products__container--title">
+                      <Link
+                        to={`${item.name
+                          .toLowerCase()
+                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                          .replace(/-{2,}/g, "-")
+                          .replace(/-$/, "")}`}
+                        className="products__container--title"
+                      >
                         {item.name}
-                      </a>
+                      </Link>
                       <span className="products__container--price">
                         {item.price}
                       </span>

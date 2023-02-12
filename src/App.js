@@ -1036,14 +1036,13 @@ function App() {
         />
       ))} */}
 
-      <CollectionDetail />
-
       {DUMMY_DATA.menu
         .filter((item) => item.name === buttonInnerHTML)
         .map((item) => (
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
 
+      {console.log(location.pathname)}
       <Routes>
         <Route
           path="/collections/sneakers"
@@ -1111,6 +1110,11 @@ function App() {
                 />
               ))
             )}
+        />
+
+        <Route
+          path={`/${location.pathname}/:productsName`}
+          element={<CollectionDetail />}
         />
 
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
