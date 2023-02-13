@@ -57,7 +57,7 @@ const DUMMY_DATA = {
           id: 2,
           category: "Brands",
           items: [
-            { id: 1, pathname: "/sneakers/nike", name: "Nike" },
+            { id: 1, pathname: "/sneakers?=nike", name: "Nike" },
             { id: 2, pathname: "/sneakers/air-jordan", name: "Air Jordan" },
             { id: 3, pathname: "/sneakers/new-balance", name: "New Balance" },
             {
@@ -932,6 +932,85 @@ const DUMMY_DATA = {
             },
           ],
         },
+        {
+          id: 2,
+          brand: "Zort",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          items: [
+            {
+              id: 1,
+              name: "Blazer Mid Victory [W]",
+              gender: "Womens",
+              sneakerStyle: "Blazer",
+              sizes: [3, 4, 5, 6],
+              price: "R 2,299.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
+                },
+              ],
+            },
+            {
+              id: 2,
+              name: "Blazer Low Platform [W]",
+              gender: "Womens",
+              sneakerStyle: "Blazer",
+              sizes: [3, 4, 5, 6],
+              price: "R 1,899.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
+                },
+              ],
+            },
+            {
+              id: 3,
+              name: "Lebron XX",
+              gender: "Mens",
+              sneakerStyle: "Blazer",
+              sizes: [6, 7, 8, 9, 10, 11, 12],
+              price: "R 3,699.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
+                },
+              ],
+            },
+            {
+              id: 4,
+              name: "Air Max Motif [GS]",
+              gender: "Kids",
+              sneakerStyle: "Air Max",
+              sizes: [3, 4, 5, 6],
+              price: "R 2,199.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
@@ -1042,9 +1121,68 @@ function App() {
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
 
-      {console.log(location.pathname)}
       <Routes>
+        {/* <Route
+          path="/collections/:categoryName"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) =>
+              item.products.map((product) => (
+                <Collection
+                  key={product.id}
+                  brand={product.brand}
+                  logo={product.logo}
+                  items={product.items}
+                />
+              ))
+            )}
+        /> */}
+
         <Route
+          path="/collections/:categoryName"
+          element={DUMMY_DATA.pages
+            .filter((item) => item.name === "Sneakers")
+            .map((item) => {
+              if (item.products.filter((filtered) => filtered.brand === "")) {
+                return item.products
+                  .filter((filtered) => filtered.brand === "Nike")
+                  .map((product) => (
+                    <Collection
+                      key={product.id}
+                      brand={product.brand}
+                      logo={product.logo}
+                      items={product.items}
+                    />
+                  ));
+              } else if (
+                item.products.map((product) =>
+                  product.items.filter((filtered) => filtered.gender === "Mens")
+                )
+              ) {
+                console.log("zort");
+                item.products.map((product) => (
+                  <Collection
+                    key={product.id}
+                    brand={product.brand}
+                    logo={product.logo}
+                    items={product.items.filter(
+                      (filtered) => filtered.gender === "Mens"
+                    )}
+                  />
+                ));
+              } else {
+                return item.products.map((product) => (
+                  <Collection
+                    key={product.id}
+                    brand={product.brand}
+                    logo={product.logo}
+                    items={product.items}
+                  />
+                ));
+              }
+            })}
+        />
+        {/* <Route
           path="/collections/sneakers"
           element={DUMMY_DATA.pages
             .filter((item) => item.name === "Sneakers")
@@ -1059,7 +1197,6 @@ function App() {
               ))
             )}
         />
-
         <Route
           path="/collections/womens-sneakers"
           element={DUMMY_DATA.pages
@@ -1113,9 +1250,9 @@ function App() {
         />
 
         <Route
-          path={`/${location.pathname}/:productsName`}
+          path={`/collections/sneakers/:productsName`}
           element={<CollectionDetail />}
-        />
+        /> */}
 
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         <Route

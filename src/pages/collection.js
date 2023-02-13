@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -20,6 +20,7 @@ const Collection = (props) => {
   const [filterClicked, setFilterClicked] = useState(false);
   const collectionContentRef = useRef();
   const mobileMenuRef = useRef();
+  const location = useLocation();
 
   function closeFilterButtonHandler() {
     const state = Flip.getState(
@@ -180,7 +181,7 @@ const Collection = (props) => {
                   */}
                   <div className="products__container">
                     <Link
-                      to={`${item.name
+                      to={`/collections/sneakers/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
                         .replace(/-{2,}/g, "-")
@@ -205,7 +206,7 @@ const Collection = (props) => {
                         {item.sizes.map((size) => (
                           <Link
                             key={size}
-                            to={`${item.name
+                            to={`/collections/sneakers/${item.name
                               .toLowerCase()
                               .replaceAll(/[^a-zA-Z0-9]/g, "-")
                               .replace(/-{2,}/g, "-")
@@ -216,7 +217,7 @@ const Collection = (props) => {
                         ))}
                       </div>
                       <Link
-                        to={`${item.name
+                        to={`/collections/sneakers/${item.name
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
