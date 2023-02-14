@@ -189,7 +189,7 @@ const Collection = (props) => {
                       className="products__image"
                     >
                       <div className="products__logo">
-                        <img src={props.logo} alt={props.brand} />
+                        <img src={item.logo} alt={item.brand} />
                       </div>
                       {item.images.map((image) => (
                         <img
