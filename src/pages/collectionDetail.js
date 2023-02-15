@@ -14,11 +14,9 @@ const CollectionDetail = () => {
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
-      direction: "ttb",
       noDrag: "true",
       speed: "2500",
       easing: "cubic-bezier(.44,.65,.07,1.01)",
-      height: "max-content",
       width: "100%",
 
       breakpoints: {
@@ -152,7 +150,14 @@ const CollectionDetail = () => {
                 the heel give a retro pop of texture.
               </p>
             </div>
-            <div className="collectionDetail__descriptionItem">
+            <div
+              onClick={(event) => {
+                event.currentTarget.classList.toggle(
+                  "collectionDetail__descriptionItem--active"
+                );
+              }}
+              className="collectionDetail__descriptionItem"
+            >
               <h5 className="collectionDetail__description--title">
                 Shipping/Returns
               </h5>

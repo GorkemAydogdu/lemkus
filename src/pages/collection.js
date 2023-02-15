@@ -181,7 +181,6 @@ const Collection = (props) => {
                   https://stackoverflow.com/a/36630251
                   */}
                   <div className="products__container">
-                    {console.log(categoryName)}
                     <Link
                       to={`/collections/${categoryName}/${item.name
                         .toLowerCase()
