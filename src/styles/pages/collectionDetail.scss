@@ -1,14 +1,10 @@
 .collectionDetail {
-  background-color: goldenrod;
-  position: relative;
-  z-index: 10000;
-
   width: 100vw;
-  padding: 5rem 2.5rem;
+  margin-top: 10rem;
+  padding: 0 2.5rem;
 
   font-family: "Oswald", sans-serif;
   line-height: 1;
-  overflow: hidden;
 
   display: flex;
 
@@ -31,8 +27,9 @@
   }
 
   &__infos {
+    height: max-content;
     position: sticky;
-    top: 0;
+    top: 8rem;
     width: 40%;
 
     @include respond(tab-port) {
@@ -209,6 +206,9 @@
     }
   }
   &__thumbnail {
+    position: sticky;
+    top: 8rem;
+    height: max-content;
     width: 10rem;
     display: flex;
     flex-direction: column;
@@ -243,6 +243,7 @@
   }
   &__images {
     width: 90%;
+    height: max-content !important;
     list-style: none;
 
     @include respond(tab-land) {
@@ -256,7 +257,7 @@
   }
   &__image {
     border: 1px solid $black;
-    height: max-content !important;
+    // height: max-content !important;
 
     @include respond(tab-port) {
       margin-right: 1.5rem;

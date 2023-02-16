@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from "react";
 
-import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
+// import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
+import Culture from "../components/Culture/Culture";
 
 //Splidejs
 import Splide from "@splidejs/splide";
@@ -9,21 +10,14 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
 const CollectionDetail = () => {
-  const smoothScrollWrapper = useRef();
+  // const smoothScrollWrapper = useRef();
 
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
-      noDrag: "true",
-      speed: "2500",
-      easing: "cubic-bezier(.44,.65,.07,1.01)",
-      width: "100%",
-
-      breakpoints: {
-        1024: {
-          direction: "ltr",
-        },
-      },
+      type: "fade",
+      speed: "1500",
+      easing: "cubic-bezier(0.16, 1, 0.3, 1)",
     });
 
     splide.on("pagination:mounted", function (data) {
@@ -50,7 +44,7 @@ const CollectionDetail = () => {
     splide.mount();
   }, []);
   return (
-    <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
+    <>
       <div className="collectionDetail">
         <div className="splide collectionDetail__imagesWrapper">
           <div className="splide__track">
@@ -182,7 +176,8 @@ const CollectionDetail = () => {
           </div>
         </div>
       </div>
-    </SmoothScrollWrapper>
+      <Culture />
+    </>
   );
 };
 
