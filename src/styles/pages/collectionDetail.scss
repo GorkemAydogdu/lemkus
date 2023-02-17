@@ -19,7 +19,8 @@
 
     .splide__track {
       width: 100%;
-      overflow: visible;
+      // height: max-content !important;
+      // overflow: visible;
     }
     .splide__pagination--ttb {
       padding: 0;
@@ -221,7 +222,6 @@
   }
   &__thumbnailItem {
     display: flex;
-    cursor: pointer;
 
     &:not(:last-child) {
       margin-bottom: 0.8rem;
@@ -240,10 +240,11 @@
   &__thumbnailButton {
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
   &__images {
     width: 90%;
-    height: max-content !important;
+
     list-style: none;
 
     @include respond(tab-land) {
@@ -257,7 +258,6 @@
   }
   &__image {
     border: 1px solid $black;
-    // height: max-content !important;
 
     @include respond(tab-port) {
       margin-right: 1.5rem;

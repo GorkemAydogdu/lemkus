@@ -15,8 +15,10 @@ const CollectionDetail = () => {
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
-      type: "fade",
-      speed: "1500",
+      // type: "fade",
+      direction: "ttb",
+      heightRatio: "1",
+      speed: "2000",
       easing: "cubic-bezier(0.16, 1, 0.3, 1)",
     });
 
@@ -47,7 +49,7 @@ const CollectionDetail = () => {
     <>
       <div className="collectionDetail">
         <div className="splide collectionDetail__imagesWrapper">
-          <div className="splide__track">
+          <div className="splide__track zort">
             <ul className="splide__list collectionDetail__images">
               <li className="splide__slide collectionDetail__image">
                 <img
@@ -88,6 +90,7 @@ const CollectionDetail = () => {
             </ul>
           </div>
         </div>
+
         <div className="collectionDetail__infos">
           <h1 className="collectionDetail__title">Centennial 85 Low</h1>
           <div className="collectionDetail__priceGuide">
