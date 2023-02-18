@@ -102,148 +102,251 @@ const DUMMY_DATA = {
         ],
       },
     },
-    // {
-    //   id: 2,
-    //   name: "Apparel",
-    //   links: [
-    //     {
-    //       id: 1,
-    //       category: "Collections",
-    //       items: ["All Apparel", "Mens", "Womens", "Sale"],
-    //     },
-    //     {
-    //       id: 2,
-    //       category: "Mens",
-    //       items: [
-    //         "T-shirts/Tops",
-    //         "Sweatshirts",
-    //         "Outerwear",
-    //         "Bottoms",
-    //         "Team Sportswear",
-    //       ],
-    //     },
-    //     {
-    //       id: 3,
-    //       category: "Womens",
-    //       items: ["T-shirts/Tops", "Sweatshirts", "Outerwear", "Bottoms"],
-    //     },
-    //   ],
-    //   featured: {
-    //     name: "Featured",
-    //     items: [
-    //       {
-    //         id: 1,
-    //         name: "Air Jordan PSG Tee",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/PSG-Apparel-Featured-Dropdown_Images_556x508-Mens-Apparel.png?v=1631001892",
-    //       },
-    //       {
-    //         id: 2,
-    //         name: "Nsw Icon GX Hoodie",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Apparel-Featured-Dropdown_Images_556x508-Wmns-Apparel.png?v=1627889788",
-    //       },
-    //     ],
-    //   },
-    // },
-    // {
-    //   id: 3,
-    //   name: "Kids",
-    //   links: [
-    //     {
-    //       id: 1,
-    //       category: "Collections",
-    //       items: ["All Kids", "All Kids Sneakers", "All Kids Apparel"],
-    //     },
-    //     {
-    //       id: 2,
-    //       category: "Brands",
-    //       items: [
-    //         "Nike",
-    //         "Air Jordan",
-    //         "Adidas",
-    //         "Converse",
-    //         "Crocs",
-    //         "New Balance",
-    //       ],
-    //     },
-    //     {
-    //       id: 3,
-    //       category: "Apparel",
-    //       items: [
-    //         "T-Shirts/Tops",
-    //         "Sweatshirts",
-    //         "Outerwear",
-    //         "Bottoms",
-    //         "Infant Sets",
-    //         "Team Sportswear",
-    //       ],
-    //     },
-    //   ],
-    //   featured: {
-    //     name: "Featured",
-    //     items: [
-    //       {
-    //         id: 1,
-    //         name: "Air Max 1 QS (TD)",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-1.jpg?v=1627890516",
-    //       },
-    //       {
-    //         id: 2,
-    //         name: "Crocs x Paw Patrol",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-2.png?v=1627890527",
-    //       },
-    //     ],
-    //   },
-    // },
-    // {
-    //   id: 4,
-    //   name: "Accessories",
-    //   links: [
-    //     {
-    //       id: 1,
-    //       category: "Collections",
-    //       items: ["All Accessories"],
-    //     },
-    //     {
-    //       id: 2,
-    //       category: "Types",
-    //       items: [
-    //         "Headwear",
-    //         "Socks",
-    //         "Bags",
-    //         "Sneaker Care",
-    //         "Crocs Jibbitz",
-    //         "Sunglasses",
-    //       ],
-    //     },
-    //   ],
-    //   featured: {
-    //     name: "Featured",
-    //     items: [
-    //       {
-    //         id: 1,
-    //         name: "The North Face Headwear",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-1.png?v=1627892249",
-    //       },
-    //       {
-    //         id: 2,
-    //         name: "Nike Nsw Crossbody",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-2.png?v=1627892249",
-    //       },
-    //       {
-    //         id: 3,
-    //         name: "Nike NSW Everyday Crew",
-    //         image:
-    //           "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-3.png?v=1627892835",
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      id: 2,
+      name: "Apparel",
+      links: [
+        {
+          id: 1,
+          category: "Collections",
+          items: [
+            { id: 1, pathname: "/apparel", name: "All Apparel" },
+            { id: 2, pathname: "/male-apparel", name: "Mens" },
+            { id: 3, pathname: "/womens-apparel", name: "Womens" },
+          ],
+        },
+        {
+          id: 2,
+          category: "Mens",
+          gender: "Mens",
+          items: [
+            {
+              id: 1,
+              pathname: "/male-apparel?=tshirts-tops",
+              name: "T-shirts/Tops",
+            },
+            {
+              id: 2,
+              pathname: "/male-apparel?=sweatshirt",
+              name: "Sweatshirts",
+            },
+            { id: 3, pathname: "/male-apparel?=outerwear", name: "Outerwear" },
+            { id: 4, pathname: "/male-apparel?=bottoms", name: "Bottoms" },
+            {
+              id: 5,
+              pathname: "/male-apparel?=team-sportswear",
+              name: "Team Sportswear",
+            },
+          ],
+        },
+        {
+          id: 3,
+          category: "Womens",
+          gender: "Womens",
+          items: [
+            {
+              id: 1,
+              pathname: "/womens-apparel?=tshirts-tops",
+              name: "T-shirts/Tops",
+            },
+            {
+              id: 2,
+              pathname: "/womens-apparel?=sweatshirt",
+              name: "Sweatshirts",
+            },
+            {
+              id: 3,
+              pathname: "/womens-apparel?=outerwear",
+              name: "Outerwear",
+            },
+            { id: 4, pathname: "/womens-apparel?=bottoms", name: "Bottoms" },
+          ],
+        },
+      ],
+      featured: {
+        name: "Featured",
+        items: [
+          {
+            id: 1,
+            name: "Air Jordan PSG Tee",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/PSG-Apparel-Featured-Dropdown_Images_556x508-Mens-Apparel.png?v=1631001892",
+          },
+          {
+            id: 2,
+            name: "Nsw Icon GX Hoodie",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Apparel-Featured-Dropdown_Images_556x508-Wmns-Apparel.png?v=1627889788",
+          },
+        ],
+      },
+    },
+    {
+      id: 3,
+      name: "Kids",
+      links: [
+        {
+          id: 1,
+          category: "Collections",
+          items: [
+            {
+              id: 1,
+              pathname: "/kids",
+              name: "All Kids",
+            },
+            {
+              id: 2,
+              pathname: "/all-kids-sneakers",
+              name: "All Kids Sneakers",
+            },
+            {
+              id: 3,
+              pathname: "/all-kids-apparel",
+              name: "All Kids Apparel",
+            },
+          ],
+        },
+        {
+          id: 2,
+          category: "Brands",
+          items: [
+            {
+              id: 1,
+              pathname: "/kids?=nike",
+              name: "Nike",
+            },
+            {
+              id: 2,
+              pathname: "/kids?=air-jordan",
+              name: "Air Jordan",
+            },
+            {
+              id: 3,
+              pathname: "/kids?=adidas",
+              name: "Adidas",
+            },
+            {
+              id: 4,
+              pathname: "/kids?=converse",
+              name: "Converse",
+            },
+            {
+              id: 5,
+              pathname: "/kids?=crocs",
+              name: "Crocs",
+            },
+            {
+              id: 6,
+              pathname: "/kids?=new-balance",
+              name: "New Balance",
+            },
+          ],
+        },
+        {
+          id: 3,
+          category: "Apparel",
+          items: [
+            {
+              id: 1,
+              pathname: "/kids-apparel?=tshirts-tops",
+              name: "T-shirts/Tops",
+            },
+            {
+              id: 2,
+              pathname: "/kids-apparel?=sweatshirt",
+              name: "Sweatshirts",
+            },
+            {
+              id: 3,
+              pathname: "/kids-apparel?=outerwear",
+              name: "Outerwear",
+            },
+            { id: 4, pathname: "/kids-apparel?=bottoms", name: "Bottoms" },
+            {
+              id: 5,
+              pathname: "/kids-apparel?=infant-sets",
+              name: "Infant Sets",
+            },
+            {
+              id: 6,
+              pathname: "/kids-apparel?=team-sportswear",
+              name: "Team Sportswear",
+            },
+          ],
+        },
+      ],
+      featured: {
+        name: "Featured",
+        items: [
+          {
+            id: 1,
+            name: "Air Max 1 QS (TD)",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-1.jpg?v=1627890516",
+          },
+          {
+            id: 2,
+            name: "Crocs x Paw Patrol",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Kids-Featured-Dropdown_Images_556x508-2.png?v=1627890527",
+          },
+        ],
+      },
+    },
+    {
+      id: 4,
+      name: "Accessories",
+      links: [
+        {
+          id: 1,
+          category: "Collections",
+          items: [{ id: 1, pathname: "/accessories", name: "All Accessories" }],
+        },
+        {
+          id: 2,
+          category: "Types",
+          items: [
+            { id: 1, pathname: "/accessories?=headwear", name: "Headwear" },
+            { id: 2, pathname: "/accessories?=socks", name: "Socks" },
+            { id: 3, pathname: "/accessories?=bags", name: "Bags" },
+            {
+              id: 4,
+              pathname: "/accessories?=sneaker-care",
+              name: "Sneaker Care",
+            },
+            {
+              id: 5,
+              pathname: "/accessories?=crocs-jibbitz",
+              name: "Crocs Jibbitz",
+            },
+            { id: 6, pathname: "/accessories?=sunglasses", name: "Sunglasses" },
+          ],
+        },
+      ],
+      featured: {
+        name: "Featured",
+        items: [
+          {
+            id: 1,
+            name: "The North Face Headwear",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-1.png?v=1627892249",
+          },
+          {
+            id: 2,
+            name: "Nike Nsw Crossbody",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-2.png?v=1627892249",
+          },
+          {
+            id: 3,
+            name: "Nike NSW Everyday Crew",
+            image:
+              "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Accessories-Featured-Dropdown_Images_556x508-3.png?v=1627892835",
+          },
+        ],
+      },
+    },
   ],
   launches: [
     {
@@ -1000,6 +1103,97 @@ const DUMMY_DATA = {
         },
       ],
     },
+    {
+      id: 1,
+      name: "Apparel",
+      products: [
+        {
+          id: 1,
+          items: [
+            {
+              id: 1,
+              name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
+              gender: "Mens",
+              brand: "Nike",
+              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Team Sportswear",
+              sizes: ["S", "M", "L", "XL", "2XL"],
+              price: "R 1,599.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
+                },
+              ],
+            },
+            {
+              id: 2,
+              name: "NSW TECH FLEECE WINDRUNNER (W)",
+              gender: "Womens",
+              brand: "Nike",
+              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Sweatshirts",
+              sizes: ["XS", "S", "M", "L", "XL"],
+              price: "R 1,949.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
+                },
+              ],
+            },
+            {
+              id: 3,
+              name: "NBA ALL STAR ESSENTIAL T-SHIRT",
+              gender: "Mens",
+              brand: "Nike",
+              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "T-shirts/Tops",
+              sizes: ["S", "M", "L", "XL", "2XL"],
+              price: "R 529.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
+                },
+              ],
+            },
+            {
+              id: 4,
+              name: "NSW BOYFRIEND T-SHIRT (W)",
+              gender: "Womens",
+              brand: "Nike",
+              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "T-shirts/Tops",
+              sizes: ["XS", "S", "M", "L", "XL"],
+              price: "R 619.00",
+              images: [
+                {
+                  id: 1,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
+                },
+                {
+                  id: 2,
+                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
@@ -1047,7 +1241,9 @@ function App() {
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
-  let clicked = "All Sneakers";
+  let clicked = "All Apparel";
+  let gender = "";
+
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data.innerHTML);
   };
@@ -1112,16 +1308,21 @@ function App() {
         <Route
           path="/collections/:categoryName"
           element={DUMMY_DATA.pages
-            .filter((item) => item.name === "Sneakers")
+            .filter((item) => item.name === "Apparel")
             .map((item) =>
               item.products.map((product) => (
                 <Collection
                   key={product.id}
                   items={
-                    clicked === "All Sneakers"
+                    clicked === "All Apparel"
                       ? product.items
                       : product.items.filter((item) => {
                           if (item.brand === clicked) {
+                            return item;
+                          } else if (
+                            item.type === clicked &&
+                            item.gender === gender
+                          ) {
                             return item;
                           } else if (item.gender === clicked) {
                             return item;
