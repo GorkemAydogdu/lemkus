@@ -1245,7 +1245,7 @@ function App() {
   let gender = "";
 
   const clickedButtonHandler = (data) => {
-    setButtonInnerHTML(data.innerHTML);
+    setButtonInnerHTML(data);
   };
 
   useEffect(() => {
@@ -1303,7 +1303,6 @@ function App() {
         .map((item) => (
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
-
       <Routes>
         <Route
           path="/collections/:categoryName"

@@ -141,7 +141,7 @@ const Header = (props) => {
             setIsDisabled(false);
           }, 1000);
           setSelectedCategory(category.name);
-          props.clickedButton(event.target);
+          props.clickedButton(event.target.innerHTML);
 
           gsap.to(".backdrop--menu", {
             duration: 1,
@@ -156,8 +156,10 @@ const Header = (props) => {
 
           if (selectedCategory === category.name) {
             event.target.classList.toggle("header__button--active");
+
             if (!event.target.classList.contains("header__button--active")) {
               props.clickedButton("");
+
               gsap.to(".backdrop--menu", {
                 duration: 1,
                 opacity: 0,

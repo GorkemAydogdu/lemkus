@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import UIContext from "../../context/ui-context";
 
@@ -8,6 +8,7 @@ import MenuFeatured from "./MenuFeatured";
 
 const Menu = (props) => {
   const uiCtx = useContext(UIContext);
+
   useEffect(() => {
     if (props.className.includes("menu--active")) {
       gsap.to(".menu--active", {
@@ -28,14 +29,6 @@ const Menu = (props) => {
         delay: 0.1,
       });
     }
-    // else {
-    //   gsap.to(".menu--close", {
-    //     duration: 0.8,
-    //     ease: "expo.inOut",
-    //     opacity: 0,
-    //     clipPath: "inset(0% 0% 100%)",
-    //   });
-    // }
   }, [props]);
 
   return (
@@ -45,7 +38,7 @@ const Menu = (props) => {
         uiCtx.isLocationChanged === true ? "dark" : "light"
       }`}
     >
-      <MenuLinks links={props.item.links} />
+      <MenuLinks name={props.item.name} links={props.item.links} />
       <MenuFeatured item={props.item} />
     </div>
   );
