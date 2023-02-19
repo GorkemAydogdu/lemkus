@@ -20,7 +20,14 @@ const MenuLinks = (props) => {
               <ListItem key={item.id} className="menu__item">
                 <Link
                   onClick={() => {
-                    localStorage.setItem("name", JSON.stringify(props.name));
+                    localStorage.setItem(
+                      "categoryName",
+                      JSON.stringify(props.name)
+                    );
+                    // console.log(item.name);
+                    // console.log(link.gender);
+                    // localStorage.setItem("gender", JSON.stringify(link.gender));
+                    // localStorage.setItem("itemName", JSON.stringify(item.name));
                     // setMenuName(props.name);
                   }}
                   to={`/collections${item.pathname}`}

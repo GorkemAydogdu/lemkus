@@ -1243,9 +1243,11 @@ function App() {
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
-  let clicked = "All Apparel";
+  let clicked = "Mens";
   let gender = "";
-  let lsData = JSON.parse(localStorage.getItem("name"));
+  let categoryName = JSON.parse(localStorage.getItem("categoryName"));
+  // let clickedGender = JSON.parse(localStorage.getItem('gender'));
+  // let clickedItem = JSON.parse(localStorage.getItem('itemName'));
 
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
@@ -1318,29 +1320,25 @@ function App() {
         <Route
           path="/collections/:categoryName"
           element={DUMMY_DATA.pages
-            .filter((item) => item.name === lsData)
+            .filter((item) => item.name === categoryName)
             .map((item) =>
               item.products.map((product) => (
                 <Collection
                   key={product.id}
-                  items={
-                    clicked === "All Apparel"
-                      ? product.items
-                      : product.items.filter((item) => {
-                          if (item.brand === clicked) {
-                            return item;
-                          } else if (
-                            item.type === clicked &&
-                            item.gender === gender
-                          ) {
-                            return item;
-                          } else if (item.gender === clicked) {
-                            return item;
-                          } else {
-                            return false;
-                          }
-                        })
-                  }
+                  items={product.items.filter((item) => {
+                    if (item.brand === clicked) {
+                      return item;
+                    } else if (
+                      item.type === clicked &&
+                      item.gender === gender
+                    ) {
+                      return item;
+                    } else if (item.gender === clicked) {
+                      return item;
+                    } else {
+                      return item;
+                    }
+                  })}
                 />
               ))
             )}
