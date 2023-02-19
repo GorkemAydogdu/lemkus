@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ListItem from "../UI/ListItem";
+// import MenuContext from "../../context/menu-context";
 
 const MenuLinks = (props) => {
+  // const [menuName, setMenuName] = useContext(MenuContext);
   return (
     <div
       className={`menu__links ${
@@ -18,7 +20,8 @@ const MenuLinks = (props) => {
               <ListItem key={item.id} className="menu__item">
                 <Link
                   onClick={() => {
-                    props.clickedMenu(props.name);
+                    localStorage.setItem("name", JSON.stringify(props.name));
+                    // setMenuName(props.name);
                   }}
                   to={`/collections${item.pathname}`}
                   className="menu__link"

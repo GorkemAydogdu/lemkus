@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import UIContext from "./context/ui-context";
+// import MenuContext from "./context/menu-context";
 
 //Components
 import Header from "./components/Header/Header";
@@ -1238,15 +1239,26 @@ function App() {
     width: window.innerWidth,
   });
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
+  // const [menuName, setMenuName] = useContext(MenuContext);
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
   let clicked = "All Apparel";
   let gender = "";
+  let lsData = JSON.parse(localStorage.getItem("name"));
 
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
   };
+
+  // useEffect(() => {
+  //   localStorage.setItem("name", JSON.stringify("ZORT"));
+  // }, []);
+
+  // useEffect(() => {
+  //   const data = JSON.parse(localStorage.getItem("name"));
+  //   console.log(data);
+  // }, []);
 
   useEffect(() => {
     if (
@@ -1297,7 +1309,6 @@ function App() {
           item={item}
         />
       ))} */}
-
       {DUMMY_DATA.menu
         .filter((item) => item.name === buttonInnerHTML)
         .map((item) => (
@@ -1307,7 +1318,7 @@ function App() {
         <Route
           path="/collections/:categoryName"
           element={DUMMY_DATA.pages
-            .filter((item) => item.name === "Apparel")
+            .filter((item) => item.name === lsData)
             .map((item) =>
               item.products.map((product) => (
                 <Collection
@@ -1348,13 +1359,9 @@ function App() {
           <Route key={path} path={path} element={<Component />} />
         ))}
       </Routes>
-
       <Cart data={DUMMY_DATA.cart} />
-
       {dimensions.width < 1025 && <MenuMobile menu={DUMMY_DATA.menu} />}
-
       <Wishlist />
-
       {dimensions.width > 1024 && (
         <Backdrop
           onClick={() => {
@@ -1375,7 +1382,6 @@ function App() {
           className="backdrop backdrop--menu"
         />
       )}
-
       <Backdrop
         className="backdrop backdrop--wishlist"
         onClick={() => {
