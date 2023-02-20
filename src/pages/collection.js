@@ -52,21 +52,21 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  // useEffect(() => {
-  //   document.body.addEventListener("click", (event) => {
-  //     if (!event.target.classList.contains("collection__sortBy")) {
-  //       if (
-  //         filterListRef.current.classList.contains(
-  //           "collection__filterList--active"
-  //         )
-  //       ) {
-  //         filterListRef.current.classList.remove(
-  //           "collection__filterList--active"
-  //         );
-  //       }
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    document.body.addEventListener("click", (event) => {
+      if (!event.target.classList.contains("collection__sortBy")) {
+        if (
+          filterListRef.current.classList.contains(
+            "collection__filterList--active"
+          )
+        ) {
+          filterListRef.current.classList.remove(
+            "collection__filterList--active"
+          );
+        }
+      }
+    });
+  }, []);
 
   return (
     <>

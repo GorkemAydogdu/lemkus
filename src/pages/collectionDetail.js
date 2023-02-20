@@ -15,7 +15,6 @@ const CollectionDetail = () => {
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
-      // type: "fade",
       direction: "ttb",
       heightRatio: "1",
       speed: "2000",

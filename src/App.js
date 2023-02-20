@@ -1248,27 +1248,17 @@ function App() {
     width: window.innerWidth,
   });
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
-  const [clickedMenu, setClickedMenu] = useContext(MenuContext);
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
-  console.log(clickedMenu);
+
   let categoryName = JSON.parse(localStorage.getItem("categoryName"));
-  // let clickedGender = JSON.parse(localStorage.getItem('gender'));
-  // let clickedItem = JSON.parse(localStorage.getItem('itemName'));
+  let clickedGender = JSON.parse(localStorage.getItem("gender"));
+  let clickedItem = JSON.parse(localStorage.getItem("itemName"));
 
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("name", JSON.stringify("ZORT"));
-  // }, []);
-
-  // useEffect(() => {
-  //   const data = JSON.parse(localStorage.getItem("name"));
-  //   console.log(data);
-  // }, []);
 
   useEffect(() => {
     if (
@@ -1334,18 +1324,17 @@ function App() {
                 <Collection
                   key={product.id}
                   items={
-                    clickedMenu.itemName === product.name
+                    clickedItem === product.name
                       ? product.items
                       : product.items.filter((item) => {
-                          if (item.brand === clickedMenu.itemName) {
+                          if (item.brand === clickedItem) {
                             return item;
                           } else if (
-                            item.type === clickedMenu.itemName &&
-                            item.gender === clickedMenu.gender
+                            item.type === clickedItem &&
+                            item.gender === clickedGender
                           ) {
                             return item;
-                          } else if (item.gender === clickedMenu.itemName) {
-                            console.log("ZORT");
+                          } else if (item.gender === clickedItem) {
                             return item;
                           } else {
                             return false;
