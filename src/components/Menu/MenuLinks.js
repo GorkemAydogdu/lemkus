@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import ListItem from "../UI/ListItem";
-// import MenuContext from "../../context/menu-context";
+import MenuContext from "../../context/menu-context";
 
 const MenuLinks = (props) => {
-  // const [menuName, setMenuName] = useContext(MenuContext);
+  const [clickedMenu, setClickedMenu] = useContext(MenuContext);
   return (
     <div
       className={`menu__links ${
@@ -24,6 +24,11 @@ const MenuLinks = (props) => {
                       "categoryName",
                       JSON.stringify(props.name)
                     );
+
+                    setClickedMenu({
+                      gender: link.gender,
+                      itemName: item.name,
+                    });
                     // console.log(item.name);
                     // console.log(link.gender);
                     // localStorage.setItem("gender", JSON.stringify(link.gender));

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import UIContext from "./context/ui-context";
-// import MenuContext from "./context/menu-context";
+import MenuContext from "./context/menu-context";
 
 //Components
 import Header from "./components/Header/Header";
@@ -959,6 +959,7 @@ const DUMMY_DATA = {
       products: [
         {
           id: 1,
+          name: "All Sneakers",
           items: [
             {
               id: 1,
@@ -966,6 +967,7 @@ const DUMMY_DATA = {
               gender: "Womens",
               brand: "Nike",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Blazer",
               sizes: [3, 4, 5, 6],
               price: "R 2,299.00",
@@ -986,6 +988,7 @@ const DUMMY_DATA = {
               gender: "Womens",
               brand: "Nike",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Blazer",
               sizes: [3, 4, 5, 6],
               price: "R 1,899.00",
@@ -1006,6 +1009,7 @@ const DUMMY_DATA = {
               gender: "Mens",
               brand: "Nike",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Blazer",
               sizes: [6, 7, 8, 9, 10, 11, 12],
               price: "R 3,699.00",
@@ -1026,6 +1030,7 @@ const DUMMY_DATA = {
               gender: "Grade School",
               brand: "Nike",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Air Max",
               sizes: [3, 4, 5, 6],
               price: "R 2,199.00",
@@ -1046,6 +1051,7 @@ const DUMMY_DATA = {
               gender: "Mens",
               brand: "Adidas",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Forum",
               sizes: [6, 7, 8, 9, 10],
               price: "R 1,699.00",
@@ -1066,6 +1072,7 @@ const DUMMY_DATA = {
               gender: "Womens",
               brand: "Adidas",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Blazer",
               sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
               price: "R 1,499.00",
@@ -1086,6 +1093,7 @@ const DUMMY_DATA = {
               gender: "Mens",
               brand: "Adidas",
               logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+              type: "Sneakers",
               sneakerStyle: "Forum",
               sizes: [6, 7, 8, 9, 10],
               price: "R 1,599.00",
@@ -1110,6 +1118,7 @@ const DUMMY_DATA = {
       products: [
         {
           id: 1,
+          name: "All Apparel",
           items: [
             {
               id: 1,
@@ -1239,12 +1248,11 @@ function App() {
     width: window.innerWidth,
   });
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
-  // const [menuName, setMenuName] = useContext(MenuContext);
+  const [clickedMenu, setClickedMenu] = useContext(MenuContext);
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
-  let clicked = "Mens";
-  let gender = "";
+  console.log(clickedMenu);
   let categoryName = JSON.parse(localStorage.getItem("categoryName"));
   // let clickedGender = JSON.parse(localStorage.getItem('gender'));
   // let clickedItem = JSON.parse(localStorage.getItem('itemName'));
@@ -1325,20 +1333,25 @@ function App() {
               item.products.map((product) => (
                 <Collection
                   key={product.id}
-                  items={product.items.filter((item) => {
-                    if (item.brand === clicked) {
-                      return item;
-                    } else if (
-                      item.type === clicked &&
-                      item.gender === gender
-                    ) {
-                      return item;
-                    } else if (item.gender === clicked) {
-                      return item;
-                    } else {
-                      return item;
-                    }
-                  })}
+                  items={
+                    clickedMenu.itemName === product.name
+                      ? product.items
+                      : product.items.filter((item) => {
+                          if (item.brand === clickedMenu.itemName) {
+                            return item;
+                          } else if (
+                            item.type === clickedMenu.itemName &&
+                            item.gender === clickedMenu.gender
+                          ) {
+                            return item;
+                          } else if (item.gender === clickedMenu.itemName) {
+                            console.log("ZORT");
+                            return item;
+                          } else {
+                            return false;
+                          }
+                        })
+                  }
                 />
               ))
             )}
