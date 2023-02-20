@@ -52,26 +52,39 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  useEffect(() => {
-    document.body.addEventListener("click", (event) => {
-      if (!event.target.classList.contains("collection__sortBy")) {
-        if (
-          filterListRef.current.classList.contains(
-            "collection__filterList--active"
-          )
-        ) {
-          filterListRef.current.classList.remove(
-            "collection__filterList--active"
-          );
-        }
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   document.body.addEventListener("click", (event) => {
+  //     if (
+  //       !event.target.classList.contains("collection__sortBy") &&
+  //       filterListRef.current.classList.contains(
+  //         "collection__filterList--active"
+  //       )
+  //     ) {
+  //       filterListRef.current.classList.remove(
+  //         "collection__filterList--active"
+  //       );
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
-        <div className="collection">
+        <div
+          className="collection"
+          onClick={(event) => {
+            if (
+              !event.target.classList.contains("collection__sortBy") &&
+              filterListRef.current.classList.contains(
+                "collection__filterList--active"
+              )
+            ) {
+              filterListRef.current.classList.remove(
+                "collection__filterList--active"
+              );
+            }
+          }}
+        >
           <div className="collection__header">
             <h1 className="collection__title">Sneakers</h1>
             <div className="collection__searchBox">
@@ -98,6 +111,7 @@ const Collection = (props) => {
               >
                 Filter By
               </Button>
+
               <div ref={filterListRef} className="collection__filterList">
                 <span className="collection__totalProducts">
                   <span>311</span> Products
@@ -182,6 +196,9 @@ const Collection = (props) => {
                   */}
                   <div className="products__container">
                     <Link
+                      onClick={() => {
+                        console.log(item);
+                      }}
                       to={`/collections/${categoryName}/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
@@ -192,6 +209,7 @@ const Collection = (props) => {
                       <div className="products__logo">
                         <img src={item.logo} alt={item.brand} />
                       </div>
+                      {/* IMAGES FILTER YAPILACAK SADECE ilk 2 id gösterileceku */}
                       {item.images.map((image) => (
                         <img
                           key={image.id}
