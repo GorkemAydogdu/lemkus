@@ -1616,10 +1616,11 @@ function App() {
               ))
             )}
         />
+        */}
         <Route
           path={`/collections/:categoryName/:productName`}
           element={<CollectionDetail />}
-        /> */}
+        />
 
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         <Route
