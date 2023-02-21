@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import UIContext from "./context/ui-context";
-import MenuContext from "./context/menu-context";
+// import MenuContext from "./context/menu-context";
 
 //Components
 import Header from "./components/Header/Header";
@@ -955,255 +955,491 @@ const DUMMY_DATA = {
   pages: [
     {
       id: 1,
-      name: "Sneakers",
-      products: [
+      items: [
         {
           id: 1,
-          name: "All Sneakers",
-          items: [
+          name: "Blazer Mid Victory [W]",
+          gender: "Womens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Sneakers",
+          type: "Blazer",
+          sizes: [3, 4, 5, 6],
+          price: "R 2,299.00",
+          images: [
             {
               id: 1,
-              name: "Blazer Mid Victory [W]",
-              gender: "Womens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Blazer",
-              sizes: [3, 4, 5, 6],
-              price: "R 2,299.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
-                },
-              ],
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
             },
             {
               id: 2,
-              name: "Blazer Low Platform [W]",
-              gender: "Womens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Blazer",
-              sizes: [3, 4, 5, 6],
-              price: "R 1,899.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
-                },
-              ],
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: "Blazer Low Platform [W]",
+          gender: "Womens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Sneakers",
+          type: "Blazer",
+          sizes: [3, 4, 5, 6],
+          price: "R 1,899.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
             },
             {
-              id: 3,
-              name: "Lebron XX",
-              gender: "Mens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Blazer",
-              sizes: [6, 7, 8, 9, 10, 11, 12],
-              price: "R 3,699.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
-                },
-              ],
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: "Lebron XX",
+          gender: "Mens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Sneakers",
+          type: "Blazer",
+          sizes: [6, 7, 8, 9, 10, 11, 12],
+          price: "R 3,699.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
             },
             {
-              id: 4,
-              name: "Air Max Motif [GS]",
-              gender: "Grade School",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Air Max",
-              sizes: [3, 4, 5, 6],
-              price: "R 2,199.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
-                },
-              ],
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
+            },
+          ],
+        },
+        {
+          id: 4,
+          name: "Air Max Motif [GS]",
+          gender: "Grade School",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Sneakers",
+          type: "Air Max",
+          sizes: [3, 4, 5, 6],
+          price: "R 2,199.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
             },
             {
-              id: 5,
-              name: "Forum Low",
-              gender: "Mens",
-              brand: "Adidas",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Forum",
-              sizes: [6, 7, 8, 9, 10],
-              price: "R 1,699.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
-                },
-              ],
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
+            },
+          ],
+        },
+        {
+          id: 5,
+          name: "Forum Low",
+          gender: "Mens",
+          brand: "Adidas",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+          categoryName: "Sneakers",
+          type: "Forum",
+          sizes: [6, 7, 8, 9, 10],
+          price: "R 1,699.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
             },
             {
-              id: 6,
-              name: "Gazelle",
-              gender: "Womens",
-              brand: "Adidas",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Blazer",
-              sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-              price: "R 1,499.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
-                },
-              ],
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Gazelle",
+          gender: "Womens",
+          brand: "Adidas",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+          categoryName: "Sneakers",
+          type: "Blazer",
+          sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+          price: "R 1,499.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
             },
             {
-              id: 7,
-              name: "Forum Low",
-              gender: "Mens",
-              brand: "Adidas",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-              type: "Sneakers",
-              sneakerStyle: "Forum",
-              sizes: [6, 7, 8, 9, 10],
-              price: "R 1,599.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
-                },
-              ],
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
+            },
+          ],
+        },
+        {
+          id: 7,
+          name: "Forum Low",
+          gender: "Mens",
+          brand: "Adidas",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+          categoryName: "Sneakers",
+          type: "Forum",
+          sizes: [6, 7, 8, 9, 10],
+          price: "R 1,599.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
+            },
+          ],
+        },
+        {
+          id: 8,
+          name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
+          gender: "Mens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Apparel",
+          type: "Team Sportswear",
+          sizes: ["S", "M", "L", "XL", "2XL"],
+          price: "R 1,599.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
+            },
+          ],
+        },
+        {
+          id: 9,
+          name: "NSW TECH FLEECE WINDRUNNER (W)",
+          gender: "Womens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Apparel",
+          type: "Sweatshirts",
+          sizes: ["XS", "S", "M", "L", "XL"],
+          price: "R 1,949.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
+            },
+          ],
+        },
+        {
+          id: 10,
+          name: "NBA ALL STAR ESSENTIAL T-SHIRT",
+          gender: "Mens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Apparel",
+          type: "T-shirts/Tops",
+          sizes: ["S", "M", "L", "XL", "2XL"],
+          price: "R 529.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
+            },
+          ],
+        },
+        {
+          id: 11,
+          name: "NSW BOYFRIEND T-SHIRT (W)",
+          gender: "Womens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Apparel",
+          type: "T-shirts/Tops",
+          sizes: ["XS", "S", "M", "L", "XL"],
+          price: "R 619.00",
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
             },
           ],
         },
       ],
     },
-    {
-      id: 1,
-      name: "Apparel",
-      products: [
-        {
-          id: 1,
-          name: "All Apparel",
-          items: [
-            {
-              id: 1,
-              name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
-              gender: "Mens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Team Sportswear",
-              sizes: ["S", "M", "L", "XL", "2XL"],
-              price: "R 1,599.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
-                },
-              ],
-            },
-            {
-              id: 2,
-              name: "NSW TECH FLEECE WINDRUNNER (W)",
-              gender: "Womens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "Sweatshirts",
-              sizes: ["XS", "S", "M", "L", "XL"],
-              price: "R 1,949.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
-                },
-              ],
-            },
-            {
-              id: 3,
-              name: "NBA ALL STAR ESSENTIAL T-SHIRT",
-              gender: "Mens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "T-shirts/Tops",
-              sizes: ["S", "M", "L", "XL", "2XL"],
-              price: "R 529.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
-                },
-              ],
-            },
-            {
-              id: 4,
-              name: "NSW BOYFRIEND T-SHIRT (W)",
-              gender: "Womens",
-              brand: "Nike",
-              logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-              type: "T-shirts/Tops",
-              sizes: ["XS", "S", "M", "L", "XL"],
-              price: "R 619.00",
-              images: [
-                {
-                  id: 1,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
-                },
-                {
-                  id: 2,
-                  url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    // {
+    //   id: 1,
+    //   name: "Sneakers",
+    //   products: [
+    //     {
+    //       id: 1,
+    //       name: "All Sneakers",
+    //       items: [
+    //         {
+    //           id: 1,
+    //           name: "Blazer Mid Victory [W]",
+    //           gender: "Womens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Blazer",
+    //           sizes: [3, 4, 5, 6],
+    //           price: "R 2,299.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 2,
+    //           name: "Blazer Low Platform [W]",
+    //           gender: "Womens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Blazer",
+    //           sizes: [3, 4, 5, 6],
+    //           price: "R 1,899.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 3,
+    //           name: "Lebron XX",
+    //           gender: "Mens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Blazer",
+    //           sizes: [6, 7, 8, 9, 10, 11, 12],
+    //           price: "R 3,699.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 4,
+    //           name: "Air Max Motif [GS]",
+    //           gender: "Grade School",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Air Max",
+    //           sizes: [3, 4, 5, 6],
+    //           price: "R 2,199.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 5,
+    //           name: "Forum Low",
+    //           gender: "Mens",
+    //           brand: "Adidas",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Forum",
+    //           sizes: [6, 7, 8, 9, 10],
+    //           price: "R 1,699.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 6,
+    //           name: "Gazelle",
+    //           gender: "Womens",
+    //           brand: "Adidas",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Blazer",
+    //           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+    //           price: "R 1,499.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 7,
+    //           name: "Forum Low",
+    //           gender: "Mens",
+    //           brand: "Adidas",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+    //           type: "Sneakers",
+    //           sneakerStyle: "Forum",
+    //           sizes: [6, 7, 8, 9, 10],
+    //           price: "R 1,599.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: 2,
+    //   name: "Apparel",
+    //   products: [
+    //     {
+    //       id: 1,
+    //       name: "All Apparel",
+    //       items: [
+    //         {
+    //           id: 1,
+    //           name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
+    //           gender: "Mens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Team Sportswear",
+    //           sizes: ["S", "M", "L", "XL", "2XL"],
+    //           price: "R 1,599.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 2,
+    //           name: "NSW TECH FLEECE WINDRUNNER (W)",
+    //           gender: "Womens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "Sweatshirts",
+    //           sizes: ["XS", "S", "M", "L", "XL"],
+    //           price: "R 1,949.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 3,
+    //           name: "NBA ALL STAR ESSENTIAL T-SHIRT",
+    //           gender: "Mens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "T-shirts/Tops",
+    //           sizes: ["S", "M", "L", "XL", "2XL"],
+    //           price: "R 529.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 4,
+    //           name: "NSW BOYFRIEND T-SHIRT (W)",
+    //           gender: "Womens",
+    //           brand: "Nike",
+    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+    //           type: "T-shirts/Tops",
+    //           sizes: ["XS", "S", "M", "L", "XL"],
+    //           price: "R 619.00",
+    //           images: [
+    //             {
+    //               id: 1,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
+    //             },
+    //             {
+    //               id: 2,
+    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
 };
 
@@ -1256,9 +1492,40 @@ function App() {
   let clickedGender = JSON.parse(localStorage.getItem("gender"));
   let clickedItem = JSON.parse(localStorage.getItem("itemName"));
 
+  //https://stackoverflow.com/a/21081760
+  const wordInString = (s, word) =>
+    new RegExp("\\b" + word + "\\b", "i").test(s);
+  // \b kelime sınırı i büyük kucuk harf duyarlılığı
+
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
   };
+
+  let data = DUMMY_DATA.pages.map((product) =>
+    product.items.filter((filtered) => {
+      if (wordInString(clickedItem, filtered.categoryName)) {
+        return filtered;
+      } else if (
+        filtered.brand === clickedItem &&
+        filtered.categoryName === categoryName
+      ) {
+        return filtered;
+      } else if (
+        filtered.type === clickedItem &&
+        filtered.gender === clickedGender &&
+        filtered.categoryName === categoryName
+      ) {
+        return filtered;
+      } else if (
+        filtered.gender === clickedItem &&
+        filtered.categoryName === categoryName
+      ) {
+        return filtered;
+      } else {
+        return false;
+      }
+    })
+  );
 
   useEffect(() => {
     if (
@@ -1317,6 +1584,10 @@ function App() {
       <Routes>
         <Route
           path="/collections/:categoryName"
+          element={<Collection items={data} />}
+        />
+        {/* <Route
+          path="/collections/:categoryName"
           element={DUMMY_DATA.pages
             .filter((item) => item.name === categoryName)
             .map((item) =>
@@ -1348,7 +1619,7 @@ function App() {
         <Route
           path={`/collections/:categoryName/:productName`}
           element={<CollectionDetail />}
-        />
+        /> */}
 
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
         <Route

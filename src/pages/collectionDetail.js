@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 
 // import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";

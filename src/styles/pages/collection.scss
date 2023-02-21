@@ -55,13 +55,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-
-    @include respond(tab-land) {
-      margin-top: 14rem;
-    }
-    @include respond(tab-port) {
-      margin-top: 12rem;
-    }
   }
   &__hide {
     cursor: pointer;

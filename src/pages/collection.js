@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -20,7 +20,7 @@ const Collection = (props) => {
   const [filterClicked, setFilterClicked] = useState(false);
   const collectionContentRef = useRef();
   const mobileMenuRef = useRef();
-  const location = useLocation();
+
   let { categoryName } = useParams();
 
   function closeFilterButtonHandler() {
@@ -51,21 +51,6 @@ const Collection = (props) => {
   useEffect(() => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
-
-  // useEffect(() => {
-  //   document.body.addEventListener("click", (event) => {
-  //     if (
-  //       !event.target.classList.contains("collection__sortBy") &&
-  //       filterListRef.current.classList.contains(
-  //         "collection__filterList--active"
-  //       )
-  //     ) {
-  //       filterListRef.current.classList.remove(
-  //         "collection__filterList--active"
-  //       );
-  //     }
-  //   });
-  // }, []);
 
   return (
     <>
@@ -185,7 +170,7 @@ const Collection = (props) => {
             </div>
 
             <ul className="collection__productsList products__list">
-              {props.items.map((item) => (
+              {props.items[0].map((item) => (
                 <li
                   key={item.id}
                   className="collection__productsItem products__item"
@@ -196,9 +181,6 @@ const Collection = (props) => {
                   */}
                   <div className="products__container">
                     <Link
-                      onClick={() => {
-                        console.log(item);
-                      }}
                       to={`/collections/${categoryName}/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
