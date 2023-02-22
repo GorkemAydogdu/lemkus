@@ -964,6 +964,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Sneakers",
           type: "Blazer",
+          details:
+            "With a carefully crafted aesthetic, your tried-and-true wardrobe staple gets elevated with an expressive outdoorsy vibe. Updated details like the just-right lift adds a sophisticated mountain town edge. Concealed laces streamline your outfit. The classic Blazer design does the rest of the talking.",
           sizes: [3, 4, 5, 6],
           price: "R 2,299.00",
           images: [
@@ -975,6 +977,26 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-3.png?v=1674122077",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-4.png?v=1674122077",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-5.png?v=1674122077",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-6.png?v=1674122077",
+            },
+            {
+              id: 7,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-7.png?v=1674122077",
+            },
           ],
         },
         {
@@ -985,6 +1007,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Sneakers",
           type: "Blazer",
+          details:
+            "Praised for its classic simplicity and comfort, the Nike Blazer Low Platform elevates the hoops icon. The lifted midsole/outsole lets you step confidently while the upper keeps the proportions you loved from the original.",
           sizes: [3, 4, 5, 6],
           price: "R 1,899.00",
           images: [
@@ -996,6 +1020,26 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-3.png?v=1667568139",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-4.png?v=1667568139",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-5.png?v=1667568139",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-6.png?v=1667568139",
+            },
+            {
+              id: 7,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-7.png?v=1667568139",
+            },
           ],
         },
         {
@@ -1006,6 +1050,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Sneakers",
           type: "Blazer",
+          details:
+            "Revisiting the iconic lineup of the King’s Christmas Day kicks, this design’s festive array of graphics and colors creates a mash-up of Christmas’ past. From dimes to dunks, this is no ugly sweater—its lightweight, low-to-the-ground and ultra-cushioned design is fresher than pine and cozier than a cup of cocoa by the fireside. Hope you’ve been nice.",
           sizes: [6, 7, 8, 9, 10, 11, 12],
           price: "R 3,699.00",
           images: [
@@ -1017,6 +1063,26 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-3.png?v=1674121735",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-4.png?v=1674121735",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-5.png?v=1674121735",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-6.png?v=1674121735",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-7.png?v=1674121735",
+            },
           ],
         },
         {
@@ -1027,6 +1093,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Sneakers",
           type: "Air Max",
+          details:
+            "Enter a new era in Air Max history. The Nike Air Max Motif honors the iconic AM1—a streetwear legend since ‘87—with a futuristic take made for your generation. The design lines give throwback vibes and a redesigned Air unit has supersoft cushioning, so you have everything you need for all-day play.",
           sizes: [3, 4, 5, 6],
           price: "R 2,199.00",
           images: [
@@ -1038,6 +1106,26 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-3.png?v=1670320762",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-4.png?v=1670320762",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-5.png?v=1670320762",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-6.png?v=1670320762",
+            },
+            {
+              id: 7,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-7.png?v=1670320762",
+            },
           ],
         },
         {
@@ -1048,6 +1136,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
           categoryName: "Sneakers",
           type: "Forum",
+          details:
+            "More than just a shoe, it's a statement. The adidas Forum hit the scene in '84 and gained major love on both the hardwood and in the music biz. This pair of the classic shoes brings back the '80s attitude, the explosive hardwood energy and the iconic X-strap ankle design, distilled into a low top version meant for the streets.",
           sizes: [6, 7, 8, 9, 10],
           price: "R 1,699.00",
           images: [
@@ -1059,6 +1149,22 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_3.png?v=1667292838",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_4.png?v=1667292838",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_5.png?v=1667292838",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_6.png?v=1667292838",
+            },
           ],
         },
         {
@@ -1069,6 +1175,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
           categoryName: "Sneakers",
           type: "Blazer",
+          details:
+            "The adidas Gazelle Shoes have stepped onto just about every corner of our cultural landscape — starting in the world of sport before making their way into the music and fashion scenes. These trainers are a one-to-one reissue of the '91 Gazelle, with the same textures, materials and proportions as the OG. Even the colours nod back to the era, done in muted tones with contrast.",
           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
           price: "R 1,499.00",
           images: [
@@ -1080,6 +1188,22 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_3.png?v=1663075029",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_4.png?v=1663075029",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_5.png?v=1663075029",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_6.png?v=1663075029",
+            },
           ],
         },
         {
@@ -1090,6 +1214,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
           categoryName: "Sneakers",
           type: "Forum",
+          details:
+            "Your style is ever-evolving. Choose shoes that can keep up. Like this fresh take on the adidas Forum shoes. Made with cool weather in mind, the upper mixes CORDURA® woven fabric with premium suede. The heel cord and lace toggle pop against the muted monochromatic design for an elevated look. This pair keeps the iconic details like the X-detail, hook-and-loop strap and rubber cupsole intact. Made in part with recycled content generated from production waste, e.g. cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content.",
           sizes: [6, 7, 8, 9, 10],
           price: "R 1,599.00",
           images: [
@@ -1101,6 +1227,22 @@ const DUMMY_DATA = {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
             },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_3.png?v=1669883785",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_4.png?v=1669883785",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_5.png?v=1669883785",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_6.png?v=1669883785",
+            },
           ],
         },
         {
@@ -1111,6 +1253,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Apparel",
           type: "Team Sportswear",
+          details:
+            "Emulate your favoUrite player in this Chicago Bulls jersey, a fan-ready favorite with logo and design details that match what the pros wear on the court. Plus, it infuses breathable mesh with sweat-wicking technology to help keep you cool and dry whether you’re burning up the court or just keeping it casual around town.",
           sizes: ["S", "M", "L", "XL", "2XL"],
           price: "R 1,599.00",
           images: [
@@ -1132,6 +1276,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Apparel",
           type: "Sweatshirts",
+          details:
+            "The Nike Sportswear Tech Fleece Hoodie is made with double-sided spacer fabric to harness your body heat to create added warmth without extra bulk or weight.",
           sizes: ["XS", "S", "M", "L", "XL"],
           price: "R 1,949.00",
           images: [
@@ -1153,6 +1299,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Apparel",
           type: "T-shirts/Tops",
+          details:
+            "Show your love for King James all weekend long. Made from soft cotton, this classic-fit tee is all about letting you comfortably cheer on the best players in the league. In fact, it just might become the all-star of your fan wardrobe.",
           sizes: ["S", "M", "L", "XL", "2XL"],
           price: "R 529.00",
           images: [
@@ -1174,6 +1322,8 @@ const DUMMY_DATA = {
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Apparel",
           type: "T-shirts/Tops",
+          details:
+            "Made to look and feel vintage, this heavyweight cotton tee has a roomy fit and satiny logo for a premium feel you'll want to wear every day.",
           sizes: ["XS", "S", "M", "L", "XL"],
           price: "R 619.00",
           images: [
@@ -1184,6 +1334,10 @@ const DUMMY_DATA = {
             {
               id: 2,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
+            },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-3.png?v=1670322146",
             },
           ],
         },
@@ -1582,6 +1736,7 @@ function App() {
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
       <Routes>
+        <Route path="/collections/adidas" element={<Collection />} />
         <Route
           path="/collections/:categoryName"
           element={<Collection items={data} />}

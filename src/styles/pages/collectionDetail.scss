@@ -58,6 +58,7 @@
   &__sizes {
     margin-top: 3rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
 
@@ -222,6 +223,11 @@
   }
   &__thumbnailItem {
     display: flex;
+    width: 90%;
+
+    @include respond(tab-land) {
+      width: 80%;
+    }
 
     &:not(:last-child) {
       margin-bottom: 0.8rem;

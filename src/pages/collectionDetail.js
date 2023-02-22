@@ -11,6 +11,7 @@ import "@splidejs/splide/css";
 
 const CollectionDetail = () => {
   // const smoothScrollWrapper = useRef();
+  let clickedData = JSON.parse(localStorage.getItem("data"));
 
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
@@ -19,6 +20,11 @@ const CollectionDetail = () => {
       heightRatio: "1",
       speed: "2000",
       easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+      breakpoints: {
+        1366: {
+          heightRatio: ".8",
+        },
+      },
     });
 
     splide.on("pagination:mounted", function (data) {
@@ -33,67 +39,38 @@ const CollectionDetail = () => {
         item.li.classList.add("collectionDetail__thumbnailItem");
         item.button.classList.add("collectionDetail__thumbnailButton");
         item.button.classList.remove("splide__pagination__page");
-
-        item.button.innerHTML = `<img
-        src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-${
-          item.page + 1
-        }.png?v=1675684622"
-        alt="CENTENNIAL 85 LOW"
-      />`;
       });
     });
     splide.mount();
   }, []);
+
+  useEffect(() => {
+    let thumbnailButton = document.querySelectorAll(
+      ".collectionDetail__thumbnailButton"
+    );
+    clickedData.images.forEach((image, idx) => {
+      thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
+    });
+  }, [clickedData.images]);
   return (
     <>
       <div className="collectionDetail">
         <div className="splide collectionDetail__imagesWrapper">
-          <div className="splide__track zort">
+          <div className="splide__track">
             <ul className="splide__list collectionDetail__images">
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-1.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-2.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-3.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-4.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-5.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
-              <li className="splide__slide collectionDetail__image">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FZ5880-6.png?v=1675684622"
-                  alt="CENTENNIAL 85 LOW"
-                />
-              </li>
+              {clickedData.images.map((image) => (
+                <li className="splide__slide collectionDetail__image">
+                  <img src={image.url} alt={clickedData.name} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="collectionDetail__infos">
-          <h1 className="collectionDetail__title">Centennial 85 Low</h1>
+          <h1 className="collectionDetail__title">{clickedData.name}</h1>
           <div className="collectionDetail__priceGuide">
-            <span className="collectionDetail__price">R 1,899.00</span>
+            <span className="collectionDetail__price">{clickedData.price}</span>
             <a
               href="https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Lemkus_Approved.pdf"
               className="collectionDetail__guide underline"
@@ -102,10 +79,9 @@ const CollectionDetail = () => {
             </a>
           </div>
           <div className="collectionDetail__sizes">
-            <Button className="collectionDetail__size">6</Button>
-            <Button className="collectionDetail__size">7</Button>
-            <Button className="collectionDetail__size">8</Button>
-            <Button className="collectionDetail__size">9</Button>
+            {clickedData.sizes.map((size) => (
+              <Button className="collectionDetail__size">{size}</Button>
+            ))}
           </div>
           <div className="collectionDetail__action">
             <Button className="collectionDetail__addToBag btn-hover">
@@ -139,11 +115,7 @@ const CollectionDetail = () => {
                 <span className="collectionDetail__plus--rotate"></span>
               </div>
               <p className="collectionDetail__descriptionContent">
-                The adidas Centennial pulled up to the hardwood in '85 and
-                quickly set itself apart from the rest. These men's shoes honour
-                those basketball roots with a suede upper that nods to their
-                beginning. Perforated details on the toe and the spoiler flex on
-                the heel give a retro pop of texture.
+                {clickedData.details}
               </p>
             </div>
             <div

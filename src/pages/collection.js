@@ -181,6 +181,9 @@ const Collection = (props) => {
                   */}
                   <div className="products__container">
                     <Link
+                      onClick={() => {
+                        localStorage.setItem("data", JSON.stringify(item));
+                      }}
                       to={`/collections/${categoryName}/${item.name
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
@@ -192,7 +195,7 @@ const Collection = (props) => {
                         <img src={item.logo} alt={item.brand} />
                       </div>
                       {/* IMAGES FILTER YAPILACAK SADECE ilk 2 id gösterileceku */}
-                      {item.images.map((image) => (
+                      {item.images.slice(0, 2).map((image) => (
                         <img
                           key={image.id}
                           className={`products__image--${image.id}`}
