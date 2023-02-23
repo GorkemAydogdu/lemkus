@@ -78,6 +78,11 @@
     padding: 0.5rem 0;
     border-radius: 50px;
 
+    &--active {
+      background-color: $black;
+      color: $white;
+    }
+
     @include respond(tab-port) {
       width: 22.5%;
       padding: 1rem 0;

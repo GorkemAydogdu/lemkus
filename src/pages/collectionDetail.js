@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
@@ -11,6 +11,7 @@ import "@splidejs/splide/css";
 
 const CollectionDetail = () => {
   // const smoothScrollWrapper = useRef();
+  const [clickedSize, setClickedSize] = useState("");
   let clickedData = JSON.parse(localStorage.getItem("data"));
 
   useEffect(() => {
@@ -59,7 +60,10 @@ const CollectionDetail = () => {
           <div className="splide__track">
             <ul className="splide__list collectionDetail__images">
               {clickedData.images.map((image) => (
-                <li className="splide__slide collectionDetail__image">
+                <li
+                  key={image.id}
+                  className="splide__slide collectionDetail__image"
+                >
                   <img src={image.url} alt={clickedData.name} />
                 </li>
               ))}
@@ -80,7 +84,22 @@ const CollectionDetail = () => {
           </div>
           <div className="collectionDetail__sizes">
             {clickedData.sizes.map((size) => (
-              <Button className="collectionDetail__size">{size}</Button>
+              <Button
+                onClick={(event) => {
+                  setClickedSize(size);
+                  if (clickedSize === size) {
+                    event.target.classList.toggle(
+                      "collectionDetail__size--active"
+                    );
+                  }
+                }}
+                key={size}
+                className={`collectionDetail__size ${
+                  clickedSize === size ? "collectionDetail__size--active" : ""
+                }`}
+              >
+                {size}
+              </Button>
             ))}
           </div>
           <div className="collectionDetail__action">
