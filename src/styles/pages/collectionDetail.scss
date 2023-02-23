@@ -1,7 +1,6 @@
 .collectionDetail {
   width: 100vw;
-  margin-top: 10rem;
-  padding: 0 2.5rem;
+  padding: 2.5rem;
 
   font-family: "Oswald", sans-serif;
   line-height: 1;
@@ -29,8 +28,6 @@
 
   &__infos {
     height: max-content;
-    position: sticky;
-    top: 8rem;
     width: 40%;
 
     @include respond(tab-port) {
@@ -213,8 +210,6 @@
     }
   }
   &__thumbnail {
-    position: sticky;
-    top: 8rem;
     height: max-content;
     width: 10rem;
     display: flex;

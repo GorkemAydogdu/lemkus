@@ -47,47 +47,47 @@ const Header = (props) => {
 
     if (location.pathname !== "/") {
       setLocationChanged(true);
+      document.querySelector(".header__time").style.opacity = "1";
     } else {
       setLocationChanged(false);
+      gsap.fromTo(
+        ".logo",
+        {
+          top: "7rem",
+          width: "100%",
+        },
+        {
+          top: "2rem",
+          width: "13%",
+          ease: "power1.inOut",
+
+          scrollTrigger: {
+            trigger: ".header",
+            start: "top",
+            end: "top top",
+            endTrigger: ".banner",
+            scrub: 2,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".header__time",
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".header",
+            start: "top",
+            end: "top 57px",
+            endTrigger: ".banner",
+            scrub: 2,
+          },
+        }
+      );
     }
-
-    gsap.fromTo(
-      ".logo",
-      {
-        top: "7rem",
-        width: "100%",
-      },
-      {
-        top: "2rem",
-        width: "13%",
-        ease: "power1.inOut",
-
-        scrollTrigger: {
-          trigger: ".header",
-          start: "top",
-          end: "top top",
-          endTrigger: ".banner",
-          scrub: 2,
-        },
-      }
-    );
-
-    gsap.fromTo(
-      ".header__time",
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".header",
-          start: "top",
-          end: "top 57px",
-          endTrigger: ".banner",
-          scrub: 2,
-        },
-      }
-    );
 
     //https://greensock.com/forums/topic/22491-gsap3-target-object-not-found/?do=findComment&comment=106192
     gsap.config({

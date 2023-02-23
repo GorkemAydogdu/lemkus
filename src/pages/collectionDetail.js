@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-// import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
+import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
 import Culture from "../components/Culture/Culture";
 
@@ -10,7 +10,7 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
 const CollectionDetail = () => {
-  // const smoothScrollWrapper = useRef();
+  const smoothScrollWrapper = useRef();
   const [clickedSize, setClickedSize] = useState("");
   let clickedData = JSON.parse(localStorage.getItem("data"));
 
@@ -54,7 +54,7 @@ const CollectionDetail = () => {
     });
   }, [clickedData.images]);
   return (
-    <>
+    <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collectionDetail">
         <div className="splide collectionDetail__imagesWrapper">
           <div className="splide__track">
@@ -77,6 +77,7 @@ const CollectionDetail = () => {
             <span className="collectionDetail__price">{clickedData.price}</span>
             <a
               href="https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Lemkus_Approved.pdf"
+              target="_blank"
               className="collectionDetail__guide underline"
             >
               Size Guide
@@ -170,7 +171,7 @@ const CollectionDetail = () => {
         </div>
       </div>
       <Culture />
-    </>
+    </SmoothScrollWrapper>
   );
 };
 

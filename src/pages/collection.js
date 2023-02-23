@@ -194,7 +194,7 @@ const Collection = (props) => {
                       <div className="products__logo">
                         <img src={item.logo} alt={item.brand} />
                       </div>
-                      {/* IMAGES FILTER YAPILACAK SADECE ilk 2 id gösterileceku */}
+
                       {item.images.slice(0, 2).map((image) => (
                         <img
                           key={image.id}
