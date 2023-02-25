@@ -45,11 +45,11 @@ const DUMMY_DATA = {
           category: "Collections",
           items: [
             { id: 1, pathname: "/sneakers", name: "All Sneakers" },
-            { id: 2, pathname: "/male-sneakers", name: "Mens" },
-            { id: 3, pathname: "/womens-sneakers", name: "Womens" },
+            { id: 2, pathname: "/sneakers?name=mens", name: "Mens" },
+            { id: 3, pathname: "/sneakers?name=womens", name: "Womens" },
             {
               id: 4,
-              pathname: "/kids-grade-school-sneakers",
+              pathname: "/sneakers?name=grade-school",
               name: "Grade School",
             },
           ],
@@ -58,24 +58,32 @@ const DUMMY_DATA = {
           id: 2,
           category: "Brands",
           items: [
-            { id: 1, pathname: "/sneakers?=nike", name: "Nike" },
-            { id: 2, pathname: "/sneakers/air-jordan", name: "Air Jordan" },
-            { id: 3, pathname: "/sneakers/new-balance", name: "New Balance" },
+            { id: 1, pathname: "/sneakers?name=nike", name: "Nike" },
+            {
+              id: 2,
+              pathname: "/sneakers?name=air-jordan",
+              name: "Air Jordan",
+            },
+            {
+              id: 3,
+              pathname: "/sneakers?name=new-balance",
+              name: "New Balance",
+            },
             {
               id: 4,
-              pathname: "/sneakers/adidas",
+              pathname: "/sneakers?name=adidas",
               name: "Adidas",
             },
-            { id: 5, pathname: "/sneakers/converse", name: "Converse" },
-            { id: 6, pathname: "/sneakers/reebok", name: "Reebok" },
-            { id: 7, pathname: "/sneakers/puma", name: "Puma" },
-            { id: 8, pathname: "/sneakers/crocs", name: "Crocs" },
+            { id: 5, pathname: "/sneakers?name=converse", name: "Converse" },
+            { id: 6, pathname: "/sneakers?name=reebook", name: "Reebok" },
+            { id: 7, pathname: "/sneakers?name=puma", name: "Puma" },
+            { id: 8, pathname: "/sneakers?name=crocs", name: "Crocs" },
             {
               id: 9,
-              pathname: "/sneakers/ewing-athletics",
+              pathname: "/sneakers?name=ewing-athletics",
               name: "Ewing Athletics",
             },
-            { id: 10, pathname: "/sneakers/asics", name: "Asics" },
+            { id: 10, pathname: "/sneakers?name=asics", name: "Asics" },
           ],
         },
       ],
@@ -112,8 +120,8 @@ const DUMMY_DATA = {
           category: "Collections",
           items: [
             { id: 1, pathname: "/apparel", name: "All Apparel" },
-            { id: 2, pathname: "/male-apparel", name: "Mens" },
-            { id: 3, pathname: "/womens-apparel", name: "Womens" },
+            { id: 2, pathname: "/apparel?name=mens", name: "Mens" },
+            { id: 3, pathname: "/apparel?name=womens", name: "Womens" },
           ],
         },
         {
@@ -123,19 +131,27 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/male-apparel?=tshirts-tops",
+              pathname: "/apparel?name=mens&category=t-shirts/tops",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/male-apparel?=sweatshirt",
+              pathname: "/apparel?name=mens&category=sweatshirts",
               name: "Sweatshirts",
             },
-            { id: 3, pathname: "/male-apparel?=outerwear", name: "Outerwear" },
-            { id: 4, pathname: "/male-apparel?=bottoms", name: "Bottoms" },
+            {
+              id: 3,
+              pathname: "/apparel?name=mens&category=outerwear",
+              name: "Outerwear",
+            },
+            {
+              id: 4,
+              pathname: "/apparel?name=mens&category=bottoms",
+              name: "Bottoms",
+            },
             {
               id: 5,
-              pathname: "/male-apparel?=team-sportswear",
+              pathname: "/apparel?name=mens&category=team-sportswear",
               name: "Team Sportswear",
             },
           ],
@@ -147,20 +163,24 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/womens-apparel?=tshirts-tops",
+              pathname: "/apparel?name=womens&category=t-shirts/tops",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/womens-apparel?=sweatshirt",
+              pathname: "/apparel?name=womens&category=sweatshirts",
               name: "Sweatshirts",
             },
             {
               id: 3,
-              pathname: "/womens-apparel?=outerwear",
+              pathname: "/apparel?name=womens&category=outerwear",
               name: "Outerwear",
             },
-            { id: 4, pathname: "/womens-apparel?=bottoms", name: "Bottoms" },
+            {
+              id: 4,
+              pathname: "/apparel?name=womens&category=bottoms",
+              name: "Bottoms",
+            },
           ],
         },
       ],
@@ -197,12 +217,12 @@ const DUMMY_DATA = {
             },
             {
               id: 2,
-              pathname: "/all-kids-sneakers",
+              pathname: "/kids?name=sneakers",
               name: "All Kids Sneakers",
             },
             {
               id: 3,
-              pathname: "/all-kids-apparel",
+              pathname: "/kids?name=apparel",
               name: "All Kids Apparel",
             },
           ],
@@ -213,32 +233,32 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/kids?=nike",
+              pathname: "/kids?name=nike",
               name: "Nike",
             },
             {
               id: 2,
-              pathname: "/kids?=air-jordan",
+              pathname: "/kids?name=air-jordan",
               name: "Air Jordan",
             },
             {
               id: 3,
-              pathname: "/kids?=adidas",
+              pathname: "/kids?name=adidas",
               name: "Adidas",
             },
             {
               id: 4,
-              pathname: "/kids?=converse",
+              pathname: "/kids?name=converse",
               name: "Converse",
             },
             {
               id: 5,
-              pathname: "/kids?=crocs",
+              pathname: "/kids?name=crocs",
               name: "Crocs",
             },
             {
               id: 6,
-              pathname: "/kids?=new-balance",
+              pathname: "/kids?name=new-balance",
               name: "New Balance",
             },
           ],
@@ -249,28 +269,32 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/kids-apparel?=tshirts-tops",
+              pathname: "/kids?name=apparel&category=t-shirts/tops",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/kids-apparel?=sweatshirt",
+              pathname: "/kids?name=apparel&category=sweatshirts",
               name: "Sweatshirts",
             },
             {
               id: 3,
-              pathname: "/kids-apparel?=outerwear",
+              pathname: "/kids?name=apparel&category=outerwear",
               name: "Outerwear",
             },
-            { id: 4, pathname: "/kids-apparel?=bottoms", name: "Bottoms" },
+            {
+              id: 4,
+              pathname: "/kids?name=apparel&category=bottoms",
+              name: "Bottoms",
+            },
             {
               id: 5,
-              pathname: "/kids-apparel?=infant-sets",
+              pathname: "/kids?name=apparel&category=infant-sets",
               name: "Infant Sets",
             },
             {
               id: 6,
-              pathname: "/kids-apparel?=team-sportswear",
+              pathname: "/kids?name=apparel&category=team-sportswear",
               name: "Team Sportswear",
             },
           ],
@@ -307,12 +331,12 @@ const DUMMY_DATA = {
           id: 2,
           category: "Types",
           items: [
-            { id: 1, pathname: "/accessories?=headwear", name: "Headwear" },
-            { id: 2, pathname: "/accessories?=socks", name: "Socks" },
-            { id: 3, pathname: "/accessories?=bags", name: "Bags" },
+            { id: 1, pathname: "/accessories?name=headwear", name: "Headwear" },
+            { id: 2, pathname: "/accessories?name=socks", name: "Socks" },
+            { id: 3, pathname: "/accessories?name=bags", name: "Bags" },
             {
               id: 4,
-              pathname: "/accessories?=sneaker-care",
+              pathname: "/accessories?name=sneaker-care",
               name: "Sneaker Care",
             },
             {
@@ -1343,257 +1367,6 @@ const DUMMY_DATA = {
         },
       ],
     },
-    // {
-    //   id: 1,
-    //   name: "Sneakers",
-    //   products: [
-    //     {
-    //       id: 1,
-    //       name: "All Sneakers",
-    //       items: [
-    //         {
-    //           id: 1,
-    //           name: "Blazer Mid Victory [W]",
-    //           gender: "Womens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Blazer",
-    //           sizes: [3, 4, 5, 6],
-    //           price: "R 2,299.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 2,
-    //           name: "Blazer Low Platform [W]",
-    //           gender: "Womens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Blazer",
-    //           sizes: [3, 4, 5, 6],
-    //           price: "R 1,899.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 3,
-    //           name: "Lebron XX",
-    //           gender: "Mens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Blazer",
-    //           sizes: [6, 7, 8, 9, 10, 11, 12],
-    //           price: "R 3,699.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 4,
-    //           name: "Air Max Motif [GS]",
-    //           gender: "Grade School",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Air Max",
-    //           sizes: [3, 4, 5, 6],
-    //           price: "R 2,199.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 5,
-    //           name: "Forum Low",
-    //           gender: "Mens",
-    //           brand: "Adidas",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Forum",
-    //           sizes: [6, 7, 8, 9, 10],
-    //           price: "R 1,699.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 6,
-    //           name: "Gazelle",
-    //           gender: "Womens",
-    //           brand: "Adidas",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Blazer",
-    //           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-    //           price: "R 1,499.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 7,
-    //           name: "Forum Low",
-    //           gender: "Mens",
-    //           brand: "Adidas",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-    //           type: "Sneakers",
-    //           sneakerStyle: "Forum",
-    //           sizes: [6, 7, 8, 9, 10],
-    //           price: "R 1,599.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
-    // {
-    //   id: 2,
-    //   name: "Apparel",
-    //   products: [
-    //     {
-    //       id: 1,
-    //       name: "All Apparel",
-    //       items: [
-    //         {
-    //           id: 1,
-    //           name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
-    //           gender: "Mens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Team Sportswear",
-    //           sizes: ["S", "M", "L", "XL", "2XL"],
-    //           price: "R 1,599.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 2,
-    //           name: "NSW TECH FLEECE WINDRUNNER (W)",
-    //           gender: "Womens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "Sweatshirts",
-    //           sizes: ["XS", "S", "M", "L", "XL"],
-    //           price: "R 1,949.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 3,
-    //           name: "NBA ALL STAR ESSENTIAL T-SHIRT",
-    //           gender: "Mens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "T-shirts/Tops",
-    //           sizes: ["S", "M", "L", "XL", "2XL"],
-    //           price: "R 529.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           id: 4,
-    //           name: "NSW BOYFRIEND T-SHIRT (W)",
-    //           gender: "Womens",
-    //           brand: "Nike",
-    //           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-    //           type: "T-shirts/Tops",
-    //           sizes: ["XS", "S", "M", "L", "XL"],
-    //           price: "R 619.00",
-    //           images: [
-    //             {
-    //               id: 1,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
-    //             },
-    //             {
-    //               id: 2,
-    //               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
   ],
 };
 
@@ -1646,40 +1419,35 @@ function App() {
   let clickedGender = JSON.parse(localStorage.getItem("gender"));
   let clickedItem = JSON.parse(localStorage.getItem("itemName"));
 
-  //https://stackoverflow.com/a/21081760
-  const wordInString = (s, word) =>
-    new RegExp("\\b" + word + "\\b", "i").test(s);
-  // \b kelime sınırı i büyük kucuk harf duyarlılığı
-
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
   };
 
-  let data = DUMMY_DATA.pages.map((product) =>
-    product.items.filter((filtered) => {
-      if (wordInString(clickedItem, filtered.categoryName)) {
-        return filtered;
-      } else if (
-        filtered.brand === clickedItem &&
-        filtered.categoryName === categoryName
-      ) {
-        return filtered;
-      } else if (
-        filtered.type === clickedItem &&
-        filtered.gender === clickedGender &&
-        filtered.categoryName === categoryName
-      ) {
-        return filtered;
-      } else if (
-        filtered.gender === clickedItem &&
-        filtered.categoryName === categoryName
-      ) {
-        return filtered;
-      } else {
-        return false;
-      }
-    })
-  );
+  // let data = DUMMY_DATA.pages.map((product) =>
+  //   product.items.filter((filtered) => {
+  //     if (wordInString(clickedItem, filtered.categoryName)) {
+  //       return filtered;
+  //     } else if (
+  //       filtered.brand === clickedItem &&
+  //       filtered.categoryName === categoryName
+  //     ) {
+  //       return filtered;
+  //     } else if (
+  //       filtered.type === clickedItem &&
+  //       filtered.gender === clickedGender &&
+  //       filtered.categoryName === categoryName
+  //     ) {
+  //       return filtered;
+  //     } else if (
+  //       filtered.gender === clickedItem &&
+  //       filtered.categoryName === categoryName
+  //     ) {
+  //       return filtered;
+  //     } else {
+  //       return false;
+  //     }
+  //   })
+  // );
 
   useEffect(() => {
     if (
@@ -1736,10 +1504,9 @@ function App() {
           <Menu className="menu menu--active" key={item.id} item={item} />
         ))}
       <Routes>
-        <Route path="/collections/adidas" element={<Collection />} />
         <Route
           path="/collections/:categoryName"
-          element={<Collection items={data} />}
+          element={<Collection items={DUMMY_DATA.pages} />}
         />
         {/* <Route
           path="/collections/:categoryName"
