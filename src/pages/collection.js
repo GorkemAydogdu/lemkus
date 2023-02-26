@@ -31,7 +31,7 @@ const Collection = (props) => {
 
   let query = useQuery();
 
-  const name = query.get("name");
+  const gender = query.get("gender");
   const type = query.get("category");
 
   //https://stackoverflow.com/a/21081760
@@ -71,33 +71,33 @@ const Collection = (props) => {
   props.items.map((product) =>
     product.items.filter((filtered) => {
       if (
-        (filtered.brand.toLowerCase() === name &&
-          filtered.categoryName.toLowerCase() === categoryName) ||
-        (filtered.categoryName.toLowerCase() === categoryName &&
-          filtered.gender.toLowerCase().replace(" ", "-") === name)
+        wordInString(categoryName, filtered.categoryName) &&
+        gender === null &&
+        type === null
       ) {
+        console.log("ALL ITEMS");
         console.log(filtered);
-        // return filtered;
+      } else if (
+        filtered.gender.toLowerCase().replace(" ", "-") === gender &&
+        filtered.categoryName.toLowerCase() === categoryName &&
+        type === null
+      ) {
+        console.log("GENDERS");
+        console.log(filtered);
+      } else if (
+        filtered.categoryName.toLowerCase() === categoryName &&
+        filtered.brand.toLowerCase() === type
+      ) {
+        console.log("BRAND");
+        console.log(filtered);
+      } else if (
+        filtered.categoryName.toLowerCase() === categoryName &&
+        filtered.type.toLowerCase().replace(" ", "-") === type &&
+        filtered.gender.toLowerCase() === gender
+      ) {
+        console.log("MENS APPAREL");
+        console.log(filtered);
       }
-      // else if (
-      //   (filtered.type.toLowerCase().replace(" ", "-") === type &&
-      //     filtered.gender.toLowerCase() === name) ||
-      //   (filtered.gender.toLowerCase() === name &&
-      //     filtered.categoryName.toLowerCase() === categoryName)
-      // ) {
-      //   console.log(filtered);
-      //   // return filtered;
-      // }
-      // else if (filtered.gender.toLowerCase().replace(" ", "-") === name) {
-      //   console.log("3");
-
-      //   // return filtered;
-      // }
-      // else if (wordInString(categoryName, filtered.categoryName)) {
-      //   console.log("4");
-
-      //   // return filtered;
-      // }
     })
   );
 

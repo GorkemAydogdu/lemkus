@@ -45,11 +45,11 @@ const DUMMY_DATA = {
           category: "Collections",
           items: [
             { id: 1, pathname: "/sneakers", name: "All Sneakers" },
-            { id: 2, pathname: "/sneakers?name=mens", name: "Mens" },
-            { id: 3, pathname: "/sneakers?name=womens", name: "Womens" },
+            { id: 2, pathname: "/sneakers?gender=mens", name: "Mens" },
+            { id: 3, pathname: "/sneakers?gender=womens", name: "Womens" },
             {
               id: 4,
-              pathname: "/sneakers?name=grade-school",
+              pathname: "/sneakers?gender=grade-school",
               name: "Grade School",
             },
           ],
@@ -58,32 +58,36 @@ const DUMMY_DATA = {
           id: 2,
           category: "Brands",
           items: [
-            { id: 1, pathname: "/sneakers?name=nike", name: "Nike" },
+            { id: 1, pathname: "/sneakers?category=nike", name: "Nike" },
             {
               id: 2,
-              pathname: "/sneakers?name=air-jordan",
+              pathname: "/sneakers?category=air-jordan",
               name: "Air Jordan",
             },
             {
               id: 3,
-              pathname: "/sneakers?name=new-balance",
+              pathname: "/sneakers?category=new-balance",
               name: "New Balance",
             },
             {
               id: 4,
-              pathname: "/sneakers?name=adidas",
+              pathname: "/sneakers?category=adidas",
               name: "Adidas",
             },
-            { id: 5, pathname: "/sneakers?name=converse", name: "Converse" },
-            { id: 6, pathname: "/sneakers?name=reebook", name: "Reebok" },
-            { id: 7, pathname: "/sneakers?name=puma", name: "Puma" },
-            { id: 8, pathname: "/sneakers?name=crocs", name: "Crocs" },
+            {
+              id: 5,
+              pathname: "/sneakers?category=converse",
+              name: "Converse",
+            },
+            { id: 6, pathname: "/sneakers?category=reebook", name: "Reebok" },
+            { id: 7, pathname: "/sneakers?category=puma", name: "Puma" },
+            { id: 8, pathname: "/sneakers?category=crocs", name: "Crocs" },
             {
               id: 9,
-              pathname: "/sneakers?name=ewing-athletics",
+              pathname: "/sneakers?category=ewing-athletics",
               name: "Ewing Athletics",
             },
-            { id: 10, pathname: "/sneakers?name=asics", name: "Asics" },
+            { id: 10, pathname: "/sneakers?category=asics", name: "Asics" },
           ],
         },
       ],
@@ -120,8 +124,8 @@ const DUMMY_DATA = {
           category: "Collections",
           items: [
             { id: 1, pathname: "/apparel", name: "All Apparel" },
-            { id: 2, pathname: "/apparel?name=mens", name: "Mens" },
-            { id: 3, pathname: "/apparel?name=womens", name: "Womens" },
+            { id: 2, pathname: "/apparel?gender=mens", name: "Mens" },
+            { id: 3, pathname: "/apparel?gender=womens", name: "Womens" },
           ],
         },
         {
@@ -131,27 +135,27 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/apparel?name=mens&category=t-shirts/tops",
+              pathname: "/apparel?category=t-shirts/tops&gender=mens",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/apparel?name=mens&category=sweatshirts",
+              pathname: "/apparel?category=sweatshirts&gender=mens",
               name: "Sweatshirts",
             },
             {
               id: 3,
-              pathname: "/apparel?name=mens&category=outerwear",
+              pathname: "/apparel?category=outerwear&gender=mens",
               name: "Outerwear",
             },
             {
               id: 4,
-              pathname: "/apparel?name=mens&category=bottoms",
+              pathname: "/apparel?category=bottoms&mens=mens",
               name: "Bottoms",
             },
             {
               id: 5,
-              pathname: "/apparel?name=mens&category=team-sportswear",
+              pathname: "/apparel?category=team-sportswear&gender=mens",
               name: "Team Sportswear",
             },
           ],
@@ -163,22 +167,22 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/apparel?name=womens&category=t-shirts/tops",
+              pathname: "/apparel?category=t-shirts/tops&gender=womens",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/apparel?name=womens&category=sweatshirts",
+              pathname: "/apparel?category=sweatshirts&gender=womens",
               name: "Sweatshirts",
             },
             {
               id: 3,
-              pathname: "/apparel?name=womens&category=outerwear",
+              pathname: "/apparel?category=outerwear&gender=womens",
               name: "Outerwear",
             },
             {
               id: 4,
-              pathname: "/apparel?name=womens&category=bottoms",
+              pathname: "/apparel?category=bottoms&gender=womens",
               name: "Bottoms",
             },
           ],
@@ -217,12 +221,12 @@ const DUMMY_DATA = {
             },
             {
               id: 2,
-              pathname: "/kids?name=sneakers",
+              pathname: "/kids?category=sneakers",
               name: "All Kids Sneakers",
             },
             {
               id: 3,
-              pathname: "/kids?name=apparel",
+              pathname: "/kids?category=apparel",
               name: "All Kids Apparel",
             },
           ],
@@ -233,32 +237,32 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/kids?name=nike",
+              pathname: "/kids?category=nike",
               name: "Nike",
             },
             {
               id: 2,
-              pathname: "/kids?name=air-jordan",
+              pathname: "/kids?category=air-jordan",
               name: "Air Jordan",
             },
             {
               id: 3,
-              pathname: "/kids?name=adidas",
+              pathname: "/kids?category=adidas",
               name: "Adidas",
             },
             {
               id: 4,
-              pathname: "/kids?name=converse",
+              pathname: "/kids?category=converse",
               name: "Converse",
             },
             {
               id: 5,
-              pathname: "/kids?name=crocs",
+              pathname: "/kids?category=crocs",
               name: "Crocs",
             },
             {
               id: 6,
-              pathname: "/kids?name=new-balance",
+              pathname: "/kids?category=new-balance",
               name: "New Balance",
             },
           ],
@@ -269,32 +273,32 @@ const DUMMY_DATA = {
           items: [
             {
               id: 1,
-              pathname: "/kids?name=apparel&category=t-shirts/tops",
+              pathname: "/kids?category=t-shirts/tops",
               name: "T-shirts/Tops",
             },
             {
               id: 2,
-              pathname: "/kids?name=apparel&category=sweatshirts",
+              pathname: "/kids?category=sweatshirts",
               name: "Sweatshirts",
             },
             {
               id: 3,
-              pathname: "/kids?name=apparel&category=outerwear",
+              pathname: "/kids?category=outerwear",
               name: "Outerwear",
             },
             {
               id: 4,
-              pathname: "/kids?name=apparel&category=bottoms",
+              pathname: "/kids?category=bottoms",
               name: "Bottoms",
             },
             {
               id: 5,
-              pathname: "/kids?name=apparel&category=infant-sets",
+              pathname: "/kids?category=infant-sets",
               name: "Infant Sets",
             },
             {
               id: 6,
-              pathname: "/kids?name=apparel&category=team-sportswear",
+              pathname: "/kids?category=team-sportswear",
               name: "Team Sportswear",
             },
           ],
@@ -331,12 +335,16 @@ const DUMMY_DATA = {
           id: 2,
           category: "Types",
           items: [
-            { id: 1, pathname: "/accessories?name=headwear", name: "Headwear" },
-            { id: 2, pathname: "/accessories?name=socks", name: "Socks" },
-            { id: 3, pathname: "/accessories?name=bags", name: "Bags" },
+            {
+              id: 1,
+              pathname: "/accessories?category=headwear",
+              name: "Headwear",
+            },
+            { id: 2, pathname: "/accessories?category=socks", name: "Socks" },
+            { id: 3, pathname: "/accessories?category=bags", name: "Bags" },
             {
               id: 4,
-              pathname: "/accessories?name=sneaker-care",
+              pathname: "/accessories?category=sneaker-care",
               name: "Sneaker Care",
             },
             {
