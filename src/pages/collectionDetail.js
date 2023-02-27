@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 
@@ -128,6 +128,7 @@ const CollectionDetail = (props) => {
                       .replace(/-{2,}/g, "-")
                       .replace(/-$/, "")}?id=${data[0].id}&size=${size}`,
                     { replace: true }
+                    //https://stackoverflow.com/a/68694698/19191132
                   );
                   // setClickedSize(size);
                   for (let i = 0; i < buttonsRef.current.length; i++) {

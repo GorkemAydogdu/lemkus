@@ -11,6 +11,16 @@ const Menu = (props) => {
 
   useEffect(() => {
     if (props.className.includes("menu--active")) {
+      gsap.to(".backdrop--menu", {
+        duration: 1,
+        opacity: 1,
+        display: "block",
+        visibility: "visible",
+        ease: "Expo.easeInOut",
+      });
+      gsap.to("body", {
+        overflow: "hidden",
+      });
       gsap.to(".menu--active", {
         duration: 1,
         ease: "expo.inOut",
@@ -28,8 +38,18 @@ const Menu = (props) => {
         ease: "expo.inOut",
         delay: 0.1,
       });
+    } else {
+      gsap.to(".backdrop--menu", {
+        duration: 1,
+        opacity: 0,
+        display: "none",
+        ease: "Expo.easeInOut",
+      });
+      gsap.to("body", {
+        overflow: "visible",
+      });
     }
-  }, [props]);
+  }, [props, uiCtx]);
 
   return (
     <div

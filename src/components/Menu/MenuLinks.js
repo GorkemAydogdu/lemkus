@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import ListItem from "../UI/ListItem";
@@ -17,20 +17,6 @@ const MenuLinks = (props) => {
             {link.items.map((item) => (
               <ListItem key={item.id} className="menu__item">
                 <Link
-                  onClick={() => {
-                    localStorage.setItem(
-                      "categoryName",
-                      JSON.stringify(props.name)
-                    );
-
-                    localStorage.setItem(
-                      "gender",
-                      JSON.stringify(
-                        link.gender === undefined ? "" : link.gender
-                      )
-                    );
-                    localStorage.setItem("itemName", JSON.stringify(item.name));
-                  }}
                   to={`/collections${item.pathname}`}
                   className="menu__link"
                 >

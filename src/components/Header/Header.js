@@ -143,23 +143,11 @@ const Header = (props) => {
           setSelectedCategory(category.name);
           props.clickedButton(event.target.innerHTML);
 
-          gsap.to(".backdrop--menu", {
-            duration: 1,
-            opacity: 1,
-            display: "block",
-            visibility: "visible",
-            ease: "Expo.easeInOut",
-          });
-          gsap.to("body", {
-            overflow: "hidden",
-          });
-
           if (selectedCategory === category.name) {
             event.target.classList.toggle("header__button--active");
 
             if (!event.target.classList.contains("header__button--active")) {
               props.clickedButton("");
-
               gsap.to(".backdrop--menu", {
                 duration: 1,
                 opacity: 0,

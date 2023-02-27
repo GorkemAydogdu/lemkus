@@ -9,13 +9,6 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 const HeaderMobile = () => {
   const uiCtx = useContext(UIContext);
 
-  const clickMenuButtonHandler = () => {
-    uiCtx.toggleMenu();
-  };
-  const clickBagButtonHandler = () => {
-    uiCtx.toggleCart();
-  };
-
   return (
     <div className="header__mobile">
       <div className="header__mobile--left">
@@ -25,10 +18,20 @@ const HeaderMobile = () => {
       </div>
       <div className="header__mobile--right">
         <Link to="/search">Search</Link>
-        <span onClick={clickBagButtonHandler} className="bag">
+        <span
+          onClick={() => {
+            uiCtx.toggleCart();
+          }}
+          className="bag"
+        >
           Bag (0)
         </span>
-        <div onClick={clickMenuButtonHandler} className="header__mobile--menu">
+        <div
+          onClick={() => {
+            uiCtx.toggleMenu();
+          }}
+          className="header__mobile--menu"
+        >
           <span></span>
         </div>
       </div>
