@@ -1112,7 +1112,7 @@ const DUMMY_DATA = {
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-6.png?v=1674121735",
             },
             {
-              id: 6,
+              id: 7,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-7.png?v=1674121735",
             },
           ],
@@ -1431,32 +1431,6 @@ function App() {
     setButtonInnerHTML(data);
   };
 
-  // let data = DUMMY_DATA.pages.map((product) =>
-  //   product.items.filter((filtered) => {
-  //     if (wordInString(clickedItem, filtered.categoryName)) {
-  //       return filtered;
-  //     } else if (
-  //       filtered.brand === clickedItem &&
-  //       filtered.categoryName === categoryName
-  //     ) {
-  //       return filtered;
-  //     } else if (
-  //       filtered.type === clickedItem &&
-  //       filtered.gender === clickedGender &&
-  //       filtered.categoryName === categoryName
-  //     ) {
-  //       return filtered;
-  //     } else if (
-  //       filtered.gender === clickedItem &&
-  //       filtered.categoryName === categoryName
-  //     ) {
-  //       return filtered;
-  //     } else {
-  //       return false;
-  //     }
-  //   })
-  // );
-
   useEffect(() => {
     if (
       location.pathname === "/pages/contact" ||
@@ -1516,40 +1490,9 @@ function App() {
           path="/collections/:categoryName"
           element={<Collection items={DUMMY_DATA.pages} />}
         />
-        {/* <Route
-          path="/collections/:categoryName"
-          element={DUMMY_DATA.pages
-            .filter((item) => item.name === categoryName)
-            .map((item) =>
-              item.products.map((product) => (
-                <Collection
-                  key={product.id}
-                  items={
-                    clickedItem === product.name
-                      ? product.items
-                      : product.items.filter((item) => {
-                          if (item.brand === clickedItem) {
-                            return item;
-                          } else if (
-                            item.type === clickedItem &&
-                            item.gender === clickedGender
-                          ) {
-                            return item;
-                          } else if (item.gender === clickedItem) {
-                            return item;
-                          } else {
-                            return false;
-                          }
-                        })
-                  }
-                />
-              ))
-            )}
-        />
-        */}
         <Route
           path={`/collections/:categoryName/:productName`}
-          element={<CollectionDetail />}
+          element={<CollectionDetail data={DUMMY_DATA.pages[0]} />}
         />
 
         <Route path="/" element={<Home products={DUMMY_DATA.products} />} />

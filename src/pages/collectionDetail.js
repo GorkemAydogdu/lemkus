@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
 import Culture from "../components/Culture/Culture";
@@ -8,11 +10,34 @@ import Culture from "../components/Culture/Culture";
 import Splide from "@splidejs/splide";
 
 import "@splidejs/splide/css";
+import Footer from "../components/Footer/Footer";
 
-const CollectionDetail = () => {
+const CollectionDetail = (props) => {
   const smoothScrollWrapper = useRef();
-  const [clickedSize, setClickedSize] = useState("");
-  let clickedData = JSON.parse(localStorage.getItem("data"));
+  const buttonsRef = useRef([]);
+  // const [clickedSize, setClickedSize] = useState("");
+
+  function useQuery() {
+    const { search } = useLocation();
+
+    return React.useMemo(() => new URLSearchParams(search), [search]);
+  }
+
+  let { productName } = useParams();
+  const navigate = useNavigate();
+  let query = useQuery();
+
+  const clickedSize = query.get("size");
+  const id = query.get("id");
+
+  let data = props.data.items.filter(
+    (filtered) =>
+      filtered.name
+        .toLowerCase()
+        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+        .replace(/-{2,}/g, "-")
+        .replace(/-$/, "") === productName && filtered.id.toString() === id
+  );
 
   useEffect(() => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
@@ -46,25 +71,33 @@ const CollectionDetail = () => {
   }, []);
 
   useEffect(() => {
+    if (clickedSize) {
+      for (let i = 0; i < buttonsRef.current.length; i++) {
+        if (clickedSize === buttonsRef.current[i].innerHTML) {
+          buttonsRef.current[i].classList.add("collectionDetail__size--active");
+        }
+      }
+    }
+
     let thumbnailButton = document.querySelectorAll(
       ".collectionDetail__thumbnailButton"
     );
-    clickedData.images.forEach((image, idx) => {
+    data[0].images.forEach((image, idx) => {
       thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
     });
-  }, [clickedData.images]);
+  }, [clickedSize, data]);
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collectionDetail">
         <div className="splide collectionDetail__imagesWrapper">
           <div className="splide__track">
             <ul className="splide__list collectionDetail__images">
-              {clickedData.images.map((image) => (
+              {data[0].images.map((image) => (
                 <li
                   key={image.id}
                   className="splide__slide collectionDetail__image"
                 >
-                  <img src={image.url} alt={clickedData.name} />
+                  <img src={image.url} alt={data[0].name} />
                 </li>
               ))}
             </ul>
@@ -72,9 +105,9 @@ const CollectionDetail = () => {
         </div>
 
         <div className="collectionDetail__infos">
-          <h1 className="collectionDetail__title">{clickedData.name}</h1>
+          <h1 className="collectionDetail__title">{data[0].name}</h1>
           <div className="collectionDetail__priceGuide">
-            <span className="collectionDetail__price">{clickedData.price}</span>
+            <span className="collectionDetail__price">{data[0].price}</span>
             <a
               href="https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Lemkus_Approved.pdf"
               target="_blank"
@@ -84,10 +117,24 @@ const CollectionDetail = () => {
             </a>
           </div>
           <div className="collectionDetail__sizes">
-            {clickedData.sizes.map((size) => (
+            {data[0].sizes.map((size, idx) => (
               <Button
+                ref={(el) => (buttonsRef.current[idx] = el)}
                 onClick={(event) => {
-                  setClickedSize(size);
+                  navigate(
+                    `/collections/${data[0].categoryName.toLowerCase()}/${data[0].name
+                      .toLowerCase()
+                      .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                      .replace(/-{2,}/g, "-")
+                      .replace(/-$/, "")}?id=${data[0].id}&size=${size}`,
+                    { replace: true }
+                  );
+                  // setClickedSize(size);
+                  for (let i = 0; i < buttonsRef.current.length; i++) {
+                    buttonsRef.current[i].classList.remove(
+                      "collectionDetail__size--active"
+                    );
+                  }
                   if (clickedSize === size) {
                     event.target.classList.toggle(
                       "collectionDetail__size--active"
@@ -135,7 +182,7 @@ const CollectionDetail = () => {
                 <span className="collectionDetail__plus--rotate"></span>
               </div>
               <p className="collectionDetail__descriptionContent">
-                {clickedData.details}
+                {data[0].details}
               </p>
             </div>
             <div
@@ -171,6 +218,7 @@ const CollectionDetail = () => {
         </div>
       </div>
       <Culture />
+      <Footer />
     </SmoothScrollWrapper>
   );
 };

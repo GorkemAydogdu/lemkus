@@ -68,36 +68,32 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  props.items.map((product) =>
+  let data = props.items.map((product) =>
     product.items.filter((filtered) => {
       if (
         wordInString(categoryName, filtered.categoryName) &&
         gender === null &&
         type === null
       ) {
-        console.log("ALL ITEMS");
-        console.log(filtered);
+        return filtered;
       } else if (
         filtered.gender.toLowerCase().replace(" ", "-") === gender &&
         filtered.categoryName.toLowerCase() === categoryName &&
         type === null
       ) {
-        console.log("GENDERS");
-        console.log(filtered);
+        return filtered;
       } else if (
         filtered.categoryName.toLowerCase() === categoryName &&
         filtered.brand.toLowerCase() === type
       ) {
-        console.log("BRAND");
-        console.log(filtered);
+        return filtered;
       } else if (
         filtered.categoryName.toLowerCase() === categoryName &&
         filtered.type.toLowerCase().replace(" ", "-") === type &&
         filtered.gender.toLowerCase() === gender
       ) {
-        console.log("MENS APPAREL");
-        console.log(filtered);
-      }
+        return filtered;
+      } else return false;
     })
   );
 
@@ -219,61 +215,70 @@ const Collection = (props) => {
             </div>
 
             <ul className="collection__productsList products__list">
-              {/* {props.items[0].items.map((item) => {
-                if (
-                  item.categoryName.toLowerCase() === categoryName &&
-                  item.gender.toLowerCase() === name &&
-                  item.type.toLowerCase().replace(" ", "-") === type
-                ) {
-                  console.log(item);
-                } else if (
-                  item.categoryName.toLowerCase() === categoryName &&
-                  item.brand.toLowerCase() === name
-                ) {
-                  console.log(item);
-                } else if (
-                  item.categoryName.toLowerCase() === categoryName &&
-                  item.gender.toLowerCase().replace(" ", "-") === name
-                ) {
-                  console.log(item);
-                } else if (wordInString(categoryName, item.categoryName)) {
-                  console.log(item);
-                }
-              })} */}
-              {/* {props.items[0].items.filter((filtered) => {
-                if (
-                  filtered.categoryName.toLowerCase() === categoryName &&
-                  filtered.gender.toLowerCase() === name &&
-                  filtered.type.toLowerCase().replace(" ", "-") === type
-                ) {
-                  console.log(filtered);
-                } else if (
-                  filtered.categoryName.toLowerCase() === categoryName &&
-                  filtered.brand.toLowerCase() === name
-                ) {
-                  console.log(filtered);
-                } else if (
-                  filtered.categoryName.toLowerCase() === categoryName &&
-                  filtered.gender.toLowerCase().replace(" ", "-") === name
-                ) {
-                  console.log(filtered);
-                } else if (wordInString(categoryName, filtered.categoryName)) {
-                  console.log(filtered);
-                }
+              {data[0].map((item) => (
+                <li
+                  key={item.id}
+                  className="collection__productsItem products__item"
+                >
+                  {/* 
+                  https://stackoverflow.com/a/9705227
+                  https://stackoverflow.com/a/36630251
+                  */}
+                  <div className="products__container">
+                    <Link
+                      to={`/collections/${categoryName}/${item.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?id=${item.id}`}
+                      className="products__image"
+                    >
+                      <div className="products__logo">
+                        <img src={item.logo} alt={item.brand} />
+                      </div>
 
-                // if (
-                //   filtered.categoryName.toLowerCase() === categoryName &&
-                //   filtered.brand.toLowerCase() === name
-                // ) {
-                //   console.log(filtered);
-                // } else if (
-                //   filtered.categoryName.toLowerCase() === categoryName &&
-                //   filtered.gender.toLowerCase().replace(" ", "-") === name &&
-                //   filtered.type.toLowerCase().replace(" ", "-") === type
-                // ) {
-                //   console.log(filtered);
-                // }
-              })} */}
+                      {item.images.slice(0, 2).map((image) => (
+                        <img
+                          key={image.id}
+                          className={`products__image--${image.id}`}
+                          src={image.url}
+                          alt={item.name}
+                        />
+                      ))}
+                    </Link>
+
+                    <div className="products__infos">
+                      <div className="products__container--size">
+                        {item.sizes.map((size) => (
+                          <Link
+                            key={size}
+                            to={`/collections/${categoryName}/${item.name
+                              .toLowerCase()
+                              .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                              .replace(/-{2,}/g, "-")
+                              .replace(/-$/, "")}?id=${item.id}&size=${size}`}
+                          >
+                            {size}
+                          </Link>
+                        ))}
+                      </div>
+                      <Link
+                        to={`/collections/${categoryName}/${item.name
+                          .toLowerCase()
+                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                          .replace(/-{2,}/g, "-")
+                          .replace(/-$/, "")}?id=${item.id}`}
+                        className="products__container--title"
+                      >
+                        {item.name}
+                      </Link>
+                      <span className="products__container--price">
+                        {item.price}
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
