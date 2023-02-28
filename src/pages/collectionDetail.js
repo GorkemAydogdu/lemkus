@@ -15,7 +15,12 @@ import Footer from "../components/Footer/Footer";
 const CollectionDetail = (props) => {
   const smoothScrollWrapper = useRef();
   const buttonsRef = useRef([]);
-  // const [clickedSize, setClickedSize] = useState("");
+  const addToBagStatic = useRef();
+  const addToBagHover = useRef();
+
+  const wishlistStatic = useRef();
+  const wishlistHover = useRef();
+  const wishListButton = useRef();
 
   function useQuery() {
     const { search } = useLocation();
@@ -75,6 +80,9 @@ const CollectionDetail = (props) => {
       for (let i = 0; i < buttonsRef.current.length; i++) {
         if (clickedSize === buttonsRef.current[i].innerHTML) {
           buttonsRef.current[i].classList.add("collectionDetail__size--active");
+          wishListButton.current.classList.remove(
+            "collectionDetail__wishlist--disable"
+          );
         }
       }
     }
@@ -152,18 +160,55 @@ const CollectionDetail = (props) => {
             ))}
           </div>
           <div className="collectionDetail__action">
-            <Button className="collectionDetail__addToBag btn-hover">
-              <span className="static">Add To Bag</span>
-              <span className="hover">
+            <Button
+              onMouseEnter={() => {
+                addToBagStatic.current.style.display = "none";
+                addToBagHover.current.style.display = "inline-block";
+              }}
+              onMouseLeave={() => {
+                addToBagStatic.current.style.display = "inline-block";
+                addToBagHover.current.style.display = "none";
+              }}
+              className="collectionDetail__addToBag btn-hover"
+            >
+              <span ref={addToBagStatic} className="static">
+                Add To Bag
+              </span>
+              <span ref={addToBagHover} className="hover">
                 ADD TO BAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD TO
                 BAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD TO
                 BAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD TO
                 BAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
             </Button>
-            <Button className="collectionDetail__wishlist collectionDetail__wishlist--disable btn-hover">
-              <span className="static">Wishlist</span>
-              <span className="hover">
+            <Button
+              ref={wishListButton}
+              onMouseEnter={(event) => {
+                if (
+                  !event.currentTarget.classList.contains(
+                    "collectionDetail__wishlist--disable"
+                  )
+                ) {
+                  wishlistStatic.current.style.display = "none";
+                  wishlistHover.current.style.display = "inline-block";
+                }
+              }}
+              onMouseLeave={(event) => {
+                if (
+                  !event.currentTarget.classList.contains(
+                    "collectionDetail__wishlist--disable"
+                  )
+                ) {
+                  wishlistStatic.current.style.display = "inline-block";
+                  wishlistHover.current.style.display = "none";
+                }
+              }}
+              className="collectionDetail__wishlist collectionDetail__wishlist--disable btn-hover"
+            >
+              <span ref={wishlistStatic} className="static">
+                Wishlist
+              </span>
+              <span ref={wishlistHover} className="hover">
                 Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wishlist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
             </Button>

@@ -1081,7 +1081,7 @@ const DUMMY_DATA = {
           brand: "Nike",
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
           categoryName: "Sneakers",
-          type: "Blazer",
+          type: "Lebron",
           details:
             "Revisiting the iconic lineup of the King’s Christmas Day kicks, this design’s festive array of graphics and colors creates a mash-up of Christmas’ past. From dimes to dunks, this is no ugly sweater—its lightweight, low-to-the-ground and ultra-cushioned design is fresher than pine and cozier than a cup of cocoa by the fireside. Hope you’ve been nice.",
           sizes: [6, 7, 8, 9, 10, 11, 12],
@@ -1206,7 +1206,7 @@ const DUMMY_DATA = {
           brand: "Adidas",
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
           categoryName: "Sneakers",
-          type: "Blazer",
+          type: "Gazelle",
           details:
             "The adidas Gazelle Shoes have stepped onto just about every corner of our cultural landscape — starting in the world of sport before making their way into the music and fashion scenes. These trainers are a one-to-one reissue of the '91 Gazelle, with the same textures, materials and proportions as the OG. Even the colours nod back to the era, done in muted tones with contrast.",
           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
@@ -1376,6 +1376,7 @@ const DUMMY_DATA = {
       ],
     },
   ],
+  filter: [{ id: 1, name: "Sneakers", items: [] }],
 };
 
 function debounce(fn, ms) {

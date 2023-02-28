@@ -97,6 +97,20 @@ const Collection = (props) => {
     })
   );
 
+  function filterData(data) {
+    return Array.from(
+      data.reduce((r, c) => r.set(c, (r.get(c) || 0) + 1), new Map()),
+      ([key, count]) => ({ key, count })
+    );
+  }
+
+  let brand = data[0].map((filter) => filter.brand);
+  let x = data[0].map((filter) => filter.type);
+
+  const brandCount = filterData(brand);
+  const typeCount = filterData(x);
+
+  console.log(typeCount, brandCount);
   return (
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
@@ -116,7 +130,7 @@ const Collection = (props) => {
           }}
         >
           <div className="collection__header">
-            <h1 className="collection__title">Sneakers</h1>
+            <h1 className="collection__title">{categoryName}</h1>
             <div className="collection__searchBox">
               <div className="collection__input">
                 <input type="text" placeholder="Search Products" />
@@ -144,7 +158,7 @@ const Collection = (props) => {
 
               <div ref={filterListRef} className="collection__filterList">
                 <span className="collection__totalProducts">
-                  <span>311</span> Products
+                  <span>{data[0].length}</span> Products
                 </span>
                 <div className="collection__showSize">
                   <label htmlFor="setLimit">Show</label>
@@ -186,30 +200,17 @@ const Collection = (props) => {
                 </span>
 
                 <ul className="collection__list collection__list--active">
-                  <li className="collection__item collection__item--active">
-                    <span className="collection__item--checkbox"></span>
-                    <span className="collection__item--brand">Adidas</span>
-                    <span className="collection__item--count">(57)</span>
-                  </li>
-                  <li className="collection__item">
-                    <span className="collection__item--checkbox"></span>
-                    <span className="collection__item--brand">Adidas</span>
-                    <span className="collection__item--count">(57)</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="collection__filterProduct--item">
-                <span className="collection__filterProduct--title">
-                  Sneaker Style
-                  <Arrow />
-                </span>
-
-                <ul className="collection__list">
-                  <li className="collection__item">
-                    <span className="collection__item--checkbox"></span>
-                    <span className="collection__item--brand">Adidas</span>
-                    <span className="collection__item--count">(57)</span>
-                  </li>
+                  {brandCount.map((filter) => (
+                    <li className="collection__item">
+                      <span className="collection__item--checkbox"></span>
+                      <span className="collection__item--brand">
+                        {filter.key}
+                      </span>
+                      <span className="collection__item--count">
+                        ({filter.count})
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
