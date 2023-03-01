@@ -29,7 +29,7 @@ const ProductsItem = (props) => {
           <a href="/" className="products__container--title">
             {props.name}
           </a>
-          <span className="products__container--price">{props.price}</span>
+          <span className="products__container--price">R {props.price}</span>
         </div>
       </div>
     </li>

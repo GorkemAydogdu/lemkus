@@ -385,7 +385,7 @@ const DUMMY_DATA = {
     {
       id: 1,
       name: "Mt580 Lifestyle",
-      price: "R 2,699.00",
+      price: 2699.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
       sizes: [7, 8, 9, 10],
       image: [
@@ -402,7 +402,7 @@ const DUMMY_DATA = {
     {
       id: 2,
       name: "Air Jordan 2 Retro",
-      price: "R 3,699.00",
+      price: 3699.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [6, 7, 8, 9, 10, 11, 12],
       image: [
@@ -419,7 +419,7 @@ const DUMMY_DATA = {
     {
       id: 3,
       name: "Air Jordan 1 Retro Hi OG [W]",
-      price: "R 3,399.00",
+      price: 3399.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [3, 4, 5, 6, 7, 8],
       image: [
@@ -436,7 +436,7 @@ const DUMMY_DATA = {
     {
       id: 4,
       name: "Air Jordan 6 Retro",
-      price: "R 3,699.00",
+      price: 3699.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [10, 11, 12],
       image: [
@@ -453,7 +453,7 @@ const DUMMY_DATA = {
     {
       id: 5,
       name: "Air Jordan 5 Retro GTX [W]",
-      price: "R 3,899.00",
+      price: 3899.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [3, 4, 5, 6, 7, 8],
       image: [
@@ -470,7 +470,7 @@ const DUMMY_DATA = {
     {
       id: 6,
       name: "Dunk Hi Retro SE",
-      price: "R 2,399.00",
+      price: 2399.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
       sizes: [5.5, 6, 7, 8, 9, 10, 12],
       image: [
@@ -493,7 +493,7 @@ const DUMMY_DATA = {
         {
           id: 1,
           name: "Slipstream Market",
-          price: "R 2,999.00",
+          price: 2999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -510,7 +510,7 @@ const DUMMY_DATA = {
         {
           id: 2,
           name: "Slipstream Market",
-          price: "R 2,999.00",
+          price: 2999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -527,7 +527,7 @@ const DUMMY_DATA = {
         {
           id: 3,
           name: "Puma x Market Relaxed T-shirt",
-          price: "R 799.00",
+          price: 799.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: ["S", "M", "L", "XL"],
           image: [
@@ -544,7 +544,7 @@ const DUMMY_DATA = {
         {
           id: 4,
           name: "Puma x Market Relaxed Hoodie",
-          price: "R 2,499.00",
+          price: 2499.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: ["S", "M", "L", "XL"],
           image: [
@@ -561,7 +561,7 @@ const DUMMY_DATA = {
         {
           id: 5,
           name: "Puma x Market Relaxed Pants",
-          price: "R 2,199.00",
+          price: 2199.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: ["S", "M", "L", "XL"],
           image: [
@@ -584,7 +584,7 @@ const DUMMY_DATA = {
         {
           id: 1,
           name: "Jordan 11 cmft Low (TD)",
-          price: "R 999.00",
+          price: 999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
           sizes: [1.5, 2.5, 3.5, 4.5, 6.5, 8.5],
           image: [
@@ -601,7 +601,7 @@ const DUMMY_DATA = {
         {
           id: 2,
           name: "Future Rider Splash (TD)",
-          price: "R 999.00",
+          price: 999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Puma_2x_653bb449-61b7-403b-b776-f19b9033a582_200x.png?v=1625832674",
           sizes: [4, 5, 6, 7, 8, 9],
           image: [
@@ -618,7 +618,7 @@ const DUMMY_DATA = {
         {
           id: 3,
           name: "NMD 360 (PS)",
-          price: "R 949.00",
+          price: 999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [10, 11, 12, 13, 1, 2, 2.5],
           image: [
@@ -635,7 +635,7 @@ const DUMMY_DATA = {
         {
           id: 4,
           name: "Chuck '70 (ps)",
-          price: "R 999.00",
+          price: 999.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Converse_2x_27950166-1070-4c68-83bb-182e8200ee7d_200x.png?v=1625832601",
           sizes: [10, 11, 12, 13, 1, 2],
           image: [
@@ -652,7 +652,7 @@ const DUMMY_DATA = {
         {
           id: 5,
           name: "Jordan 11 cmft Low (ps)",
-          price: "R 1,199.00",
+          price: 1199.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
           sizes: [10, 13, 1.5, 2, 2.5],
           image: [
@@ -675,7 +675,7 @@ const DUMMY_DATA = {
         {
           id: 1,
           name: "Air force 1 '07",
-          price: "R 2,599.00",
+          price: 2599.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -692,7 +692,7 @@ const DUMMY_DATA = {
         {
           id: 2,
           name: "Air Force 1 Plt.AF.ORM (W)",
-          price: "R 2,299.00",
+          price: 2299.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
           sizes: [3, 4, 5, 6],
           image: [
@@ -709,7 +709,7 @@ const DUMMY_DATA = {
         {
           id: 3,
           name: "Lunar Force 1 Duckboot",
-          price: "R 3,399.00",
+          price: 3399.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -726,7 +726,7 @@ const DUMMY_DATA = {
         {
           id: 4,
           name: "Air Force 1 mid '07 LV8",
-          price: "R 2,599.00",
+          price: 2599.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -743,7 +743,7 @@ const DUMMY_DATA = {
         {
           id: 5,
           name: "Air force 1 '07 PRM",
-          price: "R 2,599.00",
+          price: 2599.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -766,7 +766,7 @@ const DUMMY_DATA = {
         {
           id: 1,
           name: "574 Lifestyle",
-          price: "R 1,699.00",
+          price: 1699.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
           sizes: [6, 7, 8, 9, 10],
           image: [
@@ -783,7 +783,7 @@ const DUMMY_DATA = {
         {
           id: 2,
           name: "Xc-72 Lifestyle",
-          price: "R 2,099.00",
+          price: 2099.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
           sizes: [4, 5, 8, 9],
           image: [
@@ -800,7 +800,7 @@ const DUMMY_DATA = {
         {
           id: 3,
           name: "RC30 Lifestyle",
-          price: "R 2,199.00",
+          price: 2199.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -817,7 +817,7 @@ const DUMMY_DATA = {
         {
           id: 4,
           name: "RC30 Lifestyle",
-          price: "R 2,199.00",
+          price: 2199.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
           sizes: [6, 7, 8, 9],
           image: [
@@ -834,7 +834,7 @@ const DUMMY_DATA = {
         {
           id: 5,
           name: "550 Lifestyle",
-          price: "R 2,399.00",
+          price: 2399.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
           sizes: [8, 9, 10, 11],
           image: [
@@ -857,7 +857,7 @@ const DUMMY_DATA = {
         {
           id: 1,
           name: "Adilette Ayoon",
-          price: "R 749.00",
+          price: 749.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [3, 4, 5, 6, 7, 8, 9, 10],
           image: [
@@ -874,7 +874,7 @@ const DUMMY_DATA = {
         {
           id: 2,
           name: "Adilette Ayoon",
-          price: "R 749.00",
+          price: 749.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
           image: [
@@ -891,7 +891,7 @@ const DUMMY_DATA = {
         {
           id: 3,
           name: "Forum 84 LG",
-          price: "R 2,599.00",
+          price: 2599.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -908,7 +908,7 @@ const DUMMY_DATA = {
         {
           id: 4,
           name: "Forum 84 HI",
-          price: "R 2,399.00",
+          price: 2399.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [6, 7, 8, 9, 10, 11],
           image: [
@@ -925,7 +925,7 @@ const DUMMY_DATA = {
         {
           id: 5,
           name: "Forum mid Parley",
-          price: "R 2,399.00",
+          price: 2399.0,
           logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/adidas-logo-1_200x.png?v=1625832639",
           sizes: [6, 7, 8, 9, 10],
           image: [
@@ -946,7 +946,7 @@ const DUMMY_DATA = {
     {
       id: 1,
       name: "CREP ULTIMATE TUBE",
-      price: "R 899.00",
+      price: 899.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
       image:
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/SPG715-1.png?v=1645624535",
@@ -954,7 +954,7 @@ const DUMMY_DATA = {
     {
       id: 2,
       name: "CREP CURE",
-      price: "R 399.00",
+      price: 399.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
       image:
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7518_6108fe72421f74.09231456_SPG706.png?v=1637651920",
@@ -962,7 +962,7 @@ const DUMMY_DATA = {
     {
       id: 3,
       name: "CREP ULTIMATE SHOE CARE PACK",
-      price: "R 799.00",
+      price: 799.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
       image:
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7520_6108fde25f6173.48031833_SPG710.png?v=1637651912",
@@ -970,7 +970,7 @@ const DUMMY_DATA = {
     {
       id: 4,
       name: "CREP PROTECT",
-      price: "R 299.00",
+      price: 299.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
       image:
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7516_6108fe11abde32.90077137_SPG704_1b8c89b0-a131-43ca-ad46-a3d05a1e0430.png?v=1637651923",
@@ -978,7 +978,7 @@ const DUMMY_DATA = {
     {
       id: 5,
       name: "CREP CURE REFILL",
-      price: "R 219.00",
+      price: 219.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Crep_2x_0b83b184-421f-4102-a1eb-3ec443c46f35_200x.png?v=1625833041",
       image:
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/7519_6108fe441cf786.95248695_SPG709.png?v=1637651917",
@@ -999,7 +999,7 @@ const DUMMY_DATA = {
           details:
             "With a carefully crafted aesthetic, your tried-and-true wardrobe staple gets elevated with an expressive outdoorsy vibe. Updated details like the just-right lift adds a sophisticated mountain town edge. Concealed laces streamline your outfit. The classic Blazer design does the rest of the talking.",
           sizes: [3, 4, 5, 6],
-          price: "R 2,299.00",
+          price: 2299.0,
           images: [
             {
               id: 1,
@@ -1042,7 +1042,7 @@ const DUMMY_DATA = {
           details:
             "Praised for its classic simplicity and comfort, the Nike Blazer Low Platform elevates the hoops icon. The lifted midsole/outsole lets you step confidently while the upper keeps the proportions you loved from the original.",
           sizes: [3, 4, 5, 6],
-          price: "R 1,899.00",
+          price: 1899.0,
           images: [
             {
               id: 1,
@@ -1085,7 +1085,7 @@ const DUMMY_DATA = {
           details:
             "Revisiting the iconic lineup of the King’s Christmas Day kicks, this design’s festive array of graphics and colors creates a mash-up of Christmas’ past. From dimes to dunks, this is no ugly sweater—its lightweight, low-to-the-ground and ultra-cushioned design is fresher than pine and cozier than a cup of cocoa by the fireside. Hope you’ve been nice.",
           sizes: [6, 7, 8, 9, 10, 11, 12],
-          price: "R 3,699.00",
+          price: 3699.0,
           images: [
             {
               id: 1,
@@ -1128,7 +1128,7 @@ const DUMMY_DATA = {
           details:
             "Enter a new era in Air Max history. The Nike Air Max Motif honors the iconic AM1—a streetwear legend since ‘87—with a futuristic take made for your generation. The design lines give throwback vibes and a redesigned Air unit has supersoft cushioning, so you have everything you need for all-day play.",
           sizes: [3, 4, 5, 6],
-          price: "R 2,199.00",
+          price: 2199.0,
           images: [
             {
               id: 1,
@@ -1171,7 +1171,7 @@ const DUMMY_DATA = {
           details:
             "More than just a shoe, it's a statement. The adidas Forum hit the scene in '84 and gained major love on both the hardwood and in the music biz. This pair of the classic shoes brings back the '80s attitude, the explosive hardwood energy and the iconic X-strap ankle design, distilled into a low top version meant for the streets.",
           sizes: [6, 7, 8, 9, 10],
-          price: "R 1,699.00",
+          price: 1699.0,
           images: [
             {
               id: 1,
@@ -1210,7 +1210,7 @@ const DUMMY_DATA = {
           details:
             "The adidas Gazelle Shoes have stepped onto just about every corner of our cultural landscape — starting in the world of sport before making their way into the music and fashion scenes. These trainers are a one-to-one reissue of the '91 Gazelle, with the same textures, materials and proportions as the OG. Even the colours nod back to the era, done in muted tones with contrast.",
           sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-          price: "R 1,499.00",
+          price: 1499.0,
           images: [
             {
               id: 1,
@@ -1249,7 +1249,7 @@ const DUMMY_DATA = {
           details:
             "Your style is ever-evolving. Choose shoes that can keep up. Like this fresh take on the adidas Forum shoes. Made with cool weather in mind, the upper mixes CORDURA® woven fabric with premium suede. The heel cord and lace toggle pop against the muted monochromatic design for an elevated look. This pair keeps the iconic details like the X-detail, hook-and-loop strap and rubber cupsole intact. Made in part with recycled content generated from production waste, e.g. cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content.",
           sizes: [6, 7, 8, 9, 10],
-          price: "R 1,599.00",
+          price: 1599.0,
           images: [
             {
               id: 1,
@@ -1288,7 +1288,7 @@ const DUMMY_DATA = {
           details:
             "Emulate your favoUrite player in this Chicago Bulls jersey, a fan-ready favorite with logo and design details that match what the pros wear on the court. Plus, it infuses breathable mesh with sweat-wicking technology to help keep you cool and dry whether you’re burning up the court or just keeping it casual around town.",
           sizes: ["S", "M", "L", "XL", "2XL"],
-          price: "R 1,599.00",
+          price: 1599.0,
           images: [
             {
               id: 1,
@@ -1311,7 +1311,7 @@ const DUMMY_DATA = {
           details:
             "The Nike Sportswear Tech Fleece Hoodie is made with double-sided spacer fabric to harness your body heat to create added warmth without extra bulk or weight.",
           sizes: ["XS", "S", "M", "L", "XL"],
-          price: "R 1,949.00",
+          price: 1949.0,
           images: [
             {
               id: 1,
@@ -1334,7 +1334,7 @@ const DUMMY_DATA = {
           details:
             "Show your love for King James all weekend long. Made from soft cotton, this classic-fit tee is all about letting you comfortably cheer on the best players in the league. In fact, it just might become the all-star of your fan wardrobe.",
           sizes: ["S", "M", "L", "XL", "2XL"],
-          price: "R 529.00",
+          price: 529.0,
           images: [
             {
               id: 1,
@@ -1357,7 +1357,7 @@ const DUMMY_DATA = {
           details:
             "Made to look and feel vintage, this heavyweight cotton tee has a roomy fit and satiny logo for a premium feel you'll want to wear every day.",
           sizes: ["XS", "S", "M", "L", "XL"],
-          price: "R 619.00",
+          price: 619.0,
           images: [
             {
               id: 1,

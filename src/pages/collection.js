@@ -117,9 +117,6 @@ const Collection = (props) => {
   const typeCount = filterData(filterType);
   const genderCount = filterData(filterGender);
   const sizeCount = filterData(filterSizes);
-  const priceCount = filterData(filterPrice);
-
-  data[0].map((items) => console.log(items.sizes));
 
   return (
     <>
@@ -256,32 +253,6 @@ const Collection = (props) => {
                       </ul>
                     </div>
                   );
-                } else if (item.name === "Price") {
-                  return (
-                    <div
-                      key={item.id}
-                      className="collection__filterProduct--item collection__filterProduct--active"
-                    >
-                      <span className="collection__filterProduct--title">
-                        {item.name}
-                        <Arrow />
-                      </span>
-
-                      <ul className="collection__list collection__list--active">
-                        {priceCount.map((filter) => (
-                          <li key={Math.random()} className="collection__item">
-                            <span className="collection__item--checkbox"></span>
-                            <span className="collection__item--brand">
-                              {filter.key}
-                            </span>
-                            <span className="collection__item--count">
-                              ({filter.count})
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  );
                 } else if (item.name === "Gender") {
                   return (
                     <div
@@ -371,7 +342,7 @@ const Collection = (props) => {
                         {item.name}
                       </Link>
                       <span className="products__container--price">
-                        {item.price}
+                        R {item.price}
                       </span>
                     </div>
                   </div>

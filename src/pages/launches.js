@@ -66,7 +66,7 @@ const Launches = (props) => {
                           {item.name}
                         </a>
                         <span className="products__container--price">
-                          {item.price}
+                          R {item.price}
                         </span>
                       </div>
                     </div>

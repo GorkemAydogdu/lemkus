@@ -13,7 +13,7 @@ const CartShopItem = ({ image, logo, name, price }) => {
         <a href="/" className="cart__shop--title">
           {name}
         </a>
-        <span className="cart__shop--price">{price}</span>
+        <span className="cart__shop--price">R {price}</span>
       </div>
     </li>
   );

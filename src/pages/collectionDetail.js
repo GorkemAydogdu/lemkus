@@ -115,7 +115,7 @@ const CollectionDetail = (props) => {
         <div className="collectionDetail__infos">
           <h1 className="collectionDetail__title">{data[0].name}</h1>
           <div className="collectionDetail__priceGuide">
-            <span className="collectionDetail__price">{data[0].price}</span>
+            <span className="collectionDetail__price">R {data[0].price}</span>
             <a
               href="https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Lemkus_Approved.pdf"
               target="_blank"
