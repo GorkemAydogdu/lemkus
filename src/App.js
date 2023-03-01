@@ -1376,7 +1376,55 @@ const DUMMY_DATA = {
       ],
     },
   ],
-  filter: [{ id: 1, name: "Sneakers", items: [] }],
+  filter: [
+    {
+      id: 1,
+      name: "Sneakers",
+      items: [
+        { id: 1, name: "Brand" },
+        { id: 2, name: "Sneaker Style" },
+        { id: 3, name: "Type" },
+        { id: 4, name: "Size" },
+        { id: 5, name: "Gender" },
+        { id: 6, name: "Price" },
+      ],
+    },
+    {
+      id: 2,
+      name: "Apparel",
+      items: [
+        { id: 1, name: "Brand" },
+        { id: 2, name: "Type" },
+        { id: 3, name: "Size" },
+        { id: 4, name: "Gender" },
+        { id: 5, name: "Price" },
+      ],
+    },
+    {
+      id: 3,
+      name: "Kids",
+      items: [
+        { id: 1, name: "Brand" },
+        { id: 2, name: "Sneaker Style" },
+        { id: 3, name: "Type" },
+        { id: 4, name: "Size Range" },
+        { id: 4, name: "Size" },
+        { id: 5, name: "Gender" },
+        { id: 6, name: "Price" },
+      ],
+    },
+    {
+      id: 4,
+      name: "Accessories",
+      items: [
+        { id: 1, name: "Brand" },
+        { id: 2, name: "Type" },
+        { id: 3, name: "Size" },
+        { id: 4, name: "Gender" },
+        { id: 5, name: "Price" },
+      ],
+    },
+  ],
 };
 
 function debounce(fn, ms) {
@@ -1423,10 +1471,6 @@ function App() {
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
-
-  let categoryName = JSON.parse(localStorage.getItem("categoryName"));
-  let clickedGender = JSON.parse(localStorage.getItem("gender"));
-  let clickedItem = JSON.parse(localStorage.getItem("itemName"));
 
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
@@ -1489,7 +1533,12 @@ function App() {
       <Routes>
         <Route
           path="/collections/:categoryName"
-          element={<Collection items={DUMMY_DATA.pages} />}
+          element={
+            <Collection
+              items={DUMMY_DATA.pages}
+              filteredData={DUMMY_DATA.filter}
+            />
+          }
         />
         <Route
           path={`/collections/:categoryName/:productName`}

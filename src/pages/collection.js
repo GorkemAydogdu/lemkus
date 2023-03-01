@@ -96,6 +96,9 @@ const Collection = (props) => {
       } else return false;
     })
   );
+  let filter = props.filteredData.filter(
+    (filter) => filter.name.toLowerCase() === categoryName
+  );
 
   function filterData(data) {
     return Array.from(
@@ -104,13 +107,20 @@ const Collection = (props) => {
     );
   }
 
-  let brand = data[0].map((filter) => filter.brand);
-  let x = data[0].map((filter) => filter.type);
+  let filterBrand = data[0].map((filter) => filter.brand);
+  let filterType = data[0].map((filter) => filter.type);
+  let filterGender = data[0].map((filter) => filter.gender);
+  let filterSizes = data[0].map((items) => items.sizes.map((size) => size));
+  let filterPrice = data[0].map((filter) => filter.price);
 
-  const brandCount = filterData(brand);
-  const typeCount = filterData(x);
+  const brandCount = filterData(filterBrand);
+  const typeCount = filterData(filterType);
+  const genderCount = filterData(filterGender);
+  const sizeCount = filterData(filterSizes);
+  const priceCount = filterData(filterPrice);
 
-  console.log(typeCount, brandCount);
+  data[0].map((items) => console.log(items.sizes));
+
   return (
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
@@ -193,26 +203,113 @@ const Collection = (props) => {
           </div>
           <div ref={collectionContentRef} className="collection__content">
             <div className="collection__filterProduct">
-              <div className="collection__filterProduct--item collection__filterProduct--active">
-                <span className="collection__filterProduct--title">
-                  Brand
-                  <Arrow />
-                </span>
+              {filter[0].items.map((item) => {
+                if (item.name === "Brand") {
+                  return (
+                    <div
+                      key={item.id}
+                      className="collection__filterProduct--item collection__filterProduct--active"
+                    >
+                      <span className="collection__filterProduct--title">
+                        {item.name}
+                        <Arrow />
+                      </span>
 
-                <ul className="collection__list collection__list--active">
-                  {brandCount.map((filter) => (
-                    <li className="collection__item">
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        {filter.key}
+                      <ul className="collection__list collection__list--active">
+                        {brandCount.map((filter) => (
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              {filter.key}
+                            </span>
+                            <span className="collection__item--count">
+                              ({filter.count})
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                } else if (item.name === "Type") {
+                  return (
+                    <div
+                      key={item.id}
+                      className="collection__filterProduct--item collection__filterProduct--active"
+                    >
+                      <span className="collection__filterProduct--title">
+                        {item.name}
+                        <Arrow />
                       </span>
-                      <span className="collection__item--count">
-                        ({filter.count})
+
+                      <ul className="collection__list collection__list--active">
+                        {typeCount.map((filter) => (
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              {filter.key}
+                            </span>
+                            <span className="collection__item--count">
+                              ({filter.count})
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                } else if (item.name === "Price") {
+                  return (
+                    <div
+                      key={item.id}
+                      className="collection__filterProduct--item collection__filterProduct--active"
+                    >
+                      <span className="collection__filterProduct--title">
+                        {item.name}
+                        <Arrow />
                       </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+                      <ul className="collection__list collection__list--active">
+                        {priceCount.map((filter) => (
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              {filter.key}
+                            </span>
+                            <span className="collection__item--count">
+                              ({filter.count})
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                } else if (item.name === "Gender") {
+                  return (
+                    <div
+                      key={item.id}
+                      className="collection__filterProduct--item collection__filterProduct--active"
+                    >
+                      <span className="collection__filterProduct--title">
+                        {item.name}
+                        <Arrow />
+                      </span>
+
+                      <ul className="collection__list collection__list--active">
+                        {genderCount.map((filter) => (
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              {filter.key}
+                            </span>
+                            <span className="collection__item--count">
+                              ({filter.count})
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }
+              })}
             </div>
 
             <ul className="collection__productsList products__list">
