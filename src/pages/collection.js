@@ -141,6 +141,12 @@ const Collection = (props) => {
     let filterProductItem = document.querySelectorAll(
       ".collection__filterProduct--item"
     );
+    let collectionItems = document.querySelectorAll(".collection__item");
+    collectionItems.forEach((item) =>
+      item.addEventListener("click", () => {
+        item.classList.toggle("collection__item--active");
+      })
+    );
     filterProductTitle.forEach((item) =>
       filterProductItem.forEach((prd) => {
         item.addEventListener("click", () => {
@@ -350,10 +356,7 @@ const Collection = (props) => {
                           </li>
                         }
                         {
-                          <li
-                            key={Math.random()}
-                            className="collection__item collection__item--active"
-                          >
+                          <li key={Math.random()} className="collection__item">
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               R 2000 - R 2999
