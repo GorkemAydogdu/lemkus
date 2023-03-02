@@ -48,7 +48,7 @@ const CollectionDetail = (props) => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
       direction: "ttb",
-      heightRatio: "1",
+      heightRatio: ".9",
       speed: "2000",
       easing: "cubic-bezier(0.16, 1, 0.3, 1)",
       breakpoints: {
@@ -94,6 +94,7 @@ const CollectionDetail = (props) => {
       thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
     });
   }, [clickedSize, data]);
+
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collectionDetail">

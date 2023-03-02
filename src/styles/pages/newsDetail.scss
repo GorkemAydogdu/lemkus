@@ -5,6 +5,7 @@
 
   &__title {
     font-size: 14vw;
+    text-transform: uppercase;
 
     @include respond(tab-port) {
       font-size: 6vw;

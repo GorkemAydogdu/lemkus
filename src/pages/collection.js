@@ -380,7 +380,7 @@ const Collection = (props) => {
                       </ul>
                     </div>
                   );
-                }
+                } else return false;
               })}
             </div>
 

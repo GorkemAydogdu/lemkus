@@ -5,32 +5,42 @@ import Footer from "../components/Footer/Footer";
 import Button from "../components/UI/Button";
 import { Link } from "react-router-dom";
 
-const News = () => {
+const News = (props) => {
   const smoothScrollWrapper = useRef();
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="culture dark">
         <ul className="culture__list">
-          <li className="culture__item culture__newsItem">
-            <div className="culture__image">
-              <Link to="/blogs/news/detail" className="culture__link">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/articles/Lemkus_Rolo_Rozay_Air_Jordan_2_Retro_517x654_420c9e39-50c6-46f4-8227-ebfd7ed44b49.jpg?v=1672214228"
-                  alt="Rolo Rozay"
-                />
+          {props.data.map((item) => (
+            <li key={item.id} className="culture__item culture__newsItem">
+              <div className="culture__image">
+                <Link
+                  to={`/blogs/news/${item.name
+                    .toLowerCase()
+                    .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                    .replace(/-{2,}/g, "-")
+                    .replace(/-$/, "")}`}
+                  className="culture__link"
+                >
+                  <img src={item.image} alt={item.name} />
+                </Link>
+                <Button type="button" className="culture__date">
+                  <span>{item.category} -</span>
+                  <span>&nbsp;{item.date}</span>
+                </Button>
+              </div>
+              <Link
+                to={`/blogs/news/${item.name
+                  .toLowerCase()
+                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                  .replace(/-{2,}/g, "-")
+                  .replace(/-$/, "")}`}
+                className="culture__item--title culture__newsItem--title"
+              >
+                {item.name}
               </Link>
-              <Button type="button" className="culture__date">
-                <span>Releases -</span>
-                <span>&nbsp;28.12.22</span>
-              </Button>
-            </div>
-            <Link
-              to="/blogs/news/detail"
-              className="culture__item--title culture__newsItem--title"
-            >
-              Rolo Rozay X Air Jordan 2: The 35th Anniversary
-            </Link>
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
       <Footer />
