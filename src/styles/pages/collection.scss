@@ -110,6 +110,7 @@
       display: none;
     }
     select {
+      cursor: pointer;
       height: 4rem;
       background-color: transparent;
       padding: 0 1rem;
@@ -215,17 +216,17 @@
     }
   }
 
+  &__filterProduct--active &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__list {
     margin-top: 1.5rem;
     list-style: none;
     display: none;
     max-height: 35rem;
     overflow: scroll;
-
-    &--active {
-      display: flex;
-      flex-direction: column;
-    }
   }
   &__item {
     display: flex;

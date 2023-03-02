@@ -14,10 +14,10 @@ import { Flip } from "gsap/all";
 gsap.registerPlugin(Flip);
 
 const Collection = (props) => {
+  const [filterClicked, setFilterClicked] = useState(false);
   const smoothScrollWrapper = useRef();
   const tl = useRef();
   const filterListRef = useRef();
-  const [filterClicked, setFilterClicked] = useState(false);
   const collectionContentRef = useRef();
   const mobileMenuRef = useRef();
 
@@ -96,6 +96,7 @@ const Collection = (props) => {
       } else return false;
     })
   );
+
   let filter = props.filteredData.filter(
     (filter) => filter.name.toLowerCase() === categoryName
   );
@@ -110,13 +111,48 @@ const Collection = (props) => {
   let filterBrand = data[0].map((filter) => filter.brand);
   let filterType = data[0].map((filter) => filter.type);
   let filterGender = data[0].map((filter) => filter.gender);
-  let filterSizes = data[0].map((items) => items.sizes.map((size) => size));
-  let filterPrice = data[0].map((filter) => filter.price);
+  let price = data[0].map((items) => items.price);
+
+  let filterPrice0_999 = [];
+  let filterPrice1000_1999 = [];
+  let filterPrice2000_2999 = [];
+  let filterPrice3000_3999 = [];
+
+  for (let i = 0; i < price.length; i++) {
+    if (price[i] > 0 && price[i] <= 999) {
+      filterPrice0_999.push(price[i]);
+    } else if (price[i] > 1000 && price[i] <= 1999) {
+      filterPrice1000_1999.push(price[i]);
+    } else if (price[i] > 2000 && price[i] <= 2999) {
+      filterPrice2000_2999.push(price[i]);
+    } else if (price[i] > 3000 && price[i] <= 3999) {
+      filterPrice3000_3999.push(price[i]);
+    }
+  }
 
   const brandCount = filterData(filterBrand);
   const typeCount = filterData(filterType);
   const genderCount = filterData(filterGender);
-  const sizeCount = filterData(filterSizes);
+
+  useEffect(() => {
+    let filterProductTitle = document.querySelectorAll(
+      ".collection__filterProduct--title"
+    );
+    let filterProductItem = document.querySelectorAll(
+      ".collection__filterProduct--item"
+    );
+    filterProductTitle.forEach((item) =>
+      filterProductItem.forEach((prd) => {
+        item.addEventListener("click", () => {
+          if (prd.children[0].innerText === item.innerText) {
+            prd.classList.toggle("collection__filterProduct--active");
+          } else {
+            prd.classList.remove("collection__filterProduct--active");
+          }
+        });
+      })
+    );
+  }, []);
 
   return (
     <>
@@ -205,14 +241,14 @@ const Collection = (props) => {
                   return (
                     <div
                       key={item.id}
-                      className="collection__filterProduct--item collection__filterProduct--active"
+                      className="collection__filterProduct--item"
                     >
                       <span className="collection__filterProduct--title">
                         {item.name}
                         <Arrow />
                       </span>
 
-                      <ul className="collection__list collection__list--active">
+                      <ul className="collection__list">
                         {brandCount.map((filter) => (
                           <li key={Math.random()} className="collection__item">
                             <span className="collection__item--checkbox"></span>
@@ -231,14 +267,14 @@ const Collection = (props) => {
                   return (
                     <div
                       key={item.id}
-                      className="collection__filterProduct--item collection__filterProduct--active"
+                      className="collection__filterProduct--item"
                     >
                       <span className="collection__filterProduct--title">
                         {item.name}
                         <Arrow />
                       </span>
 
-                      <ul className="collection__list collection__list--active">
+                      <ul className="collection__list">
                         {typeCount.map((filter) => (
                           <li key={Math.random()} className="collection__item">
                             <span className="collection__item--checkbox"></span>
@@ -257,14 +293,14 @@ const Collection = (props) => {
                   return (
                     <div
                       key={item.id}
-                      className="collection__filterProduct--item collection__filterProduct--active"
+                      className="collection__filterProduct--item"
                     >
                       <span className="collection__filterProduct--title">
                         {item.name}
                         <Arrow />
                       </span>
 
-                      <ul className="collection__list collection__list--active">
+                      <ul className="collection__list ">
                         {genderCount.map((filter) => (
                           <li key={Math.random()} className="collection__item">
                             <span className="collection__item--checkbox"></span>
@@ -276,6 +312,68 @@ const Collection = (props) => {
                             </span>
                           </li>
                         ))}
+                      </ul>
+                    </div>
+                  );
+                } else if (item.name === "Price") {
+                  return (
+                    <div
+                      key={item.id}
+                      className="collection__filterProduct--item"
+                    >
+                      <span className="collection__filterProduct--title">
+                        {item.name}
+                        <Arrow />
+                      </span>
+
+                      <ul className="collection__list ">
+                        {
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              R 0 - R 999
+                            </span>
+                            <span className="collection__item--count">
+                              ({filterPrice0_999.length})
+                            </span>
+                          </li>
+                        }
+                        {
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              R 1000 - R 1999
+                            </span>
+                            <span className="collection__item--count">
+                              ({filterPrice1000_1999.length})
+                            </span>
+                          </li>
+                        }
+                        {
+                          <li
+                            key={Math.random()}
+                            className="collection__item collection__item--active"
+                          >
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              R 2000 - R 2999
+                            </span>
+                            <span className="collection__item--count">
+                              ({filterPrice2000_2999.length})
+                            </span>
+                          </li>
+                        }
+                        {
+                          <li key={Math.random()} className="collection__item">
+                            <span className="collection__item--checkbox"></span>
+                            <span className="collection__item--brand">
+                              R 3000 - R 3999
+                            </span>
+                            <span className="collection__item--count">
+                              ({filterPrice3000_3999.length})
+                            </span>
+                          </li>
+                        }
                       </ul>
                     </div>
                   );
@@ -353,93 +451,95 @@ const Collection = (props) => {
         </div>
         <Footer />
       </SmoothScrollWrapper>
-      <div ref={mobileMenuRef} className="collection__menuMobile">
-        <div className="collection__filterHeader">
-          <span>Filter By</span>
+      {window.innerWidth < 1025 && (
+        <div ref={mobileMenuRef} className="collection__menuMobile">
+          <div className="collection__filterHeader">
+            <span>Filter By</span>
+            <Button
+              onClick={() => {
+                document.body.style.overflow = "visible";
+                mobileMenuRef.current.style.left = "-100%";
+              }}
+              className="collection__filterHeader--close"
+            >
+              <X />
+            </Button>
+          </div>
+          <div className="collection__filterProduct--item collection__filterProduct--active">
+            <span className="collection__filterProduct--title">
+              Brand
+              <Arrow />
+            </span>
+
+            <ul className="collection__list collection__list--active">
+              <li className="collection__item collection__item--active">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+            </ul>
+          </div>
+          <div className="collection__filterProduct--item">
+            <span className="collection__filterProduct--title">
+              Sneaker Style
+              <Arrow />
+            </span>
+
+            <ul className="collection__list">
+              <li className="collection__item">
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">Adidas</span>
+                <span className="collection__item--count">(57)</span>
+              </li>
+            </ul>
+          </div>
+
           <Button
             onClick={() => {
               document.body.style.overflow = "visible";
               mobileMenuRef.current.style.left = "-100%";
             }}
-            className="collection__filterHeader--close"
+            className="collection__menuMobile--button"
           >
-            <X />
+            {data[0].length}
           </Button>
         </div>
-        <div className="collection__filterProduct--item collection__filterProduct--active">
-          <span className="collection__filterProduct--title">
-            Brand
-            <Arrow />
-          </span>
-
-          <ul className="collection__list collection__list--active">
-            <li className="collection__item collection__item--active">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-          </ul>
-        </div>
-        <div className="collection__filterProduct--item">
-          <span className="collection__filterProduct--title">
-            Sneaker Style
-            <Arrow />
-          </span>
-
-          <ul className="collection__list">
-            <li className="collection__item">
-              <span className="collection__item--checkbox"></span>
-              <span className="collection__item--brand">Adidas</span>
-              <span className="collection__item--count">(57)</span>
-            </li>
-          </ul>
-        </div>
-
-        <Button
-          onClick={() => {
-            document.body.style.overflow = "visible";
-            mobileMenuRef.current.style.left = "-100%";
-          }}
-          className="collection__menuMobile--button"
-        >
-          View 302 Products
-        </Button>
-      </div>
+      )}
     </>
   );
 };
