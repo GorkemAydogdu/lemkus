@@ -30,77 +30,9 @@ const NewsDetail = (props) => {
   return (
     <SmoothScrollWrapper className="pageSmooth" ref={smoothScrollWrapper}>
       {filter.map((item) => (
-        <div className="newsDetail">
+        <div key={item.id} className="newsDetail">
           <div className="newsDetail__header">
-            <h1 className="newsDetail__title">
-              {item.name}
-              {/* <span className="line">
-              <span>R</span>
-              <span>O</span>
-              <span>L</span>
-              <span>O</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>R</span>
-              <span>O</span>
-              <span>Z</span>
-              <span>A</span>
-              <span>Y</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>X</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>A</span>
-              <span>I</span>
-              <span>R</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>J</span>
-              <span>O</span>
-              <span>R</span>
-              <span>D</span>
-              <span>A</span>
-              <span>N</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>2</span>
-              <span>:</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>T</span>
-              <span>H</span>
-              <span>E</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>3</span>
-              <span>5</span>
-              <span>T</span>
-              <span>H</span>
-              <span>&nbsp;</span>
-            </span>
-            <span className="line">
-              <span>A</span>
-              <span>N</span>
-              <span>N</span>
-              <span>I</span>
-              <span>V</span>
-              <span>E</span>
-              <span>R</span>
-              <span>S</span>
-              <span>A</span>
-              <span>R</span>
-              <span>Y</span>
-            </span> */}
-              {/* ROLO ROZAY X AIR JORDAN 2: THE 35TH ANNIVERSARY */}
-            </h1>
+            <h1 className="newsDetail__title">{item.name}</h1>
             <ul className="newsDetail__infos">
               <li className="newsDetail__info">
                 <span>Category</span>
@@ -126,21 +58,21 @@ const NewsDetail = (props) => {
             </div>
             <p className="newsDetail__heading">{item.headingText1}</p>
             {item.descriptionText1.map((text) => (
-              <p id={text.id} className="newsDetail__description">
+              <p key={text.id} className="newsDetail__description">
                 {text.text}
               </p>
             ))}
 
             <div className="newsDetail__sidetoside">
               {item.sideToside.map((item) => (
-                <div className="newsDetail__sidetoside--side">
-                  <img id={item.id} src={item.image} alt="" />
+                <div key={item.id} className="newsDetail__sidetoside--side">
+                  <img src={item.image} alt="" />
                 </div>
               ))}
             </div>
             <p className="newsDetail__heading">{item.headingText2}</p>
             {item.descriptionText2.map((text) => (
-              <p id={text.id} className="newsDetail__description">
+              <p key={text.id} className="newsDetail__description">
                 {text.text}
               </p>
             ))}

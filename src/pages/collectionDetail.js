@@ -48,13 +48,17 @@ const CollectionDetail = (props) => {
     const splide = new Splide(".collectionDetail__imagesWrapper", {
       arrows: false,
       direction: "ttb",
-      heightRatio: ".9",
+      height: "70rem",
       speed: "2000",
       easing: "cubic-bezier(0.16, 1, 0.3, 1)",
       breakpoints: {
-        1366: {
-          heightRatio: ".8",
+        1366: { height: "60rem" },
+        1024: {
+          direction: "ltr",
+          height: "80rem",
         },
+        700: { height: "75rem" },
+        500: { height: "70rem" },
       },
     });
 
