@@ -519,7 +519,191 @@ const Collection = (props) => {
               <X />
             </Button>
           </div>
-          <div className="collection__filterProduct--item collection__filterProduct--active">
+          {filter[0].items.map((item) => {
+            if (item.name === "Brand") {
+              return (
+                <div key={item.id} className="collection__filterProduct--item">
+                  <span className="collection__filterProduct--title">
+                    {item.name}
+                    <Arrow />
+                  </span>
+
+                  <ul className="collection__list">
+                    {brandCount.map((filter) => (
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            } else if (item.name === "Type") {
+              return (
+                <div key={item.id} className="collection__filterProduct--item">
+                  <span className="collection__filterProduct--title">
+                    {item.name}
+                    <Arrow />
+                  </span>
+
+                  <ul className="collection__list">
+                    {typeCount.map((filter) => (
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            } else if (item.name === "Gender") {
+              return (
+                <div key={item.id} className="collection__filterProduct--item">
+                  <span className="collection__filterProduct--title">
+                    {item.name}
+                    <Arrow />
+                  </span>
+
+                  <ul className="collection__list ">
+                    {genderCount.map((filter) => (
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            } else if (item.name === "Price") {
+              return (
+                <div key={item.id} className="collection__filterProduct--item">
+                  <span className="collection__filterProduct--title">
+                    {item.name}
+                    <Arrow />
+                  </span>
+
+                  <ul className="collection__list ">
+                    {
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          R 0 - R 999
+                        </span>
+                        <span className="collection__item--count">
+                          ({filterPrice0_999.length})
+                        </span>
+                      </li>
+                    }
+                    {
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          R 1000 - R 1999
+                        </span>
+                        <span className="collection__item--count">
+                          ({filterPrice1000_1999.length})
+                        </span>
+                      </li>
+                    }
+                    {
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          R 2000 - R 2999
+                        </span>
+                        <span className="collection__item--count">
+                          ({filterPrice2000_2999.length})
+                        </span>
+                      </li>
+                    }
+                    {
+                      <li
+                        onClick={(event) => {
+                          event.currentTarget.classList.toggle(
+                            "collection__item--active"
+                          );
+                        }}
+                        key={Math.random()}
+                        className="collection__item"
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          R 3000 - R 3999
+                        </span>
+                        <span className="collection__item--count">
+                          ({filterPrice3000_3999.length})
+                        </span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              );
+            } else return false;
+          })}
+          {/* <div className="collection__filterProduct--item collection__filterProduct--active">
             <span className="collection__filterProduct--title">
               Brand
               <Arrow />
@@ -581,7 +765,7 @@ const Collection = (props) => {
                 <span className="collection__item--count">(57)</span>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           <Button
             onClick={() => {
@@ -590,7 +774,7 @@ const Collection = (props) => {
             }}
             className="collection__menuMobile--button"
           >
-            {data[0].length}
+            View {data[0].length} Products
           </Button>
         </div>
       )}
