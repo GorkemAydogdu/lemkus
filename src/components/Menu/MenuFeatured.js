@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 const MenuFeatured = (props) => {
   return (
     <div
@@ -11,12 +13,18 @@ const MenuFeatured = (props) => {
       <div className="menu__featuredGroup">
         {props.item.featured.items.map((item) => (
           <div className={`menu__featuredItem`} key={item.id}>
-            <a href="/" className="menu__featuredLink">
+            <Link
+              to={`/collections${item.pathname}`}
+              className="menu__featuredLink"
+            >
               <img src={item.image} alt={item.name} />
-            </a>
-            <a href="/" className="menu__featuredTitle">
+            </Link>
+            <Link
+              to={`/collections${item.pathname}`}
+              className="menu__featuredTitle"
+            >
               {item.name}
-            </a>
+            </Link>
           </div>
         ))}
       </div>

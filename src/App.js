@@ -97,17 +97,20 @@ const DUMMY_DATA = {
           {
             id: 1,
             name: "Air Max 90 QS",
+            pathname: "/sneakers?category=air-max-90",
             image:
               "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/AM90-Sneakers-Featured-Dropdown_Images_556x508_40cd2b3a-c299-440b-b9f5-0b6125e26508.png?v=1628241321",
           },
           {
             id: 2,
+            pathname: "/sneakers?category=blazer",
             name: "Nike Blazer",
             image:
               "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Blazer-Dropdown_Images_556x508_06428b80-5d44-4a2a-8cf2-2b64f899ef7c.jpg?v=1627726517",
           },
           {
             id: 3,
+            pathname: "/sneakers?category=chuck-70",
             name: "Chuck 70",
             image:
               "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Chuck-70--Dropdown_Images_556x508_174a36f1-11b3-4acc-b099-36ed7dfb65ad.jpg?v=1627726533",
@@ -1370,6 +1373,49 @@ const DUMMY_DATA = {
             {
               id: 3,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-3.png?v=1670322146",
+            },
+          ],
+        },
+        {
+          id: 12,
+          name: "AIR MAX 90 LTR (GS)",
+          gender: "Grade School",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Sneakers",
+          type: "Air Max 90",
+          details:
+            "The Air Max 90 returns with an even better feel for you. Cushioning is softer and more flexible than previous versions, the Max Air unit is tuned for growing feet and the shape gives your toes more wiggle room. With a design and look that are still the same, it brings a '90s fave to a new generation.",
+          sizes: [3, 4, 5, 6],
+          price: 2299,
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-1.png?v=1676384250",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-2.png?v=1676384250",
+            },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-3.png?v=1676384250",
+            },
+            {
+              id: 4,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-4.png?v=1676384250",
+            },
+            {
+              id: 5,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-5.png?v=1676384250",
+            },
+            {
+              id: 6,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-6.png?v=1676384250",
+            },
+            {
+              id: 7,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-7.png?v=1676384250",
             },
           ],
         },

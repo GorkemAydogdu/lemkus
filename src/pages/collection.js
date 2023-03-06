@@ -77,7 +77,7 @@ const Collection = (props) => {
       ) {
         return filtered;
       } else if (
-        filtered.gender.toLowerCase().replace(" ", "-") === gender &&
+        filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
         filtered.categoryName.toLowerCase() === categoryName &&
         type === null
       ) {
@@ -89,8 +89,14 @@ const Collection = (props) => {
         return filtered;
       } else if (
         filtered.categoryName.toLowerCase() === categoryName &&
-        filtered.type.toLowerCase().replace(" ", "-") === type &&
+        filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
         filtered.gender.toLowerCase() === gender
+      ) {
+        return filtered;
+      } else if (
+        filtered.categoryName.toLowerCase() === categoryName &&
+        filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
+        gender === null
       ) {
         return filtered;
       } else return false;

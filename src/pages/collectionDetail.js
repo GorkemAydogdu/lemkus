@@ -58,7 +58,8 @@ const CollectionDetail = (props) => {
           height: "80rem",
         },
         700: { height: "75rem" },
-        500: { height: "70rem" },
+        500: { height: "60rem" },
+        300: { height: "50rem" },
       },
     });
 
