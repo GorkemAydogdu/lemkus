@@ -196,12 +196,15 @@ const DUMMY_DATA = {
         items: [
           {
             id: 1,
-            name: "Air Jordan PSG Tee",
+            name: "PARIS SAINT-GERMAIN LOGO T-SHIRT",
+            pathname: "/apparel/paris-saint-germain-logo-t-shirt?id=12",
             image:
               "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/PSG-Apparel-Featured-Dropdown_Images_556x508-Mens-Apparel.png?v=1631001892",
           },
           {
             id: 2,
+            pathname: "/apparel/nsw-icon-gx-hoodie-w?id=13",
+
             name: "Nsw Icon GX Hoodie",
             image:
               "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Apparel-Featured-Dropdown_Images_556x508-Wmns-Apparel.png?v=1627889788",
@@ -1416,6 +1419,55 @@ const DUMMY_DATA = {
             {
               id: 7,
               url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-7.png?v=1676384250",
+            },
+          ],
+        },
+        {
+          id: 12,
+          name: "PARIS SAINT-GERMAIN LOGO T-SHIRT",
+          gender: "Mens",
+          brand: "Air Jordan",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/air-jordan_200x.png",
+          categoryName: "Apparel",
+          type: "Team Sportswear",
+          details:
+            "Signal your pride for Paris Saint-Germain in this logo T-shirt(DB6514-100/WHITE) from Jordan Brand. It's made on soft, lightweight cotton. The tee has an oversized back graphic and colors inspired by the club's home kit on select versions.",
+          sizes: ["XS", "S", "M", "L", "XL", "2XL"],
+          price: 519,
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135cca5104eb3.55649357_LEMKUS-AIRJORDAN_DB6514-100-1_22439b2d-4d3a-44cf-88db-3b42557ac56c.png?v=1635672158",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135ccaf7da596.10404436_LEMKUS-AIRJORDAN_DB6514-100-2_a84f4537-49cd-42c6-b87f-e9e8b7cd398f.png?v=1635672158",
+            },
+          ],
+        },
+        {
+          id: 13,
+          name: "NSW ICON GX HOODIE (W)",
+          gender: "Womens",
+          brand: "Nike",
+          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+          categoryName: "Apparel",
+          type: "Sweatshirts",
+          details: "",
+          sizes: ["XS", "S", "L", "XL"],
+          price: 519,
+          images: [
+            {
+              id: 1,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525b682c569.49373222_LEMKUS-NIKE_DD5052-814-1_a433fec9-d189-4fb3-9bd6-a970f31a5597.png?v=1635672514",
+            },
+            {
+              id: 2,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525c1c8fc90.00194198_LEMKUS-NIKE_DD5052-814-2_4917a839-a3ad-4315-8ebf-3013f2b02beb.png?v=1635672514",
+            },
+            {
+              id: 3,
+              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525cbd86562.43808310_LEMKUS-NIKE_DD5052-814-3_48fbf1c9-9c78-4ab7-808a-8593b3e3116c.png?v=1635672514",
             },
           ],
         },
