@@ -141,12 +141,7 @@ const Collection = (props) => {
     let filterProductItem = document.querySelectorAll(
       ".collection__filterProduct--item"
     );
-    let collectionItems = document.querySelectorAll(".collection__item");
-    collectionItems.forEach((item) =>
-      item.addEventListener("click", () => {
-        item.classList.toggle("collection__item--active");
-      })
-    );
+
     filterProductTitle.forEach((item) =>
       filterProductItem.forEach((prd) => {
         item.addEventListener("click", () => {
@@ -256,7 +251,15 @@ const Collection = (props) => {
 
                       <ul className="collection__list">
                         {brandCount.map((filter) => (
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               {filter.key}
@@ -282,7 +285,15 @@ const Collection = (props) => {
 
                       <ul className="collection__list">
                         {typeCount.map((filter) => (
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               {filter.key}
@@ -308,7 +319,15 @@ const Collection = (props) => {
 
                       <ul className="collection__list ">
                         {genderCount.map((filter) => (
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               {filter.key}
@@ -334,7 +353,15 @@ const Collection = (props) => {
 
                       <ul className="collection__list ">
                         {
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               R 0 - R 999
@@ -345,7 +372,15 @@ const Collection = (props) => {
                           </li>
                         }
                         {
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               R 1000 - R 1999
@@ -356,7 +391,15 @@ const Collection = (props) => {
                           </li>
                         }
                         {
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               R 2000 - R 2999
@@ -367,7 +410,15 @@ const Collection = (props) => {
                           </li>
                         }
                         {
-                          <li key={Math.random()} className="collection__item">
+                          <li
+                            onClick={(event) => {
+                              event.currentTarget.classList.toggle(
+                                "collection__item--active"
+                              );
+                            }}
+                            key={Math.random()}
+                            className="collection__item"
+                          >
                             <span className="collection__item--checkbox"></span>
                             <span className="collection__item--brand">
                               R 3000 - R 3999
