@@ -703,69 +703,6 @@ const Collection = (props) => {
               );
             } else return false;
           })}
-          {/* <div className="collection__filterProduct--item collection__filterProduct--active">
-            <span className="collection__filterProduct--title">
-              Brand
-              <Arrow />
-            </span>
-
-            <ul className="collection__list collection__list--active">
-              <li className="collection__item collection__item--active">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-            </ul>
-          </div>
-          <div className="collection__filterProduct--item">
-            <span className="collection__filterProduct--title">
-              Sneaker Style
-              <Arrow />
-            </span>
-
-            <ul className="collection__list">
-              <li className="collection__item">
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">Adidas</span>
-                <span className="collection__item--count">(57)</span>
-              </li>
-            </ul>
-          </div> */}
 
           <Button
             onClick={() => {

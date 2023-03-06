@@ -42,7 +42,7 @@ const Launches = (props) => {
                     <div className="products__container">
                       <a href="/" className="products__image">
                         <div className="products__logo">
-                          <img key={item.id} src={item.logo} alt={item.name} />
+                          <img src={item.logo} alt={item.name} />
                         </div>
                         {item.image.map((img) => (
                           <img
@@ -81,6 +81,7 @@ const Launches = (props) => {
           .filter((item) => item.id === 2)
           .map((item) => (
             <ProductsCardAlternative
+              key={item.id}
               name={item.name}
               logo={item.logo}
               image={item.image[0]}
@@ -93,7 +94,7 @@ const Launches = (props) => {
               <div className="products__container">
                 <a href="/" className="products__image">
                   <div className="products__logo">
-                    <img key={item.id} src={item.logo} alt={item.name} />
+                    <img src={item.logo} alt={item.name} />
                   </div>
                   {item.image.map((img) => (
                     <img
