@@ -1988,7 +1988,7 @@ function App() {
           element={<CollectionDetail data={DUMMY_DATA.pages} />}
         />
         <Route
-          path={`/pages/launches/:productName`}
+          path={`/products/:productName`}
           element={<CollectionDetail data={DUMMY_DATA.launches} />}
         />
 

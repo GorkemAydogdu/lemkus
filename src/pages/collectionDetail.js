@@ -29,6 +29,8 @@ const CollectionDetail = (props) => {
   }
 
   let { productName } = useParams();
+  let { categoryName } = useParams();
+
   const navigate = useNavigate();
   let query = useQuery();
 
@@ -135,15 +137,27 @@ const CollectionDetail = (props) => {
               <Button
                 ref={(el) => (buttonsRef.current[idx] = el)}
                 onClick={(event) => {
-                  navigate(
-                    `/collections/${data[0].categoryName.toLowerCase()}/${data[0].name
-                      .toLowerCase()
-                      .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                      .replace(/-{2,}/g, "-")
-                      .replace(/-$/, "")}?id=${data[0].id}&size=${size}`,
-                    { replace: true }
-                    //https://stackoverflow.com/a/68694698/19191132
-                  );
+                  if (categoryName !== undefined) {
+                    navigate(
+                      `/collections/${data[0].categoryName.toLowerCase()}/${data[0].name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?id=${data[0].id}&size=${size}`,
+                      { replace: true }
+                      //https://stackoverflow.com/a/68694698/19191132
+                    );
+                  } else {
+                    navigate(
+                      `/products/${data[0].name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?size=${size}`,
+                      { replace: true }
+                      //https://stackoverflow.com/a/68694698/19191132
+                    );
+                  }
                   // setClickedSize(size);
                   for (let i = 0; i < buttonsRef.current.length; i++) {
                     buttonsRef.current[i].classList.remove(
@@ -157,7 +171,7 @@ const CollectionDetail = (props) => {
                   }
                 }}
                 key={size}
-                className={`collectionDetail__size ${
+                className={`collectionDetail__size${
                   clickedSize === size ? "collectionDetail__size--active" : ""
                 }`}
               >

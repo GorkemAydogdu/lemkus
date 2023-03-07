@@ -101,7 +101,6 @@ const Collection = (props) => {
     } else return false;
   });
 
-  console.log(data);
   let filter = props.filteredData.filter(
     (filter) => filter.name.toLowerCase() === categoryName
   );

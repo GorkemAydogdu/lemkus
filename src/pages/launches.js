@@ -43,11 +43,11 @@ const Launches = (props) => {
                   >
                     <div className="products__container">
                       <Link
-                        to={item.name
+                        to={`/products/${item.name
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
-                          .replace(/-$/, "")}
+                          .replace(/-$/, "")}`}
                         className="products__image"
                       >
                         <div className="products__logo">
@@ -66,14 +66,28 @@ const Launches = (props) => {
                       <div className="products__infos">
                         <div className="products__container--size">
                           {item.sizes.map((size) => (
-                            <a key={size} href="/">
+                            <Link
+                              to={`/products/${item.name
+                                .toLowerCase()
+                                .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                                .replace(/-{2,}/g, "-")
+                                .replace(/-$/, "")}?size=${size}`}
+                              key={size}
+                            >
                               {size}
-                            </a>
+                            </Link>
                           ))}
                         </div>
-                        <a href="/" className="products__container--title">
+                        <Link
+                          to={`/products/${item.name
+                            .toLowerCase()
+                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                            .replace(/-{2,}/g, "-")
+                            .replace(/-$/, "")}`}
+                          className="products__container--title"
+                        >
                           {item.name}
-                        </a>
+                        </Link>
                         <span className="products__container--price">
                           R {item.price}
                         </span>
@@ -101,7 +115,14 @@ const Launches = (props) => {
           {props.launches.map((item) => (
             <li key={item.id} className="launches__item launches__item--all">
               <div className="products__container">
-                <a href="/" className="products__image">
+                <Link
+                  to={`/products/${item.name
+                    .toLowerCase()
+                    .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                    .replace(/-{2,}/g, "-")
+                    .replace(/-$/, "")}`}
+                  className="products__image"
+                >
                   <div className="products__logo">
                     <img src={item.logo} alt={item.name} />
                   </div>
@@ -113,19 +134,33 @@ const Launches = (props) => {
                       alt={props.name}
                     />
                   ))}
-                </a>
+                </Link>
 
                 <div className="products__infos">
                   <div className="products__container--size">
                     {item.sizes.map((size) => (
-                      <a key={size} href="/">
+                      <Link
+                        to={`/products/${item.name
+                          .toLowerCase()
+                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                          .replace(/-{2,}/g, "-")
+                          .replace(/-$/, "")}?size=${size}`}
+                        key={size}
+                      >
                         {size}
-                      </a>
+                      </Link>
                     ))}
                   </div>
-                  <a href="/" className="products__container--title">
+                  <Link
+                    to={`/products/${item.name
+                      .toLowerCase()
+                      .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                      .replace(/-{2,}/g, "-")
+                      .replace(/-$/, "")}`}
+                    className="products__container--title"
+                  >
                     {item.name}
-                  </a>
+                  </Link>
                   <span className="products__container--price">
                     {item.price}
                   </span>
