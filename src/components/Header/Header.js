@@ -143,7 +143,7 @@ const Header = (props) => {
           setSelectedCategory(category.name);
           props.clickedButton(event.target.innerHTML);
 
-          if (selectedCategory === category.name) {
+          if (selectedCategory === event.target.innerHTML) {
             event.target.classList.toggle("header__button--active");
 
             if (!event.target.classList.contains("header__button--active")) {

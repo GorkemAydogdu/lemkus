@@ -14,6 +14,9 @@ const MenuFeatured = (props) => {
         {props.item.featured.items.map((item) => (
           <div className={`menu__featuredItem`} key={item.id}>
             <Link
+              onClick={() => {
+                props.clickedButton("");
+              }}
               to={`/collections${item.pathname}`}
               className="menu__featuredLink"
             >

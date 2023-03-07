@@ -17,6 +17,9 @@ const MenuLinks = (props) => {
             {link.items.map((item) => (
               <ListItem key={item.id} className="menu__item">
                 <Link
+                  onClick={() => {
+                    props.clickedButton("");
+                  }}
                   to={`/collections${item.pathname}`}
                   className="menu__link"
                 >

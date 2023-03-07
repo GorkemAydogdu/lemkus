@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 import Splide from "@splidejs/splide";
 
 // Default theme
@@ -40,11 +42,18 @@ const Launches = (props) => {
                     className="splide__slide launches__item launches__item--variant"
                   >
                     <div className="products__container">
-                      <a href="/" className="products__image">
+                      <Link
+                        to={item.name
+                          .toLowerCase()
+                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                          .replace(/-{2,}/g, "-")
+                          .replace(/-$/, "")}
+                        className="products__image"
+                      >
                         <div className="products__logo">
                           <img src={item.logo} alt={item.name} />
                         </div>
-                        {item.image.map((img) => (
+                        {item.images.slice(0, 2).map((img) => (
                           <img
                             key={img.id}
                             className={`products__image--${img.id}`}
@@ -52,7 +61,7 @@ const Launches = (props) => {
                             alt={props.name}
                           />
                         ))}
-                      </a>
+                      </Link>
 
                       <div className="products__infos">
                         <div className="products__container--size">
@@ -78,13 +87,13 @@ const Launches = (props) => {
         </div>
 
         {props.launches
-          .filter((item) => item.id === 2)
+          .filter((item) => item.name === "Air Jordan 2 Retro")
           .map((item) => (
             <ProductsCardAlternative
               key={item.id}
               name={item.name}
               logo={item.logo}
-              image={item.image[0]}
+              image={item.images[0]}
               price={item.price}
             />
           ))}
@@ -96,7 +105,7 @@ const Launches = (props) => {
                   <div className="products__logo">
                     <img src={item.logo} alt={item.name} />
                   </div>
-                  {item.image.map((img) => (
+                  {item.images.slice(0, 2).map((img) => (
                     <img
                       key={img.id}
                       className={`products__image--${img.id}`}

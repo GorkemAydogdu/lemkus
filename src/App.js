@@ -390,28 +390,13 @@ const DUMMY_DATA = {
   launches: [
     {
       id: 1,
-      name: "Mt580 Lifestyle",
-      price: 2699.0,
-      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/New_Balance_2x_ed8e9aca-d511-4f34-bce6-323df64ca48e_200x.png?v=1625833403",
-      sizes: [7, 8, 9, 10],
-      image: [
-        {
-          id: 1,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/MT580RTB-1.png?v=1673421398",
-        },
-        {
-          id: 2,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/MT580RTB-2.png?v=1673421398",
-        },
-      ],
-    },
-    {
-      id: 2,
       name: "Air Jordan 2 Retro",
       price: 3699.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [6, 7, 8, 9, 10, 11, 12],
-      image: [
+      details:
+        "1 pair per customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
         {
           id: 1,
           url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-1.png?v=1671455949",
@@ -420,15 +405,33 @@ const DUMMY_DATA = {
           id: 2,
           url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-2.png?v=1671455949",
         },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-3.png?v=1671455949",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-4.png?v=1671455949",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-5.png?v=1671455949",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-6.png?v=1671455949",
+        },
       ],
     },
     {
-      id: 3,
+      id: 2,
       name: "Air Jordan 1 Retro Hi OG [W]",
       price: 3399.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
       sizes: [3, 4, 5, 6, 7, 8],
-      image: [
+      details:
+        "1 Pair Per Customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
         {
           id: 1,
           url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-1.png?v=1671354786",
@@ -437,56 +440,345 @@ const DUMMY_DATA = {
           id: 2,
           url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-2.png?v=1671354786",
         },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-3.png?v=1671354786",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-4.png?v=1671354786",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-5.png?v=1671354786",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-6.png?v=1671354786",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-7.png?v=1671354786",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Air Jordan 1 Zoom Cmft 2 Sp [W]",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [3, 4, 5, 6, 3.5, 4.5, 5.5, 6.5, 7, 8],
+      details:
+        "Releasing in-store and online 09 February 2023. 1 Pair Per Customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-1.png?v=1675771173",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-2.png?v=1675771173",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-3.png?v=1675771173",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-4.png?v=1675771173",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-5.png?v=1675771173",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-6.png?v=1675771173",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-7.png?v=1675771173",
+        },
+        {
+          id: 8,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-8.png?v=1675771173",
+        },
       ],
     },
     {
       id: 4,
-      name: "Air Jordan 6 Retro",
-      price: 3699.0,
+      name: "SKY JORDAN 1 (PS)",
+      price: 1299.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
-      sizes: [10, 11, 12],
-      image: [
+      sizes: [1, 1.5, 2, 2.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
+      details:
+        "Inspired by the AJ1, the Sky Jordan 1 is equal parts iconic and adorable. It has soft foam cushioning, rubber traction and a hook-and-loop strap for easy on and off.",
+      images: [
         {
           id: 1,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2836-001-1.png?v=1671545564",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-1.png?v=1676557696",
         },
         {
           id: 2,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2836-001-2.png?v=1671545564",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-2.png?v=1676557696",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-2.png?v=1676557696",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-4.png?v=1676557696",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-5.png?v=1676557696",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-6.png?v=1676557696",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-7.png?v=1676557696",
+        },
+        {
+          id: 8,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-8.png?v=1676557696",
         },
       ],
     },
     {
       id: 5,
-      name: "Air Jordan 5 Retro GTX [W]",
-      price: 3899.0,
+      name: "AIR JORDAN 1 LOW",
+      price: 2299.0,
       logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
-      sizes: [3, 4, 5, 6, 7, 8],
-      image: [
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      details:
+        "Inspired by the original that debuted in 1985, the Air Jordan 1 Low offers a clean, classic look that's familiar yet always fresh. With an iconic design that pairs perfectly with any 'fit, these kicks ensure you'll always be on point.",
+      images: [
         {
           id: 1,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR0092-001-1.png?v=1667822837",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-1.png?v=1675772520",
         },
         {
           id: 2,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR0092-001-2.png?v=1667822837",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-2.png?v=1675772520",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-3.png?v=1675772520",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-4.png?v=1675772520",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-5.png?v=1675772520",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-6.png?v=1675772520",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-7.png?v=1675772520",
         },
       ],
     },
     {
       id: 6,
-      name: "Dunk Hi Retro SE",
+      name: "AIR JORDAN 1 MID",
       price: 2399.0,
-      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
-      sizes: [5.5, 6, 7, 8, 9, 10, 12],
-      image: [
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      details:
+        "You ready for your moment in the sun? Every time the AJ1 gets a remake you get the classic sneaker in new colors and textures for a fresh look with a familiar feel. Premium materials and accents give modern expression to an all-time favorite. Get out there and shine.",
+      images: [
         {
           id: 1,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DQ7680-300-1.png?v=1670320252",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-1.png?v=1675844504",
         },
         {
           id: 2,
-          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DQ7680-300-2.png?v=1670320252",
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-2.png?v=1675844504",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-3.png?v=1675844504",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-4.png?v=1675844504",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-5.png?v=1675844504",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-6.png?v=1675844504",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-7.png?v=1675844504",
+        },
+      ],
+    },
+    {
+      id: 7,
+      name: "AIR MORE UPTEMPO '96",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11, 6.5, 7.5, 8.5, 9.5, 10.5, 12],
+      details:
+        "Bring original hoops style back to the streets with the Air More Uptempo. Classic black and white leather and energetic iridescent accents put a fashion forward twist on the '90s icon whose graffiti-styled graphics have always been an off-court fave. Full-length, visible Air cushioning delivers the comfort you need, while elastic straps over the tongue keep your style sharp whether you rock them laced or unlaced.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-1.png?v=1675856297",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-2.png?v=1675856297",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-3.png?v=1675856297",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-4.png?v=1675856297",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-5.png?v=1675856297",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-6.png?v=1675856297",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-7.png?v=1675856297",
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: "AIR ZOOM FLIGHT 95",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11],
+      details:
+        "Have you ever had déjà shoe? Flash back to one of the first shoes to popularize Zoom Air technology and relive the hoops revolution. With its flowing lines, patent leather accents and futuristic 'bug eye' detailing, the Air Zoom Flight 95 is no dream—it's your ticket to turn heads.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-1.png?v=1675952388",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-2.png?v=1675952388",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-3.png?v=1675952388",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-4.png?v=1675952388",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-5.png?v=1675952388",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-6.png?v=1675952388",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-7.png?v=1675952388",
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: "AIR FOAMPOSITE ONE",
+      price: 4699.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11, 6.5, 7.5, 8.5, 9.5, 10.5],
+      details:
+        "Cross between b-ball greatness and rare off-court style in the Nike Air Foamposite 1. From the liquid look of its Foamposite upper to the signature '1 Cent' logo and low-profile cushioning, it lets you bridge past, present and future. It's game time.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-1.png?v=1675856996",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-2.png?v=1675856996",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-3.png?v=1675856996",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-4.png?v=1675856996",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-5.png?v=1675856996",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-6.png?v=1675856996",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-7.png?v=1675856996",
+        },
+      ],
+    },
+    {
+      id: 10,
+      name: "AIR PENNY II",
+      price: 3599.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [5.5, 6, 7, 8, 9, 10, 11, 12],
+      details:
+        "Flash back to '96 in the Air Penny 2. Bold and unmistakable, it was the first Air Penny to combine Max and Zoom Air technology. Now, the daring design comes wrapped in patent leather, while the signature “1 Cent” logo on the side and wavy design lines keep the coveted off-court appeal strong.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-1.png?v=1675944088",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-2.png?v=1675944088",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-3.png?v=1675944088",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-4.png?v=1675944088",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-5.png?v=1675944088",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-6.png?v=1675944088",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-7.png?v=1675944088",
         },
       ],
     },
@@ -993,483 +1285,478 @@ const DUMMY_DATA = {
   pages: [
     {
       id: 1,
-      items: [
+      name: "Blazer Mid Victory [W]",
+      gender: "Womens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Sneakers",
+      type: "Blazer",
+      details:
+        "With a carefully crafted aesthetic, your tried-and-true wardrobe staple gets elevated with an expressive outdoorsy vibe. Updated details like the just-right lift adds a sophisticated mountain town edge. Concealed laces streamline your outfit. The classic Blazer design does the rest of the talking.",
+      sizes: [3, 4, 5, 6],
+      price: 2299.0,
+      images: [
         {
           id: 1,
-          name: "Blazer Mid Victory [W]",
-          gender: "Womens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Sneakers",
-          type: "Blazer",
-          details:
-            "With a carefully crafted aesthetic, your tried-and-true wardrobe staple gets elevated with an expressive outdoorsy vibe. Updated details like the just-right lift adds a sophisticated mountain town edge. Concealed laces streamline your outfit. The classic Blazer design does the rest of the talking.",
-          sizes: [3, 4, 5, 6],
-          price: 2299.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-3.png?v=1674122077",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-4.png?v=1674122077",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-5.png?v=1674122077",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-6.png?v=1674122077",
-            },
-            {
-              id: 7,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-7.png?v=1674122077",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-1.png?v=1674122077",
         },
         {
           id: 2,
-          name: "Blazer Low Platform [W]",
-          gender: "Womens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Sneakers",
-          type: "Blazer",
-          details:
-            "Praised for its classic simplicity and comfort, the Nike Blazer Low Platform elevates the hoops icon. The lifted midsole/outsole lets you step confidently while the upper keeps the proportions you loved from the original.",
-          sizes: [3, 4, 5, 6],
-          price: 1899.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-3.png?v=1667568139",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-4.png?v=1667568139",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-5.png?v=1667568139",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-6.png?v=1667568139",
-            },
-            {
-              id: 7,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-7.png?v=1667568139",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-2.png?v=1674122077",
         },
         {
           id: 3,
-          name: "Lebron XX",
-          gender: "Mens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Sneakers",
-          type: "Lebron",
-          details:
-            "Revisiting the iconic lineup of the King’s Christmas Day kicks, this design’s festive array of graphics and colors creates a mash-up of Christmas’ past. From dimes to dunks, this is no ugly sweater—its lightweight, low-to-the-ground and ultra-cushioned design is fresher than pine and cozier than a cup of cocoa by the fireside. Hope you’ve been nice.",
-          sizes: [6, 7, 8, 9, 10, 11, 12],
-          price: 3699.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-3.png?v=1674121735",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-4.png?v=1674121735",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-5.png?v=1674121735",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-6.png?v=1674121735",
-            },
-            {
-              id: 7,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-7.png?v=1674121735",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-3.png?v=1674122077",
         },
         {
           id: 4,
-          name: "Air Max Motif [GS]",
-          gender: "Grade School",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Sneakers",
-          type: "Air Max",
-          details:
-            "Enter a new era in Air Max history. The Nike Air Max Motif honors the iconic AM1—a streetwear legend since ‘87—with a futuristic take made for your generation. The design lines give throwback vibes and a redesigned Air unit has supersoft cushioning, so you have everything you need for all-day play.",
-          sizes: [3, 4, 5, 6],
-          price: 2199.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-3.png?v=1670320762",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-4.png?v=1670320762",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-5.png?v=1670320762",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-6.png?v=1670320762",
-            },
-            {
-              id: 7,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-7.png?v=1670320762",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-4.png?v=1674122077",
         },
         {
           id: 5,
-          name: "Forum Low",
-          gender: "Mens",
-          brand: "Adidas",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-          categoryName: "Sneakers",
-          type: "Forum",
-          details:
-            "More than just a shoe, it's a statement. The adidas Forum hit the scene in '84 and gained major love on both the hardwood and in the music biz. This pair of the classic shoes brings back the '80s attitude, the explosive hardwood energy and the iconic X-strap ankle design, distilled into a low top version meant for the streets.",
-          sizes: [6, 7, 8, 9, 10],
-          price: 1699.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_3.png?v=1667292838",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_4.png?v=1667292838",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_5.png?v=1667292838",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_6.png?v=1667292838",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-5.png?v=1674122077",
         },
         {
           id: 6,
-          name: "Gazelle",
-          gender: "Womens",
-          brand: "Adidas",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-          categoryName: "Sneakers",
-          type: "Gazelle",
-          details:
-            "The adidas Gazelle Shoes have stepped onto just about every corner of our cultural landscape — starting in the world of sport before making their way into the music and fashion scenes. These trainers are a one-to-one reissue of the '91 Gazelle, with the same textures, materials and proportions as the OG. Even the colours nod back to the era, done in muted tones with contrast.",
-          sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-          price: 1499.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_3.png?v=1663075029",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_4.png?v=1663075029",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_5.png?v=1663075029",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_6.png?v=1663075029",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-6.png?v=1674122077",
         },
         {
           id: 7,
-          name: "Forum Low",
-          gender: "Mens",
-          brand: "Adidas",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
-          categoryName: "Sneakers",
-          type: "Forum",
-          details:
-            "Your style is ever-evolving. Choose shoes that can keep up. Like this fresh take on the adidas Forum shoes. Made with cool weather in mind, the upper mixes CORDURA® woven fabric with premium suede. The heel cord and lace toggle pop against the muted monochromatic design for an elevated look. This pair keeps the iconic details like the X-detail, hook-and-loop strap and rubber cupsole intact. Made in part with recycled content generated from production waste, e.g. cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content.",
-          sizes: [6, 7, 8, 9, 10],
-          price: 1599.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_3.png?v=1669883785",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_4.png?v=1669883785",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_5.png?v=1669883785",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_6.png?v=1669883785",
-            },
-          ],
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR2948-200-7.png?v=1674122077",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Blazer Low Platform [W]",
+      gender: "Womens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Sneakers",
+      type: "Blazer",
+      details:
+        "Praised for its classic simplicity and comfort, the Nike Blazer Low Platform elevates the hoops icon. The lifted midsole/outsole lets you step confidently while the upper keeps the proportions you loved from the original.",
+      sizes: [3, 4, 5, 6],
+      price: 1899.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-1.png?v=1667568139",
         },
         {
-          id: 8,
-          name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
-          gender: "Mens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Apparel",
-          type: "Team Sportswear",
-          details:
-            "Emulate your favoUrite player in this Chicago Bulls jersey, a fan-ready favorite with logo and design details that match what the pros wear on the court. Plus, it infuses breathable mesh with sweat-wicking technology to help keep you cool and dry whether you’re burning up the court or just keeping it casual around town.",
-          sizes: ["S", "M", "L", "XL", "2XL"],
-          price: 1599.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
-            },
-          ],
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-2.png?v=1667568139",
         },
         {
-          id: 9,
-          name: "NSW TECH FLEECE WINDRUNNER (W)",
-          gender: "Womens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Apparel",
-          type: "Sweatshirts",
-          details:
-            "The Nike Sportswear Tech Fleece Hoodie is made with double-sided spacer fabric to harness your body heat to create added warmth without extra bulk or weight.",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          price: 1949.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
-            },
-          ],
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-3.png?v=1667568139",
         },
         {
-          id: 10,
-          name: "NBA ALL STAR ESSENTIAL T-SHIRT",
-          gender: "Mens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Apparel",
-          type: "T-shirts/Tops",
-          details:
-            "Show your love for King James all weekend long. Made from soft cotton, this classic-fit tee is all about letting you comfortably cheer on the best players in the league. In fact, it just might become the all-star of your fan wardrobe.",
-          sizes: ["S", "M", "L", "XL", "2XL"],
-          price: 529.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
-            },
-          ],
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-4.png?v=1667568139",
         },
         {
-          id: 11,
-          name: "NSW BOYFRIEND T-SHIRT (W)",
-          gender: "Womens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Apparel",
-          type: "T-shirts/Tops",
-          details:
-            "Made to look and feel vintage, this heavyweight cotton tee has a roomy fit and satiny logo for a premium feel you'll want to wear every day.",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          price: 619.0,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-3.png?v=1670322146",
-            },
-          ],
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-5.png?v=1667568139",
         },
         {
-          id: 12,
-          name: "AIR MAX 90 LTR (GS)",
-          gender: "Grade School",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Sneakers",
-          type: "Air Max 90",
-          details:
-            "The Air Max 90 returns with an even better feel for you. Cushioning is softer and more flexible than previous versions, the Max Air unit is tuned for growing feet and the shape gives your toes more wiggle room. With a design and look that are still the same, it brings a '90s fave to a new generation.",
-          sizes: [3, 4, 5, 6],
-          price: 2299,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-1.png?v=1676384250",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-2.png?v=1676384250",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-3.png?v=1676384250",
-            },
-            {
-              id: 4,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-4.png?v=1676384250",
-            },
-            {
-              id: 5,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-5.png?v=1676384250",
-            },
-            {
-              id: 6,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-6.png?v=1676384250",
-            },
-            {
-              id: 7,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-7.png?v=1676384250",
-            },
-          ],
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-6.png?v=1667568139",
         },
         {
-          id: 12,
-          name: "PARIS SAINT-GERMAIN LOGO T-SHIRT",
-          gender: "Mens",
-          brand: "Air Jordan",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/air-jordan_200x.png",
-          categoryName: "Apparel",
-          type: "Team Sportswear",
-          details:
-            "Signal your pride for Paris Saint-Germain in this logo T-shirt(DB6514-100/WHITE) from Jordan Brand. It's made on soft, lightweight cotton. The tee has an oversized back graphic and colors inspired by the club's home kit on select versions.",
-          sizes: ["XS", "S", "M", "L", "XL", "2XL"],
-          price: 519,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135cca5104eb3.55649357_LEMKUS-AIRJORDAN_DB6514-100-1_22439b2d-4d3a-44cf-88db-3b42557ac56c.png?v=1635672158",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135ccaf7da596.10404436_LEMKUS-AIRJORDAN_DB6514-100-2_a84f4537-49cd-42c6-b87f-e9e8b7cd398f.png?v=1635672158",
-            },
-          ],
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DJ0292-200-7.png?v=1667568139",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Lebron XX",
+      gender: "Mens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Sneakers",
+      type: "Lebron",
+      details:
+        "Revisiting the iconic lineup of the King’s Christmas Day kicks, this design’s festive array of graphics and colors creates a mash-up of Christmas’ past. From dimes to dunks, this is no ugly sweater—its lightweight, low-to-the-ground and ultra-cushioned design is fresher than pine and cozier than a cup of cocoa by the fireside. Hope you’ve been nice.",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      price: 3699.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-1.png?v=1674121735",
         },
         {
-          id: 13,
-          name: "NSW ICON GX HOODIE (W)",
-          gender: "Womens",
-          brand: "Nike",
-          logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
-          categoryName: "Apparel",
-          type: "Sweatshirts",
-          details: "",
-          sizes: ["XS", "S", "L", "XL"],
-          price: 519,
-          images: [
-            {
-              id: 1,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525b682c569.49373222_LEMKUS-NIKE_DD5052-814-1_a433fec9-d189-4fb3-9bd6-a970f31a5597.png?v=1635672514",
-            },
-            {
-              id: 2,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525c1c8fc90.00194198_LEMKUS-NIKE_DD5052-814-2_4917a839-a3ad-4315-8ebf-3013f2b02beb.png?v=1635672514",
-            },
-            {
-              id: 3,
-              url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525cbd86562.43808310_LEMKUS-NIKE_DD5052-814-3_48fbf1c9-9c78-4ab7-808a-8593b3e3116c.png?v=1635672514",
-            },
-          ],
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-2.png?v=1674121735",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-3.png?v=1674121735",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-4.png?v=1674121735",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-5.png?v=1674121735",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-6.png?v=1674121735",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FJ4955-300-7.png?v=1674121735",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Air Max Motif [GS]",
+      gender: "Grade School",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Sneakers",
+      type: "Air Max",
+      details:
+        "Enter a new era in Air Max history. The Nike Air Max Motif honors the iconic AM1—a streetwear legend since ‘87—with a futuristic take made for your generation. The design lines give throwback vibes and a redesigned Air unit has supersoft cushioning, so you have everything you need for all-day play.",
+      sizes: [3, 4, 5, 6],
+      price: 2199.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-1.png?v=1670320762",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-2.png?v=1670320762",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-3.png?v=1670320762",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-4.png?v=1670320762",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-5.png?v=1670320762",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-6.png?v=1670320762",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DH9388-005-7.png?v=1670320762",
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "Forum Low",
+      gender: "Mens",
+      brand: "Adidas",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+      categoryName: "Sneakers",
+      type: "Forum",
+      details:
+        "More than just a shoe, it's a statement. The adidas Forum hit the scene in '84 and gained major love on both the hardwood and in the music biz. This pair of the classic shoes brings back the '80s attitude, the explosive hardwood energy and the iconic X-strap ankle design, distilled into a low top version meant for the streets.",
+      sizes: [6, 7, 8, 9, 10],
+      price: 1699.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_1.png?v=1667292838",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_2.png?v=1667292838",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_3.png?v=1667292838",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_4.png?v=1667292838",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_5.png?v=1667292838",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GX7071_6.png?v=1667292838",
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: "Gazelle",
+      gender: "Womens",
+      brand: "Adidas",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+      categoryName: "Sneakers",
+      type: "Gazelle",
+      details:
+        "The adidas Gazelle Shoes have stepped onto just about every corner of our cultural landscape — starting in the world of sport before making their way into the music and fashion scenes. These trainers are a one-to-one reissue of the '91 Gazelle, with the same textures, materials and proportions as the OG. Even the colours nod back to the era, done in muted tones with contrast.",
+      sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      price: 1499.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_1.png?v=1663075029",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_2.png?v=1663075029",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_3.png?v=1663075029",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_4.png?v=1663075029",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_5.png?v=1663075029",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/H06395_6.png?v=1663075029",
+        },
+      ],
+    },
+    {
+      id: 7,
+      name: "Forum Low",
+      gender: "Mens",
+      brand: "Adidas",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/adidas_200x.png",
+      categoryName: "Sneakers",
+      type: "Forum",
+      details:
+        "Your style is ever-evolving. Choose shoes that can keep up. Like this fresh take on the adidas Forum shoes. Made with cool weather in mind, the upper mixes CORDURA® woven fabric with premium suede. The heel cord and lace toggle pop against the muted monochromatic design for an elevated look. This pair keeps the iconic details like the X-detail, hook-and-loop strap and rubber cupsole intact. Made in part with recycled content generated from production waste, e.g. cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content.",
+      sizes: [6, 7, 8, 9, 10],
+      price: 1599.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_1.png?v=1669883785",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_2.png?v=1669883785",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_3.png?v=1669883785",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_4.png?v=1669883785",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_5.png?v=1669883785",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/GW4374_6.png?v=1669883785",
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: "CHICAGO BULLS STATEMENT EDITION JERSEY",
+      gender: "Mens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Apparel",
+      type: "Team Sportswear",
+      details:
+        "Emulate your favoUrite player in this Chicago Bulls jersey, a fan-ready favorite with logo and design details that match what the pros wear on the court. Plus, it infuses breathable mesh with sweat-wicking technology to help keep you cool and dry whether you’re burning up the court or just keeping it casual around town.",
+      sizes: ["S", "M", "L", "XL", "2XL"],
+      price: 1599.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-1.png?v=1676466302",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DO9521-012-2.png?v=1676466302",
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: "NSW TECH FLEECE WINDRUNNER (W)",
+      gender: "Womens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Apparel",
+      type: "Sweatshirts",
+      details:
+        "The Nike Sportswear Tech Fleece Hoodie is made with double-sided spacer fabric to harness your body heat to create added warmth without extra bulk or weight.",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      price: 1949.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b1c43d215.41696660_LEMKUS-NIKE_CW4298-063-1.png?v=1662971646",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/5489_610e6b2f07b8a5.76598439_LEMKUS-NIKE_CW4298-063-2.png?v=1662971646",
+        },
+      ],
+    },
+    {
+      id: 10,
+      name: "NBA ALL STAR ESSENTIAL T-SHIRT",
+      gender: "Mens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Apparel",
+      type: "T-shirts/Tops",
+      details:
+        "Show your love for King James all weekend long. Made from soft cotton, this classic-fit tee is all about letting you comfortably cheer on the best players in the league. In fact, it just might become the all-star of your fan wardrobe.",
+      sizes: ["S", "M", "L", "XL", "2XL"],
+      price: 529.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-2.png?v=1676370648",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX9893-400-1.png?v=1676370648",
+        },
+      ],
+    },
+    {
+      id: 11,
+      name: "NSW BOYFRIEND T-SHIRT (W)",
+      gender: "Womens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Apparel",
+      type: "T-shirts/Tops",
+      details:
+        "Made to look and feel vintage, this heavyweight cotton tee has a roomy fit and satiny logo for a premium feel you'll want to wear every day.",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      price: 619.0,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-1.png?v=1670322146",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-2.png?v=1670322146",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DR8982-334-3.png?v=1670322146",
+        },
+      ],
+    },
+    {
+      id: 12,
+      name: "AIR MAX 90 LTR (GS)",
+      gender: "Grade School",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Sneakers",
+      type: "Air Max 90",
+      details:
+        "The Air Max 90 returns with an even better feel for you. Cushioning is softer and more flexible than previous versions, the Max Air unit is tuned for growing feet and the shape gives your toes more wiggle room. With a design and look that are still the same, it brings a '90s fave to a new generation.",
+      sizes: [3, 4, 5, 6],
+      price: 2299,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-1.png?v=1676384250",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-2.png?v=1676384250",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-3.png?v=1676384250",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-4.png?v=1676384250",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-5.png?v=1676384250",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-6.png?v=1676384250",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV3607-100-7.png?v=1676384250",
+        },
+      ],
+    },
+    {
+      id: 12,
+      name: "PARIS SAINT-GERMAIN LOGO T-SHIRT",
+      gender: "Mens",
+      brand: "Air Jordan",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/air-jordan_200x.png",
+      categoryName: "Apparel",
+      type: "Team Sportswear",
+      details:
+        "Signal your pride for Paris Saint-Germain in this logo T-shirt(DB6514-100/WHITE) from Jordan Brand. It's made on soft, lightweight cotton. The tee has an oversized back graphic and colors inspired by the club's home kit on select versions.",
+      sizes: ["XS", "S", "M", "L", "XL", "2XL"],
+      price: 519,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135cca5104eb3.55649357_LEMKUS-AIRJORDAN_DB6514-100-1_22439b2d-4d3a-44cf-88db-3b42557ac56c.png?v=1635672158",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/9915_6135ccaf7da596.10404436_LEMKUS-AIRJORDAN_DB6514-100-2_a84f4537-49cd-42c6-b87f-e9e8b7cd398f.png?v=1635672158",
+        },
+      ],
+    },
+    {
+      id: 13,
+      name: "NSW ICON GX HOODIE (W)",
+      gender: "Womens",
+      brand: "Nike",
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/t/1/assets/nike_200x.png",
+      categoryName: "Apparel",
+      type: "Sweatshirts",
+      details: "",
+      sizes: ["XS", "S", "L", "XL"],
+      price: 519,
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525b682c569.49373222_LEMKUS-NIKE_DD5052-814-1_a433fec9-d189-4fb3-9bd6-a970f31a5597.png?v=1635672514",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525c1c8fc90.00194198_LEMKUS-NIKE_DD5052-814-2_4917a839-a3ad-4315-8ebf-3013f2b02beb.png?v=1635672514",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/6264_610525cbd86562.43808310_LEMKUS-NIKE_DD5052-814-3_48fbf1c9-9c78-4ab7-808a-8593b3e3116c.png?v=1635672514",
         },
       ],
     },
@@ -1698,7 +1985,11 @@ function App() {
         />
         <Route
           path={`/collections/:categoryName/:productName`}
-          element={<CollectionDetail data={DUMMY_DATA.pages[0]} />}
+          element={<CollectionDetail data={DUMMY_DATA.pages} />}
+        />
+        <Route
+          path={`/pages/launches/:productName`}
+          element={<CollectionDetail data={DUMMY_DATA.launches} />}
         />
 
         <Route

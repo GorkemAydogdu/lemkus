@@ -68,41 +68,40 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  let data = props.items.map((product) =>
-    product.items.filter((filtered) => {
-      if (
-        wordInString(categoryName, filtered.categoryName) &&
-        gender === null &&
-        type === null
-      ) {
-        return filtered;
-      } else if (
-        filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
-        filtered.categoryName.toLowerCase() === categoryName &&
-        type === null
-      ) {
-        return filtered;
-      } else if (
-        filtered.categoryName.toLowerCase() === categoryName &&
-        filtered.brand.toLowerCase() === type
-      ) {
-        return filtered;
-      } else if (
-        filtered.categoryName.toLowerCase() === categoryName &&
-        filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
-        filtered.gender.toLowerCase() === gender
-      ) {
-        return filtered;
-      } else if (
-        filtered.categoryName.toLowerCase() === categoryName &&
-        filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
-        gender === null
-      ) {
-        return filtered;
-      } else return false;
-    })
-  );
+  let data = props.items.filter((filtered) => {
+    if (
+      wordInString(categoryName, filtered.categoryName) &&
+      gender === null &&
+      type === null
+    ) {
+      return filtered;
+    } else if (
+      filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
+      filtered.categoryName.toLowerCase() === categoryName &&
+      type === null
+    ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.brand.toLowerCase() === type
+    ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
+      filtered.gender.toLowerCase() === gender
+    ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
+      gender === null
+    ) {
+      return filtered;
+    } else return false;
+  });
 
+  console.log(data);
   let filter = props.filteredData.filter(
     (filter) => filter.name.toLowerCase() === categoryName
   );
@@ -114,10 +113,10 @@ const Collection = (props) => {
     );
   }
 
-  let filterBrand = data[0].map((filter) => filter.brand);
-  let filterType = data[0].map((filter) => filter.type);
-  let filterGender = data[0].map((filter) => filter.gender);
-  let price = data[0].map((items) => items.price);
+  let filterBrand = data.map((filter) => filter.brand);
+  let filterType = data.map((filter) => filter.type);
+  let filterGender = data.map((filter) => filter.gender);
+  let price = data.map((items) => items.price);
 
   let filterPrice0_999 = [];
   let filterPrice1000_1999 = [];
@@ -208,7 +207,7 @@ const Collection = (props) => {
 
               <div ref={filterListRef} className="collection__filterList">
                 <span className="collection__totalProducts">
-                  <span>{data[0].length}</span> Products
+                  <span>{data.length}</span> Products
                 </span>
                 <div className="collection__showSize">
                   <label htmlFor="setLimit">Show</label>
@@ -442,7 +441,7 @@ const Collection = (props) => {
             </div>
 
             <ul className="collection__productsList products__list">
-              {data[0].map((item) => (
+              {data.map((item) => (
                 <li
                   key={item.id}
                   className="collection__productsItem products__item"
@@ -717,7 +716,7 @@ const Collection = (props) => {
             }}
             className="collection__menuMobile--button"
           >
-            View {data[0].length} Products
+            View {data.length} Products
           </Button>
         </div>
       )}

@@ -88,7 +88,9 @@
     width: 90%;
 
     &:hover &--size {
-      display: inline;
+      display: flex;
+      row-gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     &:hover &--title {

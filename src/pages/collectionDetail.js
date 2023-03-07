@@ -35,13 +35,13 @@ const CollectionDetail = (props) => {
   const clickedSize = query.get("size");
   const id = query.get("id");
 
-  let data = props.data.items.filter(
+  let data = props.data.filter(
     (filtered) =>
       filtered.name
         .toLowerCase()
         .replaceAll(/[^a-zA-Z0-9]/g, "-")
         .replace(/-{2,}/g, "-")
-        .replace(/-$/, "") === productName && filtered.id.toString() === id
+        .replace(/-$/, "") === productName || filtered.id.toString() === id
   );
 
   useEffect(() => {
