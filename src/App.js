@@ -2430,12 +2430,7 @@ function App() {
       <Routes>
         <Route
           path="/collections/:categoryName"
-          element={
-            <Collection
-              items={DUMMY_DATA.pages}
-              filteredData={DUMMY_DATA.filter}
-            />
-          }
+          element={<Collection items={DUMMY_DATA.pages} />}
         />
         <Route
           path={`/collections/:categoryName/:productName`}
