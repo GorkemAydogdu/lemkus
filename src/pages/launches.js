@@ -36,65 +36,68 @@ const Launches = (props) => {
             <div className="splide__track">
               <ul className="splide__list launches__list launches__list--variant">
                 {/* https://stackoverflow.com/a/42374933/19191132 */}
-                {props.launches.slice(0, 5).map((item) => (
-                  <li
-                    key={item.id}
-                    className="splide__slide launches__item launches__item--variant"
-                  >
-                    <div className="products__container">
-                      <Link
-                        to={`/products/${item.name
-                          .toLowerCase()
-                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                          .replace(/-{2,}/g, "-")
-                          .replace(/-$/, "")}`}
-                        className="products__image"
-                      >
-                        <div className="products__logo">
-                          <img src={item.logo} alt={item.name} />
-                        </div>
-                        {item.images.slice(0, 2).map((img) => (
-                          <img
-                            key={img.id}
-                            className={`products__image--${img.id}`}
-                            src={img.url}
-                            alt={props.name}
-                          />
-                        ))}
-                      </Link>
-
-                      <div className="products__infos">
-                        <div className="products__container--size">
-                          {item.sizes.map((size) => (
-                            <Link
-                              to={`/products/${item.name
-                                .toLowerCase()
-                                .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                                .replace(/-{2,}/g, "-")
-                                .replace(/-$/, "")}?size=${size}`}
-                              key={size}
-                            >
-                              {size}
-                            </Link>
-                          ))}
-                        </div>
+                {props.launches
+                  .filter((filtered) => filtered.categoryName === "Launches")
+                  .slice(0, 5)
+                  .map((item) => (
+                    <li
+                      key={item.id}
+                      className="splide__slide launches__item launches__item--variant"
+                    >
+                      <div className="products__container">
                         <Link
                           to={`/products/${item.name
                             .toLowerCase()
                             .replaceAll(/[^a-zA-Z0-9]/g, "-")
                             .replace(/-{2,}/g, "-")
                             .replace(/-$/, "")}`}
-                          className="products__container--title"
+                          className="products__image"
                         >
-                          {item.name}
+                          <div className="products__logo">
+                            <img src={item.logo} alt={item.name} />
+                          </div>
+                          {item.images.slice(0, 2).map((img) => (
+                            <img
+                              key={img.id}
+                              className={`products__image--${img.id}`}
+                              src={img.url}
+                              alt={props.name}
+                            />
+                          ))}
                         </Link>
-                        <span className="products__container--price">
-                          R {item.price}
-                        </span>
+
+                        <div className="products__infos">
+                          <div className="products__container--size">
+                            {item.sizes.map((size) => (
+                              <Link
+                                to={`/products/${item.name
+                                  .toLowerCase()
+                                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                                  .replace(/-{2,}/g, "-")
+                                  .replace(/-$/, "")}?size=${size}`}
+                                key={size}
+                              >
+                                {size}
+                              </Link>
+                            ))}
+                          </div>
+                          <Link
+                            to={`/products/${item.name
+                              .toLowerCase()
+                              .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                              .replace(/-{2,}/g, "-")
+                              .replace(/-$/, "")}`}
+                            className="products__container--title"
+                          >
+                            {item.name}
+                          </Link>
+                          <span className="products__container--price">
+                            R {item.price}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>
@@ -112,62 +115,64 @@ const Launches = (props) => {
             />
           ))}
         <ul className="launches__list launches__list--all">
-          {props.launches.map((item) => (
-            <li key={item.id} className="launches__item launches__item--all">
-              <div className="products__container">
-                <Link
-                  to={`/products/${item.name
-                    .toLowerCase()
-                    .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                    .replace(/-{2,}/g, "-")
-                    .replace(/-$/, "")}`}
-                  className="products__image"
-                >
-                  <div className="products__logo">
-                    <img src={item.logo} alt={item.name} />
-                  </div>
-                  {item.images.slice(0, 2).map((img) => (
-                    <img
-                      key={img.id}
-                      className={`products__image--${img.id}`}
-                      src={img.url}
-                      alt={props.name}
-                    />
-                  ))}
-                </Link>
-
-                <div className="products__infos">
-                  <div className="products__container--size">
-                    {item.sizes.map((size) => (
-                      <Link
-                        to={`/products/${item.name
-                          .toLowerCase()
-                          .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                          .replace(/-{2,}/g, "-")
-                          .replace(/-$/, "")}?size=${size}`}
-                        key={size}
-                      >
-                        {size}
-                      </Link>
-                    ))}
-                  </div>
+          {props.launches
+            .filter((filtered) => filtered.categoryName === "Launches")
+            .map((item) => (
+              <li key={item.id} className="launches__item launches__item--all">
+                <div className="products__container">
                   <Link
                     to={`/products/${item.name
                       .toLowerCase()
                       .replaceAll(/[^a-zA-Z0-9]/g, "-")
                       .replace(/-{2,}/g, "-")
                       .replace(/-$/, "")}`}
-                    className="products__container--title"
+                    className="products__image"
                   >
-                    {item.name}
+                    <div className="products__logo">
+                      <img src={item.logo} alt={item.name} />
+                    </div>
+                    {item.images.slice(0, 2).map((img) => (
+                      <img
+                        key={img.id}
+                        className={`products__image--${img.id}`}
+                        src={img.url}
+                        alt={props.name}
+                      />
+                    ))}
                   </Link>
-                  <span className="products__container--price">
-                    {item.price}
-                  </span>
+
+                  <div className="products__infos">
+                    <div className="products__container--size">
+                      {item.sizes.map((size) => (
+                        <Link
+                          to={`/products/${item.name
+                            .toLowerCase()
+                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                            .replace(/-{2,}/g, "-")
+                            .replace(/-$/, "")}?size=${size}`}
+                          key={size}
+                        >
+                          {size}
+                        </Link>
+                      ))}
+                    </div>
+                    <Link
+                      to={`/products/${item.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}`}
+                      className="products__container--title"
+                    >
+                      {item.name}
+                    </Link>
+                    <span className="products__container--price">
+                      {item.price}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
       </div>
       <Culture />

@@ -58,7 +58,7 @@ const Home = (props) => {
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
         <main className="main">
           <Banner />
-          <Collections refEl={getRefElHandler} />
+          <Collections data={props.collections} refEl={getRefElHandler} />
           {props.products.map((item) => (
             <Products
               key={item.id}

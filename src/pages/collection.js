@@ -98,6 +98,10 @@ const Collection = (props) => {
       gender === null
     ) {
       return filtered;
+    } else if (
+      filtered.brand.toLowerCase().replace(" ", "-") === categoryName
+    ) {
+      return filtered;
     } else return false;
   });
 
@@ -241,7 +245,7 @@ const Collection = (props) => {
           </div>
           <div ref={collectionContentRef} className="collection__content">
             <div className="collection__filterProduct">
-              {filter[0].items.map((item) => {
+              {/* {filter[0].items.map((item) => {
                 if (item.name === "Brand") {
                   return (
                     <div
@@ -436,7 +440,7 @@ const Collection = (props) => {
                     </div>
                   );
                 } else return false;
-              })}
+              })} */}
             </div>
 
             <ul className="collection__productsList products__list">

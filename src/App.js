@@ -1760,6 +1760,440 @@ const DUMMY_DATA = {
         },
       ],
     },
+    {
+      id: 14,
+      name: "Air Jordan 2 Retro",
+      gender: "Mens",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3699.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      details:
+        "1 pair per customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-1.png?v=1671455949",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-2.png?v=1671455949",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-3.png?v=1671455949",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-4.png?v=1671455949",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-5.png?v=1671455949",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DX2454-106-6.png?v=1671455949",
+        },
+      ],
+    },
+    {
+      id: 15,
+      name: "Air Jordan 1 Retro Hi OG [W]",
+      gender: "Womens",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [3, 4, 5, 6, 7, 8],
+      details:
+        "1 Pair Per Customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-1.png?v=1671354786",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-2.png?v=1671354786",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-3.png?v=1671354786",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-4.png?v=1671354786",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-5.png?v=1671354786",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-6.png?v=1671354786",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DZ2523-001-7.png?v=1671354786",
+        },
+      ],
+    },
+    {
+      id: 16,
+      name: "Air Jordan 1 Zoom Cmft 2 Sp [W]",
+      gender: "Womens",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [3, 4, 5, 6, 3.5, 4.5, 5.5, 6.5, 7, 8],
+      details:
+        "Releasing in-store and online 09 February 2023. 1 Pair Per Customer only. Orders with duplicate details including contact details, shipping address and banking details will be cancelled. All release dates and mechanisms are subject to change as per Lemkus or the relevant brands discretion should it be needed.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-1.png?v=1675771173",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-2.png?v=1675771173",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-3.png?v=1675771173",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-4.png?v=1675771173",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-5.png?v=1675771173",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-6.png?v=1675771173",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-7.png?v=1675771173",
+        },
+        {
+          id: 8,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV1304-106-8.png?v=1675771173",
+        },
+      ],
+    },
+    {
+      id: 17,
+      name: "SKY JORDAN 1 (PS)",
+      gender: "Pre School",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 1299.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [1, 1.5, 2, 2.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
+      details:
+        "Inspired by the AJ1, the Sky Jordan 1 is equal parts iconic and adorable. It has soft foam cushioning, rubber traction and a hook-and-loop strap for easy on and off.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-1.png?v=1676557696",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-2.png?v=1676557696",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-2.png?v=1676557696",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-4.png?v=1676557696",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-5.png?v=1676557696",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-6.png?v=1676557696",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-7.png?v=1676557696",
+        },
+        {
+          id: 8,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/BQ7197-016-8.png?v=1676557696",
+        },
+      ],
+    },
+    {
+      id: 18,
+      name: "AIR JORDAN 1 LOW",
+      gender: "Mens",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 2299.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      details:
+        "Inspired by the original that debuted in 1985, the Air Jordan 1 Low offers a clean, classic look that's familiar yet always fresh. With an iconic design that pairs perfectly with any 'fit, these kicks ensure you'll always be on point.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-1.png?v=1675772520",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-2.png?v=1675772520",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-3.png?v=1675772520",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-4.png?v=1675772520",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-5.png?v=1675772520",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-6.png?v=1675772520",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/553558-215-7.png?v=1675772520",
+        },
+      ],
+    },
+    {
+      id: 19,
+      name: "AIR JORDAN 1 MID",
+      gender: "Mens",
+      brand: "Air Jordan",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 2399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Air_Jordan_2x_abada9df-a5b5-4f3b-92e0-e189743df31f_200x.png?v=1629719248",
+      sizes: [6, 7, 8, 9, 10, 11, 12],
+      details:
+        "You ready for your moment in the sun? Every time the AJ1 gets a remake you get the classic sneaker in new colors and textures for a fresh look with a familiar feel. Premium materials and accents give modern expression to an all-time favorite. Get out there and shine.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-1.png?v=1675844504",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-2.png?v=1675844504",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-3.png?v=1675844504",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-4.png?v=1675844504",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-5.png?v=1675844504",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-6.png?v=1675844504",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/FD1029-400-7.png?v=1675844504",
+        },
+      ],
+    },
+    {
+      id: 20,
+      name: "AIR MORE UPTEMPO '96",
+      gender: "Mens",
+      brand: "Nike",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11, 6.5, 7.5, 8.5, 9.5, 10.5, 12],
+      details:
+        "Bring original hoops style back to the streets with the Air More Uptempo. Classic black and white leather and energetic iridescent accents put a fashion forward twist on the '90s icon whose graffiti-styled graphics have always been an off-court fave. Full-length, visible Air cushioning delivers the comfort you need, while elastic straps over the tongue keep your style sharp whether you rock them laced or unlaced.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-1.png?v=1675856297",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-2.png?v=1675856297",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-3.png?v=1675856297",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-4.png?v=1675856297",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-5.png?v=1675856297",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-6.png?v=1675856297",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0819-001-7.png?v=1675856297",
+        },
+      ],
+    },
+    {
+      id: 21,
+      name: "AIR ZOOM FLIGHT 95",
+      gender: "Mens",
+      brand: "Nike",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3399.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11],
+      details:
+        "Have you ever had déjà shoe? Flash back to one of the first shoes to popularize Zoom Air technology and relive the hoops revolution. With its flowing lines, patent leather accents and futuristic 'bug eye' detailing, the Air Zoom Flight 95 is no dream—it's your ticket to turn heads.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-1.png?v=1675952388",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-2.png?v=1675952388",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-3.png?v=1675952388",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-4.png?v=1675952388",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-5.png?v=1675952388",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-6.png?v=1675952388",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0820-100-7.png?v=1675952388",
+        },
+      ],
+    },
+    {
+      id: 22,
+      name: "AIR FOAMPOSITE ONE",
+      gender: "Mens",
+      brand: "Nike",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 4699.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [6, 7, 8, 9, 10, 11, 6.5, 7.5, 8.5, 9.5, 10.5],
+      details:
+        "Cross between b-ball greatness and rare off-court style in the Nike Air Foamposite 1. From the liquid look of its Foamposite upper to the signature '1 Cent' logo and low-profile cushioning, it lets you bridge past, present and future. It's game time.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-1.png?v=1675856996",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-2.png?v=1675856996",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-3.png?v=1675856996",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-4.png?v=1675856996",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-5.png?v=1675856996",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-6.png?v=1675856996",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0815-100-7.png?v=1675856996",
+        },
+      ],
+    },
+    {
+      id: 23,
+      name: "AIR PENNY II",
+      gender: "Mens",
+      brand: "Nike",
+      categoryName: "Launches",
+      type: "Sneakers",
+      price: 3599.0,
+      logo: "https://cdn.shopify.com/s/files/1/0538/9280/8895/collections/Nike_2x_d319ed79-6a55-4f30-a769-88431ed60091_200x.png?v=1625832579",
+      sizes: [5.5, 6, 7, 8, 9, 10, 11, 12],
+      details:
+        "Flash back to '96 in the Air Penny 2. Bold and unmistakable, it was the first Air Penny to combine Max and Zoom Air technology. Now, the daring design comes wrapped in patent leather, while the signature “1 Cent” logo on the side and wavy design lines keep the coveted off-court appeal strong.",
+      images: [
+        {
+          id: 1,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-1.png?v=1675944088",
+        },
+        {
+          id: 2,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-2.png?v=1675944088",
+        },
+        {
+          id: 3,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-3.png?v=1675944088",
+        },
+        {
+          id: 4,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-4.png?v=1675944088",
+        },
+        {
+          id: 5,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-5.png?v=1675944088",
+        },
+        {
+          id: 6,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-6.png?v=1675944088",
+        },
+        {
+          id: 7,
+          url: "https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DV0817-100-7.png?v=1675944088",
+        },
+      ],
+    },
   ],
   filter: [
     {
@@ -1872,6 +2306,26 @@ const DUMMY_DATA = {
         "We are growing quickly, and we are the place to be - I see a lot of great things happening. The connections, the brands, and people putting in the work and young guys taking the torch and carrying the flag forward. We see it with the guys from Broke, Pot Plant Club - Grade Africa. People are making moves, you know - and with Lemkus and the Exchange Building. It’s going to take time for us, but there is a determined spirit that just keeps moving.",
       imageTextReverseSecondary:
         "Air Jordan 2 Retro OG - Drops in-store, Friday, 30th December 2022. Limited to one pair per customer. First come, first served.",
+    },
+  ],
+  collection: [
+    {
+      id: 1,
+      name: "Air Jordan",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/AJ2_Collection_Images_556x508_0f93ffd2-5c21-4a36-a097-cd8b31abb497.png?v=1678263674",
+    },
+    {
+      id: 2,
+      name: "Oakley",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Oakley_Collection_Images_556x508_6b576aa0-de1f-465d-9934-c839a098f9ea.png?v=1678264878",
+    },
+    {
+      id: 3,
+      name: "New Balance",
+      image:
+        "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/NB_Collection_Images_556x508_6d05d5c9-c88e-47cc-9635-3e6a78834b84.png?v=1678264941",
     },
   ],
 };
@@ -1989,7 +2443,7 @@ function App() {
         />
         <Route
           path={`/products/:productName`}
-          element={<CollectionDetail data={DUMMY_DATA.launches} />}
+          element={<CollectionDetail data={DUMMY_DATA.pages} />}
         />
 
         <Route
@@ -2001,10 +2455,18 @@ function App() {
           element={<NewsDetail data={DUMMY_DATA.culture} />}
         />
 
-        <Route path="/" element={<Home products={DUMMY_DATA.products} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              products={DUMMY_DATA.products}
+              collections={DUMMY_DATA.collection}
+            />
+          }
+        />
         <Route
           path="/pages/launches"
-          element={<Launches launches={DUMMY_DATA.launches} />}
+          element={<Launches launches={DUMMY_DATA.pages} />}
         />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
