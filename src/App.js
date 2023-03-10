@@ -2328,6 +2328,105 @@ const DUMMY_DATA = {
         "https://cdn.shopify.com/s/files/1/0538/9280/8895/files/NB_Collection_Images_556x508_6d05d5c9-c88e-47cc-9635-3e6a78834b84.png?v=1678264941",
     },
   ],
+  brands: [
+    {
+      id: 3,
+      letter: "#",
+      brand: ["032C"],
+    },
+    {
+      id: 2,
+      letter: "A",
+      brand: [
+        "ACW",
+        "Adidas",
+        "Air Jordan",
+        "Angelus",
+        "ARTCLUB & FRIENDS",
+        "Asics",
+      ],
+    },
+    {
+      id: 3,
+      letter: "B",
+      brand: ["Birkenstock", "Broke", "Butan"],
+    },
+    {
+      id: 4,
+      letter: "C",
+      brand: ["Ceremony", "Converse", "Crep", "Crocs"],
+    },
+    {
+      id: 5,
+      letter: "D",
+      brand: ["Daily Paper"],
+    },
+    {
+      id: 6,
+      letter: "E",
+      brand: ["Ewing"],
+    },
+    {
+      id: 7,
+      letter: "F",
+      brand: ["Funko Pop"],
+    },
+    {
+      id: 8,
+      letter: "H",
+      brand: ["HBN"],
+    },
+    {
+      id: 9,
+      letter: "J",
+      brand: ["Jason Markk"],
+    },
+    {
+      id: 10,
+      letter: "L",
+      brand: ["Leaf x LowerBoys", "Lemkus", "Levi's", "LUKHANYO MDINGI"],
+    },
+    {
+      id: 11,
+      letter: "M",
+      brand: ["Mad Dogs", "Maylee"],
+    },
+    {
+      id: 12,
+      letter: "N",
+      brand: ["New Balance", "Newe", "Nike", "North Face"],
+    },
+    {
+      id: 13,
+      letter: "O",
+      brand: ["Oakley"],
+    },
+    {
+      id: 14,
+      letter: "P",
+      brand: ["Puma"],
+    },
+    {
+      id: 15,
+      letter: "R",
+      brand: ["Ray-Ban", "Reebok"],
+    },
+    {
+      id: 16,
+      letter: "S",
+      brand: ["Sol Sol", "Sweet-Orr"],
+    },
+    {
+      id: 17,
+      letter: "T",
+      brand: ["Tino"],
+    },
+    {
+      id: 18,
+      letter: "W",
+      brand: ["Wanda Lephoto"],
+    },
+  ],
 };
 
 function debounce(fn, ms) {
@@ -2351,7 +2450,6 @@ const routes = [
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
-  { path: "/pages/brands", name: "Brands", Component: Brands },
   { path: "/search", name: "Search", Component: Search },
   { path: "/account/login", name: "Login", Component: Login },
   { path: "/account/register", name: "Register", Component: Register },
@@ -2462,6 +2560,10 @@ function App() {
         <Route
           path="/pages/launches"
           element={<Launches launches={DUMMY_DATA.pages} />}
+        />
+        <Route
+          path="/pages/brands"
+          element={<Brands data={DUMMY_DATA.brands} />}
         />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
