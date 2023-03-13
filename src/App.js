@@ -2505,22 +2505,13 @@ function App() {
 
   return (
     <>
-      <Header
-        categories={DUMMY_DATA.menu}
-        clickedButton={clickedButtonHandler}
-      />
-      {/*Menü düzeltilecek clickedButtondan gelen data ile menu.name eş ise render*/}
-      {/* {DUMMY_DATA.menu.map((item) => (
-        <Menu
-          className={`menu ${
-            item.name !== buttonInnerHTML || dimensions.width <= 1024
-              ? "menu--close"
-              : "menu--active"
-          }`}
-          key={item.id}
-          item={item}
+      {location.pathname !== "/checkouts" && (
+        <Header
+          categories={DUMMY_DATA.menu}
+          clickedButton={clickedButtonHandler}
         />
-      ))} */}
+      )}
+
       {DUMMY_DATA.menu
         .filter((item) => item.name === buttonInnerHTML)
         .map((item) => (
@@ -2566,14 +2557,18 @@ function App() {
           path="/pages/brands"
           element={<Brands data={DUMMY_DATA.brands} />}
         />
+
         <Route path="/checkouts" element={<Payment />} />
+
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
       </Routes>
+
       <Cart data={DUMMY_DATA.cart} />
       {dimensions.width < 1025 && <MenuMobile menu={DUMMY_DATA.menu} />}
       <Wishlist />
+
       {dimensions.width > 1024 && (
         <Backdrop
           onClick={() => {
