@@ -28,6 +28,7 @@ import NewsDetail from "./pages/newsDetail";
 import Launches from "./pages/launches";
 import Collection from "./pages/collection";
 import CollectionDetail from "./pages/collectionDetail";
+import Payment from "./pages/payment";
 
 import gsap from "gsap";
 
@@ -2565,6 +2566,7 @@ function App() {
           path="/pages/brands"
           element={<Brands data={DUMMY_DATA.brands} />}
         />
+        <Route path="/checkouts" element={<Payment />} />
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
