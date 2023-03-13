@@ -171,7 +171,40 @@ const Payment = () => {
           </footer>
         </div>
       </div>
-      <div className="payment__product">PRODUCT</div>
+      <div className="payment__product">
+        <div className="payment__product--wrapper">
+          <ul className="payment__productList">
+            <li className="payment__productItem">
+              <div className="payment__imageGroup">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/CJ3906-016-1.png?v=1676711338"
+                  alt=""
+                />
+                <span>1</span>
+              </div>
+              <div className="payment__productInfos">
+                <p className="payment__productTitle">Air Max 95 Recraft (GS)</p>
+                <span className="payment__productSize">4</span>
+              </div>
+              <span className="payment__productPrice">R2,599.00</span>
+            </li>
+            <li className="payment__productItem">
+              <div className="payment__imageGroup">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/CJ3906-016-1.png?v=1676711338"
+                  alt=""
+                />
+                <span>1</span>
+              </div>
+              <div className="payment__productInfos">
+                <p className="payment__productTitle">Air Max 95 Recraft (GS)</p>
+                <span className="payment__productSize">4</span>
+              </div>
+              <span className="payment__productPrice">R2,599.00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
