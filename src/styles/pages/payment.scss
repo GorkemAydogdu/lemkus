@@ -135,18 +135,45 @@
   }
 
   &__action {
+    display: flex;
+    align-items: centerk;
+    justify-content: space-between;
   }
   &__returnCart {
+    display: flex;
+    align-items: center;
+    color: $black;
+    font-size: 1.4rem;
   }
   &__continueShipping {
+    font-family: inherit;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 18rem;
+    height: 5.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(254, 191, 51);
+
+    &:hover {
+      background-color: rgb(222, 168, 25);
+    }
+    &:focus {
+      outline: none;
+    }
   }
   &__footer {
+    margin-top: 5rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgb(229, 213, 151);
   }
   &__list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
   }
   &__item {
-    button {
-    }
+    font-size: 1.4rem;
   }
   &__product {
     width: 45%;

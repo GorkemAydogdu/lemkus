@@ -11,6 +11,7 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as Ship } from "../assets/local_shipping.svg";
 import { ReactComponent as PickUp } from "../assets/shop.svg";
 import { ReactComponent as Checkmark } from "../assets/checkmark.svg";
+import { ReactComponent as LeftArrow } from "../assets/keyboard_arrow_left.svg";
 
 const Payment = () => {
   const [value, setValue] = useState("");
@@ -153,6 +154,7 @@ const Payment = () => {
           </section>
           <section className="payment__action">
             <Link className="payment__returnCart" to="/">
+              <LeftArrow />
               Return to cart
             </Link>
             <Button className="payment__continueShipping">
@@ -161,18 +163,10 @@ const Payment = () => {
           </section>
           <footer className="payment__footer">
             <ul className="payment__list">
-              <li className="payment__item">
-                <Button>Refund policy</Button>
-              </li>
-              <li className="payment__item">
-                <Button>Shipping policy</Button>
-              </li>
-              <li className="payment__item">
-                <Button>Privacy policy</Button>
-              </li>
-              <li className="payment__item">
-                <Button>Terms of service</Button>
-              </li>
+              <li className="payment__item">Refund policy</li>
+              <li className="payment__item">Shipping policy</li>
+              <li className="payment__item">Privacy policy</li>
+              <li className="payment__item">Terms of service</li>
             </ul>
           </footer>
         </div>
