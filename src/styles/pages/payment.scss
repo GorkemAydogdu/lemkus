@@ -226,7 +226,6 @@
   &__productTitle {
     font-size: 1.4rem;
   }
-
   &__productSize {
     font-size: 1.2rem;
     color: rgb(107, 107, 107);
@@ -234,5 +233,53 @@
   &__productPrice {
     font-size: 1.4rem;
     margin-left: auto;
+  }
+  &__discount {
+    display: flex;
+    border-bottom: 1px solid rgb(208, 208, 208);
+
+    input {
+      border-color: rgb(208, 208, 208);
+      margin: 2rem 0 2rem 0;
+    }
+  }
+  &__apply {
+    font-family: inherit;
+    font-size: 1.6rem;
+    background-color: rgb(254, 191, 51);
+    border: none;
+    border-radius: 5px;
+    width: 10rem;
+    margin: 2rem 0 2rem 1.5rem;
+
+    &:hover {
+      background-color: rgb(222, 168, 25);
+    }
+  }
+  &__totalPrice {
+    margin-top: 2rem;
+    &--wrapper {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.4rem;
+      color: rgb(107, 107, 107);
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+      &:last-child {
+        border-top: 1px solid rgb(208, 208, 208);
+        padding-top: 3rem;
+      }
+    }
+    &--subtotal,
+    &--total {
+      color: $black;
+    }
+
+    &--shipping {
+    }
+    &--total {
+      font-size: 2rem;
+    }
   }
 }

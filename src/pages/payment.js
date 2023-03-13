@@ -203,6 +203,30 @@ const Payment = () => {
               <span className="payment__productPrice">R2,599.00</span>
             </li>
           </ul>
+          <section className="payment__discount">
+            <input
+              type="text"
+              className="payment__input"
+              placeholder="Discount code"
+            />
+            <Button className="payment__apply">Apply</Button>
+          </section>
+          <section className="payment__totalPrice">
+            <div className="payment__totalPrice--wrapper">
+              <span>Subtotal</span>
+              <span className="payment__totalPrice--subtotal">R5,198.00</span>
+            </div>
+            <div className="payment__totalPrice--wrapper">
+              <span>Shipping</span>
+              <span className="payment__totalPrice--shipping">
+                Calculated at next step
+              </span>
+            </div>
+            <div className="payment__totalPrice--wrapper">
+              <span>Total</span>
+              <span className="payment__totalPrice--total">R5,198.00</span>
+            </div>
+          </section>
         </div>
       </div>
     </div>
