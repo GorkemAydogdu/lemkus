@@ -164,16 +164,14 @@ const CollectionDetail = (props) => {
                       "collectionDetail__size--active"
                     );
                   }
-                  if (clickedSize === size) {
-                    event.target.classList.toggle(
-                      "collectionDetail__size--active"
-                    );
-                  }
+                  // if (clickedSize === size) {
+                  //   event.target.classList.toggle(
+                  //     "collectionDetail__size--active"
+                  //   );
+                  // }
                 }}
                 key={size}
-                className={`collectionDetail__size${
-                  clickedSize === size ? "collectionDetail__size--active" : ""
-                }`}
+                className={`collectionDetail__size`}
               >
                 {size}
               </Button>
