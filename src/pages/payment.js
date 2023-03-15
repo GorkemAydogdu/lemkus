@@ -104,6 +104,7 @@ const Payment = () => {
             </section>
             <section className="payment__info">
               <h3 className="payment__title">Payment</h3>
+
               <Cards
                 cvc={card.cvc}
                 expiry={card.expiry}
@@ -111,40 +112,43 @@ const Payment = () => {
                 name={card.name}
                 number={card.number}
               />
-              <form>
-                <input
-                  type="number"
-                  name="number"
-                  placeholder="Card Number"
-                  value={card.number}
-                  onChange={handleInputChange}
-                  onFocus={handleInputFocus}
-                />
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={card.name}
-                  onChange={handleInputChange}
-                  onFocus={handleInputFocus}
-                />
-                <input
-                  type="number"
-                  name="cvc"
-                  placeholder="cvc"
-                  value={card.cvc}
-                  onChange={handleInputChange}
-                  onFocus={handleInputFocus}
-                />
-                <input
-                  type="text"
-                  name="expiry"
-                  placeholder="Date"
-                  value={card.expiry}
-                  onChange={handleInputChange}
-                  onFocus={handleInputFocus}
-                />
-              </form>
+              <input
+                className="payment__input"
+                type="number"
+                name="number"
+                placeholder="Card Number"
+                value={card.number}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                className="payment__input"
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={card.name}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                className="payment__input"
+                type="text"
+                name="expiry"
+                placeholder="Date"
+                value={card.expiry}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                className="payment__input"
+                type="number"
+                name="cvc"
+                placeholder="Cvc"
+                value={card.cvc}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+
               {/* <div className="payment__deliveryWrapper">
                 <div id="ship" className="payment__method">
                   <input type="radio" className="payment__radio" />
@@ -236,9 +240,7 @@ const Payment = () => {
                 <LeftArrow />
                 Return to cart
               </Link>
-              <Button className="payment__continueShipping">
-                Continue to shipping
-              </Button>
+              <Button className="payment__continueShipping">Payment</Button>
             </section>
             <footer className="payment__footer">
               <ul className="payment__list">

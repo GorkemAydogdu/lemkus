@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useRef } from "react";
 
 import UIContext from "../../context/ui-context";
 
-// import WishlistEmpty from "./WishlistEmpty";
 import WishlistHeader from "./WishlistHeader";
 import WishlistUser from "./WishlistUser";
+import WishlistEmpty from "./WishlistEmpty";
 import WishlistContent from "./WishlistContent";
+import WishlistSelectedDetail from "./WishlistSelectedDetail";
 
 import { ReactComponent as Bin } from "../../assets/bin2.svg";
 
 import gsap from "gsap";
 import Button from "../UI/Button";
-import WishlistSelectedDetail from "./WishlistSelectedDetail";
 
 const Wishlist = () => {
   const bgRef = useRef();
@@ -48,8 +48,8 @@ const Wishlist = () => {
           <div className="wishlist__detail">
             <WishlistHeader />
             {/* <WishlistEmpty /> */}
-            {/* <WishlistContent /> */}
-            <WishlistSelectedDetail />
+            <WishlistContent />
+            {/* <WishlistSelectedDetail /> */}
             <div
               ref={bgRef}
               onClick={closeButtonHandler}
