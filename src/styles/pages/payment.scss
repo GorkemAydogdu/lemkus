@@ -2,12 +2,13 @@
   display: flex;
   font-family: "Oswald", sans-serif;
   width: 100vw;
+  height: 100vh;
   line-height: 1;
+  overflow: scroll;
 
   position: relative;
   &__information {
     width: 55%;
-    overflow: scroll;
     background-color: rgb(253, 251, 245);
 
     &--wrapper {

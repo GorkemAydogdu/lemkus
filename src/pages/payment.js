@@ -1,5 +1,8 @@
 import React, { useState, useMemo, useEffect } from "react";
 
+import Cards from "react-credit-cards-2";
+import "react-credit-cards-2/lib/styles.scss";
+
 import Select from "react-select";
 import countryList from "react-select-country-list";
 
@@ -8,14 +11,20 @@ import { Link } from "react-router-dom";
 import Button from "../components/UI/Button";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as Ship } from "../assets/local_shipping.svg";
-import { ReactComponent as PickUp } from "../assets/shop.svg";
+
 import { ReactComponent as Checkmark } from "../assets/checkmark.svg";
 import { ReactComponent as LeftArrow } from "../assets/keyboard_arrow_left.svg";
 import { ReactComponent as X } from "../assets/x.svg";
 
 const Payment = () => {
   const [value, setValue] = useState("");
+  const [card, setCard] = useState({
+    cvc: "",
+    expiry: "",
+    focus: "",
+    name: "",
+    number: "",
+  });
   const options = useMemo(() => countryList().getData(), []);
 
   const changeHandler = (value) => {
@@ -31,6 +40,16 @@ const Payment = () => {
     });
     let backdrop = document.querySelector(".payment__backdrop");
     backdrop.style.display = "none";
+  };
+
+  const handleInputFocus = (e) => {
+    setCard((prev) => ({ ...prev, focus: e.target.name }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setCard((prev) => ({ ...prev, [name]: value }));
   };
 
   useEffect(() => {
@@ -84,39 +103,64 @@ const Payment = () => {
               </div>
             </section>
             <section className="payment__info">
-              <h3 className="payment__title">Delivery method</h3>
-              <div className="payment__deliveryWrapper">
-                <div
-                  // onClick={(event) => {
-                  //   event.currentTarget.classList.toggle(
-                  //     "payment__method--checked"
-                  //   );
-                  // }}
-                  id="ship"
-                  className="payment__method"
-                >
+              <h3 className="payment__title">Payment</h3>
+              <Cards
+                cvc={card.cvc}
+                expiry={card.expiry}
+                focused={card.focus}
+                name={card.name}
+                number={card.number}
+              />
+              <form>
+                <input
+                  type="number"
+                  name="number"
+                  placeholder="Card Number"
+                  value={card.number}
+                  onChange={handleInputChange}
+                  onFocus={handleInputFocus}
+                />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={card.name}
+                  onChange={handleInputChange}
+                  onFocus={handleInputFocus}
+                />
+                <input
+                  type="number"
+                  name="cvc"
+                  placeholder="cvc"
+                  value={card.cvc}
+                  onChange={handleInputChange}
+                  onFocus={handleInputFocus}
+                />
+                <input
+                  type="text"
+                  name="expiry"
+                  placeholder="Date"
+                  value={card.expiry}
+                  onChange={handleInputChange}
+                  onFocus={handleInputFocus}
+                />
+              </form>
+              {/* <div className="payment__deliveryWrapper">
+                <div id="ship" className="payment__method">
                   <input type="radio" className="payment__radio" />
                   <div className="payment__method--name">
                     <Ship />
                     <span>Ship</span>
                   </div>
                 </div>
-                <div
-                  // onClick={(event) => {
-                  //   event.currentTarget.classList.toggle(
-                  //     "payment__method--checked"
-                  //   );
-                  // }}
-                  id="pickUp"
-                  className="payment__method"
-                >
+                <div id="pickUp" className="payment__method">
                   <input type="radio" className="payment__radio" />
                   <div className="payment__method--name">
                     <PickUp />
                     <span>Pick Up</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </section>
             <section className="payment__info">
               <h3 className="payment__title">Shipping address</h3>
