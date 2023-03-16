@@ -5,16 +5,33 @@
   height: 100vh;
   line-height: 1;
 
+  @include respond(tab-port) {
+    overflow: scroll;
+
+    flex-direction: column;
+  }
+
   position: relative;
   &__information {
     width: 55%;
-    overflow: scroll;
     background-color: rgb(253, 251, 245);
+
+    @media only screen and (min-width: 1025px) {
+      overflow: scroll;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
 
     &--wrapper {
       margin-left: auto;
       padding: 5rem 5rem 0 0;
       width: 70%;
+      @include respond(tab-port) {
+        margin-right: auto;
+        padding: 5rem 0 0;
+      }
     }
   }
   &__logo {
@@ -25,11 +42,20 @@
     margin-bottom: 2rem;
   }
   &__title {
+    display: inline-flex;
     font-weight: 400;
     font-size: 1.8rem;
+
+    @include respond(tab-port) {
+      font-size: 2.2rem;
+    }
   }
   &__account {
     font-size: 1.5rem;
+
+    @include respond(tab-port) {
+      font-size: 1.9rem;
+    }
     a {
       color: inherit;
     }
@@ -41,6 +67,10 @@
     width: 100%;
     border: 1px solid rgb(229, 213, 151);
     margin-top: 1.2rem;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
 
     &:focus {
       border-color: $black;
@@ -54,6 +84,10 @@
     label {
       cursor: pointer;
       font-size: 1.4rem;
+
+      @include respond(tab-port) {
+        font-size: 1.8rem;
+      }
     }
   }
   &__checkbox--checked &__customCheckbox {
@@ -76,6 +110,11 @@
     border-radius: 2px;
     cursor: pointer;
     transition: all cubic-bezier(0.3, 0.5, 0.5, 1) 0.2s;
+
+    @include respond(tab-port) {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
   }
 
   &__checkmark {
@@ -149,6 +188,9 @@
     align-items: center;
     color: $black;
     font-size: 1.4rem;
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
   &__continueShipping {
     font-family: inherit;
@@ -159,6 +201,10 @@
     border: none;
     border-radius: 5px;
     background-color: rgb(254, 191, 51);
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
 
     &:hover {
       background-color: rgb(222, 168, 25);
@@ -180,15 +226,30 @@
   &__item {
     cursor: pointer;
     font-size: 1.4rem;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
   &__product {
     width: 45%;
     border-left: 1px solid rgb(208, 208, 208);
     background-color: rgb(246, 246, 246);
 
+    @include respond(tab-port) {
+      width: 100%;
+      background-color: rgb(253, 251, 245);
+    }
+
     &--wrapper {
       width: 60%;
       padding: 5rem 0 0 5rem;
+
+      @include respond(tab-port) {
+        margin: 0 auto;
+        width: 70%;
+        padding: 5rem 0;
+      }
     }
   }
   &__productList {
@@ -208,6 +269,11 @@
       width: 6.4rem;
       height: 6.4rem;
       object-fit: cover;
+
+      @include respond(tab-port) {
+        width: 64px;
+        height: 64px;
+      }
     }
     position: relative;
     span {
@@ -231,14 +297,23 @@
   }
   &__productTitle {
     font-size: 1.4rem;
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
   &__productSize {
     font-size: 1.2rem;
     color: rgb(107, 107, 107);
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
   }
   &__productPrice {
     font-size: 1.4rem;
     margin-left: auto;
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
   &__discount {
     display: flex;
@@ -258,6 +333,11 @@
     width: 10rem;
     margin: 2rem 0 2rem 1.5rem;
 
+    @include respond(tab-port) {
+      width: 14rem;
+      font-size: 2rem;
+    }
+
     &:hover {
       background-color: rgb(222, 168, 25);
     }
@@ -276,16 +356,22 @@
         border-top: 1px solid rgb(208, 208, 208);
         padding-top: 3rem;
       }
+
+      @include respond(tab-port) {
+        font-size: 1.8rem;
+      }
     }
     &--subtotal,
     &--total {
       color: $black;
     }
 
-    &--shipping {
-    }
     &--total {
       font-size: 2rem;
+
+      @include respond(tab-port) {
+        font-size: 2.4rem;
+      }
     }
   }
 
@@ -331,6 +417,10 @@
     h3 {
       font-weight: 400;
       font-size: 2.5rem;
+
+      @include respond(tab-port) {
+        font-size: 2.9rem;
+      }
     }
     button {
       display: inline-flex;
@@ -339,6 +429,11 @@
       cursor: pointer;
       width: 3.5rem;
       height: 3.5rem;
+
+      @include respond(tab-port) {
+        width: 4rem;
+        height: 4rem;
+      }
     }
     svg {
       width: 100%;
@@ -354,22 +449,57 @@
     h1 {
       font-weight: 500;
       font-size: 3.5rem;
+      @include respond(tab-port) {
+        font-size: 3.9rem;
+      }
     }
     ul {
       padding: 0 2.2rem;
     }
     li {
       font-size: 1.6rem;
+
+      @include respond(tab-port) {
+        font-size: 2rem;
+      }
     }
     span,
     p {
       display: inline-block;
       font-size: 1.6rem;
       margin: 1.2rem 0;
+
+      @include respond(tab-port) {
+        font-size: 2rem;
+      }
     }
   }
 }
 
 .rccs {
   margin: 1.2rem 0 0 0 !important;
+  max-width: 300px !important;
+
+  @include respond(smallPhone) {
+    max-width: 260px !important;
+  }
+
+  &__card {
+    max-width: 300px !important;
+
+    @include respond(smallPhone) {
+      max-width: 260px !important;
+    }
+  }
+
+  &__name {
+    @include respond(smallPhone) {
+      font-size: 16px;
+    }
+  }
+  &__number {
+    @include respond(smallPhone) {
+      font-size: 18px;
+    }
+  }
 }
