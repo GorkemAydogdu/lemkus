@@ -49,12 +49,18 @@
     @include respond(tab-port) {
       font-size: 2.2rem;
     }
+    @media only screen and (max-width: 400px) {
+      font-size: 2rem;
+    }
   }
   &__account {
     font-size: 1.5rem;
 
     @include respond(tab-port) {
       font-size: 1.9rem;
+    }
+    @media only screen and (max-width: 400px) {
+      font-size: 1.7rem;
     }
     a {
       color: inherit;
@@ -230,6 +236,9 @@
     @include respond(tab-port) {
       font-size: 1.8rem;
     }
+    @media only screen and (max-width: 400px) {
+      font-size: 1.6rem;
+    }
   }
   &__product {
     width: 45%;
@@ -288,6 +297,11 @@
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
+
+      @include respond(tab-port) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
   }
   &__productInfos {
@@ -421,6 +435,10 @@
       @include respond(tab-port) {
         font-size: 2.9rem;
       }
+
+      @media only screen and (max-width: 400px) {
+        font-size: 2.6rem;
+      }
     }
     button {
       display: inline-flex;
@@ -433,6 +451,11 @@
       @include respond(tab-port) {
         width: 4rem;
         height: 4rem;
+      }
+
+      @media only screen and (max-width: 400px) {
+        width: 3.7rem;
+        height: 3.7rem;
       }
     }
     svg {
@@ -450,7 +473,10 @@
       font-weight: 500;
       font-size: 3.5rem;
       @include respond(tab-port) {
-        font-size: 3.9rem;
+        font-size: 4vw;
+      }
+      @media only screen and (max-width: 400px) {
+        font-size: 3.5vw;
       }
     }
     ul {
@@ -462,6 +488,9 @@
       @include respond(tab-port) {
         font-size: 2rem;
       }
+      @media only screen and (max-width: 400px) {
+        font-size: 1.7rem;
+      }
     }
     span,
     p {
@@ -471,6 +500,9 @@
 
       @include respond(tab-port) {
         font-size: 2rem;
+      }
+      @media only screen and (max-width: 400px) {
+        font-size: 1.7rem;
       }
     }
   }
@@ -484,11 +516,19 @@
     max-width: 260px !important;
   }
 
+  @media only screen and (max-width: 400px) {
+    max-width: 200px !important;
+  }
+
   &__card {
     max-width: 300px !important;
 
     @include respond(smallPhone) {
       max-width: 260px !important;
+    }
+
+    @media only screen and (max-width: 400px) {
+      max-width: 200px !important;
     }
   }
 
@@ -496,10 +536,29 @@
     @include respond(smallPhone) {
       font-size: 16px;
     }
+
+    @media only screen and (max-width: 400px) {
+      font-size: 14px;
+    }
   }
   &__number {
     @include respond(smallPhone) {
       font-size: 18px;
+    }
+    @media only screen and (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+  &__expiry {
+    &__valid {
+      @media only screen and (max-width: 400px) {
+        font-size: 9px;
+      }
+    }
+    &__value {
+      @media only screen and (max-width: 400px) {
+        font-size: 14px;
+      }
     }
   }
 }
