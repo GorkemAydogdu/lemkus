@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -14,17 +14,41 @@ import Footer from "../components/Footer/Footer";
 
 const Launches = (props) => {
   const smoothScrollWrapper = useRef();
+  const [product, setProduct] = useState([]);
+  const [completeFetch, setCompleteFetch] = useState(false);
+
+  async function getProduct() {
+    try {
+      setCompleteFetch(true);
+      const res = await fetch("http://localhost:5000/product");
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      const data = await res.json();
+      setProduct(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setCompleteFetch(false);
+    }
+  }
 
   useEffect(() => {
-    let splide = new Splide(".launches__group", {
-      drag: "free",
-      perPage: 1,
-      speed: 800,
-      arrows: false,
-      pagination: false,
-    });
-    splide.mount();
+    getProduct();
   }, []);
+
+  useEffect(() => {
+    if (completeFetch !== true) {
+      let splide = new Splide(".launches__group", {
+        drag: "free",
+        perPage: 1,
+        speed: 800,
+        arrows: false,
+        pagination: false,
+      });
+      splide.mount();
+    }
+  }, [completeFetch]);
   return (
     <SmoothScrollWrapper className="pageSmooth" ref={smoothScrollWrapper}>
       <div className="launches">
@@ -36,7 +60,7 @@ const Launches = (props) => {
             <div className="splide__track">
               <ul className="splide__list launches__list launches__list--variant">
                 {/* https://stackoverflow.com/a/42374933/19191132 */}
-                {props.launches
+                {product
                   .filter((filtered) => filtered.categoryName === "Launches")
                   .slice(0, 5)
                   .map((item) => (
@@ -46,11 +70,7 @@ const Launches = (props) => {
                     >
                       <div className="products__container">
                         <Link
-                          to={`/products/${item.name
-                            .toLowerCase()
-                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                            .replace(/-{2,}/g, "-")
-                            .replace(/-$/, "")}`}
+                          to={`/products/${item._id}`}
                           className="products__image"
                         >
                           <div className="products__logo">
@@ -70,11 +90,7 @@ const Launches = (props) => {
                           <div className="products__container--size">
                             {item.sizes.map((size) => (
                               <Link
-                                to={`/products/${item.name
-                                  .toLowerCase()
-                                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                                  .replace(/-{2,}/g, "-")
-                                  .replace(/-$/, "")}?size=${size}`}
+                                to={`/products/${item._id}?size=${size}`}
                                 key={size}
                               >
                                 {size}
@@ -82,11 +98,7 @@ const Launches = (props) => {
                             ))}
                           </div>
                           <Link
-                            to={`/products/${item.name
-                              .toLowerCase()
-                              .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                              .replace(/-{2,}/g, "-")
-                              .replace(/-$/, "")}`}
+                            to={`/products/${item._id}`}
                             className="products__container--title"
                           >
                             {item.name}
@@ -103,7 +115,7 @@ const Launches = (props) => {
           </div>
         </div>
 
-        {props.launches
+        {product
           .filter((item) => item.name === "Air Jordan 2 Retro")
           .map((item) => (
             <ProductsCardAlternative
@@ -115,17 +127,13 @@ const Launches = (props) => {
             />
           ))}
         <ul className="launches__list launches__list--all">
-          {props.launches
+          {product
             .filter((filtered) => filtered.categoryName === "Launches")
             .map((item) => (
               <li key={item.id} className="launches__item launches__item--all">
                 <div className="products__container">
                   <Link
-                    to={`/products/${item.name
-                      .toLowerCase()
-                      .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                      .replace(/-{2,}/g, "-")
-                      .replace(/-$/, "")}`}
+                    to={`/products/${item._id}`}
                     className="products__image"
                   >
                     <div className="products__logo">
@@ -145,11 +153,7 @@ const Launches = (props) => {
                     <div className="products__container--size">
                       {item.sizes.map((size) => (
                         <Link
-                          to={`/products/${item.name
-                            .toLowerCase()
-                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                            .replace(/-{2,}/g, "-")
-                            .replace(/-$/, "")}?size=${size}`}
+                          to={`/products/${item._id}?size=${size}`}
                           key={size}
                         >
                           {size}
@@ -157,11 +161,7 @@ const Launches = (props) => {
                       ))}
                     </div>
                     <Link
-                      to={`/products/${item.name
-                        .toLowerCase()
-                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                        .replace(/-{2,}/g, "-")
-                        .replace(/-$/, "")}`}
+                      to={`/products/${item._id}`}
                       className="products__container--title"
                     >
                       {item.name}
