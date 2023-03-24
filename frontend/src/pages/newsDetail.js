@@ -2,19 +2,33 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { useParams } from "react-router-dom";
 
+import gsap from "gsap";
+
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
 import Culture from "../components/Culture/Culture";
 
-const NewsDetail = (props) => {
+const NewsDetail = () => {
   const [clickedNews, setClickedNews] = useState();
+
   const { id } = useParams();
+  useEffect(() => {
+    gsap.from(".newsDetail__title ", {
+      y: "20%",
+      opacity: 0,
+      duration: 0.9,
+    });
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(`http://localhost:5000/news/${id}`);
-      const data = await res.json();
-      setClickedNews(data);
+      try {
+        const res = await fetch(`http://localhost:5000/news/${id}`);
+        const data = await res.json();
+        setClickedNews(data);
+      } catch (error) {
+        console.log(error.message);
+      }
     }
     fetchData();
   }, [id]);

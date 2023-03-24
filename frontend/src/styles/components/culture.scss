@@ -63,6 +63,7 @@
   &__item {
     padding-bottom: 6rem;
     border-bottom: 1px solid $black;
+    // width: calc(100% / 4) !important;
 
     @include respond(tab-land) {
       padding-bottom: 5rem;

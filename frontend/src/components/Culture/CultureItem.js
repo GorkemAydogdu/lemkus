@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../UI/Button";
 
-const CultureItem = (props) => {
+const CultureItem = ({ image, id, name, category, date }) => {
   const imageRef = useRef();
   const mouseEnterHandler = () => {
     imageRef.current.style.transform = "scale(1.03)";
@@ -14,27 +15,27 @@ const CultureItem = (props) => {
   return (
     <div className="splide__slide culture__item">
       <div className="culture__image">
-        <a
+        <Link
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
           className="culture__link"
-          href="/"
+          to={`/blogs/news/${id}`}
         >
-          <img ref={imageRef} src={props.image} alt={props.name} />
-        </a>
+          <img ref={imageRef} src={image} alt={name} />
+        </Link>
         <Button type="button" className="culture__date">
-          <span>Releases -</span>
-          <span>&nbsp;28.12.22</span>
+          <span>{category} -</span>
+          <span>&nbsp;{date}</span>
         </Button>
       </div>
-      <a
+      <Link
         onMouseEnter={mouseEnterHandler}
         onMouseLeave={mouseLeaveHandler}
-        href="/"
+        to={`/blogs/news/${id}`}
         className="culture__item--title"
       >
-        {props.name}
-      </a>
+        {name}
+      </Link>
     </div>
   );
 };
