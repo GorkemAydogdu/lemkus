@@ -2473,22 +2473,6 @@ function App() {
   };
 
   useEffect(() => {
-    async function getProduct() {
-      const res = await fetch(`http://localhost:5000/product`);
-
-      if (!res.ok) {
-        const message = `An error occured: ${res.statusText}`;
-        window.alert(message);
-        return;
-      }
-      const data = await res.json();
-      console.log(data);
-    }
-
-    getProduct();
-  });
-
-  useEffect(() => {
     if (
       location.pathname === "/pages/contact" ||
       location.pathname === "/pages/about" ||
@@ -2547,14 +2531,8 @@ function App() {
           element={<CollectionDetail data={DUMMY_DATA.pages} />}
         />
 
-        <Route
-          path="/blogs/news"
-          element={<News data={DUMMY_DATA.culture} />}
-        />
-        <Route
-          path="/blogs/news/:newsName"
-          element={<NewsDetail data={DUMMY_DATA.culture} />}
-        />
+        <Route path="/blogs/news" element={<News />} />
+        <Route path="/blogs/news/:id" element={<NewsDetail />} />
 
         <Route
           path="/"
