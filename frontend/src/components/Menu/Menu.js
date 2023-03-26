@@ -8,8 +8,6 @@ import MenuFeatured from "./MenuFeatured";
 
 const Menu = (props) => {
   const uiCtx = useContext(UIContext);
-
-  console.log(props.item);
   useEffect(() => {
     if (props.className.includes("menu--active")) {
       gsap.to(".backdrop--menu", {

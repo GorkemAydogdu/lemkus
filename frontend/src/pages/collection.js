@@ -15,11 +15,28 @@ gsap.registerPlugin(Flip);
 
 const Collection = (props) => {
   const [filterClicked, setFilterClicked] = useState(false);
+  const [collection, setCollection] = useState([]);
   const smoothScrollWrapper = useRef();
   const tl = useRef();
   const filterListRef = useRef();
   const collectionContentRef = useRef();
   const mobileMenuRef = useRef();
+
+  async function getProducts() {
+    try {
+      const res = await fetch("http://localhost:5000/product");
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      const data = await res.json();
+      setCollection(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   let { categoryName } = useParams();
 
@@ -68,7 +85,7 @@ const Collection = (props) => {
     filterClicked ? tl.current.play() : tl.current.reverse();
   }, [filterClicked]);
 
-  let data = props.items.filter((filtered) => {
+  let data = collection.filter((filtered) => {
     if (
       wordInString(categoryName, filtered.categoryName) &&
       gender === null &&
@@ -430,7 +447,7 @@ const Collection = (props) => {
                         .toLowerCase()
                         .replaceAll(/[^a-zA-Z0-9]/g, "-")
                         .replace(/-{2,}/g, "-")
-                        .replace(/-$/, "")}?id=${item.id}`}
+                        .replace(/-$/, "")}?id=${item._id}`}
                       className="products__image"
                     >
                       <div className="products__logo">
@@ -456,7 +473,7 @@ const Collection = (props) => {
                               .toLowerCase()
                               .replaceAll(/[^a-zA-Z0-9]/g, "-")
                               .replace(/-{2,}/g, "-")
-                              .replace(/-$/, "")}?id=${item.id}&size=${size}`}
+                              .replace(/-$/, "")}?id=${item._id}&size=${size}`}
                           >
                             {size}
                           </Link>
