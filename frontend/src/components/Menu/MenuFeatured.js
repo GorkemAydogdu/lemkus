@@ -9,9 +9,9 @@ const MenuFeatured = (props) => {
         props.item.links.length === 3 ? "menu__featured--width" : ""
       }`}
     >
-      <h1 className="menu__title">{props.item.featured.name}</h1>
+      <h1 className="menu__title">{props.item.name}</h1>
       <div className="menu__featuredGroup">
-        {props.item.featured.items.map((item) => (
+        {props.item.featured.map((item) => (
           <div className={`menu__featuredItem`} key={item.id}>
             <Link
               onClick={() => {

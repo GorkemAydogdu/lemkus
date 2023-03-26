@@ -2464,6 +2464,7 @@ function App() {
     width: window.innerWidth,
   });
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
+  const [categories, setCategories] = useState([]);
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
@@ -2471,6 +2472,23 @@ function App() {
   const clickedButtonHandler = (data) => {
     setButtonInnerHTML(data);
   };
+
+  async function getMenu() {
+    try {
+      const res = await fetch("http://localhost:5000/menu");
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      const data = await res.json();
+      setCategories(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getMenu();
+  }, []);
 
   useEffect(() => {
     if (
@@ -2506,16 +2524,13 @@ function App() {
   return (
     <>
       {location.pathname !== "/checkouts" && (
-        <Header
-          categories={DUMMY_DATA.menu}
-          clickedButton={clickedButtonHandler}
-        />
+        <Header categories={categories} clickedButton={clickedButtonHandler} />
       )}
 
-      {DUMMY_DATA.menu
+      {categories
         .filter((item) => item.name === buttonInnerHTML)
         .map((item) => (
-          <Menu className="menu menu--active" key={item.id} item={item} />
+          <Menu className="menu menu--active" key={item._id} item={item} />
         ))}
       <Routes>
         <Route
