@@ -245,14 +245,10 @@ const Collection = (props) => {
                 >
                   Date,new to old
                   <div className="collection__sortOption">
-                    <span>Best Selling</span>
                     <span>Alphabetically, A-Z</span>
                     <span>Alphabetically, Z-A</span>
                     <span>Price,low to high</span>
                     <span>Price,high to low</span>
-                    <span>Date,new to old</span>
-                    <span>Date,old to new</span>
-                    <span>% Sale off</span>
                   </div>
                 </Button>
               </div>
@@ -484,7 +480,7 @@ const Collection = (props) => {
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
-                          .replace(/-$/, "")}?id=${item.id}`}
+                          .replace(/-$/, "")}?id=${item._id}`}
                         className="products__container--title"
                       >
                         {item.name}

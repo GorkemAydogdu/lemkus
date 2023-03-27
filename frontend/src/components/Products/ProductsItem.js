@@ -1,14 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductsItem = (props) => {
   return (
     <li className="splide__slide products__item">
       <div className="products__container">
-        <a href="/" className="products__image">
+        <Link
+          to={`/products/${props.name
+            .toLowerCase()
+            .replaceAll(/[^a-zA-Z0-9]/g, "-")
+            .replace(/-{2,}/g, "-")
+            .replace(/-$/, "")}?id=${props.id}`}
+          className="products__image"
+        >
           <div className="products__logo">
-            <img key={props.id} src={props.logo} alt={props.name} />
+            <img key={props.id} src={props.logo} alt={props.brand} />
           </div>
-          {props.image.map((img) => (
+          {props.images.map((img) => (
             <img
               key={img.id}
               className={`products__image--${img.id}`}
@@ -16,19 +24,33 @@ const ProductsItem = (props) => {
               alt={props.name}
             />
           ))}
-        </a>
+        </Link>
 
         <div className="products__infos">
           <div className="products__container--size">
             {props.sizes.map((size) => (
-              <a key={size} href="/">
+              <Link
+                key={size}
+                to={`/products/${props.name
+                  .toLowerCase()
+                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                  .replace(/-{2,}/g, "-")
+                  .replace(/-$/, "")}?id=${props.id}&size=${size}`}
+              >
                 {size}
-              </a>
+              </Link>
             ))}
           </div>
-          <a href="/" className="products__container--title">
+          <Link
+            to={`/products/${props.name
+              .toLowerCase()
+              .replaceAll(/[^a-zA-Z0-9]/g, "-")
+              .replace(/-{2,}/g, "-")
+              .replace(/-$/, "")}?id=${props.id}`}
+            className="products__container--title"
+          >
             {props.name}
-          </a>
+          </Link>
           <span className="products__container--price">R {props.price}</span>
         </div>
       </div>

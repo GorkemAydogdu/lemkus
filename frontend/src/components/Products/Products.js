@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Splide from "@splidejs/splide";
 
@@ -9,6 +9,7 @@ import "@splidejs/splide/css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProductsItem from "./ProductsItem";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,27 +22,6 @@ const Products = (props) => {
   };
 
   useEffect(() => {
-    //https://splidejs.com/guides/getting-started/#using-the-global-class
-    let prdcGrp = document.getElementsByClassName("products__group");
-
-    for (let i = 0; i < prdcGrp.length; i++) {
-      let splide = new Splide(prdcGrp[i], {
-        drag: "free",
-        perPage: 3,
-        speed: 800,
-        arrows: false,
-        pagination: false,
-        breakpoints: {
-          1024: {
-            perPage: 2,
-          },
-          500: {
-            perPage: 1,
-          },
-        },
-      });
-      splide.mount();
-    }
     let children = gsap.utils.toArray(titleRef.current.children);
     gsap.from(children, {
       y: "110%",
@@ -56,15 +36,45 @@ const Products = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (props.completeFetch !== true) {
+      //https://splidejs.com/guides/getting-started/#using-the-global-class
+      let prdcGrp = document.getElementsByClassName("products__group");
+
+      for (let i = 0; i < prdcGrp.length; i++) {
+        let splide = new Splide(prdcGrp[i], {
+          drag: "free",
+          perPage: 3,
+          speed: 800,
+          arrows: false,
+          pagination: false,
+          breakpoints: {
+            1024: {
+              perPage: 2,
+            },
+            500: {
+              perPage: 1,
+            },
+          },
+        });
+        splide.mount();
+      }
+    }
+  }, [props]);
+
   return (
     <div className="products">
-      <a ref={titleRef} href="/" className="products__title">
+      <Link
+        ref={titleRef}
+        to={`/collections/${props.title.toLowerCase().replace(" ", "-")}`}
+        className="products__title"
+      >
         <span>{props.title}</span>
         {/* https://stackoverflow.com/a/46223835/19191132
         {props.title.split("").map((text) => (
           <span key={Math.random()}>{text === " " ? "\u00A0" : text}</span>
         ))} */}
-      </a>
+      </Link>
       <div
         onMouseEnter={mouseEnterHandler}
         ref={productsRef}
@@ -72,21 +82,28 @@ const Products = (props) => {
       >
         <div className="splide__track">
           <ul className="splide__list">
-            {props.items.map((item) => (
-              <ProductsItem
-                key={item.id}
-                id={item.id}
-                logo={item.logo}
-                name={item.name}
-                image={item.image}
-                sizes={item.sizes}
-                price={item.price}
-              />
-            ))}
-
+            {props.items !== [] &&
+              props.items.map((item) => (
+                <ProductsItem
+                  key={item._id}
+                  id={item._id}
+                  logo={item.logo}
+                  name={item.name}
+                  images={item.images.slice(0, 2)}
+                  sizes={item.sizes}
+                  price={item.price}
+                  brand={item.brand}
+                />
+              ))}
             <li className="splide__slide products__item products__viewAll">
               <div className="products__container">
-                <a href="/">View All</a>
+                <Link
+                  to={`/collections/${props.title
+                    .toLowerCase()
+                    .replace(" ", "-")}`}
+                >
+                  View All
+                </Link>
               </div>
             </li>
           </ul>
