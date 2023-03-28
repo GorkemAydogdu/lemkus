@@ -100,7 +100,7 @@ const Collection = (props) => {
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.brand.toLowerCase() === type
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === type
     ) {
       return filtered;
     } else if (
