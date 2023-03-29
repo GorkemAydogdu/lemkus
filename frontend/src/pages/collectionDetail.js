@@ -1,6 +1,8 @@
 import React, { useEffect, useCallback, useRef, useState } from "react";
 
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../redux/cartSlice";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
@@ -61,6 +63,7 @@ const CollectionDetail = (props) => {
       console.log(error.message);
     }
   }, [id, productName]);
+
   useEffect(() => {
     getClickedProduct();
   }, [getClickedProduct]);
@@ -100,7 +103,11 @@ const CollectionDetail = (props) => {
         });
       });
       splide.mount();
+    }
+  });
 
+  useEffect(() => {
+    if (clickedData.length > 0) {
       if (clickedSize) {
         for (let i = 0; i < buttonsRef.current.length; i++) {
           if (clickedSize === buttonsRef.current[i].innerHTML) {
@@ -122,6 +129,23 @@ const CollectionDetail = (props) => {
       });
     }
   }, [clickedData, clickedSize]);
+
+  const dispatch = useDispatch();
+
+  function addToCartHandler() {
+    if (clickedData.length > 0) {
+      const { name, price, _id, images } = clickedData[0];
+      dispatch(
+        cartActions.addItemToCart({
+          _id,
+          name,
+          price,
+          images,
+          clickedSize,
+        })
+      );
+    }
+  }
 
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
@@ -173,7 +197,6 @@ const CollectionDetail = (props) => {
                           clickedData[0]._id
                         }&size=${size}`,
                         { replace: true }
-                        //https://stackoverflow.com/a/68694698/19191132
                       );
                     } else {
                       navigate(
@@ -186,17 +209,11 @@ const CollectionDetail = (props) => {
                         //https://stackoverflow.com/a/68694698/19191132
                       );
                     }
-                    // setClickedSize(size);
                     for (let i = 0; i < buttonsRef.current.length; i++) {
                       buttonsRef.current[i].classList.remove(
                         "collectionDetail__size--active"
                       );
                     }
-                    // if (clickedSize === size) {
-                    //   event.target.classList.toggle(
-                    //     "collectionDetail__size--active"
-                    //   );
-                    // }
                   }}
                   key={size}
                   className={`collectionDetail__size`}
@@ -207,6 +224,7 @@ const CollectionDetail = (props) => {
             </div>
             <div className="collectionDetail__action">
               <Button
+                onClick={addToCartHandler}
                 onMouseEnter={() => {
                   addToBagStatic.current.style.display = "none";
                   addToBagHover.current.style.display = "inline-block";
