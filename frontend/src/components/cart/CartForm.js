@@ -11,7 +11,7 @@ const CartForm = () => {
       <ul className="cart__items">
         {cartItems.map((item) => (
           <CartItem
-            key={item._id}
+            key={Math.random()}
             item={{
               _id: item._id,
               name: item.name,

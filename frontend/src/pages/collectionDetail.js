@@ -1,9 +1,16 @@
-import React, { useEffect, useCallback, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useCallback,
+  useContext,
+  useRef,
+  useState,
+} from "react";
 
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../redux/cartSlice";
 
+import UIContext from "../context/ui-context";
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
 import Culture from "../components/Culture/Culture";
@@ -15,6 +22,7 @@ import "@splidejs/splide/css";
 import Footer from "../components/Footer/Footer";
 
 const CollectionDetail = (props) => {
+  const uiCtx = useContext(UIContext);
   const smoothScrollWrapper = useRef();
   const buttonsRef = useRef([]);
   const [clickedData, setClickedData] = useState([]);
@@ -134,8 +142,8 @@ const CollectionDetail = (props) => {
 
   function addToCartHandler() {
     if (clickedData.length > 0) {
+      uiCtx.toggleCart();
       const { name, price, _id, images } = clickedData[0];
-      console.log(_id, clickedData[0]);
       dispatch(
         cartActions.addItemToCart({
           _id,

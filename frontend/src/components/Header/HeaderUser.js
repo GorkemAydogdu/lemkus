@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
 
 import UIContext from "../../context/ui-context";
@@ -11,6 +13,7 @@ import { ReactComponent as User } from "../../assets/user-o.svg";
 import Button from "../UI/Button";
 
 const HeaderUser = () => {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const uiCtx = useContext(UIContext);
   function clickWishlistButtonHandler() {
     uiCtx.toggleWishlist();
@@ -32,7 +35,7 @@ const HeaderUser = () => {
         <Heart />
       </Button>
       <Button onClick={clickCartButtonHandler} className="header__cart">
-        <span className="header__counter">0</span>
+        <span className="header__counter">{totalQuantity}</span>
         <Bag />
       </Button>
     </div>
