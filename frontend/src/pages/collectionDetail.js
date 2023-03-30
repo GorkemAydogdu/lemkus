@@ -104,7 +104,7 @@ const CollectionDetail = (props) => {
       });
       splide.mount();
     }
-  });
+  }, [clickedData]);
 
   useEffect(() => {
     if (clickedData.length > 0) {
@@ -135,6 +135,7 @@ const CollectionDetail = (props) => {
   function addToCartHandler() {
     if (clickedData.length > 0) {
       const { name, price, _id, images } = clickedData[0];
+      console.log(_id, clickedData[0]);
       dispatch(
         cartActions.addItemToCart({
           _id,
@@ -214,6 +215,12 @@ const CollectionDetail = (props) => {
                         "collectionDetail__size--active"
                       );
                     }
+                    event.currentTarget.classList.add(
+                      "collectionDetail__size--active"
+                    );
+                    wishListButton.current.classList.remove(
+                      "collectionDetail__wishlist--disable"
+                    );
                   }}
                   key={size}
                   className={`collectionDetail__size`}

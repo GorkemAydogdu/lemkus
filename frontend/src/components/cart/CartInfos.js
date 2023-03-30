@@ -1,6 +1,8 @@
 import React, { useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 import Button from "../UI/Button";
 
 import UIContext from "../../context/ui-context";
@@ -8,12 +10,17 @@ import UIContext from "../../context/ui-context";
 import gsap from "gsap";
 
 const CartInfos = () => {
+  const cartItems = useSelector((state) => state.cart.items);
   const uiCtx = useContext(UIContext);
   const continueShopStatic = useRef();
   const continueShopHover = useRef();
 
   const checkoutStatic = useRef();
   const checkoutHover = useRef();
+  let totalPrice = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i].totalPrice;
+  }
 
   function toggleMenuHandler() {
     uiCtx.toggleCart();
@@ -34,7 +41,7 @@ const CartInfos = () => {
     <div className="cart__infos">
       <div className="cart__totalPrice uppercase">
         <span>Grand Total INCL. VAT</span>
-        <span>R 11,795.00</span>
+        <span>R {totalPrice}</span>
       </div>
       <div className="cart__buttons">
         <Button
