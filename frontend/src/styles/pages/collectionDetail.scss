@@ -46,7 +46,19 @@
   }
   &__title {
     text-transform: uppercase;
-    font-size: 4.5vw;
+    font-size: 9rem;
+
+    @include respond(tab-port) {
+      font-size: 8rem;
+    }
+
+    @include respond(phone) {
+      font-size: 7rem;
+    }
+
+    @include respond(smallPhone) {
+      font-size: 6rem;
+    }
   }
   &__priceGuide {
     display: flex;

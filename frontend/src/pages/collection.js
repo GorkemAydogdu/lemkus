@@ -430,7 +430,7 @@ const Collection = (props) => {
             <ul className="collection__productsList products__list">
               {data.map((item) => (
                 <li
-                  key={item.id}
+                  key={item._id}
                   className="collection__productsItem products__item"
                 >
                   {/* 

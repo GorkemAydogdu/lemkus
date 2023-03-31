@@ -6,6 +6,7 @@ import CartInfos from "./CartInfos";
 
 const CartForm = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   return (
     <div className="cart__form">
       <ul className="cart__items">
@@ -24,7 +25,7 @@ const CartForm = () => {
           />
         ))}
       </ul>
-      <CartInfos />
+      {totalQuantity !== 0 && <CartInfos />}
     </div>
   );
 };

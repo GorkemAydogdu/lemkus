@@ -12,7 +12,11 @@ const CartItem = (props) => {
     props.item;
 
   const removeItemHandler = () => {
-    dispatch(cartActions.removeItemFromCart({ _id }));
+    dispatch(cartActions.removeItemFromCart({ _id, clickedSize }));
+  };
+
+  const removeAllItemHandler = () => {
+    dispatch(cartActions.removeAllItemFromCart({ _id, quantity, clickedSize }));
   };
 
   const addItemHandler = () => {
@@ -43,7 +47,7 @@ const CartItem = (props) => {
       <p className="cart__item--size">
         Size: <span>{clickedSize}</span>
       </p>
-      <Button className="cart__item--remove">
+      <Button onClick={removeAllItemHandler} className="cart__item--remove">
         <X />
       </Button>
       <span className="cart__item--price">R {price}</span>

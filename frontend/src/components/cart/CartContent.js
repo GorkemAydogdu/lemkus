@@ -1,10 +1,13 @@
 import React, { useEffect, useContext } from "react";
 
+import { useSelector } from "react-redux";
+
 import UIContext from "../../context/ui-context";
 import CartForm from "./CartForm";
 import gsap from "gsap";
 
 const CartContent = (props) => {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const uiCtx = useContext(UIContext);
 
   useEffect(() => {
@@ -47,7 +50,9 @@ const CartContent = (props) => {
           Close
         </span>
       </div>
-      <span className="cart__content--empty">Your Bag is empty</span>
+      {totalQuantity === 0 && (
+        <span className="cart__content--empty">Your Bag is empty</span>
+      )}
       <CartForm />
     </div>
   );
