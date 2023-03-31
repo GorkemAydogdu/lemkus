@@ -82,6 +82,7 @@
     width: 100%;
 
     @include respond(tab-port) {
+      row-gap: 2rem;
       justify-content: space-between;
     }
   }

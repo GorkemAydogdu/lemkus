@@ -134,6 +134,7 @@ const CollectionDetail = (props) => {
       );
       clickedData[0].images.forEach((image, idx) => {
         thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
+        console.log("ZORT");
       });
     }
   }, [clickedData, clickedSize]);
