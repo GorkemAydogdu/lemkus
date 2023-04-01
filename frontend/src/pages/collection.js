@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import {
+  Link,
+  useParams,
+  useLocation,
+  useNavigate,
+  // useSearchParams,
+} from "react-router-dom";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -39,6 +45,7 @@ const Collection = (props) => {
   }, []);
 
   let { categoryName } = useParams();
+  // const location = useLocation();
 
   function useQuery() {
     const { search } = useLocation();
@@ -47,7 +54,7 @@ const Collection = (props) => {
   }
 
   let query = useQuery();
-
+  // const [searchParams, setSearchParams] = useSearchParams();
   const gender = query.get("gender");
   const type = query.get("category");
 
@@ -100,8 +107,16 @@ const Collection = (props) => {
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.brand.toLowerCase().replaceAll(" ", "-") === type
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === type &&
+      gender === null
     ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === type &&
+      filtered.gender.toLowerCase() === gender
+    ) {
+      console.log(filtered);
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
@@ -175,6 +190,20 @@ const Collection = (props) => {
       })
     );
   }, []);
+
+  const navigate = useNavigate();
+  //https://stackoverflow.com/a/61991128
+  const addQuery = (key, value) => {
+    let pathname = window.location.pathname;
+    // returns path: '/app/books'
+    let searchParams = new URLSearchParams(window.location.search);
+    // returns the existing query string: '?type=fiction&author=fahid'
+    searchParams.set(key, value);
+    navigate({
+      pathname: pathname,
+      search: searchParams.toString(),
+    });
+  };
 
   return (
     <>
@@ -273,13 +302,22 @@ const Collection = (props) => {
                       key={Math.random()}
                       className="collection__item"
                     >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        {filter.key}
-                      </span>
-                      <span className="collection__item--count">
-                        ({filter.count})
-                      </span>
+                      <Button
+                        onClick={() =>
+                          addQuery(
+                            "category",
+                            filter.key.toLowerCase().replace(" ", "-")
+                          )
+                        }
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -301,13 +339,22 @@ const Collection = (props) => {
                       key={Math.random()}
                       className="collection__item"
                     >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        {filter.key}
-                      </span>
-                      <span className="collection__item--count">
-                        ({filter.count})
-                      </span>
+                      <Button
+                        onClick={() =>
+                          addQuery(
+                            "category",
+                            filter.key.toLowerCase().replace(" ", "-")
+                          )
+                        }
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -329,13 +376,22 @@ const Collection = (props) => {
                       key={Math.random()}
                       className="collection__item"
                     >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        {filter.key}
-                      </span>
-                      <span className="collection__item--count">
-                        ({filter.count})
-                      </span>
+                      <Button
+                        onClick={() =>
+                          addQuery(
+                            "gender",
+                            filter.key.toLowerCase().replace(" ", "-")
+                          )
+                        }
+                      >
+                        <span className="collection__item--checkbox"></span>
+                        <span className="collection__item--brand">
+                          {filter.key}
+                        </span>
+                        <span className="collection__item--count">
+                          ({filter.count})
+                        </span>
+                      </Button>
                     </li>
                   ))}
                 </ul>
