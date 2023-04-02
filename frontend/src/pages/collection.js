@@ -21,6 +21,7 @@ gsap.registerPlugin(Flip);
 
 const Collection = (props) => {
   const [filterClicked, setFilterClicked] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [collection, setCollection] = useState([]);
   const smoothScrollWrapper = useRef();
   const tl = useRef();
@@ -56,7 +57,8 @@ const Collection = (props) => {
   let query = useQuery();
   // const [searchParams, setSearchParams] = useSearchParams();
   const gender = query.get("gender");
-  const type = query.get("category");
+  const category = query.get("category");
+  const brand = query.get("brand");
 
   //https://stackoverflow.com/a/21081760
   const wordInString = (s, word) =>
@@ -96,42 +98,58 @@ const Collection = (props) => {
     if (
       wordInString(categoryName, filtered.categoryName) &&
       gender === null &&
-      type === null
+      category === null &&
+      brand === null
     ) {
       return filtered;
     } else if (
       filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
       filtered.categoryName.toLowerCase() === categoryName &&
-      type === null
+      category === null &&
+      brand === null
     ) {
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.brand.toLowerCase().replaceAll(" ", "-") === type &&
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+      gender === null &&
+      category === null
+    ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+      filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
       gender === null
     ) {
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.brand.toLowerCase().replaceAll(" ", "-") === type &&
-      filtered.gender.toLowerCase() === gender
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+      filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
+      category === null
+    ) {
+      return filtered;
+    } else if (
+      filtered.categoryName.toLowerCase() === categoryName &&
+      filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+      filtered.gender.toLowerCase() === gender &&
+      brand === null
     ) {
       console.log(filtered);
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
-      filtered.gender.toLowerCase() === gender
+      filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+      filtered.gender.toLowerCase() === gender &&
+      filtered.brand.toLowerCase().replaceAll(" ", "-") === brand
     ) {
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&
-      filtered.type.toLowerCase().replaceAll(" ", "-") === type &&
-      gender === null
-    ) {
-      return filtered;
-    } else if (
-      filtered.brand.toLowerCase().replace(" ", "-") === categoryName
+      filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+      gender === null &&
+      brand === null
     ) {
       return filtered;
     } else return false;
@@ -147,24 +165,6 @@ const Collection = (props) => {
   let filterBrand = data.map((filter) => filter.brand);
   let filterType = data.map((filter) => filter.type);
   let filterGender = data.map((filter) => filter.gender);
-  let price = data.map((items) => items.price);
-
-  let filterPrice0_999 = [];
-  let filterPrice1000_1999 = [];
-  let filterPrice2000_2999 = [];
-  let filterPrice3000_3999 = [];
-
-  for (let i = 0; i < price.length; i++) {
-    if (price[i] > 0 && price[i] <= 999) {
-      filterPrice0_999.push(price[i]);
-    } else if (price[i] > 1000 && price[i] <= 1999) {
-      filterPrice1000_1999.push(price[i]);
-    } else if (price[i] > 2000 && price[i] <= 2999) {
-      filterPrice2000_2999.push(price[i]);
-    } else if (price[i] > 3000 && price[i] <= 3999) {
-      filterPrice3000_3999.push(price[i]);
-    }
-  }
 
   const brandCount = filterData(filterBrand);
   const typeCount = filterData(filterType);
@@ -245,7 +245,9 @@ const Collection = (props) => {
               <Button
                 onClick={() => {
                   document.body.style.overflow = "hidden";
-                  mobileMenuRef.current.style.left = "0%";
+                  mobileMenuRef.current.classList.toggle(
+                    "collection__menuMobile--toggle"
+                  );
                 }}
                 className="collection__filterBy"
               >
@@ -264,22 +266,6 @@ const Collection = (props) => {
                     <option value="48">48</option>
                   </select>
                 </div>
-                <Button
-                  onClick={() => {
-                    filterListRef.current.classList.toggle(
-                      "collection__filterList--active"
-                    );
-                  }}
-                  className="collection__sortBy"
-                >
-                  Date,new to old
-                  <div className="collection__sortOption">
-                    <span>Alphabetically, A-Z</span>
-                    <span>Alphabetically, Z-A</span>
-                    <span>Price,low to high</span>
-                    <span>Price,high to low</span>
-                  </div>
-                </Button>
               </div>
             </div>
           </div>
@@ -294,30 +280,26 @@ const Collection = (props) => {
                 <ul className="collection__list">
                   {brandCount.map((filter) => (
                     <li
-                      onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
+                      onClick={() => {
+                        //DÜZELTİLECEK
+                        setIsActive((prevState) => !prevState);
+                        addQuery(
+                          "brand",
+                          filter.key.toLowerCase().replaceAll(" ", "-")
                         );
                       }}
                       key={Math.random()}
-                      className="collection__item"
+                      className={`collection__item ${
+                        isActive ? "collection__item--active" : ""
+                      }`}
                     >
-                      <Button
-                        onClick={() =>
-                          addQuery(
-                            "category",
-                            filter.key.toLowerCase().replace(" ", "-")
-                          )
-                        }
-                      >
-                        <span className="collection__item--checkbox"></span>
-                        <span className="collection__item--brand">
-                          {filter.key}
-                        </span>
-                        <span className="collection__item--count">
-                          ({filter.count})
-                        </span>
-                      </Button>
+                      <span className="collection__item--checkbox"></span>
+                      <span className="collection__item--brand">
+                        {filter.key}
+                      </span>
+                      <span className="collection__item--count">
+                        ({filter.count})
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -332,29 +314,25 @@ const Collection = (props) => {
                   {typeCount.map((filter) => (
                     <li
                       onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
+                        setIsActive((prevState) => !prevState);
+
+                        addQuery(
+                          "category",
+                          filter.key.toLowerCase().replaceAll(" ", "-")
                         );
                       }}
                       key={Math.random()}
-                      className="collection__item"
+                      className={`collection__item ${
+                        isActive ? "collection__item--active" : ""
+                      }`}
                     >
-                      <Button
-                        onClick={() =>
-                          addQuery(
-                            "category",
-                            filter.key.toLowerCase().replace(" ", "-")
-                          )
-                        }
-                      >
-                        <span className="collection__item--checkbox"></span>
-                        <span className="collection__item--brand">
-                          {filter.key}
-                        </span>
-                        <span className="collection__item--count">
-                          ({filter.count})
-                        </span>
-                      </Button>
+                      <span className="collection__item--checkbox"></span>
+                      <span className="collection__item--brand">
+                        {filter.key}
+                      </span>
+                      <span className="collection__item--count">
+                        ({filter.count})
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -369,116 +347,27 @@ const Collection = (props) => {
                   {genderCount.map((filter) => (
                     <li
                       onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
+                        setIsActive((prevState) => !prevState);
+
+                        addQuery(
+                          "gender",
+                          filter.key.toLowerCase().replaceAll(" ", "-")
                         );
                       }}
                       key={Math.random()}
-                      className="collection__item"
+                      className={`collection__item ${
+                        isActive ? "collection__item--active" : ""
+                      }`}
                     >
-                      <Button
-                        onClick={() =>
-                          addQuery(
-                            "gender",
-                            filter.key.toLowerCase().replace(" ", "-")
-                          )
-                        }
-                      >
-                        <span className="collection__item--checkbox"></span>
-                        <span className="collection__item--brand">
-                          {filter.key}
-                        </span>
-                        <span className="collection__item--count">
-                          ({filter.count})
-                        </span>
-                      </Button>
+                      <span className="collection__item--checkbox"></span>
+                      <span className="collection__item--brand">
+                        {filter.key}
+                      </span>
+                      <span className="collection__item--count">
+                        ({filter.count})
+                      </span>
                     </li>
                   ))}
-                </ul>
-              </div>
-              <div className="collection__filterProduct--item">
-                <span className="collection__filterProduct--title">
-                  Price
-                  <Arrow />
-                </span>
-
-                <ul className="collection__list ">
-                  {
-                    <li
-                      onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
-                        );
-                      }}
-                      key={Math.random()}
-                      className="collection__item"
-                    >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        R 0 - R 999
-                      </span>
-                      <span className="collection__item--count">
-                        ({filterPrice0_999.length})
-                      </span>
-                    </li>
-                  }
-                  {
-                    <li
-                      onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
-                        );
-                      }}
-                      key={Math.random()}
-                      className="collection__item"
-                    >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        R 1000 - R 1999
-                      </span>
-                      <span className="collection__item--count">
-                        ({filterPrice1000_1999.length})
-                      </span>
-                    </li>
-                  }
-                  {
-                    <li
-                      onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
-                        );
-                      }}
-                      key={Math.random()}
-                      className="collection__item"
-                    >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        R 2000 - R 2999
-                      </span>
-                      <span className="collection__item--count">
-                        ({filterPrice2000_2999.length})
-                      </span>
-                    </li>
-                  }
-                  {
-                    <li
-                      onClick={(event) => {
-                        event.currentTarget.classList.toggle(
-                          "collection__item--active"
-                        );
-                      }}
-                      key={Math.random()}
-                      className="collection__item"
-                    >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        R 3000 - R 3999
-                      </span>
-                      <span className="collection__item--count">
-                        ({filterPrice3000_3999.length})
-                      </span>
-                    </li>
-                  }
                 </ul>
               </div>
             </div>
@@ -553,193 +442,125 @@ const Collection = (props) => {
         </div>
         <Footer />
       </SmoothScrollWrapper>
-      {window.innerWidth < 1025 && (
-        <div ref={mobileMenuRef} className="collection__menuMobile">
-          <div className="collection__filterHeader">
-            <span>Filter By</span>
-            <Button
-              onClick={() => {
-                document.body.style.overflow = "visible";
-                mobileMenuRef.current.style.left = "-100%";
-              }}
-              className="collection__filterHeader--close"
-            >
-              <X />
-            </Button>
-          </div>
-          <div className="collection__filterProduct--item">
-            <span className="collection__filterProduct--title">
-              Brand
-              <Arrow />
-            </span>
-
-            <ul className="collection__list">
-              {brandCount.map((filter) => (
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">{filter.key}</span>
-                  <span className="collection__item--count">
-                    ({filter.count})
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="collection__filterProduct--item">
-            <span className="collection__filterProduct--title">
-              Type
-              <Arrow />
-            </span>
-
-            <ul className="collection__list">
-              {typeCount.map((filter) => (
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">{filter.key}</span>
-                  <span className="collection__item--count">
-                    ({filter.count})
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="collection__filterProduct--item">
-            <span className="collection__filterProduct--title">
-              Gender
-              <Arrow />
-            </span>
-
-            <ul className="collection__list">
-              {genderCount.map((filter) => (
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">{filter.key}</span>
-                  <span className="collection__item--count">
-                    ({filter.count})
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="collection__filterProduct--item">
-            <span className="collection__filterProduct--title">
-              Price
-              <Arrow />
-            </span>
-
-            <ul className="collection__list ">
-              {
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">R 0 - R 999</span>
-                  <span className="collection__item--count">
-                    ({filterPrice0_999.length})
-                  </span>
-                </li>
-              }
-              {
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">
-                    R 1000 - R 1999
-                  </span>
-                  <span className="collection__item--count">
-                    ({filterPrice1000_1999.length})
-                  </span>
-                </li>
-              }
-              {
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">
-                    R 2000 - R 2999
-                  </span>
-                  <span className="collection__item--count">
-                    ({filterPrice2000_2999.length})
-                  </span>
-                </li>
-              }
-              {
-                <li
-                  onClick={(event) => {
-                    event.currentTarget.classList.toggle(
-                      "collection__item--active"
-                    );
-                  }}
-                  key={Math.random()}
-                  className="collection__item"
-                >
-                  <span className="collection__item--checkbox"></span>
-                  <span className="collection__item--brand">
-                    R 3000 - R 3999
-                  </span>
-                  <span className="collection__item--count">
-                    ({filterPrice3000_3999.length})
-                  </span>
-                </li>
-              }
-            </ul>
-          </div>
-
+      <div ref={mobileMenuRef} className="collection__menuMobile">
+        <div className="collection__filterHeader">
+          <span>Filter By</span>
           <Button
             onClick={() => {
               document.body.style.overflow = "visible";
-              mobileMenuRef.current.style.left = "-100%";
+              mobileMenuRef.current.classList.toggle(
+                "collection__menuMobile--toggle"
+              );
             }}
-            className="collection__menuMobile--button"
+            className="collection__filterHeader--close"
           >
-            View {data.length} Products
+            <X />
           </Button>
         </div>
-      )}
+        <div className="collection__filterProduct--item">
+          <span className="collection__filterProduct--title">
+            Brand
+            <Arrow />
+          </span>
+
+          <ul className="collection__list">
+            {brandCount.map((filter) => (
+              <li
+                onClick={(event) => {
+                  setIsActive((prevState) => !prevState);
+
+                  addQuery(
+                    "brand",
+                    filter.key.toLowerCase().replaceAll(" ", "-")
+                  );
+                }}
+                key={Math.random()}
+                className={`collection__item ${
+                  isActive ? "collection__item--active" : ""
+                }`}
+              >
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">{filter.key}</span>
+                <span className="collection__item--count">
+                  ({filter.count})
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="collection__filterProduct--item">
+          <span className="collection__filterProduct--title">
+            Type
+            <Arrow />
+          </span>
+
+          <ul className="collection__list">
+            {typeCount.map((filter) => (
+              <li
+                onClick={(event) => {
+                  setIsActive((prevState) => !prevState);
+                  addQuery(
+                    "category",
+                    filter.key.toLowerCase().replaceAll(" ", "-")
+                  );
+                }}
+                key={Math.random()}
+                className={`collection__item ${
+                  isActive ? "collection__item--active" : ""
+                }`}
+              >
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">{filter.key}</span>
+                <span className="collection__item--count">
+                  ({filter.count})
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="collection__filterProduct--item">
+          <span className="collection__filterProduct--title">
+            Gender
+            <Arrow />
+          </span>
+
+          <ul className="collection__list">
+            {genderCount.map((filter) => (
+              <li
+                onClick={(event) => {
+                  setIsActive((prevState) => !prevState);
+                  addQuery(
+                    "gender",
+                    filter.key.toLowerCase().replaceAll(" ", "-")
+                  );
+                }}
+                key={Math.random()}
+                className={`collection__item ${
+                  isActive ? "collection__item--active" : ""
+                }`}
+              >
+                <span className="collection__item--checkbox"></span>
+                <span className="collection__item--brand">{filter.key}</span>
+                <span className="collection__item--count">
+                  ({filter.count})
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <Button
+          onClick={() => {
+            document.body.style.overflow = "visible";
+            mobileMenuRef.current.classList.toggle(
+              "collection__menuMobile--toggle"
+            );
+          }}
+          className="collection__menuMobile--button"
+        >
+          View {data.length} Products
+        </Button>
+      </div>
     </>
   );
 };

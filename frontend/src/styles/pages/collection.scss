@@ -79,7 +79,7 @@
       border: 1px solid $black;
       border-radius: 2px;
 
-      padding-left: 1rem;
+      padding: 1rem;
       font-size: 2.4rem;
       font-family: inherit;
       line-height: inherit;
@@ -87,13 +87,13 @@
   }
 
   &__filterList {
-    width: 30vw;
     font-size: 2rem;
     display: flex;
-    justify-content: space-between;
+    gap: 3rem;
     align-items: center;
+
     @include respond(tab-port) {
-      width: 47vw;
+      display: none;
     }
   }
 
@@ -119,57 +119,6 @@
 
       &:focus {
         outline: none;
-      }
-    }
-  }
-
-  &__sortBy {
-    font-family: inherit;
-    font-size: inherit;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    text-align: left;
-    @include respond(tab-port) {
-      width: 100%;
-      border: 1px solid $black;
-      border-radius: 2px;
-      padding: 1rem;
-      font-size: 2.4rem;
-    }
-    position: relative;
-  }
-  &__filterList--active &__sortOption {
-    display: flex;
-  }
-  &__sortOption {
-    display: none;
-    flex-direction: column;
-    background-color: $white;
-    padding: 1rem 0;
-    margin-top: 1rem;
-
-    box-shadow: 0 0 0 1px #3f3f440d, 0 1px 3px #3f3f4426;
-
-    min-width: 22rem;
-    width: 100%;
-
-    position: absolute;
-    z-index: 20;
-    top: 100%;
-    right: 0;
-
-    span {
-      font-size: 1.4rem;
-      padding: 0.5rem 1.5rem;
-      cursor: pointer;
-
-      @include respond(tab-port) {
-        font-size: 1.6rem;
-      }
-
-      &:hover {
-        background-color: #f7f7f7;
       }
     }
   }
@@ -292,6 +241,14 @@
     display: flex;
     flex-direction: column;
     transition: all 0.25s ease-in-out;
+
+    &--toggle {
+      left: 0% !important;
+    }
+
+    @media only screen and (min-width: 1025px) {
+      display: none;
+    }
 
     &--button {
       background-color: transparent;
