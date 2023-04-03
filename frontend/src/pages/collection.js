@@ -311,30 +311,34 @@ const Collection = (props) => {
                 </span>
 
                 <ul className="collection__list">
-                  {typeCount.map((filter) => (
-                    <li
-                      onClick={(event) => {
-                        setIsActive((prevState) => !prevState);
+                  {typeCount.map((filter) => {
+                    if (filter.key !== "") {
+                      return (
+                        <li
+                          onClick={(event) => {
+                            setIsActive((prevState) => !prevState);
 
-                        addQuery(
-                          "category",
-                          filter.key.toLowerCase().replaceAll(" ", "-")
-                        );
-                      }}
-                      key={Math.random()}
-                      className={`collection__item ${
-                        isActive ? "collection__item--active" : ""
-                      }`}
-                    >
-                      <span className="collection__item--checkbox"></span>
-                      <span className="collection__item--brand">
-                        {filter.key}
-                      </span>
-                      <span className="collection__item--count">
-                        ({filter.count})
-                      </span>
-                    </li>
-                  ))}
+                            addQuery(
+                              "category",
+                              filter.key.toLowerCase().replaceAll(" ", "-")
+                            );
+                          }}
+                          key={Math.random()}
+                          className={`collection__item ${
+                            isActive ? "collection__item--active" : ""
+                          }`}
+                        >
+                          <span className="collection__item--checkbox"></span>
+                          <span className="collection__item--brand">
+                            {filter.key}
+                          </span>
+                          <span className="collection__item--count">
+                            ({filter.count})
+                          </span>
+                        </li>
+                      );
+                    } else return false;
+                  })}
                 </ul>
               </div>
               <div className="collection__filterProduct--item">

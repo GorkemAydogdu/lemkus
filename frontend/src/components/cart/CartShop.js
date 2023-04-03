@@ -36,7 +36,7 @@ const CartShop = (props) => {
       <div className="splide cart__shop--group">
         <div className="splide__track">
           <ul className="splide__list cart__shop--list">
-            {props.data.map((item) => (
+            {/* {props.data.map((item) => (
               <CartShopItem
                 key={item.id}
                 image={item.image}
@@ -44,7 +44,7 @@ const CartShop = (props) => {
                 name={item.name}
                 price={item.price}
               />
-            ))}
+            ))} */}
           </ul>
         </div>
       </div>
