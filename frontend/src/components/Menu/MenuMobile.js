@@ -84,39 +84,39 @@ const MenuMobile = (props) => {
     });
   }, [uiCtx]);
 
-  let content = props.menu.map((item, idx) => (
-    <li key={item.id} className="menuMobile__item">
-      <Button
-        ref={(el) => (buttonRef.current[idx] = el)}
-        onClick={clickButtonHandler}
-        className="menuMobile__button"
-      >
-        {item.name}
-      </Button>
-      <div
-        ref={(el) => (categoryRef.current[idx] = el)}
-        className={`menuMobile__categories ${item.name}`}
-      >
-        {item.links.map((link) => (
-          <React.Fragment key={link.id}>
-            <span className="menuMobile__title">{link.category}</span>
-            <ul className="menuMobile__categoriesList">
-              {link.items.map((item) => (
-                <li key={item.id} className="menuMobile__categoriesItem">
-                  <Link
-                    to={`/collections${item.pathname}`}
-                    className="menuMobile__categoriesLink"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </React.Fragment>
-        ))}
-      </div>
-    </li>
-  ));
+  // let content = props.menu.map((item, idx) => (
+  //   <li key={item.id} className="menuMobile__item">
+  //     <Button
+  //       ref={(el) => (buttonRef.current[idx] = el)}
+  //       onClick={clickButtonHandler}
+  //       className="menuMobile__button"
+  //     >
+  //       {item.name}
+  //     </Button>
+  //     <div
+  //       ref={(el) => (categoryRef.current[idx] = el)}
+  //       className={`menuMobile__categories ${item.name}`}
+  //     >
+  //       {item.links.map((link) => (
+  //         <React.Fragment key={link.id}>
+  //           <span className="menuMobile__title">{link.category}</span>
+  //           <ul className="menuMobile__categoriesList">
+  //             {link.items.map((item) => (
+  //               <li key={item.id} className="menuMobile__categoriesItem">
+  //                 <Link
+  //                   to={`/collections${item.pathname}`}
+  //                   className="menuMobile__categoriesLink"
+  //                 >
+  //                   {item.name}
+  //                 </Link>
+  //               </li>
+  //             ))}
+  //           </ul>
+  //         </React.Fragment>
+  //       ))}
+  //     </div>
+  //   </li>
+  // ));
   return (
     <div
       ref={menuMobileRef}
@@ -135,7 +135,7 @@ const MenuMobile = (props) => {
             Launches
           </Link>
         </li>
-        {content}
+        {/* {content} */}
         <li className="menuMobile__item">
           <Link to="/blogs/news" className="menuMobile__link">
             Culture

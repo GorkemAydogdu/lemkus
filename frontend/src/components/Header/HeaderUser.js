@@ -28,7 +28,7 @@ const HeaderUser = () => {
       <Link to="/search">
         <Search />
       </Link>
-      <Link to="/account/login">
+      <Link to="/account">
         <User />
       </Link>
       <Button onClick={clickWishlistButtonHandler} className="header__wishlist">

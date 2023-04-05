@@ -20,8 +20,7 @@ import TsCs from "./pages/terms-and-conditions";
 import Contact from "./pages/contact";
 import About from "./pages/about";
 import Search from "./pages/search";
-import Login from "./pages/login";
-import Register from "./pages/register";
+import Account from "./pages/account";
 import Brands from "./pages/brands";
 import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
@@ -57,8 +56,7 @@ const routes = [
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
   { path: "/search", name: "Search", Component: Search },
-  { path: "/account/login", name: "Login", Component: Login },
-  { path: "/account/register", name: "Register", Component: Register },
+  { path: "/account", name: "Account", Component: Account },
 ];
 
 function App() {

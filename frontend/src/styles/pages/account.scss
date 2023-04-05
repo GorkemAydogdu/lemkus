@@ -19,50 +19,68 @@
       letter-spacing: 0px;
     }
   }
-  &__error {
-    font-size: 1.8rem;
-    color: #c30808;
-
-    @include respond(tab-port) {
-      font-size: 2.3rem;
-    }
-  }
-  &__form,
-  &__action {
+  &__information,
+  &__orderHistory {
+    width: 60%;
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin-top: 1rem;
-    gap: 2rem;
-
-    @include respond(tab-port) {
-      padding: 0 2.5rem;
-      width: 100%;
-    }
+    margin-top: 5rem;
   }
 
-  &__email,
-  &__password,
-  &__firstName,
-  &__lastName {
-    line-height: 200%;
-    border: none;
+  &__subtitle {
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    padding-bottom: 2rem;
     border-bottom: 1px solid $black;
-    color: $black;
-    font-size: 1.6rem;
-    padding: 0.3rem;
 
     @include respond(tab-port) {
-      font-size: 2.1rem;
+      font-size: 4rem;
+      letter-spacing: 0px;
     }
 
-    &:focus {
-      outline: none;
+    @include respond(smallPhone) {
+      font-size: 3rem;
+    }
+  }
+  &__userName,
+  &__email {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  &__userName {
+    font-weight: 300;
+  }
+  &__email {
+    font-weight: 500;
+  }
+
+  &__orderHistory > p {
+    font-weight: 300;
+    font-size: 1.8rem;
+  }
+
+  &__orderList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 2rem 0;
+  }
+  &__orderItem {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.6rem;
     }
   }
 
-  &__signIn,
-  &__submit {
+  &__action {
     cursor: pointer;
     margin: 3rem 0;
     background-color: $yellow;
@@ -78,43 +96,4 @@
       height: 5rem;
     }
   }
-
-  &__signUp {
-    display: flex;
-    align-self: center;
-    font-size: 2rem;
-    text-transform: uppercase;
-    color: $black;
-
-    @include respond(tab-port) {
-      font-size: 2.5rem;
-    }
-  }
-  &__forgot {
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $black;
-
-    font-size: 1.6rem;
-    cursor: pointer;
-
-    @include respond(tab-port) {
-      font-size: 2.1rem;
-    }
-  }
-  &__forgotForm {
-    display: flex;
-    flex-direction: column;
-    transition: clip-path 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    clip-path: inset(0% 0% 100% 0);
-  }
-}
-
-.showForm {
-  clip-path: inset(0% 0% 0% 0%);
 }
