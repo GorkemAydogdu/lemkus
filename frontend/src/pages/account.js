@@ -22,12 +22,11 @@ const Account = () => {
           <Button
             onClick={() => loginWithRedirect()}
             type="button"
-            className="account__signIn btn-hover"
+            className="account__action btn-hover"
           >
-            <span className="static">Sign in</span>
+            <span className="static">Login</span>
             <span className="hover">
-              Sign in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign
-              in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           </Button>
         )}
@@ -61,8 +60,8 @@ const Account = () => {
             </Button>
           </>
         )}
-        <Footer />
       </div>
+      <Footer />
     </SmoothScrollWrapper>
   );
 };

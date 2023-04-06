@@ -10,6 +10,7 @@ app.use(require("./routes/news"));
 app.use(require("./routes/menu"));
 app.use(require("./routes/brands"));
 app.use(require("./routes/collections"));
+app.use(require("./routes/wishlist"));
 // get driver connection
 const dbo = require("./db/conn");
 

@@ -14,6 +14,7 @@ import UIContext from "../context/ui-context";
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Button from "../components/UI/Button";
 import Culture from "../components/Culture/Culture";
+import { useAuth0 } from "@auth0/auth0-react";
 
 //Splidejs
 import Splide from "@splidejs/splide";
@@ -28,6 +29,7 @@ const CollectionDetail = (props) => {
   const [clickedData, setClickedData] = useState([]);
   const addToBagStatic = useRef();
   const addToBagHover = useRef();
+  const [completeFetch, setCompleteFetch] = useState(true);
 
   const wishlistStatic = useRef();
   const wishlistHover = useRef();
@@ -39,7 +41,6 @@ const CollectionDetail = (props) => {
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
 
-  let { productName } = useParams();
   let { categoryName } = useParams();
 
   const navigate = useNavigate();
@@ -50,34 +51,27 @@ const CollectionDetail = (props) => {
 
   const getClickedProduct = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:5000/product");
+      setCompleteFetch(true);
+      const res = await fetch(`http://localhost:5000/product/${id}`);
       if (!res.ok) {
         throw Error("Something went wrong");
       }
       const data = await res.json();
 
-      setClickedData(
-        data.filter(
-          (filtered) =>
-            filtered.name
-              .toLowerCase()
-              .replaceAll(/[^a-zA-Z0-9]/g, "-")
-              .replace(/-{2,}/g, "-")
-              .replace(/-$/, "") === productName ||
-            filtered._id.toString() === id
-        )
-      );
+      setClickedData(data);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setCompleteFetch(false);
     }
-  }, [id, productName]);
+  }, [id]);
 
   useEffect(() => {
     getClickedProduct();
   }, [getClickedProduct]);
 
   useEffect(() => {
-    if (clickedData.length > 0) {
+    if (completeFetch !== true) {
       const splide = new Splide(".collectionDetail__imagesWrapper", {
         arrows: false,
         direction: "ttb",
@@ -112,10 +106,10 @@ const CollectionDetail = (props) => {
       });
       splide.mount();
     }
-  }, [clickedData]);
+  }, [completeFetch]);
 
   useEffect(() => {
-    if (clickedData.length > 0) {
+    if (completeFetch !== true) {
       if (clickedSize) {
         for (let i = 0; i < buttonsRef.current.length; i++) {
           if (clickedSize === buttonsRef.current[i].innerHTML) {
@@ -132,11 +126,11 @@ const CollectionDetail = (props) => {
       let thumbnailButton = document.querySelectorAll(
         ".collectionDetail__thumbnailButton"
       );
-      clickedData[0].images.forEach((image, idx) => {
+      clickedData.images.forEach((image, idx) => {
         thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
       });
     }
-  }, [clickedData, clickedSize]);
+  }, [clickedData, completeFetch, clickedSize]);
 
   const dispatch = useDispatch();
 
@@ -156,31 +150,49 @@ const CollectionDetail = (props) => {
     }
   }
 
+  const { user } = useAuth0();
+
+  const addWishlistHandler = async (e) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:5000/wishlist/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: clickedData.name,
+        clickedSize: clickedSize,
+        images: clickedData.images,
+        userName: user.name,
+        email: user.email,
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+  };
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="collectionDetail">
-        {clickedData.length !== 0 && (
+        {completeFetch !== true && (
           <div className="splide collectionDetail__imagesWrapper">
             <div className="splide__track">
               <ul className="splide__list collectionDetail__images">
-                {clickedData[0].images.map((image) => (
+                {clickedData.images.map((image) => (
                   <li
                     key={image.id}
                     className="splide__slide collectionDetail__image"
                   >
-                    <img src={image.url} alt={clickedData[0].name} />
+                    <img src={image.url} alt={clickedData.name} />
                   </li>
                 ))}
               </ul>
             </div>
           </div>
         )}
-        {clickedData.length !== 0 && (
+        {completeFetch !== true && (
           <div className="collectionDetail__infos">
-            <h1 className="collectionDetail__title">{clickedData[0].name}</h1>
+            <h1 className="collectionDetail__title">{clickedData.name}</h1>
             <div className="collectionDetail__priceGuide">
               <span className="collectionDetail__price">
-                R {clickedData[0].price}
+                R {clickedData.price}
               </span>
               <a
                 href="https://cdn.shopify.com/s/files/1/0538/9280/8895/files/Lemkus_Approved.pdf"
@@ -192,24 +204,24 @@ const CollectionDetail = (props) => {
               </a>
             </div>
             <div className="collectionDetail__sizes">
-              {clickedData[0].sizes.map((size, idx) => (
+              {clickedData.sizes.map((size, idx) => (
                 <Button
                   ref={(el) => (buttonsRef.current[idx] = el)}
                   onClick={(event) => {
                     if (categoryName !== undefined) {
                       navigate(
-                        `/collections/${clickedData[0].categoryName.toLowerCase()}/${clickedData[0].name
+                        `/collections/${clickedData.categoryName.toLowerCase()}/${clickedData.name
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
                           .replace(/-$/, "")}?id=${
-                          clickedData[0]._id
+                          clickedData._id
                         }&size=${size}`,
                         { replace: true }
                       );
                     } else {
                       navigate(
-                        `/products/${clickedData[0].name
+                        `/products/${clickedData.name
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
@@ -261,6 +273,7 @@ const CollectionDetail = (props) => {
                 </span>
               </Button>
               <Button
+                onClick={addWishlistHandler}
                 ref={wishListButton}
                 onMouseEnter={(event) => {
                   if (
@@ -309,7 +322,7 @@ const CollectionDetail = (props) => {
                   <span className="collectionDetail__plus--rotate"></span>
                 </div>
                 <p className="collectionDetail__descriptionContent">
-                  {clickedData[0].details}
+                  {clickedData.details}
                 </p>
               </div>
               <div
