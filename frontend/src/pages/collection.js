@@ -136,7 +136,6 @@ const Collection = (props) => {
       filtered.gender.toLowerCase() === gender &&
       brand === null
     ) {
-      console.log(filtered);
       return filtered;
     } else if (
       filtered.categoryName.toLowerCase() === categoryName &&

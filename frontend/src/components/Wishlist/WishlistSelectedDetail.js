@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 
 import Button from "../UI/Button";
 import { ReactComponent as ArrowLeft } from "../../assets/keyboard_arrow_left.svg";
-// import { ReactComponent as ArrowRight } from "../../assets/chevron-right.svg";
-import { ReactComponent as ArrowDown } from "../../assets/triangle-down.svg";
+import UIContext from "../../context/ui-context";
 
 //Splidejs
 import Splide from "@splidejs/splide";
 
 import "@splidejs/splide/css";
+import { Link } from "react-router-dom";
 
-const WishlistSelectedDetail = () => {
+const WishlistSelectedDetail = (props) => {
+  const uiCtx = useContext(UIContext);
+
   useEffect(() => {
     const splide = new Splide(".wishlist__images", {
       arrows: false,
@@ -31,17 +33,34 @@ const WishlistSelectedDetail = () => {
 
         item.button.classList.add("wishlist__thumbnailButton");
 
-        item.button.innerHTML = `<img src='https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-${
+        item.button.innerHTML = `<img src='' alt='Product ${
           item.page + 1
-        }.png?v=1665052479' alt='Product ${item.page + 1} of 7'/>`;
+        } of 7'/>`;
       });
     });
 
     splide.mount();
   }, []);
+
+  useEffect(() => {
+    let wishlistButton = document.querySelectorAll(
+      ".wishlist__thumbnailButton"
+    );
+    props.clickedData.images.forEach((image, idx) => {
+      wishlistButton[
+        idx
+      ].innerHTML = `<img src=${image.url} alt=${props.clickedData.name}/>`;
+    });
+  }, [props.clickedData]);
+
   return (
     <div className="wishlist__selectedDetail">
-      <Button className="wishlist__backList">
+      <Button
+        onClick={() => {
+          uiCtx.toggleWishlistDetail();
+        }}
+        className="wishlist__backList"
+      >
         <span>
           <ArrowLeft />
         </span>
@@ -51,70 +70,26 @@ const WishlistSelectedDetail = () => {
         <div className="splide wishlist__images">
           <div className="splide__track">
             <ul className="splide__list">
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-1.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-2.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-3.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-4.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-5.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-6.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/DM3384-600-7.png?v=1665052479"
-                  alt="Jordan Delta 3 Low"
-                />
-              </li>
+              {props.clickedData.images.map((item) => (
+                <li key={item.id} className="splide__slide">
+                  <img src={item.url} alt={props.clickedData.name} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="wishlist__selectedProductDetail">
           <span className="wishlist__selectedProductDetail--title">
-            Jordan Delta 3 Low
+            {props.clickedData.name}
           </span>
-          <div className="wishlist__selectedProductDetail--size">
-            <ArrowDown />
-            <label htmlFor="size">Size</label>
-            <select name="size" id="size">
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </div>
+          <span className="wishlist__selectedProductDetail--size">
+            Size : {props.clickedData.clickedSize}
+          </span>
           <div className="wishlist__action">
             <Button className="wishlist__addToCart">Add To Cart</Button>
-            <a href="/" className="wishlist__action--more">
+            <Link to={`/`} className="wishlist__action--more">
               More Details
-            </a>
+            </Link>
           </div>
         </div>
       </div>

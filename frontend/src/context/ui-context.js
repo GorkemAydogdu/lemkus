@@ -6,6 +6,8 @@ const UIContext = React.createContext({
   cartIsActive: false,
   wishlistIsActive: false,
   isLocationChanged: false,
+  wishlistClicked: false,
+  toggleWishlistDetail: () => {},
   toggleMenu: () => {},
   toggleCart: () => {},
   toggleWishlist: () => {},
@@ -19,6 +21,7 @@ export const UIContextProvider = (props) => {
   const [locationChanged, setLocationChanged] = useState(false);
 
   const [wishlistIsActive, setWishlistIsActive] = useState(false);
+  const [wishlistClicked, setWishlistClicked] = useState(false);
 
   const location = useLocation();
 
@@ -38,6 +41,10 @@ export const UIContextProvider = (props) => {
     setWishlistIsActive((prevState) => !prevState);
   };
 
+  const toggleWishlistDetailHandler = () => {
+    setWishlistClicked((prevState) => !prevState);
+  };
+
   const changedHandler = () => {
     setLocationChanged(true);
   };
@@ -53,6 +60,8 @@ export const UIContextProvider = (props) => {
         cartIsActive: cartIsActive,
         wishlistIsActive: wishlistIsActive,
         isLocationChanged: locationChanged,
+        wishlistClicked: wishlistClicked,
+        toggleWishlistDetail: toggleWishlistDetailHandler,
         onChanged: changedHandler,
         onUnChanged: unChangedHandler,
         toggleMenu: toggleMenuHandler,

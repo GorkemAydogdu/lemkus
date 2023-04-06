@@ -34,20 +34,34 @@ wishlistRoutes.route("/wishlist/:id").get(async function (req, res) {
   }
 });
 
+// // This section will help you create a new record.
+// wishlistRoutes.route("/wishlist/add").post(function (req, response) {
+//   let db_connect = dbo.getDb("dbLemkus");
+//   let myobj = {
+//     name: req.body.name,
+//     clickedSize: req.body.clickedSize,
+//     images: req.body.images,
+//     userName: req.body.userName,
+//     email: req.body.email,
+//   };
+//   db_connect.collection("wishlist").insertOne(myobj, function (err, res) {
+//     if (err) throw err;
+//     response.json(res);
+//   });
+// });
 // This section will help you create a new record.
 wishlistRoutes.route("/wishlist/add").post(async function (req, response) {
-  let db_connect = dbo.getDb("dbLemkus");
-  let myobj = {
-    name: req.body.name,
-    clickedSize: req.body.clickedSize,
-    images: req.body.images,
-    userName: req.body.userName,
-    email: req.body.email,
-  };
   try {
-    db_connect.collection("wishlist").insertOne(myobj, function (err, res) {
-      response.json(res);
-    });
+    let db_connect = dbo.getDb("dbLemkus");
+    let myobj = {
+      name: req.body.name,
+      clickedSize: req.body.clickedSize,
+      images: req.body.images,
+      userName: req.body.userName,
+      email: req.body.email,
+    };
+    let result = db_connect.collection("wishlist").insertOne(myobj);
+    response.send(result).status(200);
   } catch (e) {
     console.log("An error occured pulling the wishlist : " + e);
   }

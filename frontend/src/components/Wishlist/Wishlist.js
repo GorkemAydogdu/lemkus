@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 
 import UIContext from "../../context/ui-context";
 
@@ -6,7 +12,6 @@ import WishlistHeader from "./WishlistHeader";
 import WishlistUser from "./WishlistUser";
 import WishlistEmpty from "./WishlistEmpty";
 import WishlistContent from "./WishlistContent";
-import WishlistSelectedDetail from "./WishlistSelectedDetail";
 
 import { ReactComponent as Bin } from "../../assets/bin2.svg";
 
@@ -24,14 +29,15 @@ const Wishlist = () => {
     clearRef.current.style.display = "none";
   }
 
-  async function getWishlist() {
+  const getWishlist = useCallback(async () => {
     const res = await fetch("http://localhost:5000/wishlist");
     const data = await res.json();
     setWishlist(data);
-  }
+  }, []);
+
   useEffect(() => {
     getWishlist();
-  }, []);
+  }, [getWishlist]);
 
   useEffect(() => {
     if (uiCtx.wishlistIsActive === true) {
@@ -62,8 +68,6 @@ const Wishlist = () => {
             ) : (
               <WishlistContent data={wishlist} />
             )}
-
-            {/* <WishlistSelectedDetail /> */}
             <div
               ref={bgRef}
               onClick={closeButtonHandler}

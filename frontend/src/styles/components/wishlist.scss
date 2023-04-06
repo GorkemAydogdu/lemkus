@@ -298,6 +298,8 @@
       letter-spacing: -1px;
       font-size: 3rem;
       font-weight: 500;
+      margin-top: 2rem;
+      text-align: center;
 
       @include respond(tab-land) {
         font-size: 2.5rem;
@@ -460,67 +462,19 @@
       }
     }
     &--size {
-      position: relative;
-      display: flex;
-      flex-direction: column;
+      font-size: 1.6rem;
+      color: #434655;
 
-      svg {
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        top: 35px;
-        left: -25px;
-
-        @include respond(tab-land) {
-          top: 30px;
-          left: -17px;
-        }
-
-        @include respond(phone) {
-          width: 3rem;
-          height: 3rem;
-          top: 28px;
-          left: -20px;
-        }
+      @include respond(tab-land) {
+        font-size: 1.5rem;
       }
 
-      label {
-        text-transform: uppercase;
-        font-size: 1.6rem;
-        color: #828282;
-        margin-bottom: 0.7rem;
-        @include respond(tab-land) {
-          font-size: 1.5rem;
-        }
-        @include respond(tab-port) {
-          font-size: 2rem;
-        }
-        @include respond(phone) {
-          font-size: 2.3rem;
-        }
+      @include respond(tab-port) {
+        font-size: 2rem;
       }
 
-      select {
-        cursor: pointer;
-        border: 1px solid $black;
-        font-size: 1.3rem;
-        padding: 1.2rem;
-        appearance: none;
-        color: #434655;
-        background: $white;
-        border: 1px solid #434655;
-
-        @include respond(tab-port) {
-          font-size: 1.7rem;
-        }
-
-        @include respond(phone) {
-          font-size: 2rem;
-        }
-
-        &:focus {
-          outline: none;
-        }
+      @include respond(phone) {
+        font-size: 2.3rem;
       }
     }
   }

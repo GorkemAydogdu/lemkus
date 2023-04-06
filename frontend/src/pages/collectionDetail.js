@@ -154,7 +154,7 @@ const CollectionDetail = (props) => {
 
   const addWishlistHandler = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/wishlist/add", {
+    await fetch("http://localhost:5000/wishlist/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -165,8 +165,6 @@ const CollectionDetail = (props) => {
         email: user.email,
       }),
     });
-    const data = await res.json();
-    console.log(data);
   };
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
