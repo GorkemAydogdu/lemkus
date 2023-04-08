@@ -87,7 +87,18 @@ const WishlistSelectedDetail = (props) => {
           </span>
           <div className="wishlist__action">
             <Button className="wishlist__addToCart">Add To Cart</Button>
-            <Link to={`/`} className="wishlist__action--more">
+            <Link
+              onClick={() => {
+                uiCtx.toggleWishlistDetail();
+                uiCtx.toggleWishlist();
+              }}
+              to={`/products/${props.clickedData.name
+                .toLowerCase()
+                .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                .replace(/-{2,}/g, "-")
+                .replace(/-$/, "")}?id=${props.clickedData.productId}`}
+              className="wishlist__action--more"
+            >
               More Details
             </Link>
           </div>

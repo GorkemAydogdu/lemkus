@@ -14,7 +14,7 @@ import WishlistEmpty from "./WishlistEmpty";
 import WishlistContent from "./WishlistContent";
 
 import { ReactComponent as Bin } from "../../assets/bin2.svg";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import gsap from "gsap";
 import Button from "../UI/Button";
 
@@ -23,6 +23,7 @@ const Wishlist = () => {
   const clearRef = useRef();
   const uiCtx = useContext(UIContext);
   const [wishlist, setWishlist] = useState([]);
+  const { isAuthenticated, user } = useAuth0();
 
   function closeButtonHandler() {
     bgRef.current.style.display = "none";
@@ -30,10 +31,13 @@ const Wishlist = () => {
   }
 
   const getWishlist = useCallback(async () => {
-    const res = await fetch("http://localhost:5000/wishlist");
-    const data = await res.json();
-    setWishlist(data);
-  }, []);
+    if (isAuthenticated) {
+      const res = await fetch("http://localhost:5000/wishlist");
+      const data = await res.json();
+
+      setWishlist(data.filter((filtered) => filtered.userName === user.name));
+    }
+  }, [user, isAuthenticated]);
 
   useEffect(() => {
     getWishlist();
@@ -49,6 +53,15 @@ const Wishlist = () => {
       });
       gsap.to("body", {
         overflow: "hidden",
+      });
+    } else {
+      gsap.to(".backdrop--wishlist", {
+        opacity: 0,
+        display: "none",
+        ease: "Expo.easeInOut",
+      });
+      gsap.to("body", {
+        overflow: "visible",
       });
     }
   }, [uiCtx]);

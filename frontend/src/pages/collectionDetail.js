@@ -158,6 +158,7 @@ const CollectionDetail = (props) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        productId: clickedData._id,
         name: clickedData.name,
         clickedSize: clickedSize,
         images: clickedData.images,
@@ -165,6 +166,7 @@ const CollectionDetail = (props) => {
         email: user.email,
       }),
     });
+    window.location.reload();
   };
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">

@@ -4,14 +4,14 @@ import UIContext from "../../context/ui-context";
 
 import { ReactComponent as X } from "../../assets/x.svg";
 import { ReactComponent as User } from "../../assets/user-o.svg";
-
 import Button from "../UI/Button";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import gsap from "gsap";
 
 const WishlistUser = () => {
   const uiCtx = useContext(UIContext);
-
+  const { isAuthenticated, user } = useAuth0();
   function closeWishlistHandler() {
     uiCtx.toggleWishlist();
     gsap.to(".backdrop--wishlist", {
@@ -28,7 +28,7 @@ const WishlistUser = () => {
     <div className="wishlist__user">
       <Button className="wishlist__loginStatus">
         <User />
-        <span>Guest Shopper</span>
+        <span>{isAuthenticated === false ? "Guest Shopper" : user.name}</span>
       </Button>
       <Button onClick={closeWishlistHandler} className="wishlist__close">
         <X />

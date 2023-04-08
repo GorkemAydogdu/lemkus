@@ -185,14 +185,6 @@ function App() {
         className="backdrop backdrop--wishlist"
         onClick={() => {
           uiCtx.toggleWishlist();
-          gsap.to(".backdrop--wishlist", {
-            opacity: 0,
-            display: "none",
-            ease: "Expo.easeInOut",
-          });
-          gsap.to("body", {
-            overflow: "visible",
-          });
         }}
       />
       <Backdrop
