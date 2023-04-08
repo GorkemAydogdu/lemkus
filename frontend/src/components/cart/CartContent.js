@@ -23,14 +23,15 @@ const CartContent = (props) => {
         overflow: "hidden",
       });
     } else {
+      props.cartRef.current.style.transform = "translateX(100%)";
       gsap.to(".backdrop--cart", {
         opacity: 0,
         display: "none",
         ease: "Expo.easeInOut",
       });
-      // gsap.to("body", {
-      //   overflow: "visible",
-      // });
+      gsap.to("body", {
+        overflow: "visible",
+      });
     }
   }, [uiCtx, props]);
 

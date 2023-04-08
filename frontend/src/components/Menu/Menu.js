@@ -37,16 +37,6 @@ const Menu = (props) => {
         ease: "expo.inOut",
         delay: 0.1,
       });
-    } else {
-      gsap.to(".backdrop--menu", {
-        duration: 1,
-        opacity: 0,
-        display: "none",
-        ease: "Expo.easeInOut",
-      });
-      gsap.to("body", {
-        overflow: "visible",
-      });
     }
   }, [props, uiCtx]);
 

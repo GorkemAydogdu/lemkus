@@ -33,6 +33,7 @@
       gap: 5rem;
     }
     &--all {
+      border-top: 1px solid $black;
       width: 100vw;
       flex-wrap: wrap;
     }

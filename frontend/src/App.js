@@ -1,9 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-
 import UIContext from "./context/ui-context";
-// import MenuContext from "./context/menu-context";
-
 //Components
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
@@ -11,7 +8,6 @@ import MenuMobile from "./components/Menu/MenuMobile";
 import Backdrop from "./components/UI/Backdrop";
 import Cart from "./components/cart/Cart";
 import Wishlist from "./components/Wishlist/Wishlist";
-
 //Pages
 import Home from "./pages/home";
 import Faq from "./pages/faq";
@@ -28,9 +24,7 @@ import Launches from "./pages/launches";
 import Collection from "./pages/collection";
 import CollectionDetail from "./pages/collectionDetail";
 import Payment from "./pages/payment";
-
 import gsap from "gsap";
-
 //styles
 import "./styles/App.scss";
 
@@ -57,6 +51,27 @@ const routes = [
   { path: "/pages/about", name: "About", Component: About },
   { path: "/search", name: "Search", Component: Search },
   { path: "/account", name: "Account", Component: Account },
+  { path: "/checkouts", name: "Payment", Component: Payment },
+  { path: "/", name: "Home", Component: Home },
+  { path: "/pages/launches", name: "Launches", Component: Launches },
+  { path: "/pages/brands", name: "Brands", Component: Brands },
+  { path: "/blogs/news", name: "News", Component: News },
+  { path: "/blogs/news/:id", name: "NewsDetail", Component: NewsDetail },
+  {
+    path: "/collections/:categoryName",
+    name: "Collection",
+    Component: Collection,
+  },
+  {
+    path: "/collections/:categoryName/:productName",
+    name: "CollectionDetail",
+    Component: CollectionDetail,
+  },
+  {
+    path: "/products/:productName",
+    name: "CollectionDetail",
+    Component: CollectionDetail,
+  },
 ];
 
 function App() {
@@ -136,22 +151,6 @@ function App() {
           <Menu className="menu menu--active" key={item._id} item={item} />
         ))}
       <Routes>
-        <Route path="/collections/:categoryName" element={<Collection />} />
-        <Route
-          path={`/collections/:categoryName/:productName`}
-          element={<CollectionDetail />}
-        />
-        <Route path={`/products/:productName`} element={<CollectionDetail />} />
-
-        <Route path="/blogs/news" element={<News />} />
-        <Route path="/blogs/news/:id" element={<NewsDetail />} />
-
-        <Route path="/" element={<Home />} />
-        <Route path="/pages/launches" element={<Launches />} />
-        <Route path="/pages/brands" element={<Brands />} />
-
-        <Route path="/checkouts" element={<Payment />} />
-
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
@@ -190,17 +189,6 @@ function App() {
       <Backdrop
         onClick={() => {
           uiCtx.toggleCart();
-          const cart = document.querySelector(".cart");
-          cart.style.transform = "translateX(100%)";
-
-          gsap.to(".backdrop--cart", {
-            opacity: 0,
-            display: "none",
-            ease: "Expo.easeInOut",
-          });
-          gsap.to("body", {
-            overflow: "visible",
-          });
         }}
         className="backdrop backdrop--cart"
       />

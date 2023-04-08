@@ -8,7 +8,7 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
-import ProductsCardAlternative from "../components/Products/ProductsCardAlternative";
+// import ProductsCardAlternative from "../components/Products/ProductsCardAlternative";
 import Culture from "../components/Culture/Culture";
 import Footer from "../components/Footer/Footer";
 
@@ -65,12 +65,16 @@ const Launches = (props) => {
                   .slice(0, 5)
                   .map((item) => (
                     <li
-                      key={item.id}
+                      key={item._id}
                       className="splide__slide launches__item launches__item--variant"
                     >
                       <div className="products__container">
                         <Link
-                          to={`/products/${item._id}`}
+                          to={`/products/${item.name
+                            .toLowerCase()
+                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                            .replace(/-{2,}/g, "-")
+                            .replace(/-$/, "")}?id=${item._id}`}
                           className="products__image"
                         >
                           <div className="products__logo">
@@ -90,7 +94,13 @@ const Launches = (props) => {
                           <div className="products__container--size">
                             {item.sizes.map((size) => (
                               <Link
-                                to={`/products/${item._id}?size=${size}`}
+                                to={`/products/${item.name
+                                  .toLowerCase()
+                                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                                  .replace(/-{2,}/g, "-")
+                                  .replace(/-$/, "")}?id=${
+                                  item._id
+                                }&size=${size}`}
                                 key={size}
                               >
                                 {size}
@@ -98,7 +108,11 @@ const Launches = (props) => {
                             ))}
                           </div>
                           <Link
-                            to={`/products/${item._id}`}
+                            to={`/products/${item.name
+                              .toLowerCase()
+                              .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                              .replace(/-{2,}/g, "-")
+                              .replace(/-$/, "")}?id=${item._id}`}
                             className="products__container--title"
                           >
                             {item.name}
@@ -115,25 +129,18 @@ const Launches = (props) => {
           </div>
         </div>
 
-        {product
-          .filter((item) => item.name === "Air Jordan 2 Retro")
-          .map((item) => (
-            <ProductsCardAlternative
-              key={item.id}
-              name={item.name}
-              logo={item.logo}
-              image={item.images[0]}
-              price={item.price}
-            />
-          ))}
         <ul className="launches__list launches__list--all">
           {product
             .filter((filtered) => filtered.categoryName === "Launches")
             .map((item) => (
-              <li key={item.id} className="launches__item launches__item--all">
+              <li key={item._id} className="launches__item launches__item--all">
                 <div className="products__container">
                   <Link
-                    to={`/products/${item._id}`}
+                    to={`/products/${item.name
+                      .toLowerCase()
+                      .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                      .replace(/-{2,}/g, "-")
+                      .replace(/-$/, "")}?id=${item._id}`}
                     className="products__image"
                   >
                     <div className="products__logo">
@@ -153,7 +160,11 @@ const Launches = (props) => {
                     <div className="products__container--size">
                       {item.sizes.map((size) => (
                         <Link
-                          to={`/products/${item._id}?size=${size}`}
+                          to={`/products/${item.name
+                            .toLowerCase()
+                            .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                            .replace(/-{2,}/g, "-")
+                            .replace(/-$/, "")}?id=${item._id}&size=${size}`}
                           key={size}
                         >
                           {size}
@@ -161,7 +172,11 @@ const Launches = (props) => {
                       ))}
                     </div>
                     <Link
-                      to={`/products/${item._id}`}
+                      to={`/products/${item.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?id=${item._id}`}
                       className="products__container--title"
                     >
                       {item.name}
