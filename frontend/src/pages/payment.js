@@ -3,6 +3,8 @@ import React, { useState, useMemo, useEffect } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/lib/styles.scss";
 
+import { useSelector } from "react-redux";
+
 import Select from "react-select";
 import countryList from "react-select-country-list";
 
@@ -29,6 +31,11 @@ const Payment = () => {
 
   const location = useLocation();
 
+  const cartItems = useSelector((state) => state.cart.items);
+  let totalPrice = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i].totalPrice;
+  }
   const changeHandler = (value) => {
     setValue(value);
   };
@@ -309,38 +316,21 @@ const Payment = () => {
         <div className="payment__product">
           <div className="payment__product--wrapper">
             <ul className="payment__productList">
-              <li className="payment__productItem">
-                <div className="payment__imageGroup">
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/CJ3906-016-1.png?v=1676711338"
-                    alt=""
-                  />
-                  <span>1</span>
-                </div>
-                <div className="payment__productInfos">
-                  <p className="payment__productTitle">
-                    Air Max 95 Recraft (GS)
-                  </p>
-                  <span className="payment__productSize">4</span>
-                </div>
-                <span className="payment__productPrice">R2,599.00</span>
-              </li>
-              <li className="payment__productItem">
-                <div className="payment__imageGroup">
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0538/9280/8895/products/CJ3906-016-1.png?v=1676711338"
-                    alt=""
-                  />
-                  <span>1</span>
-                </div>
-                <div className="payment__productInfos">
-                  <p className="payment__productTitle">
-                    Air Max 95 Recraft (GS)
-                  </p>
-                  <span className="payment__productSize">4</span>
-                </div>
-                <span className="payment__productPrice">R2,599.00</span>
-              </li>
+              {cartItems.map((item) => (
+                <li className="payment__productItem">
+                  <div className="payment__imageGroup">
+                    <img src={item.images[0].url} alt={item.name} />
+                    <span>{item.quantity}</span>
+                  </div>
+                  <div className="payment__productInfos">
+                    <p className="payment__productTitle">{item.name}</p>
+                    <span className="payment__productSize">
+                      {item.clickedSize}
+                    </span>
+                  </div>
+                  <span className="payment__productPrice">R{item.price}</span>
+                </li>
+              ))}
             </ul>
             <section className="payment__discount">
               <input
@@ -353,17 +343,19 @@ const Payment = () => {
             <section className="payment__totalPrice">
               <div className="payment__totalPrice--wrapper">
                 <span>Subtotal</span>
-                <span className="payment__totalPrice--subtotal">R5,198.00</span>
-              </div>
-              <div className="payment__totalPrice--wrapper">
-                <span>Shipping</span>
-                <span className="payment__totalPrice--shipping">
-                  Calculated at next step
+                <span className="payment__totalPrice--subtotal">
+                  R{totalPrice}
                 </span>
               </div>
               <div className="payment__totalPrice--wrapper">
+                <span>Shipping</span>
+                <span className="payment__totalPrice--shipping">0</span>
+              </div>
+              <div className="payment__totalPrice--wrapper">
                 <span>Total</span>
-                <span className="payment__totalPrice--total">R5,198.00</span>
+                <span className="payment__totalPrice--total">
+                  R{totalPrice}
+                </span>
               </div>
             </section>
           </div>

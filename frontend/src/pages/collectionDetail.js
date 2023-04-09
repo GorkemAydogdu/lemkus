@@ -135,9 +135,9 @@ const CollectionDetail = (props) => {
   const dispatch = useDispatch();
 
   function addToCartHandler() {
-    if (clickedData.length > 0) {
+    if (completeFetch !== true) {
       uiCtx.toggleCart();
-      const { name, price, _id, images } = clickedData[0];
+      const { name, price, _id, images } = clickedData;
       dispatch(
         cartActions.addItemToCart({
           _id,
@@ -226,7 +226,9 @@ const CollectionDetail = (props) => {
                           .toLowerCase()
                           .replaceAll(/[^a-zA-Z0-9]/g, "-")
                           .replace(/-{2,}/g, "-")
-                          .replace(/-$/, "")}?size=${size}`,
+                          .replace(/-$/, "")}?id=${
+                          clickedData._id
+                        }&size=${size}`,
                         { replace: true }
                         //https://stackoverflow.com/a/68694698/19191132
                       );
