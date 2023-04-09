@@ -40,6 +40,7 @@ wishlistRoutes.route("/wishlist/add").post(async function (req, response) {
     let myobj = {
       productId: req.body.productId,
       name: req.body.name,
+      price: req.body.price,
       clickedSize: req.body.clickedSize,
       images: req.body.images,
       userName: req.body.userName,
@@ -52,27 +53,13 @@ wishlistRoutes.route("/wishlist/add").post(async function (req, response) {
   }
 });
 
-// wishlistRoutes.route("/wishlist/remove/:id").delete((req, response) => {
-//   let db_connect = dbo.getDb("dbLemkus");
-//   let myquery = { _id: new ObjectId(req.params.id) };
-//   db_connect.collection("wishlist").deleteOne(myquery, function (err, obj) {
-//     if (err) throw err;
-//     console.log("1 document deleted");
-//     response.json(obj);
-//   });
-// });
+wishlistRoutes.route("/wishlist/remove/:id").delete(async (req, res) => {
+  const query = { _id: new ObjectId(req.params.id) };
 
-// wishlistRoutes
-//   .route("/wishlist/remove/:id")
-//   .delete(async function (req, response) {
-//     try {
-//       let db_connect = dbo.getDb("dbLemkus");
-//       let myquery = { _id: new ObjectId(req.params.id) };
-//       let result = db_connect.collection("wishlist").deleteOne(myquery);
-//       response.status(result).status(200);
-//     } catch (e) {
-//       console.log("An error occured pulling the wishlist : " + e);
-//     }
-//   });
+  const collection = dbo.getDb("dbLemkus").collection("wishlist");
+  let result = await collection.deleteOne(query);
+
+  res.send(result).status(200);
+});
 
 module.exports = wishlistRoutes;

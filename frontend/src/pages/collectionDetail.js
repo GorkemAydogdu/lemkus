@@ -160,6 +160,7 @@ const CollectionDetail = (props) => {
       body: JSON.stringify({
         productId: clickedData._id,
         name: clickedData.name,
+        price: clickedData.price,
         clickedSize: clickedSize,
         images: clickedData.images,
         userName: user.name,
