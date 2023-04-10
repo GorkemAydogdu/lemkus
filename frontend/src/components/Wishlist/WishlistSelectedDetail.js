@@ -1,4 +1,6 @@
 import React, { useEffect, useContext } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../redux/cartSlice";
 
 import Button from "../UI/Button";
 import { ReactComponent as ArrowLeft } from "../../assets/keyboard_arrow_left.svg";
@@ -41,6 +43,15 @@ const WishlistSelectedDetail = (props) => {
 
     splide.mount();
   }, []);
+  const dispatch = useDispatch();
+
+  function addDataToCartHandler(_id, name, price, images, clickedSize) {
+    uiCtx.toggleCart();
+    uiCtx.toggleWishlist();
+    dispatch(
+      cartActions.addItemToCart({ _id, name, price, images, clickedSize })
+    );
+  }
 
   useEffect(() => {
     let wishlistButton = document.querySelectorAll(
@@ -86,7 +97,20 @@ const WishlistSelectedDetail = (props) => {
             Size : {props.clickedData.clickedSize}
           </span>
           <div className="wishlist__action">
-            <Button className="wishlist__addToCart">Add To Cart</Button>
+            <Button
+              onClick={() =>
+                addDataToCartHandler(
+                  props.clickedData._id,
+                  props.clickedData.name,
+                  props.clickedData.price,
+                  props.clickedData.images,
+                  props.clickedData.clickedSize
+                )
+              }
+              className="wishlist__addToCart"
+            >
+              Add To Cart
+            </Button>
             <Link
               onClick={() => {
                 uiCtx.toggleWishlistDetail();

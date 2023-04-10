@@ -157,23 +157,6 @@ const Payment = () => {
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
               />
-
-              {/* <div className="payment__deliveryWrapper">
-                <div id="ship" className="payment__method">
-                  <input type="radio" className="payment__radio" />
-                  <div className="payment__method--name">
-                    <Ship />
-                    <span>Ship</span>
-                  </div>
-                </div>
-                <div id="pickUp" className="payment__method">
-                  <input type="radio" className="payment__radio" />
-                  <div className="payment__method--name">
-                    <PickUp />
-                    <span>Pick Up</span>
-                  </div>
-                </div>
-              </div> */}
             </section>
             <section className="payment__info">
               <h3 className="payment__title">Shipping address</h3>
