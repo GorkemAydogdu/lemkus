@@ -157,7 +157,7 @@ function App() {
       </Routes>
 
       <Cart />
-      {dimensions.width < 1025 && <MenuMobile />}
+      {dimensions.width < 1025 && <MenuMobile menu={categories} />}
       <Wishlist />
 
       {dimensions.width > 1024 && (

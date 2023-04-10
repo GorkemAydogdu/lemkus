@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import CartShopItem from "./CartShopItem";
+// import CartShopItem from "./CartShopItem";
 
 //Splidejs
 import Splide from "@splidejs/splide";
