@@ -11,6 +11,7 @@ app.use(require("./routes/menu"));
 app.use(require("./routes/brands"));
 app.use(require("./routes/collections"));
 app.use(require("./routes/wishlist"));
+app.use(require("./routes/orders"));
 // get driver connection
 const dbo = require("./db/conn");
 

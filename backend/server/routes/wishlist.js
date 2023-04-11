@@ -14,8 +14,8 @@ const ObjectId = require("mongodb").ObjectId;
 wishlistRoutes.route("/wishlist").get(async function (req, res) {
   let db_connect = dbo.getDb("dbLemkus");
   try {
-    var news = await db_connect.collection("wishlist").find({}).toArray();
-    res.json(news);
+    var wishlist = await db_connect.collection("wishlist").find({}).toArray();
+    res.json(wishlist);
   } catch (e) {
     console.log("An error occured pulling the wishlist : " + e);
   }
