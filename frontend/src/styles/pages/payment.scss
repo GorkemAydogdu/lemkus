@@ -10,7 +10,6 @@
 
     flex-direction: column;
   }
-
   position: relative;
   &__information {
     width: 55%;
@@ -82,108 +81,6 @@
       border-color: $black;
     }
   }
-  &__checkbox {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    position: relative;
-    label {
-      cursor: pointer;
-      font-size: 1.4rem;
-
-      @include respond(tab-port) {
-        font-size: 1.8rem;
-      }
-    }
-  }
-  &__checkbox--checked &__customCheckbox {
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 0 0 0 0.8rem rgb(0, 0, 0) inset;
-  }
-  &__checkbox--checked &__checkmark {
-    opacity: 1;
-    height: auto;
-    visibility: visible;
-  }
-  &__customCheckbox {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    width: 1.8rem;
-    height: 1.8rem;
-    margin-right: 5px;
-    border: 1px solid rgb(229, 213, 151);
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all cubic-bezier(0.3, 0.5, 0.5, 1) 0.2s;
-
-    @include respond(tab-port) {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-  }
-
-  &__checkmark {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-    position: absolute;
-    top: 0.3rem;
-    left: 0.4rem;
-
-    svg {
-      width: 1rem;
-      height: 1rem;
-      fill: $white;
-    }
-  }
-  &__deliveryWrapper {
-    margin-top: 1.2rem;
-    border-radius: 5px;
-    border: 1px solid rgb(229, 213, 151);
-  }
-  &__method {
-    display: flex;
-    padding: 1.5rem;
-    &:last-child {
-      border-top: 1px solid #d9d9d9;
-    }
-    &--name {
-      cursor: pointer;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      margin-left: 1rem;
-      svg {
-        margin-right: 1.5rem;
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    .d-flex {
-      align-items: center;
-    }
-  }
-  &__method--checked &__radio {
-    border: 0.6rem solid black;
-  }
-  &__radio {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    border: 1px solid #d9d9d9;
-    width: 1.8rem;
-    height: 1.8rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all cubic-bezier(0.3, 0.5, 0.5, 1) 0.2s;
-  }
-  &__group {
-    display: flex;
-    gap: 1.5rem;
-  }
-
   &__action {
     display: flex;
     align-items: centerk;
@@ -198,7 +95,7 @@
       font-size: 1.8rem;
     }
   }
-  &__continueShipping {
+  &__button {
     font-family: inherit;
     font-size: 1.6rem;
     cursor: pointer;
@@ -329,33 +226,6 @@
       font-size: 1.8rem;
     }
   }
-  &__discount {
-    display: flex;
-    border-bottom: 1px solid rgb(208, 208, 208);
-
-    input {
-      border-color: rgb(208, 208, 208);
-      margin: 2rem 0 2rem 0;
-    }
-  }
-  &__apply {
-    font-family: inherit;
-    font-size: 1.6rem;
-    background-color: rgb(254, 191, 51);
-    border: none;
-    border-radius: 5px;
-    width: 10rem;
-    margin: 2rem 0 2rem 1.5rem;
-
-    @include respond(tab-port) {
-      width: 14rem;
-      font-size: 2rem;
-    }
-
-    &:hover {
-      background-color: rgb(222, 168, 25);
-    }
-  }
   &__totalPrice {
     margin-top: 2rem;
     &--wrapper {
@@ -376,7 +246,8 @@
       }
     }
     &--subtotal,
-    &--total {
+    &--total,
+    &--shipping {
       color: $black;
     }
 
@@ -388,7 +259,6 @@
       }
     }
   }
-
   &__backdrop {
     display: none;
     position: fixed;
@@ -399,7 +269,6 @@
     backdrop-filter: blur(6px);
     background-color: rgba(0, 0, 0, 0.6);
   }
-
   &__popup {
     display: none;
     font-family: "Oswald", sans-serif;
@@ -507,7 +376,6 @@
     }
   }
 }
-
 .rccs {
   margin: 1.2rem 0 0 0 !important;
   max-width: 300px !important;

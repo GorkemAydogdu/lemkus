@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useEffect } from "react";
+import React, { useState, useRef, useMemo } from "react";
 
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/lib/styles.scss";
@@ -13,7 +13,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import Button from "../components/UI/Button";
 import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as Checkmark } from "../assets/checkmark.svg";
+
 import { ReactComponent as LeftArrow } from "../assets/keyboard_arrow_left.svg";
 import { ReactComponent as X } from "../assets/x.svg";
 
@@ -30,10 +30,6 @@ const Payment = () => {
   const addressRef = useRef();
   const cityRef = useRef();
   const phoneRef = useRef();
-  const cardNumberRef = useRef();
-  const cardNameRef = useRef();
-  const cardDateRef = useRef();
-  const cardCVCRef = useRef();
 
   const options = useMemo(() => countryList().getData(), []);
 
@@ -77,25 +73,40 @@ const Payment = () => {
       addressRef.current.value !== "" &&
       cityRef.current.value !== "" &&
       phoneRef.current.value !== "" &&
-      cardNumberRef.current.value !== "" &&
-      cardNameRef.current.value !== "" &&
-      cardDateRef.current.value !== "" &&
-      cardCVCRef.current.value !== ""
+      card.cvc !== "" &&
+      card.name !== "" &&
+      card.expiry !== "" &&
+      card.number !== ""
     ) {
       if (isAuthenticated && user.email === emailRef.current.value) {
-        await fetch("http://localhost:5000/orders/add", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            cartItems: cartItems,
-            country: value.label,
-            address: addressRef.current.value,
-            city: cityRef.current.value,
-            phone: phoneRef.current.value,
-            userName: user.name,
-            email: user.email,
-          }),
-        });
+        try {
+          await fetch("http://localhost:5000/orders/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              cartItems: cartItems,
+              totalPrice: totalPrice,
+              country: value.label,
+              address: addressRef.current.value,
+              city: cityRef.current.value,
+              phone: phoneRef.current.value,
+              userName: user.name,
+              email: user.email,
+            }),
+          });
+        } catch (error) {
+          alert(error.message);
+        } finally {
+          emailRef.current.value = "";
+          setValue("");
+          addressRef.current.value = "";
+          cityRef.current.value = "";
+          phoneRef.current.value = "";
+          card.name = "";
+          card.cvc = "";
+          card.expiry = "";
+          card.number = "";
+        }
       } else if (isAuthenticated && user.email !== emailRef.current.value) {
         alert("Email is not correct");
       } else {
@@ -105,20 +116,6 @@ const Payment = () => {
       alert("Field can't be empty");
     }
   };
-
-  useEffect(() => {
-    let methods = document.querySelectorAll(".payment__method");
-    methods.forEach((method) => {
-      method.addEventListener("click", handleClick);
-    });
-
-    function handleClick() {
-      methods.forEach((method) =>
-        method.classList.remove("payment__method--checked")
-      );
-      this.classList.add("payment__method--checked");
-    }
-  }, []);
 
   return (
     <>
@@ -144,20 +141,6 @@ const Payment = () => {
                 className="payment__input"
                 placeholder="Email"
               />
-              <div
-                onClick={(event) => {
-                  event.currentTarget.classList.toggle(
-                    "payment__checkbox--checked"
-                  );
-                }}
-                className="payment__checkbox"
-              >
-                <input type="checkbox" className="payment__customCheckbox" />
-                <span className="payment__checkmark">
-                  <Checkmark />
-                </span>
-                <label>Email me with news and offers</label>
-              </div>
             </section>
             <section className="payment__info">
               <h3 className="payment__title">Payment</h3>
@@ -176,7 +159,6 @@ const Payment = () => {
                 value={card.number}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                ref={cardNumberRef}
               />
               <input
                 className="payment__input"
@@ -186,7 +168,6 @@ const Payment = () => {
                 value={card.name}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                ref={cardNameRef}
               />
               <input
                 className="payment__input"
@@ -196,7 +177,6 @@ const Payment = () => {
                 value={card.expiry}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                ref={cardDateRef}
               />
               <input
                 className="payment__input"
@@ -206,7 +186,6 @@ const Payment = () => {
                 value={card.cvc}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                ref={cardCVCRef}
               />
             </section>
             <section className="payment__info">
@@ -264,30 +243,13 @@ const Payment = () => {
                 required
                 ref={phoneRef}
               />
-              <div
-                onClick={(event) => {
-                  event.currentTarget.classList.toggle(
-                    "payment__checkbox--checked"
-                  );
-                }}
-                className="payment__checkbox"
-              >
-                <input type="checkbox" className="payment__customCheckbox" />
-                <span className="payment__checkmark">
-                  <Checkmark />
-                </span>
-                <label>Save this information for next time</label>
-              </div>
             </section>
             <section className="payment__action">
               <Link className="payment__returnCart" to="/">
                 <LeftArrow />
                 Return to cart
               </Link>
-              <Button
-                onClick={submitDataHandler}
-                className="payment__continueShipping"
-              >
+              <Button onClick={submitDataHandler} className="payment__button">
                 Payment
               </Button>
             </section>
@@ -362,14 +324,7 @@ const Payment = () => {
                 </li>
               ))}
             </ul>
-            <section className="payment__discount">
-              <input
-                type="text"
-                className="payment__input"
-                placeholder="Discount code"
-              />
-              <Button className="payment__apply">Apply</Button>
-            </section>
+
             <section className="payment__totalPrice">
               <div className="payment__totalPrice--wrapper">
                 <span>Subtotal</span>

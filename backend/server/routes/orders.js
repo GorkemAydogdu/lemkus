@@ -31,6 +31,7 @@ ordersRoutes.route("/orders/add").post(async function (req, response) {
     let db_connect = dbo.getDb("dbLemkus");
     let myobj = {
       items: req.body.cartItems,
+      totalPrice: req.body.totalPrice,
       country: req.body.country,
       address: req.body.address,
       city: req.body.city,
