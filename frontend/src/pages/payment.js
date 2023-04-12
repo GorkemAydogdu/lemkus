@@ -66,6 +66,7 @@ const Payment = () => {
     setCard((prev) => ({ ...prev, [name]: value }));
   };
 
+  const date = new Date();
   const submitDataHandler = async () => {
     if (
       emailRef.current.value !== "" &&
@@ -92,6 +93,7 @@ const Payment = () => {
               phone: phoneRef.current.value,
               userName: user.name,
               email: user.email,
+              date: date,
             }),
           });
         } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 
 import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
 import Footer from "../components/Footer/Footer";
@@ -7,8 +7,21 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Account = () => {
   const smoothScrollWrapper = useRef();
+  const [orders, setOrders] = useState([]);
 
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
+  const getOrderList = useCallback(async () => {
+    if (isAuthenticated) {
+      const res = await fetch(`http://localhost:5000/orders`);
+      const data = await res.json();
+      setOrders(data.filter((filtered) => filtered.email === user.email));
+    }
+  }, [isAuthenticated, user]);
+
+  useEffect(() => {
+    getOrderList();
+  }, [getOrderList]);
 
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
@@ -40,13 +53,36 @@ const Account = () => {
             <section className="account__orderHistory">
               <h2 className="account__subtitle">Order History</h2>
               <ul className="account__orderList">
-                <li className="account__orderItem">Order</li>
-                <li className="account__orderItem">Financial</li>
-                <li className="account__orderItem">Date</li>
-                <li className="account__orderItem">Status</li>
-                <li className="account__orderItem">Subtotal</li>
+                {orders.length === 0 && (
+                  <p>You haven't placed any orders yet.</p>
+                )}
+                {orders.length > 0 &&
+                  orders.map((order) => (
+                    <li className="account__orderItem">
+                      <div className="account__productsWrapper">
+                        {order.items.map((item) => (
+                          <div className="account__productInfo">
+                            <img src={item.images[0].url} alt={item.name} />
+                            <div className="account__productDetails">
+                              <span>{item.name}</span>
+                              <span>Size : {item.clickedSize}</span>
+                              <span>Quantity: {item.quantity}</span>
+                              <span>Price: {item.price}</span>
+                              <span>TotalPrice: {item.totalPrice}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="account__userInfo">
+                        <span>{order.country}</span>
+                        <span>{order.address}</span>
+                        <span>{order.userName}</span>
+                        <span>{order.email}</span>
+                        <span>{order.date}</span>
+                      </div>
+                    </li>
+                  ))}
               </ul>
-              <p>You haven't placed any orders yet.</p>
             </section>
             <Button
               onClick={() => logout()}

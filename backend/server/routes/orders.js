@@ -15,9 +15,9 @@ ordersRoutes.route("/orders").get(async function (req, res) {
   }
 });
 
-ordersRoutes.route("/orders/:id").get(async function (req, res) {
+ordersRoutes.route("/orders/:email").get(async function (req, res) {
   let db_connect = dbo.getDb("dbLemkus");
-  let myquery = { _id: new ObjectId(req.params.id) };
+  let myquery = { email: req.params.email };
   try {
     var filterOrders = await db_connect.collection("orders").findOne(myquery);
     res.json(filterOrders);
@@ -38,6 +38,7 @@ ordersRoutes.route("/orders/add").post(async function (req, response) {
       phone: req.body.phone,
       userName: req.body.userName,
       email: req.body.email,
+      date: req.body.date,
     };
     let result = db_connect.collection("orders").insertOne(myobj);
     response.send(result).status(200);
