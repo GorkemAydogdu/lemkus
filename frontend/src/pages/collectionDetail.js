@@ -22,7 +22,7 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 import Footer from "../components/Footer/Footer";
 
-const CollectionDetail = (props) => {
+const CollectionDetail = () => {
   const uiCtx = useContext(UIContext);
   const smoothScrollWrapper = useRef();
   const buttonsRef = useRef([]);

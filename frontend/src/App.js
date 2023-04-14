@@ -13,7 +13,7 @@ import Home from "./pages/home";
 import Faq from "./pages/faq";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
-import Contact from "./pages/contact";
+import Contact from "./pages/contact/contact";
 import About from "./pages/about/about";
 import Search from "./pages/search";
 import Account from "./pages/account/account";
