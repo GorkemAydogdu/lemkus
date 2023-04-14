@@ -60,8 +60,8 @@ const CollectionHeader = ({ categoryName, dataLenght }) => {
           onClick={() => {
             document.body.style.overflow = "hidden";
             document
-              .querySelector("collection__menuMobile")
-              .classList.toggle("collection__menuMobile--toggle");
+              .querySelector(".collection__filterMobile")
+              .classList.toggle("collection__filterMobile--toggle");
           }}
           className="collection__filterBy"
         >

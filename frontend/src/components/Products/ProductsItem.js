@@ -2,15 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductsItem = (props) => {
+  const collectionItem = props.className.includes("collection__productsItem");
   return (
-    <li className="splide__slide products__item">
+    <li className={props.className}>
       <div className="products__container">
         <Link
-          to={`/products/${props.name
-            .toLowerCase()
-            .replaceAll(/[^a-zA-Z0-9]/g, "-")
-            .replace(/-{2,}/g, "-")
-            .replace(/-$/, "")}?id=${props.id}`}
+          to={`${
+            collectionItem === true
+              ? `${props.name
+                  .toLowerCase()
+                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                  .replace(/-{2,}/g, "-")
+                  .replace(/-$/, "")}?id=${props.id}`
+              : `/products/${props.name
+                  .toLowerCase()
+                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                  .replace(/-{2,}/g, "-")
+                  .replace(/-$/, "")}?id=${props.id}`
+          }`}
           className="products__image"
         >
           <div className="products__logo">
@@ -31,22 +40,38 @@ const ProductsItem = (props) => {
             {props.sizes.map((size) => (
               <Link
                 key={size}
-                to={`/products/${props.name
-                  .toLowerCase()
-                  .replaceAll(/[^a-zA-Z0-9]/g, "-")
-                  .replace(/-{2,}/g, "-")
-                  .replace(/-$/, "")}?id=${props.id}&size=${size}`}
+                to={`${
+                  collectionItem === true
+                    ? `${props.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?id=${props.id}&size=${size}`
+                    : `/products/${props.name
+                        .toLowerCase()
+                        .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                        .replace(/-{2,}/g, "-")
+                        .replace(/-$/, "")}?id=${props.id}&size=${size}`
+                }`}
               >
                 {size}
               </Link>
             ))}
           </div>
           <Link
-            to={`/products/${props.name
-              .toLowerCase()
-              .replaceAll(/[^a-zA-Z0-9]/g, "-")
-              .replace(/-{2,}/g, "-")
-              .replace(/-$/, "")}?id=${props.id}`}
+            to={`${
+              collectionItem === true
+                ? `${props.name
+                    .toLowerCase()
+                    .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                    .replace(/-{2,}/g, "-")
+                    .replace(/-$/, "")}?id=${props.id}`
+                : `/products/${props.name
+                    .toLowerCase()
+                    .replaceAll(/[^a-zA-Z0-9]/g, "-")
+                    .replace(/-{2,}/g, "-")
+                    .replace(/-$/, "")}?id=${props.id}`
+            }`}
             className="products__container--title"
           >
             {props.name}

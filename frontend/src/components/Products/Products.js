@@ -85,6 +85,7 @@ const Products = (props) => {
             {props.items !== [] &&
               props.items.map((item) => (
                 <ProductsItem
+                  className="splide__slide products__item"
                   key={item._id}
                   id={item._id}
                   logo={item.logo}

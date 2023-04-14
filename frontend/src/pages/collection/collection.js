@@ -1,23 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import {
-  useParams,
-  useLocation,
-  // useSearchParams,
-} from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import CollectionHeader from "./collectionHeader";
 import CollectionContent from "./collectionContent";
 import Footer from "../../components/Footer/Footer";
 
-import gsap from "gsap";
-import { Flip } from "gsap/all";
-gsap.registerPlugin(Flip);
-
 const Collection = () => {
   const smoothScrollWrapper = useRef();
   const [collection, setCollection] = useState([]);
-  // const mobileMenuRef = useRef();
 
   //https://stackoverflow.com/a/21081760
   const wordInString = (s, word) =>
@@ -136,7 +127,7 @@ const Collection = () => {
       })
     );
   }, []);
-
+  //https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
   return (
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
@@ -145,129 +136,14 @@ const Collection = () => {
             categoryName={categoryName}
             dataLenght={collection.length}
           />
-          <CollectionContent data={collection} categoryName={categoryName} />
+          <CollectionContent
+            dataLenght={collection.length}
+            data={collection}
+            categoryName={categoryName}
+          />
         </div>
         <Footer />
       </SmoothScrollWrapper>
-      {/* <div ref={mobileMenuRef} className="collection__menuMobile">
-        <div className="collection__filterHeader">
-          <span>Filter By</span>
-          <Button
-            onClick={() => {
-              document.body.style.overflow = "visible";
-              mobileMenuRef.current.classList.toggle(
-                "collection__menuMobile--toggle"
-              );
-            }}
-            className="collection__filterHeader--close"
-          >
-            <X />
-          </Button>
-        </div>
-        <div className="collection__filterProduct--item">
-          <span className="collection__filterProduct--title">
-            Brand
-            <Arrow />
-          </span>
-
-          <ul className="collection__list">
-            {brandCount.map((filter) => (
-              <li
-                onClick={(event) => {
-                  setIsActive((prevState) => !prevState);
-
-                  addQuery(
-                    "brand",
-                    filter.key.toLowerCase().replaceAll(" ", "-")
-                  );
-                }}
-                key={Math.random()}
-                className={`collection__item ${
-                  isActive ? "collection__item--active" : ""
-                }`}
-              >
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">{filter.key}</span>
-                <span className="collection__item--count">
-                  ({filter.count})
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="collection__filterProduct--item">
-          <span className="collection__filterProduct--title">
-            Type
-            <Arrow />
-          </span>
-
-          <ul className="collection__list">
-            {typeCount.map((filter) => (
-              <li
-                onClick={(event) => {
-                  setIsActive((prevState) => !prevState);
-                  addQuery(
-                    "category",
-                    filter.key.toLowerCase().replaceAll(" ", "-")
-                  );
-                }}
-                key={Math.random()}
-                className={`collection__item ${
-                  isActive ? "collection__item--active" : ""
-                }`}
-              >
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">{filter.key}</span>
-                <span className="collection__item--count">
-                  ({filter.count})
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="collection__filterProduct--item">
-          <span className="collection__filterProduct--title">
-            Gender
-            <Arrow />
-          </span>
-
-          <ul className="collection__list">
-            {genderCount.map((filter) => (
-              <li
-                onClick={(event) => {
-                  setIsActive((prevState) => !prevState);
-                  addQuery(
-                    "gender",
-                    filter.key.toLowerCase().replaceAll(" ", "-")
-                  );
-                }}
-                key={Math.random()}
-                className={`collection__item ${
-                  isActive ? "collection__item--active" : ""
-                }`}
-              >
-                <span className="collection__item--checkbox"></span>
-                <span className="collection__item--brand">{filter.key}</span>
-                <span className="collection__item--count">
-                  ({filter.count})
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Button
-          onClick={() => {
-            document.body.style.overflow = "visible";
-            mobileMenuRef.current.classList.toggle(
-              "collection__menuMobile--toggle"
-            );
-          }}
-          className="collection__menuMobile--button"
-        >
-          View {data.length} Products
-        </Button>
-      </div> */}
     </>
   );
 };

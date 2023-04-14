@@ -128,6 +128,12 @@
     display: flex;
     border-top: 1px solid $black;
   }
+
+  &__filterMobile &__filterProduct {
+    display: flex;
+    margin: 0;
+  }
+
   &__filterProduct {
     display: flex;
     flex-direction: column;
@@ -229,7 +235,7 @@
     border-bottom: 1px solid $black;
   }
 
-  &__menuMobile {
+  &__filterMobile {
     font-family: "Oswald", sans-serif;
     position: fixed;
     top: 0;
@@ -263,10 +269,10 @@
     }
   }
 
-  &__menuMobile &__filterProduct--item {
+  &__filterMobile &__filterProduct--item {
     padding: 1.5rem;
   }
-  &__menuMobile &__item {
+  &__filterMobile &__item {
     padding: 1.5rem 0;
 
     &--checkbox {
