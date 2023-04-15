@@ -20,7 +20,7 @@ import Account from "./pages/account/account";
 import Brands from "./pages/brands/brands";
 import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
-import Launches from "./pages/launches";
+import Launches from "./pages/launches/launches";
 import Collection from "./pages/collection/collection";
 import CollectionDetail from "./pages/collectionDetail/collectionDetail";
 import Payment from "./pages/payment";
