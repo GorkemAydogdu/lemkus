@@ -1,18 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import Banner from "../components/Banner/Banner";
-import Collections from "../components/Collections/Collections";
-import Products from "../components/Products/Products";
-import ProductsCard from "../components/Products/ProductsCard";
-import Culture from "../components/Culture/Culture";
-import Footer from "../components/Footer/Footer";
+import Banner from "../../components/Banner/Banner";
+import Collections from "../../components/Collections/Collections";
+import Products from "../../components/Products/Products";
+import Culture from "../../components/Culture/Culture";
+import Footer from "../../components/Footer/Footer";
 
-import { ReactComponent as Logo } from "../assets/logo.svg";
+import HomeLogo from "./homeLogo";
 
 import gsap from "gsap";
-import SmoothScrollWrapper from "../components/UI/SmoothScrollWrapper";
+import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 
-const Home = (props) => {
+const Home = () => {
   const [products, setProducts] = useState([]);
   const [completeFetch, setCompleteFetch] = useState(false);
   const cursorRef = useRef();
@@ -20,7 +19,7 @@ const Home = (props) => {
 
   async function getProducts() {
     try {
-      setCompleteFetch(true);
+      setCompleteFetch(false);
       const res = await fetch("http://localhost:5000/product");
       if (!res.ok) {
         throw Error("Something went wrong");
@@ -30,7 +29,7 @@ const Home = (props) => {
     } catch (error) {
       console.log(error.message);
     } finally {
-      setCompleteFetch(false);
+      setCompleteFetch(true);
     }
   }
 
@@ -72,11 +71,7 @@ const Home = (props) => {
 
   return (
     <>
-      <div className="logo">
-        <a href="/">
-          <Logo />
-        </a>
-      </div>
+      <HomeLogo />
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
         <main className="main">
           <Banner />
@@ -113,7 +108,6 @@ const Home = (props) => {
               .filter((filtered) => filtered.brand === "Air Jordan")
               .slice(10, 15)}
           />
-          <ProductsCard />
           <Culture />
         </main>
         <Footer />

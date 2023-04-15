@@ -9,7 +9,7 @@ import Backdrop from "./components/UI/Backdrop";
 import Cart from "./components/cart/Cart";
 import Wishlist from "./components/Wishlist/Wishlist";
 //Pages
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import Faq from "./pages/faq";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TsCs from "./pages/terms-and-conditions";
@@ -22,7 +22,7 @@ import News from "./pages/news";
 import NewsDetail from "./pages/newsDetail";
 import Launches from "./pages/launches";
 import Collection from "./pages/collection/collection";
-import CollectionDetail from "./pages/collectionDetail";
+import CollectionDetail from "./pages/collectionDetail/collectionDetail";
 import Payment from "./pages/payment";
 import gsap from "gsap";
 //styles
