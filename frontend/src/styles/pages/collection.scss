@@ -171,6 +171,57 @@
     }
   }
 
+  &__filteredList {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $black;
+    h3 {
+      display: inline-block;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+    }
+  }
+  &__filteredHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__clearAll {
+    background-color: transparent;
+    font-size: 2rem;
+  }
+
+  &__clearAll,
+  &__filteredButton {
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    border: none;
+  }
+
+  &__filteredGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  &__filteredButton {
+    display: inline-flex;
+    align-items: center;
+    background-color: $black;
+    color: $white;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    padding: 0.5rem 1.5rem;
+
+    svg {
+      margin-left: 0.6rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: $white;
+    }
+  }
+
   &__filterProduct--active &__list {
     display: flex;
     flex-direction: column;
@@ -207,7 +258,7 @@
       border-radius: 50%;
       margin-right: 0.7rem;
     }
-    &--brand {
+    &--name {
       font-size: 1.6rem;
       margin-right: auto;
     }
@@ -217,6 +268,7 @@
   }
 
   &__productsList {
+    min-width: calc(100vw - (33.33vw + 5rem));
     border-left: 1px solid $black;
     position: relative;
     display: grid;
