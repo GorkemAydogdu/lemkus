@@ -4,6 +4,7 @@ import { useParams, useLocation } from "react-router-dom";
 import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import CollectionHeader from "./collectionHeader";
 import CollectionContent from "./collectionContent";
+import PaginatedItems from "./PaginatedItems";
 import Footer from "../../components/Footer/Footer";
 
 const Collection = () => {
@@ -132,6 +133,8 @@ const Collection = () => {
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
         <div className="collection">
+          <PaginatedItems itemPerPage={12} items={collection} />
+
           <CollectionHeader
             categoryName={categoryName}
             dataLenght={collection.length}
