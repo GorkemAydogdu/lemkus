@@ -8,7 +8,12 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
     smoothScroll(ref.current);
 
     function smoothScroll(content) {
-      let smoothness = 2;
+      let smoothness;
+      if (window.innerWidth < 1025) {
+        smoothness = 0.5;
+      } else {
+        smoothness = 2;
+      }
 
       gsap.set(content.parentNode, {
         position: "fixed",
@@ -39,7 +44,7 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
     }
     setTimeout(() => {
       ScrollTrigger.refresh(true);
-    }, 500);
+    }, 1000);
     return () => clearTimeout();
   }, [ref]);
   return (

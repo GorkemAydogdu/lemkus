@@ -27,7 +27,10 @@ const CollectionDetailAction = ({
   const { user } = useAuth0();
 
   function addToCartHandler() {
-    if (completeFetch !== false) {
+    const activeSizeEl = document.querySelector(
+      ".collectionDetail__size--active"
+    );
+    if (completeFetch !== false && activeSizeEl !== null) {
       uiCtx.toggleCart();
       const { name, price, _id, images } = clickedData;
       dispatch(
@@ -39,6 +42,8 @@ const CollectionDetailAction = ({
           clickedSize,
         })
       );
+    } else if (activeSizeEl === null) {
+      alert("Please Size");
     }
   }
 
