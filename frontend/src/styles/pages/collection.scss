@@ -17,44 +17,11 @@
     text-transform: uppercase;
   }
 
-  &__searchBox {
-    width: 100%;
-    margin: 4rem 0 2rem;
-    position: relative;
-    input {
-      color: $black;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid $black;
-      width: 100%;
-      font-size: 1.6rem;
-      padding: 0.7rem 3rem;
-
-      @include respond(tab-port) {
-        font-size: 2rem;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
-  &__searchButton {
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 8px;
-
-    svg {
-      width: 1.6rem;
-      height: 1.6rem;
-    }
-  }
   &__action {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
   }
   &__hide {
     cursor: pointer;
@@ -103,23 +70,32 @@
     }
   }
 
-  &__showSize {
+  &__pagination {
     display: flex;
-    align-items: center;
-    @include respond(tab-port) {
-      display: none;
-    }
-    select {
-      cursor: pointer;
-      height: 4rem;
-      background-color: transparent;
-      padding: 0 1rem;
-      font-size: 1.6rem;
-      border: none;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.6rem;
+    list-style: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 2rem 0;
+    border-bottom: 1px solid $black;
 
-      &:focus {
-        outline: none;
+    & > li {
+      padding: 0.5rem 1rem;
+      color: #b7b7b7;
+
+      &:hover {
+        color: #030303;
       }
+
+      &.selected {
+        color: #030303;
+      }
+    }
+
+    .page-item {
+      display: none;
     }
   }
 
@@ -175,6 +151,9 @@
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $black;
+    @include respond(tab-port) {
+      padding: 1.5rem;
+    }
     h3 {
       display: inline-block;
       font-size: 2.4rem;
@@ -271,20 +250,20 @@
     min-width: calc(100vw - (33.33vw + 5rem));
     border-left: 1px solid $black;
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
 
-    @include respond(smallPhone) {
-      grid-template-columns: 1fr;
-    }
+    height: max-content;
   }
 
   &__productsItem {
     position: relative;
 
-    width: 100% !important;
+    width: 50% !important;
     border-bottom: 1px solid $black;
+    @include respond(smallPhone) {
+      width: 100% !important;
+    }
   }
 
   &__filterMobile {

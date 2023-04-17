@@ -129,7 +129,6 @@ function App() {
     }, 1000);
 
     window.addEventListener("resize", debounceHandleResize);
-
     return () => {
       window.removeEventListener("resize", debounceHandleResize);
     };

@@ -4,7 +4,7 @@ import CollectionList from "./collectionList";
 import CollectionFilterProduct from "./collectionFilterProduct";
 import CollectionMenuMobile from "./collectionMenuMobile";
 
-const CollectionContent = ({ categoryName, data, dataLength }) => {
+const CollectionContent = ({ categoryName, data, dataLength, itemPerPage }) => {
   const collectionContentRef = useRef();
 
   let filterBrand = data.map((filter) => filter.brand);
@@ -20,8 +20,13 @@ const CollectionContent = ({ categoryName, data, dataLength }) => {
           filterGender={filterGender}
           filterType={filterType}
         />
-        <CollectionList categoryName={categoryName} data={data} />
+        <CollectionList
+          categoryName={categoryName}
+          data={data}
+          itemPerPage={itemPerPage}
+        />
       </div>
+
       <CollectionMenuMobile
         filterBrand={filterBrand}
         filterGender={filterGender}

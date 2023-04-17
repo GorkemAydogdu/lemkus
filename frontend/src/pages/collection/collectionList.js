@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
+import ReactPaginate from "react-paginate";
 import ProductsItem from "../../components/Products/ProductsItem";
 
-const CollectionList = ({ categoryName, data }) => {
+const CollectionList = ({ categoryName, data, itemPerPage }) => {
+  const [itemOffset, setItemOffset] = useState(0);
+
+  const endOffset = itemOffset + itemPerPage;
+  const currentItems = data.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(data.length / itemPerPage);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemPerPage) % data.length;
+    setItemOffset(newOffset);
+  };
   return (
     <ul className="collection__productsList products__list">
-      {data.map((item) => (
+      {currentItems.map((item) => (
         <ProductsItem
           className="collection__productsItem products__item"
           categoryName={categoryName}
@@ -19,6 +30,16 @@ const CollectionList = ({ categoryName, data }) => {
           brand={item.brand}
         />
       ))}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="→"
+        onPageChange={handlePageClick}
+        className="collection__pagination"
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousClassName="page-item"
+        renderOnZeroPageCount={null}
+      />
     </ul>
   );
 };

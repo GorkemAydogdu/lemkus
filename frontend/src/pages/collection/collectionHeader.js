@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 import Button from "../../components/UI/Button";
 
 import gsap from "gsap";
 import { Flip } from "gsap/all";
 gsap.registerPlugin(Flip);
 
-const CollectionHeader = ({ categoryName, dataLenght }) => {
+const CollectionHeader = ({ categoryName, dataLength }) => {
   const [filterClicked, setFilterClicked] = useState(false);
   const tl = useRef();
 
@@ -44,14 +43,6 @@ const CollectionHeader = ({ categoryName, dataLenght }) => {
   return (
     <div className="collection__header">
       <h1 className="collection__title">{categoryName.replace("-", " ")}</h1>
-      <div className="collection__searchBox">
-        <div className="collection__input">
-          <input type="text" placeholder="Search Products" />
-        </div>
-        <Button className="collection__searchButton">
-          <SearchIcon />
-        </Button>
-      </div>
       <div className="collection__action">
         <Button onClick={closeFilterButtonHandler} className="collection__hide">
           Hide Filter
@@ -70,16 +61,8 @@ const CollectionHeader = ({ categoryName, dataLenght }) => {
 
         <div className="collection__filterList">
           <span className="collection__totalProducts">
-            <span>{dataLenght}</span> Products
+            <span>{dataLength}</span> Products
           </span>
-          <div className="collection__showSize">
-            <label htmlFor="setLimit">Show</label>
-            <select name="setLimit" id="setLimit">
-              <option value="12">12</option>
-              <option value="24">24</option>
-              <option value="48">48</option>
-            </select>
-          </div>
         </div>
       </div>
     </div>
