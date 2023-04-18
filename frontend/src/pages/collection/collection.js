@@ -5,10 +5,12 @@ import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import CollectionHeader from "./collectionHeader";
 import CollectionContent from "./collectionContent";
 import Footer from "../../components/Footer/Footer";
+import { RotatingLines } from "react-loader-spinner";
 
 const Collection = () => {
   const smoothScrollWrapper = useRef();
   const [collection, setCollection] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   //https://stackoverflow.com/a/21081760
   const wordInString = (s, word) =>
@@ -28,6 +30,7 @@ const Collection = () => {
 
   const getProducts = useCallback(async () => {
     try {
+      setIsLoading(true);
       const res = await fetch("http://localhost:5000/product");
       if (!res.ok) {
         throw Error("Something went wrong");
@@ -98,6 +101,7 @@ const Collection = () => {
           } else return false;
         })
       );
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -132,16 +136,31 @@ const Collection = () => {
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
         <div className="collection">
-          <CollectionHeader
-            categoryName={categoryName}
-            dataLength={collection.length}
-          />
-          <CollectionContent
-            dataLength={collection.length}
-            data={collection}
-            itemPerPage={12}
-            categoryName={categoryName}
-          />
+          {isLoading === true ? (
+            <div className="wrapper">
+              <RotatingLines
+                className="loading"
+                strokeColor="grey"
+                strokeWidth="5"
+                animationDuration=".75"
+                width="96"
+                visible={true}
+              />
+            </div>
+          ) : (
+            <>
+              <CollectionHeader
+                categoryName={categoryName}
+                dataLength={collection.length}
+              />
+              <CollectionContent
+                dataLength={collection.length}
+                data={collection}
+                itemPerPage={12}
+                categoryName={categoryName}
+              />
+            </>
+          )}
         </div>
         <Footer />
       </SmoothScrollWrapper>

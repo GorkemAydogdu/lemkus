@@ -4,9 +4,9 @@ import React, { useEffect } from "react";
 import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
-const CollectionDetailImages = ({ clickedData, completeFetch }) => {
+const CollectionDetailImages = ({ clickedData, isLoading }) => {
   useEffect(() => {
-    if (completeFetch !== false) {
+    if (isLoading === false) {
       const splide = new Splide(".collectionDetail__imagesWrapper", {
         arrows: false,
         direction: "ttb",
@@ -41,10 +41,10 @@ const CollectionDetailImages = ({ clickedData, completeFetch }) => {
       });
       splide.mount();
     }
-  }, [completeFetch]);
+  }, [isLoading]);
 
   useEffect(() => {
-    if (completeFetch !== false) {
+    if (isLoading === false) {
       let thumbnailButton = document.querySelectorAll(
         ".collectionDetail__thumbnailButton"
       );
@@ -52,7 +52,7 @@ const CollectionDetailImages = ({ clickedData, completeFetch }) => {
         thumbnailButton[idx].innerHTML = `<img src=${image.url} alt=''/>`;
       });
     }
-  }, [clickedData, completeFetch]);
+  }, [clickedData, isLoading]);
   return (
     <div className="splide collectionDetail__imagesWrapper">
       <div className="splide__track">

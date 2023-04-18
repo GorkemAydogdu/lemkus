@@ -213,6 +213,7 @@ input::-webkit-outer-spin-button {
   margin: 0;
 }
 input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
@@ -221,4 +222,10 @@ input[type="number"] {
 }
 .jc-spaceBetween {
   justify-content: space-between;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

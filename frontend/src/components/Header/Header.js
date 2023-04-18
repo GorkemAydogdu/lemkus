@@ -17,17 +17,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-function debounce(fn, ms) {
-  let timer;
-  return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      timer = null;
-      fn.apply(this, arguments);
-    }, ms);
-  };
-}
-
 const Header = (props) => {
   const [locationChanged, setLocationChanged] = useState(false);
 
@@ -35,16 +24,9 @@ const Header = (props) => {
   const headerRef = useRef();
   const [time, setTime] = useState(new Date().toLocaleTimeString("tr-TR"));
 
-  const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
-
   const uiCtx = useContext(UIContext);
 
   useEffect(() => {
-    //pathname if ile kontrol edilecek eğer pathname / eşit değilse setState true olacak ve logo show olacak
-
     if (location.pathname !== "/") {
       setLocationChanged(true);
       document.querySelector(".header__time").style.opacity = "1";
@@ -88,32 +70,21 @@ const Header = (props) => {
         }
       );
     }
-
     //https://greensock.com/forums/topic/22491-gsap3-target-object-not-found/?do=findComment&comment=106192
     gsap.config({
       nullTargetWarn: false,
     });
-
     ScrollTrigger.refresh();
 
     let interval;
-    if (dimensions.width > 1024) {
+    if (props.dimensions.width > 1024) {
       interval = setInterval(() => {
         const date = new Date().toLocaleTimeString("tr-TR");
         setTime(date);
       }, 1000);
     }
 
-    const debounceHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, 1000);
-
-    window.addEventListener("resize", debounceHandleResize);
-
-    if (dimensions.width <= 1024) {
+    if (props.dimensions.width <= 1024) {
       setSelectedCategory("");
       props.clickedButton("");
       gsap.to(".backdrop--menu", {
@@ -125,9 +96,8 @@ const Header = (props) => {
     }
     return () => {
       clearInterval(interval);
-      window.removeEventListener("resize", debounceHandleResize);
     };
-  }, [dimensions, props, location]);
+  }, [props, location]);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -163,7 +133,7 @@ const Header = (props) => {
         disabled={isDisabled}
         className={`header__button
         ${
-          selectedCategory === category.name && dimensions.width > 1024
+          selectedCategory === category.name && props.dimensions.width > 1024
             ? "header__button--active"
             : ""
         }`}
@@ -189,7 +159,7 @@ const Header = (props) => {
             <span>Cape Town {time}</span>
           )}
         </div>
-        {dimensions.width > 1024 && (
+        {props.dimensions.width > 1024 && (
           <ul className="header__list">
             <HeaderListItem className="header__item">
               <Link className="header__link" to="/pages/launches">
@@ -209,8 +179,8 @@ const Header = (props) => {
             </HeaderListItem>
           </ul>
         )}
-        {dimensions.width > 1024 && <HeaderUser />}
-        {dimensions.width < 1025 && <HeaderMobile />}
+        {props.dimensions.width > 1024 && <HeaderUser />}
+        {props.dimensions.width < 1025 && <HeaderMobile />}
       </header>
     </>
   );

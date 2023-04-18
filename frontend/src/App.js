@@ -75,8 +75,6 @@ const routes = [
 ];
 
 function App() {
-  //CART CONTINUE SHOP TIKLANDIĞINDA KAPATILACAK
-  //PROPS ILE DAGITILACAK HER YERDE MEVCUT
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -107,6 +105,19 @@ function App() {
   useEffect(() => {
     getMenu();
   }, []);
+  useEffect(() => {
+    const debounceHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, 1000);
+
+    window.addEventListener("resize", debounceHandleResize);
+    return () => {
+      window.removeEventListener("resize", debounceHandleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (
@@ -120,19 +131,7 @@ function App() {
       uiCtx.onUnChanged();
       document.body.style.backgroundColor = "#fff";
     }
-
-    const debounceHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, 1000);
-
-    window.addEventListener("resize", debounceHandleResize);
-    return () => {
-      window.removeEventListener("resize", debounceHandleResize);
-    };
-  }, [location, dimensions, uiCtx]);
+  }, [location, uiCtx]);
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -141,7 +140,11 @@ function App() {
   return (
     <>
       {location.pathname !== "/checkouts" && (
-        <Header categories={categories} clickedButton={clickedButtonHandler} />
+        <Header
+          categories={categories}
+          dimensions={dimensions}
+          clickedButton={clickedButtonHandler}
+        />
       )}
 
       {categories

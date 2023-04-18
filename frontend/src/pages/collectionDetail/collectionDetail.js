@@ -11,10 +11,12 @@ import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import Culture from "../../components/Culture/Culture";
 import Footer from "../../components/Footer/Footer";
 
+import { RotatingLines } from "react-loader-spinner";
+
 const CollectionDetail = () => {
   const smoothScrollWrapper = useRef();
   const [clickedData, setClickedData] = useState([]);
-  const [completeFetch, setCompleteFetch] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   function useQuery() {
     const { search } = useLocation();
@@ -27,18 +29,16 @@ const CollectionDetail = () => {
 
   const getClickedProduct = useCallback(async () => {
     try {
-      setCompleteFetch(false);
+      setIsLoading(true);
       const res = await fetch(`http://localhost:5000/product/${id}`);
       if (!res.ok) {
         throw Error("Something went wrong");
       }
       const data = await res.json();
-
       setClickedData(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
-    } finally {
-      setCompleteFetch(true);
     }
   }, [id]);
 
@@ -48,7 +48,7 @@ const CollectionDetail = () => {
 
   useEffect(() => {
     const sizes = document.querySelectorAll(".collectionDetail__size");
-    if (completeFetch !== false) {
+    if (isLoading === false) {
       if (clickedSize) {
         for (let i = 0; i < sizes.length; i++) {
           if (clickedSize === sizes[i].innerHTML) {
@@ -60,32 +60,43 @@ const CollectionDetail = () => {
         }
       }
     }
-  }, [completeFetch, clickedSize]);
+  }, [isLoading, clickedSize]);
 
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
-      <div className="collectionDetail">
-        {completeFetch !== false && (
-          <>
+      {isLoading === true ? (
+        <div className="wrapper">
+          <RotatingLines
+            className="loading"
+            strokeColor="grey"
+            strokeWidth="5"
+            animationDuration=".75"
+            width="96"
+            visible={true}
+          />
+        </div>
+      ) : (
+        <>
+          <div className="collectionDetail">
             <CollectionDetailImages
               clickedData={clickedData}
-              completeFetch={completeFetch}
+              isLoading={isLoading}
             />
             <div className="collectionDetail__infos">
               <h1 className="collectionDetail__title">{clickedData.name}</h1>
               <CollectionDetailPrice price={clickedData.price} />
               <CollectionDetailSizes clickedData={clickedData} />
               <CollectionDetailAction
-                completeFetch={completeFetch}
+                isLoading={isLoading}
                 clickedData={clickedData}
                 clickedSize={clickedSize}
               />
               <CollectionDetailDescription details={clickedData.details} />
             </div>
-          </>
-        )}
-      </div>
-      <Culture />
+          </div>
+          <Culture />
+        </>
+      )}
       <Footer />
     </SmoothScrollWrapper>
   );

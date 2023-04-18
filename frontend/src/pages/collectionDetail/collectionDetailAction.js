@@ -11,11 +11,7 @@ import ButtonStatic from "../../components/UI/ButtonStatic";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-const CollectionDetailAction = ({
-  completeFetch,
-  clickedData,
-  clickedSize,
-}) => {
+const CollectionDetailAction = ({ isLoading, clickedData, clickedSize }) => {
   const uiCtx = useContext(UIContext);
 
   const addToBagStatic = useRef();
@@ -30,7 +26,7 @@ const CollectionDetailAction = ({
     const activeSizeEl = document.querySelector(
       ".collectionDetail__size--active"
     );
-    if (completeFetch !== false && activeSizeEl !== null) {
+    if (isLoading === false && activeSizeEl !== null) {
       uiCtx.toggleCart();
       const { name, price, _id, images } = clickedData;
       dispatch(

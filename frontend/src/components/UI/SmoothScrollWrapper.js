@@ -42,9 +42,15 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
         scrub: smoothness,
       });
     }
-    setTimeout(() => {
-      ScrollTrigger.refresh(true);
-    }, 1000);
+    if (ref.current.className.includes("pageAccount")) {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 2500);
+    } else {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 1500);
+    }
     return () => clearTimeout();
   }, [ref]);
   return (

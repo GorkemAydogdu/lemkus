@@ -44,6 +44,26 @@ const Collections = (props) => {
   }, []);
 
   useEffect(() => {
+    //https://greensock.com/docs/v3/GSAP/gsap.matchMedia()
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width:1025px)", () => {
+      gsap.to(".collections__item", {
+        clipPath: "inset(0% 0% 0%)",
+        stagger: 0.15,
+        duration: 1.75,
+        ease: "power2.out",
+
+        scrollTrigger: {
+          trigger: ".banner",
+          start: "15% top",
+          end: "20% top",
+        },
+      });
+    });
+  }, []);
+
+  useEffect(() => {
     if (completeFetch !== true) {
       let splide = new Splide(".collections", {
         drag: "free",
@@ -74,24 +94,6 @@ const Collections = (props) => {
       });
 
       splide.mount();
-
-      //https://greensock.com/docs/v3/GSAP/gsap.matchMedia()
-      let mm = gsap.matchMedia();
-
-      mm.add("(min-width:1025px)", () => {
-        gsap.to(".collections__item", {
-          clipPath: "inset(0% 0% 0%)",
-          stagger: 0.15,
-          duration: 1.75,
-          ease: "power2.out",
-
-          scrollTrigger: {
-            trigger: ".banner",
-            start: "15% top",
-            end: "20% top",
-          },
-        });
-      });
     }
   }, [completeFetch]);
 

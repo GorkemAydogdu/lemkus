@@ -5,7 +5,7 @@ const OrderItem = ({ items, country, address, userName, email, date }) => {
     <li className="account__orderItem">
       <div className="account__productsWrapper">
         {items.map((item) => (
-          <div className="account__productInfo">
+          <div key={item._id} className="account__productInfo">
             <img src={item.images[0].url} alt={item.name} />
             <div className="account__productDetails">
               <span>{item.name}</span>
