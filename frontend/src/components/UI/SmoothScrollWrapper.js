@@ -46,6 +46,10 @@ const SmoothScrollWrapper = React.forwardRef((props, ref) => {
       setTimeout(() => {
         ScrollTrigger.refresh(true);
       }, 2500);
+    } else if (ref.current.className.includes("homeSmooth")) {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 1000);
     } else {
       setTimeout(() => {
         ScrollTrigger.refresh(true);

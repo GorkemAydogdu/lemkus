@@ -10,26 +10,26 @@ import HomeLogo from "./homeLogo";
 
 import gsap from "gsap";
 import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
+import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [completeFetch, setCompleteFetch] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const cursorRef = useRef();
   const smoothScrollWrapper = useRef();
 
   async function getProducts() {
     try {
-      setCompleteFetch(false);
+      setIsLoading(true);
       const res = await fetch("http://localhost:5000/product");
       if (!res.ok) {
         throw Error("Something went wrong");
       }
       const data = await res.json();
       setProducts(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
-    } finally {
-      setCompleteFetch(true);
     }
   }
 
@@ -73,49 +73,64 @@ const Home = () => {
     <>
       <HomeLogo />
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
-        <main className="main">
-          <Banner />
-          <Collections refEl={getRefElHandler} />
-          <Products
-            completeFetch={completeFetch}
-            refEl={getRefElHandler}
-            title={"Adidas"}
-            items={products
-              .filter((filtered) => filtered.brand === "Adidas")
-              .slice(5, 10)}
-          />
-          <Products
-            completeFetch={completeFetch}
-            refEl={getRefElHandler}
-            title={"New Balance"}
-            items={products
-              .filter((filtered) => filtered.brand === "New Balance")
-              .slice(0, 5)}
-          />
-          <Products
-            completeFetch={completeFetch}
-            refEl={getRefElHandler}
-            title={"Nike"}
-            items={products
-              .filter((filtered) => filtered.brand === "Nike")
-              .slice(30, 35)}
-          />
-          <Products
-            completeFetch={completeFetch}
-            refEl={getRefElHandler}
-            title={"Air Jordan"}
-            items={products
-              .filter((filtered) => filtered.brand === "Air Jordan")
-              .slice(10, 15)}
-          />
-          <Culture />
-        </main>
+        {isLoading === true ? (
+          <div className="wrapper">
+            <RotatingLines
+              className="loading"
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration=".75"
+              width="96"
+              visible={true}
+            />
+          </div>
+        ) : (
+          <main className="main">
+            <Banner />
+            <Collections refEl={getRefElHandler} />
+            <Products
+              isLoading={isLoading}
+              refEl={getRefElHandler}
+              title={"Adidas"}
+              items={products
+                .filter((filtered) => filtered.brand === "Adidas")
+                .slice(5, 10)}
+            />
+            <Products
+              isLoading={isLoading}
+              refEl={getRefElHandler}
+              title={"New Balance"}
+              items={products
+                .filter((filtered) => filtered.brand === "New Balance")
+                .slice(0, 5)}
+            />
+            <Products
+              isLoading={isLoading}
+              refEl={getRefElHandler}
+              title={"Nike"}
+              items={products
+                .filter((filtered) => filtered.brand === "Nike")
+                .slice(30, 35)}
+            />
+            <Products
+              isLoading={isLoading}
+              refEl={getRefElHandler}
+              title={"Air Jordan"}
+              items={products
+                .filter((filtered) => filtered.brand === "Air Jordan")
+                .slice(10, 15)}
+            />
+            <Culture />
+          </main>
+        )}
         <Footer />
       </SmoothScrollWrapper>
 
-      <div ref={cursorRef} className="cursor">
-        DRAG
-      </div>
+      {isLoading === false && (
+        <div ref={cursorRef} className="cursor">
+          DRAG
+        </div>
+      )}
     </>
   );
 };
