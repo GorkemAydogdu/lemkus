@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import UIContext from "../../context/ui-context";
 
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 const HeaderMobile = () => {
   const uiCtx = useContext(UIContext);

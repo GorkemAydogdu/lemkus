@@ -7,7 +7,7 @@ import FooterJoin from "./FooterJoin";
 
 import UIContext from "../../context/ui-context";
 
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 const Footer = () => {
   const uiCtx = useContext(UIContext);

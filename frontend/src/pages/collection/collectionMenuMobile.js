@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import Button from "../../components/UI/Button";
-import { ReactComponent as X } from "../../assets/x.svg";
+import X from "../../assets/x.svg";
 import CollectionFilterProduct from "./collectionFilterProduct";
 
 const CollectionFilterM = ({

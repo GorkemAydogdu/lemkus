@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ReactComponent as ScrollDown } from "../../assets/scroll-down.svg";
-import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+import ScrollDown from "../../assets/scroll-down.svg";
+import Arrow from "../../assets/arrow.svg";
 
 const AboutHeader = () => {
   return (

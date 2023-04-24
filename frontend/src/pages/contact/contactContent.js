@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { ReactComponent as GetInTouch } from "../../assets/get-in-touch.svg";
+import GetInTouch from "../../assets/get-in-touch.svg";
 import gsap from "gsap";
 
 const ContactContent = () => {

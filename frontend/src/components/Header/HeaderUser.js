@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 import UIContext from "../../context/ui-context";
 
-import { ReactComponent as Heart } from "../../assets/heart.svg";
-import { ReactComponent as Search } from "../../assets/search.svg";
-import { ReactComponent as Bag } from "../../assets/shopping-bag.svg";
-import { ReactComponent as User } from "../../assets/user-o.svg";
+import Heart from "../../assets/heart.svg";
+import Search from "../../assets/search.svg";
+import Bag from "../../assets/shopping-bag.svg";
+import User from "../../assets/user-o.svg";
 import Button from "../UI/Button";
 
 const HeaderUser = () => {

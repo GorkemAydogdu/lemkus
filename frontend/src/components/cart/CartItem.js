@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/cartSlice";
 
 import Button from "../UI/Button";
-import { ReactComponent as X } from "../../assets/x.svg";
+import X from "../../assets/x.svg";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();

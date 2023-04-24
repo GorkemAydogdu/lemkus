@@ -6,8 +6,8 @@ import Footer from "../../components/Footer/Footer";
 import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import Button from "../../components/UI/Button";
 
-import { ReactComponent as X } from "../../assets/x.svg";
-import { ReactComponent as SearchIcon } from "../../assets/search.svg";
+import X from "../../assets/x.svg";
+import SearchIcon from "../../assets/search.svg";
 
 const Search = () => {
   const [product, setProduct] = useState([]);

@@ -12,10 +12,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link, useLocation } from "react-router-dom";
 
 import Button from "../components/UI/Button";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-
-import { ReactComponent as LeftArrow } from "../assets/keyboard_arrow_left.svg";
-import { ReactComponent as X } from "../assets/x.svg";
+import Logo from "../assets/logo.svg";
+import LeftArrow from "../assets/keyboard_arrow_left.svg";
+import X from "../assets/x.svg";
 
 const Payment = () => {
   const [value, setValue] = useState({});

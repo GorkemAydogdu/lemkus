@@ -14,7 +14,7 @@ const About = () => {
   const smoothScrollWrapper = useRef();
 
   useEffect(() => {
-    gsap.to(".about__scrollDown .rotate-svg", {
+    gsap.to(".about__scrollDown .scroll-down_svg__rotate-svg", {
       rotation: 360 * 5,
       ease: "none",
       scrollTrigger: {

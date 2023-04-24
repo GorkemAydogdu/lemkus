@@ -9,7 +9,7 @@ import HeaderUser from "./HeaderUser";
 import HeaderMobile from "./HeaderMobile";
 import Button from "../UI/Button";
 
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 //gsap
 import gsap from "gsap";

@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Button from "../../components/UI/Button";
-import { ReactComponent as Arrow } from "../../assets/chevron-right.svg";
-import { ReactComponent as X } from "../../assets/x.svg";
+import Arrow from "../../assets/chevron-right.svg";
+import X from "../../assets/x.svg";
 
 const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
   function filterData(data) {

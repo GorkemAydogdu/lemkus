@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 
 import UIContext from "../../context/ui-context";
 
-import { ReactComponent as X } from "../../assets/x.svg";
-import { ReactComponent as User } from "../../assets/user-o.svg";
+import X from "../../assets/x.svg";
+import User from "../../assets/user-o.svg";
 import Button from "../UI/Button";
 import { useAuth0 } from "@auth0/auth0-react";
 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/cartSlice";
 
 import UIContext from "../../context/ui-context";
-import { ReactComponent as X } from "../../assets/x.svg";
+import X from "../../assets/x.svg";
 import Button from "../UI/Button";
 import WishlistSelectedDetail from "./WishlistSelectedDetail";
 

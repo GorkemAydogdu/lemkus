@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/cartSlice";
 
 import Button from "../UI/Button";
-import { ReactComponent as ArrowLeft } from "../../assets/keyboard_arrow_left.svg";
+import ArrowLeft from "../../assets/keyboard_arrow_left.svg";
 import UIContext from "../../context/ui-context";
 
 //Splidejs
