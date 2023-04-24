@@ -340,7 +340,6 @@
 }
 
 .is-filter .collection__productsList {
-  grid-template-columns: repeat(3, 33.33%);
   transform: translateX(-36.3vw);
   width: 100vw;
 
@@ -353,4 +352,8 @@
     transform: translateX(0);
     grid-template-columns: repeat(2, 50%);
   }
+}
+
+.is-filter .collection__productsItem {
+  width: 33.33% !important;
 }
