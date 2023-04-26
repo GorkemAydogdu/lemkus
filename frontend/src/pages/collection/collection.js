@@ -111,26 +111,6 @@ const Collection = () => {
     getProducts();
   }, [getProducts]);
 
-  useEffect(() => {
-    let filterProductTitle = document.querySelectorAll(
-      ".collection__filterProduct--title"
-    );
-    let filterProductItem = document.querySelectorAll(
-      ".collection__filterProduct--item"
-    );
-
-    filterProductTitle.forEach((item) =>
-      filterProductItem.forEach((prd) => {
-        item.addEventListener("click", () => {
-          if (prd.children[0].innerText === item.innerText) {
-            prd.classList.toggle("collection__filterProduct--active");
-          } else {
-            prd.classList.remove("collection__filterProduct--active");
-          }
-        });
-      })
-    );
-  }, []);
   //https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
   return (
     <>

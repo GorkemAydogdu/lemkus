@@ -3,6 +3,7 @@ import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import Arrow from "../../assets/chevron-right.svg";
 import X from "../../assets/x.svg";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
   function filterData(data) {
@@ -24,6 +25,27 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
   const brandCount = filterData(filterBrand);
   const typeCount = filterData(filterType);
   const genderCount = filterData(filterGender);
+
+  const clickedFilterItemHandler = (event) => {
+    let filterItemsEl = document.querySelectorAll(
+      ".collection__filterProduct--item"
+    );
+    filterItemsEl.forEach((item) => {
+      if (
+        item.classList.contains("collection__filterProduct--active") &&
+        item.children[0].innerText !== event.currentTarget.children[0].innerText
+      ) {
+        item.classList.remove("collection__filterProduct--active");
+      }
+    });
+    event.currentTarget.classList.toggle("collection__filterProduct--active");
+  };
+
+  const refreshHeight = () => {
+    setTimeout(() => {
+      ScrollTrigger.refresh(true);
+    }, 500);
+  };
 
   const navigate = useNavigate();
   //https://stackoverflow.com/a/61991128
@@ -58,6 +80,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   searchParams.delete("gender");
                   searchParams.delete("category");
                   setSearchParams(searchParams);
+                  refreshHeight();
                 }
               }}
               className="collection__clearAll underline"
@@ -72,6 +95,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   if (searchParams.has("brand")) {
                     searchParams.delete("brand");
                     setSearchParams(searchParams);
+                    refreshHeight();
                   }
                 }}
                 className="collection__filteredButton"
@@ -85,6 +109,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   if (searchParams.has("gender")) {
                     searchParams.delete("gender");
                     setSearchParams(searchParams);
+                    refreshHeight();
                   }
                 }}
                 className="collection__filteredButton"
@@ -98,6 +123,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   if (searchParams.has("category")) {
                     searchParams.delete("category");
                     setSearchParams(searchParams);
+                    refreshHeight();
                   }
                 }}
                 className="collection__filteredButton"
@@ -108,7 +134,10 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
           </div>
         </div>
       )}
-      <div className="collection__filterProduct--item">
+      <div
+        onClick={clickedFilterItemHandler}
+        className="collection__filterProduct--item"
+      >
         <span className="collection__filterProduct--title">
           Brand
           <Arrow />
@@ -122,6 +151,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   "brand",
                   filter.key.toLowerCase().replaceAll(" ", "-")
                 );
+                refreshHeight();
               }}
               key={Math.random()}
               className={`collection__item ${
@@ -136,7 +166,10 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
           ))}
         </ul>
       </div>
-      <div className="collection__filterProduct--item">
+      <div
+        onClick={clickedFilterItemHandler}
+        className="collection__filterProduct--item"
+      >
         <span className="collection__filterProduct--title">
           Type
           <Arrow />
@@ -152,6 +185,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                       "category",
                       filter.key.toLowerCase().replaceAll(" ", "-")
                     );
+                    refreshHeight();
                   }}
                   key={Math.random()}
                   className={`collection__item ${
@@ -171,7 +205,10 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
           })}
         </ul>
       </div>
-      <div className="collection__filterProduct--item">
+      <div
+        onClick={clickedFilterItemHandler}
+        className="collection__filterProduct--item"
+      >
         <span className="collection__filterProduct--title">
           Gender
           <Arrow />
@@ -185,6 +222,7 @@ const CollectionFilterProduct = ({ filterBrand, filterType, filterGender }) => {
                   "gender",
                   filter.key.toLowerCase().replaceAll(" ", "-")
                 );
+                refreshHeight();
               }}
               key={Math.random()}
               className={`collection__item ${

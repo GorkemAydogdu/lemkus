@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ReactPaginate from "react-paginate";
 import ProductsItem from "../../components/Products/ProductsItem";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const CollectionList = ({ categoryName, data, itemPerPage }) => {
   const [itemOffset, setItemOffset] = useState(0);
@@ -13,6 +14,10 @@ const CollectionList = ({ categoryName, data, itemPerPage }) => {
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemPerPage) % data.length;
     setItemOffset(newOffset);
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      ScrollTrigger.refresh(true);
+    }, 500);
   };
   return (
     <ul className="collection__productsList products__list">

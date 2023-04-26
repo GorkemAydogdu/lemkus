@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const InterpolateHtmlPlugin = require("interpolate-html-plugin");
+const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
@@ -10,6 +10,7 @@ module.exports = {
   output: {
     publicPath: "/",
     path: path.resolve(__dirname, "build"),
+    clean: true,
     filename: "bundle.js",
   },
   devServer: {
@@ -50,15 +51,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: "./src/assets/favicon.svg",
+      title: "Lemkus | Sneakers & Culture | Lemkus",
+      favicon: "src/assets/favicon.svg",
       filename: "index.html",
-      template: "./public/index.html",
+      template: "src/template.html",
     }),
+    //https://stackoverflow.com/a/53844967
+    new Dotenv(),
+    //https://stackoverflow.com/a/64553486
     new webpack.ProvidePlugin({
       process: "process/browser",
-    }),
-    new InterpolateHtmlPlugin({
-      PUBLIC_URL: "static", // can modify `static` to another name or get it from `process`
     }),
   ],
 };
