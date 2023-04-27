@@ -101,7 +101,7 @@ const Home = ({ products, news }) => {
         <Footer />
       </SmoothScrollWrapper>
 
-      {isLoading === false && (
+      {products !== [] && (
         <div ref={cursorRef} className="cursor">
           DRAG
         </div>
