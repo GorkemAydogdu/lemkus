@@ -37,7 +37,7 @@ const Products = (props) => {
   }, []);
 
   useEffect(() => {
-    if (props.isLoading === false) {
+    if (props.items !== []) {
       //https://splidejs.com/guides/getting-started/#using-the-global-class
       let prdcGrp = document.getElementsByClassName("products__group");
 

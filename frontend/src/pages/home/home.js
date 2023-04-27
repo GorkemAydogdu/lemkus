@@ -13,29 +13,8 @@ import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import { RotatingLines } from "react-loader-spinner";
 
 const Home = ({ products, news }) => {
-  // const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const cursorRef = useRef();
   const smoothScrollWrapper = useRef();
-
-  // async function getProducts() {
-  //   try {
-  //     setIsLoading(true);
-  //     const res = await fetch("http://localhost:5000/product");
-  //     if (!res.ok) {
-  //       throw Error("Something went wrong");
-  //     }
-  //     const data = await res.json();
-  //     setProducts(data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
 
   const getRefElHandler = (data) => {
     data.addEventListener("mousedown", (e) => {
@@ -73,7 +52,7 @@ const Home = ({ products, news }) => {
     <>
       <HomeLogo />
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="homeSmooth">
-        {isLoading === true ? (
+        {products === [] ? (
           <div className="wrapper">
             <RotatingLines
               className="loading"
@@ -89,7 +68,6 @@ const Home = ({ products, news }) => {
             <Banner />
             <Collections refEl={getRefElHandler} />
             <Products
-              isLoading={isLoading}
               refEl={getRefElHandler}
               title={"Adidas"}
               items={products
@@ -97,7 +75,6 @@ const Home = ({ products, news }) => {
                 .slice(5, 10)}
             />
             <Products
-              isLoading={isLoading}
               refEl={getRefElHandler}
               title={"New Balance"}
               items={products
@@ -105,7 +82,6 @@ const Home = ({ products, news }) => {
                 .slice(0, 5)}
             />
             <Products
-              isLoading={isLoading}
               refEl={getRefElHandler}
               title={"Nike"}
               items={products
@@ -113,7 +89,6 @@ const Home = ({ products, news }) => {
                 .slice(30, 35)}
             />
             <Products
-              isLoading={isLoading}
               refEl={getRefElHandler}
               title={"Air Jordan"}
               items={products
