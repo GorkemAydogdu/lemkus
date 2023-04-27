@@ -7,33 +7,31 @@ import Culture from "../../components/Culture/Culture";
 import Footer from "../../components/Footer/Footer";
 import { RotatingLines } from "react-loader-spinner";
 
-const Launches = () => {
+const Launches = ({ products, news }) => {
   const smoothScrollWrapper = useRef();
-  const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  async function getProduct() {
-    try {
-      setIsLoading(true);
-      const res = await fetch("http://localhost:5000/product");
-      if (!res.ok) {
-        throw Error("Something went wrong");
-      }
-      const data = await res.json();
-      setProduct(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // async function getProduct() {
+  //   try {
+  //     setIsLoading(true);
+  //     const res = await fetch("http://localhost:5000/product");
+  //     if (!res.ok) {
+  //       throw Error("Something went wrong");
+  //     }
+  //     const data = await res.json();
+  //     setProduct(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getProduct();
-  }, []);
+  // useEffect(() => {
+  //   getProduct();
+  // }, []);
 
   return (
     <SmoothScrollWrapper className="pageSmooth" ref={smoothScrollWrapper}>
-      {isLoading === true ? (
+      {products === [] ? (
         <div className="wrapper">
           <RotatingLines
             className="loading"
@@ -47,10 +45,10 @@ const Launches = () => {
       ) : (
         <>
           <div className="launches">
-            <LaunchesHeader product={product} isLoading={isLoading} />
-            <LaunchesList product={product} />
+            <LaunchesHeader product={products} />
+            <LaunchesList product={products} />
           </div>
-          <Culture />
+          <Culture news={news} />
         </>
       )}
       <Footer />

@@ -7,29 +7,9 @@ import Splide from "@splidejs/splide";
 
 import "@splidejs/splide/css";
 
-const CartShop = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const fetchDataHandler = useCallback(async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("http://localhost:5000/product");
-      const data = await res.json();
-      setData(
-        data.filter((filtered) => filtered.categoryName === "Accessories")
-      );
-      setLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
-
+const CartShop = ({ data }) => {
   useEffect(() => {
-    fetchDataHandler();
-  }, [fetchDataHandler]);
-
-  useEffect(() => {
-    if (loading !== true) {
+    if (data) {
       let splide = new Splide(".cart__shop--group", {
         height: "auto",
         direction: "ttb",
@@ -51,18 +31,20 @@ const CartShop = () => {
 
       splide.mount();
     }
-  }, []);
+  }, [data]);
   return (
     <div className="cart__shop">
       <span className="cart__shop--header">ANYTHING ELSE?</span>
       <div className="splide cart__shop--group">
         <div className="splide__track">
           <ul className="splide__list cart__shop--list">
-            {data !== [] &&
-              data.map((item) => (
+            {data
+              .filter((filtered) => filtered.categoryName === "Accessories")
+              .slice(15, 19)
+              .map((item) => (
                 <CartShopItem
                   key={item._id}
-                  image={item.image}
+                  images={item.images}
                   logo={item.logo}
                   name={item.name}
                   price={item.price}

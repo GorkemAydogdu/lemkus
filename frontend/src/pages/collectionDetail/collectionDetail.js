@@ -13,7 +13,7 @@ import Footer from "../../components/Footer/Footer";
 
 import { RotatingLines } from "react-loader-spinner";
 
-const CollectionDetail = () => {
+const CollectionDetail = ({ news }) => {
   const smoothScrollWrapper = useRef();
   const [clickedData, setClickedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -94,7 +94,7 @@ const CollectionDetail = () => {
               <CollectionDetailDescription details={clickedData.details} />
             </div>
           </div>
-          <Culture />
+          <Culture news={news} />
         </>
       )}
       <Footer />

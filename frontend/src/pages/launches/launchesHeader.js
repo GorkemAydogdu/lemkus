@@ -5,9 +5,9 @@ import LaunchesListVariant from "./launchesListVariant";
 import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
-const LaunchesHeader = ({ product, isLoading }) => {
+const LaunchesHeader = ({ product }) => {
   useEffect(() => {
-    if (isLoading === false) {
+    if (product !== []) {
       let splide = new Splide(".launches__group", {
         drag: "free",
         perPage: 1,
@@ -17,7 +17,7 @@ const LaunchesHeader = ({ product, isLoading }) => {
       });
       splide.mount();
     }
-  }, [isLoading]);
+  }, [product]);
 
   return (
     <div className="launches__header">

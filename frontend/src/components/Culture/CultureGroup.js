@@ -8,32 +8,32 @@ import Splide from "@splidejs/splide";
 
 import "@splidejs/splide/css";
 
-const CultureGroup = () => {
-  const [news, setNews] = useState([]);
-  const [completeFetch, setCompleteFetch] = useState(false);
+const CultureGroup = ({ news }) => {
+  // const [news, setNews] = useState([]);
+  // const [completeFetch, setCompleteFetch] = useState(false);
 
-  async function getNews() {
-    try {
-      setCompleteFetch(true);
-      const res = await fetch("http://localhost:5000/news");
-      if (!res.ok) {
-        throw Error("Something went wrong");
-      }
-      const data = await res.json();
-      setNews(data);
-    } catch (error) {
-      console.log(error.message);
-    } finally {
-      setCompleteFetch(false);
-    }
-  }
+  // async function getNews() {
+  //   try {
+  //     setCompleteFetch(true);
+  //     const res = await fetch("http://localhost:5000/news");
+  //     if (!res.ok) {
+  //       throw Error("Something went wrong");
+  //     }
+  //     const data = await res.json();
+  //     setNews(data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   } finally {
+  //     setCompleteFetch(false);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getNews();
+  // }, []);
 
   useEffect(() => {
-    getNews();
-  }, []);
-
-  useEffect(() => {
-    if (completeFetch !== true) {
+    if (news !== []) {
       let splide = new Splide(".culture__group", {
         drag: false,
         perPage: 4,
@@ -53,7 +53,7 @@ const CultureGroup = () => {
       });
       splide.mount();
     }
-  }, [completeFetch]);
+  }, [news]);
 
   return (
     <div className="splide culture__group">

@@ -4,11 +4,11 @@ import React from "react";
 import CultureGroup from "./CultureGroup";
 import CultureHeader from "./CultureHeader";
 
-const Culture = () => {
+const Culture = ({ news }) => {
   return (
     <div className="culture">
       <CultureHeader />
-      <CultureGroup />
+      <CultureGroup news={news} />
     </div>
   );
 };

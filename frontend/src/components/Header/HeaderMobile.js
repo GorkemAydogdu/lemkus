@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import UIContext from "../../context/ui-context";
@@ -8,6 +9,7 @@ import Logo from "../../assets/logo.svg";
 
 const HeaderMobile = () => {
   const uiCtx = useContext(UIContext);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
     <div className="header__mobile">
@@ -24,7 +26,7 @@ const HeaderMobile = () => {
           }}
           className="bag"
         >
-          Bag (0)
+          Bag ({totalQuantity})
         </span>
         <div
           onClick={() => {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import UIContext from "./context/ui-context";
 //Components
@@ -28,6 +28,8 @@ import gsap from "gsap";
 //styles
 import "./styles/App.scss";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 function debounce(fn, ms) {
   let timer;
   return () => {
@@ -52,25 +54,12 @@ const routes = [
   { path: "/search", name: "Search", Component: Search },
   { path: "/account", name: "Account", Component: Account },
   { path: "/checkouts", name: "Payment", Component: Payment },
-  { path: "/", name: "Home", Component: Home },
-  { path: "/pages/launches", name: "Launches", Component: Launches },
   { path: "/pages/brands", name: "Brands", Component: Brands },
-  { path: "/blogs/news", name: "News", Component: News },
-  { path: "/blogs/news/:id", name: "NewsDetail", Component: NewsDetail },
+  // { path: "/blogs/news/:id", name: "NewsDetail", Component: NewsDetail },
   {
     path: "/collections/:categoryName",
     name: "Collection",
     Component: Collection,
-  },
-  {
-    path: "/collections/:categoryName/:productName",
-    name: "CollectionDetail",
-    Component: CollectionDetail,
-  },
-  {
-    path: "/products/:productName",
-    name: "CollectionDetail",
-    Component: CollectionDetail,
   },
 ];
 
@@ -81,6 +70,9 @@ function App() {
   });
   const [buttonInnerHTML, setButtonInnerHTML] = useState("");
   const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const [news, setNews] = useState([]);
 
   const location = useLocation();
   const uiCtx = useContext(UIContext);
@@ -101,10 +93,50 @@ function App() {
       console.log(error.message);
     }
   }
+  async function getProducts() {
+    try {
+      const res = await fetch("http://localhost:5000/product");
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      const data = await res.json();
+      setProducts(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  async function getNews() {
+    try {
+      const res = await fetch("http://localhost:5000/news");
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      const data = await res.json();
+      setNews(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  const { isAuthenticated, user } = useAuth0();
+
+  const getWishlist = useCallback(async () => {
+    if (isAuthenticated) {
+      const res = await fetch("http://localhost:5000/wishlist");
+      const data = await res.json();
+
+      setWishlist(data.filter((filtered) => filtered.userName === user.name));
+    }
+  }, [user, isAuthenticated]);
 
   useEffect(() => {
     getMenu();
+    getProducts();
+    getNews();
   }, []);
+  useEffect(() => {
+    getWishlist();
+  }, [getWishlist]);
+
   useEffect(() => {
     const debounceHandleResize = debounce(function handleResize() {
       setDimensions({
@@ -156,11 +188,26 @@ function App() {
         {routes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
+        <Route path="/" element={<Home products={products} news={news} />} />
+        <Route
+          path="/pages/launches"
+          element={<Launches products={products} news={news} />}
+        />
+        <Route path="/blogs/news" element={<News news={news} />} />
+        <Route path="/blogs/news/:id" element={<NewsDetail news={news} />} />
+        <Route
+          path="/collections/:categoryName/:productName"
+          element={<CollectionDetail news={news} />}
+        />
+        <Route
+          path="/products/:productName"
+          element={<CollectionDetail news={news} />}
+        />
       </Routes>
 
-      <Cart />
+      <Cart data={products} />
+      <Wishlist wishlist={wishlist} />
       {dimensions.width < 1025 && <MenuMobile menu={categories} />}
-      <Wishlist />
 
       {dimensions.width > 1024 && (
         <Backdrop

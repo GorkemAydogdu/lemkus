@@ -12,30 +12,30 @@ import gsap from "gsap";
 import SmoothScrollWrapper from "../../components/UI/SmoothScrollWrapper";
 import { RotatingLines } from "react-loader-spinner";
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Home = ({ products, news }) => {
+  // const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const cursorRef = useRef();
   const smoothScrollWrapper = useRef();
 
-  async function getProducts() {
-    try {
-      setIsLoading(true);
-      const res = await fetch("http://localhost:5000/product");
-      if (!res.ok) {
-        throw Error("Something went wrong");
-      }
-      const data = await res.json();
-      setProducts(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // async function getProducts() {
+  //   try {
+  //     setIsLoading(true);
+  //     const res = await fetch("http://localhost:5000/product");
+  //     if (!res.ok) {
+  //       throw Error("Something went wrong");
+  //     }
+  //     const data = await res.json();
+  //     setProducts(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   getProducts();
+  // }, []);
 
   const getRefElHandler = (data) => {
     data.addEventListener("mousedown", (e) => {
@@ -120,7 +120,7 @@ const Home = () => {
                 .filter((filtered) => filtered.brand === "Air Jordan")
                 .slice(10, 15)}
             />
-            <Culture />
+            <Culture news={news} />
           </main>
         )}
         <Footer />
