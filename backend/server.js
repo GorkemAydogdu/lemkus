@@ -15,6 +15,9 @@ app.use(require("./api/routes/orders"));
 // get driver connection
 const dbo = require("./api/db/conn");
 
+app.get("/", (req, res) => {
+  res.send("root");
+});
 //https://www.mongodb.com/community/forums/t/solved-mern-tutorial-issue-cannot-read-properties-of-undefined-reading-collection/212521
 app.listen(port, async () => {
   // perform a database connection when server starts
