@@ -86,7 +86,7 @@ const Home = ({ products, news }) => {
               title={"Nike"}
               items={products
                 .filter((filtered) => filtered.brand === "Nike")
-                .slice(30, 35)}
+                .slice(25, 30)}
             />
             <Products
               refEl={getRefElHandler}
