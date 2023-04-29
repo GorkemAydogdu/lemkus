@@ -7,7 +7,7 @@ const BrandItem = () => {
 
   async function getBrands() {
     try {
-      const res = await fetch("http://localhost:5000/brands");
+      const res = await fetch("https://lemkus-backend.onrender.com/brands");
       if (!res.ok) {
         throw Error("Something went wrong");
       }

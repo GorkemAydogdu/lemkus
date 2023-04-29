@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import CultureItem from "./CultureItem";
@@ -9,29 +9,6 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 
 const CultureGroup = ({ news }) => {
-  // const [news, setNews] = useState([]);
-  // const [completeFetch, setCompleteFetch] = useState(false);
-
-  // async function getNews() {
-  //   try {
-  //     setCompleteFetch(true);
-  //     const res = await fetch("http://localhost:5000/news");
-  //     if (!res.ok) {
-  //       throw Error("Something went wrong");
-  //     }
-  //     const data = await res.json();
-  //     setNews(data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   } finally {
-  //     setCompleteFetch(false);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getNews();
-  // }, []);
-
   useEffect(() => {
     if (news !== []) {
       let splide = new Splide(".culture__group", {

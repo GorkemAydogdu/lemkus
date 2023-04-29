@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect } from "react";
 
 import UIContext from "../../context/ui-context";
 
@@ -7,26 +7,10 @@ import WishlistUser from "./WishlistUser";
 import WishlistEmpty from "./WishlistEmpty";
 import WishlistContent from "./WishlistContent";
 
-import { useAuth0 } from "@auth0/auth0-react";
 import gsap from "gsap";
 
 const Wishlist = ({ wishlist }) => {
   const uiCtx = useContext(UIContext);
-  // const [wishlist, setWishlist] = useState([]);
-  // const { isAuthenticated, user } = useAuth0();
-
-  // const getWishlist = useCallback(async () => {
-  //   if (isAuthenticated) {
-  //     const res = await fetch("http://localhost:5000/wishlist");
-  //     const data = await res.json();
-
-  //     setWishlist(data.filter((filtered) => filtered.userName === user.name));
-  //   }
-  // }, [user, isAuthenticated]);
-
-  // useEffect(() => {
-  //   getWishlist();
-  // }, [getWishlist]);
 
   useEffect(() => {
     if (uiCtx.wishlistIsActive === true) {

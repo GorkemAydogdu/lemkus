@@ -51,16 +51,15 @@ const routes = [
   { path: "/pages/terms-and-conditions", name: "TsCs", Component: TsCs },
   { path: "/pages/contact", name: "Contact", Component: Contact },
   { path: "/pages/about", name: "About", Component: About },
-  { path: "/search", name: "Search", Component: Search },
+  // { path: "/search", name: "Search", Component: Search },
   { path: "/account", name: "Account", Component: Account },
   { path: "/checkouts", name: "Payment", Component: Payment },
   { path: "/pages/brands", name: "Brands", Component: Brands },
-  // { path: "/blogs/news/:id", name: "NewsDetail", Component: NewsDetail },
-  {
-    path: "/collections/:categoryName",
-    name: "Collection",
-    Component: Collection,
-  },
+  // {
+  //   path: "/collections/:categoryName",
+  //   name: "Collection",
+  //   Component: Collection,
+  // },
 ];
 
 function App() {
@@ -83,7 +82,7 @@ function App() {
 
   async function getMenu() {
     try {
-      const res = await fetch("http://localhost:5000/menu");
+      const res = await fetch("https://lemkus-backend.onrender.com/menu");
       if (!res.ok) {
         throw Error("Something went wrong");
       }
@@ -95,7 +94,7 @@ function App() {
   }
   async function getProducts() {
     try {
-      const res = await fetch("http://localhost:5000/product");
+      const res = await fetch("https://lemkus-backend.onrender.com/product");
       if (!res.ok) {
         throw Error("Something went wrong");
       }
@@ -107,7 +106,7 @@ function App() {
   }
   async function getNews() {
     try {
-      const res = await fetch("http://localhost:5000/news");
+      const res = await fetch("https://lemkus-backend.onrender.com/news");
       if (!res.ok) {
         throw Error("Something went wrong");
       }
@@ -121,7 +120,7 @@ function App() {
 
   const getWishlist = useCallback(async () => {
     if (isAuthenticated) {
-      const res = await fetch("http://localhost:5000/wishlist");
+      const res = await fetch("https://lemkus-backend.onrender.com/wishlist");
       const data = await res.json();
 
       setWishlist(data.filter((filtered) => filtered.userName === user.name));
@@ -189,12 +188,17 @@ function App() {
           <Route key={path} path={path} element={<Component />} />
         ))}
         <Route path="/" element={<Home products={products} news={news} />} />
+        <Route path="/search" element={<Search products={products} />} />
         <Route
           path="/pages/launches"
           element={<Launches products={products} news={news} />}
         />
         <Route path="/blogs/news" element={<News news={news} />} />
         <Route path="/blogs/news/:id" element={<NewsDetail news={news} />} />
+        <Route
+          path="/collections/:categoryName"
+          element={<Collection products={products} />}
+        />
         <Route
           path="/collections/:categoryName/:productName"
           element={<CollectionDetail news={news} />}

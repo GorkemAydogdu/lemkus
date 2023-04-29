@@ -30,7 +30,9 @@ const CollectionDetail = ({ news }) => {
   const getClickedProduct = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`http://localhost:5000/product/${id}`);
+      const res = await fetch(
+        `https://lemkus-backend.onrender.com/product/${id}`
+      );
       if (!res.ok) {
         throw Error("Something went wrong");
       }

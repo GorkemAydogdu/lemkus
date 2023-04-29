@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 
 import LaunchesHeader from "./launchesHeader";
 import LaunchesList from "./launchesList";
@@ -9,25 +9,6 @@ import { RotatingLines } from "react-loader-spinner";
 
 const Launches = ({ products, news }) => {
   const smoothScrollWrapper = useRef();
-
-  // async function getProduct() {
-  //   try {
-  //     setIsLoading(true);
-  //     const res = await fetch("http://localhost:5000/product");
-  //     if (!res.ok) {
-  //       throw Error("Something went wrong");
-  //     }
-  //     const data = await res.json();
-  //     setProduct(data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getProduct();
-  // }, []);
 
   return (
     <SmoothScrollWrapper className="pageSmooth" ref={smoothScrollWrapper}>

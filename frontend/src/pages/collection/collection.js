@@ -7,10 +7,10 @@ import CollectionContent from "./collectionContent";
 import Footer from "../../components/Footer/Footer";
 import { RotatingLines } from "react-loader-spinner";
 
-const Collection = () => {
+const Collection = ({ products }) => {
   const smoothScrollWrapper = useRef();
   const [collection, setCollection] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   //https://stackoverflow.com/a/21081760
   const wordInString = (s, word) =>
@@ -28,95 +28,80 @@ const Collection = () => {
   const brand = query.get("brand");
   let { categoryName } = useParams();
 
-  const getProducts = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch("http://localhost:5000/product");
-      if (!res.ok) {
-        throw Error("Something went wrong");
-      }
-      const data = await res.json();
-      setCollection(
-        data.filter((filtered) => {
-          if (
-            wordInString(categoryName, filtered.categoryName) &&
-            gender === null &&
-            category === null &&
-            brand === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
-            filtered.categoryName.toLowerCase() === categoryName &&
-            category === null &&
-            brand === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
-            gender === null &&
-            category === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
-            filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
-            gender === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
-            filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
-            category === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
-            filtered.gender.toLowerCase() === gender &&
-            brand === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
-            filtered.gender.toLowerCase() === gender &&
-            filtered.brand.toLowerCase().replaceAll(" ", "-") === brand
-          ) {
-            return filtered;
-          } else if (
-            filtered.categoryName.toLowerCase() === categoryName &&
-            filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
-            gender === null &&
-            brand === null
-          ) {
-            return filtered;
-          } else if (
-            filtered.brand.toLowerCase().replaceAll(" ", "-") === categoryName
-          ) {
-            return filtered;
-          } else return false;
-        })
-      );
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, [brand, category, categoryName, gender]);
-
   useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+    setCollection(
+      products.filter((filtered) => {
+        if (
+          wordInString(categoryName, filtered.categoryName) &&
+          gender === null &&
+          category === null &&
+          brand === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
+          filtered.categoryName.toLowerCase() === categoryName &&
+          category === null &&
+          brand === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+          gender === null &&
+          category === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+          filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+          gender === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.brand.toLowerCase().replaceAll(" ", "-") === brand &&
+          filtered.gender.toLowerCase().replaceAll(" ", "-") === gender &&
+          category === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+          filtered.gender.toLowerCase() === gender &&
+          brand === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+          filtered.gender.toLowerCase() === gender &&
+          filtered.brand.toLowerCase().replaceAll(" ", "-") === brand
+        ) {
+          return filtered;
+        } else if (
+          filtered.categoryName.toLowerCase() === categoryName &&
+          filtered.type.toLowerCase().replaceAll(" ", "-") === category &&
+          gender === null &&
+          brand === null
+        ) {
+          return filtered;
+        } else if (
+          filtered.brand.toLowerCase().replaceAll(" ", "-") === categoryName
+        ) {
+          return filtered;
+        } else return false;
+      })
+    );
+  }, [brand, category, products, categoryName, gender]);
 
   //https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
   return (
     <>
       <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
         <div className="collection">
-          {isLoading === true ? (
+          {collection === [] ? (
             <div className="wrapper">
               <RotatingLines
                 className="loading"

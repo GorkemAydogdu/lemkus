@@ -7,22 +7,6 @@ import Footer from "../../components/Footer/Footer";
 const News = ({ news }) => {
   const smoothScrollWrapper = useRef();
 
-  // async function getNews() {
-  //   try {
-  //     const res = await fetch("http://localhost:5000/news");
-  //     if (!res.ok) {
-  //       throw Error("Something went wrong");
-  //     }
-
-  //     const data = await res.json();
-  //     setNews(data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-  // useEffect(() => {
-  //   getNews();
-  // }, []);
   return (
     <SmoothScrollWrapper ref={smoothScrollWrapper} className="pageSmooth">
       <div className="culture dark">

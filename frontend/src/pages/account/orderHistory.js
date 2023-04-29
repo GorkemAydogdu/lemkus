@@ -10,7 +10,7 @@ const OrderHistory = () => {
 
   const getOrderList = useCallback(async () => {
     if (isAuthenticated) {
-      const res = await fetch(`http://localhost:5000/orders`);
+      const res = await fetch(`https://lemkus-backend.onrender.com/orders`);
       const data = await res.json();
       setOrders(data.filter((filtered) => filtered.email === user.email));
     }

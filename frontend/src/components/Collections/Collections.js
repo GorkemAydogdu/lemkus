@@ -26,7 +26,9 @@ const Collections = (props) => {
   async function getCollections() {
     try {
       setCompleteFetch(true);
-      const res = await fetch("http://localhost:5000/collections");
+      const res = await fetch(
+        "https://lemkus-backend.onrender.com/collections"
+      );
       if (!res.ok) {
         throw Error("Something went wrong");
       }

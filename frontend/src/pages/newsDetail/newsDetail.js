@@ -20,7 +20,9 @@ const NewsDetail = ({ news }) => {
     async function fetchData() {
       try {
         setCompleteFetch(false);
-        const res = await fetch(`http://localhost:5000/news/${id}`);
+        const res = await fetch(
+          `https://lemkus-backend.onrender.com/news/${id}`
+        );
         const data = await res.json();
         setClickedNews(data);
       } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 //components
 import SearchContent from "./searchContent";
@@ -9,29 +9,14 @@ import Button from "../../components/UI/Button";
 import X from "../../assets/x.svg";
 import SearchIcon from "../../assets/search.svg";
 
-const Search = () => {
-  const [product, setProduct] = useState([]);
+const Search = ({ products }) => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const smoothScrollWrapper = useRef();
   const inputRef = useRef();
 
-  async function getProduct() {
-    try {
-      const res = await fetch("http://localhost:5000/product");
-      const data = await res.json();
-      setProduct(data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
-  useEffect(() => {
-    getProduct();
-  }, []);
-
   const changeHandler = (event) => {
     const query = event.target.value;
-    let updatedList = [...product];
+    let updatedList = [...products];
     if (query !== "") {
       updatedList = updatedList.filter((item) => {
         return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
